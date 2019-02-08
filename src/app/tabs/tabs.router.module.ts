@@ -19,7 +19,7 @@ import { MentorInformationPage } from '../mentor/mentor-information/mentor-infor
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {

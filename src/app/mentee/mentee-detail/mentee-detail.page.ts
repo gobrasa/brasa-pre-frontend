@@ -95,7 +95,7 @@ export class MenteeDetailPage {
     console.log(this.menteeDados)
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
     console.log('ˆˆ')
-    
+
     this.http.put(`${this.API_URL}/mentees/` + this.menteeId, {
       "first_name": this.menteeDados.first_name,
       "last_name": this.menteeDados.last_name,
@@ -106,7 +106,7 @@ export class MenteeDetailPage {
       "universities": this.menteeDados.universities
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
       if (data.status == 204) {
-        this.navCtrl.goBack("/tabs/mentee/listing/1");
+        //this.navCtrl.goBack("/tabs/mentee/listing/1");
       }
       }).catch(err=> { console.log(err) })
       /*, error => {
