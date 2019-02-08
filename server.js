@@ -3,6 +3,7 @@ var app      = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+let server = require('http').Server(app);
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -19,6 +20,12 @@ app.use(function(req, res, next) {
 app.use(express.static('www'));
 app.set('port', process.env.PORT || 5000);
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+var port = process.env.PORT || 8000;
+
+server.listen(port, function() {
+    console.log("App is running on port " + port);
 });
+
+/*app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});*/
