@@ -41,6 +41,7 @@
     "express": "^4.16.4",
     "ionic-selectable": "^4.2.0",
     "morgan": "^1.9.1",
+    "node-sass": "^4.11.0",
     "rxjs": "~6.3.3",
     "typescript": "2.3.4",
     "zone.js": "~0.8.26"
