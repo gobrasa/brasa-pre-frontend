@@ -6,20 +6,51 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'exam-form',
   template: `
-    <div>
+    <mat-card>
       <h2>New Exam</h2>
-      <label for="exam-title">Title</label>
-      <input id="exam-title" (keyup)="updateTitle($event)">
-      <label for="exam-description">Description</label>
-      <input id="exam-description" (keyup)="updateDescription($event)">
-      <button (click)="saveExam()">Save Exam</button>
-    </div>
-  `
+        <mat-form-field class="full-width">
+          <input matInput
+                 placeholder="Title"
+                 (keyup)="updateTitle($event)">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput
+                 placeholder="Description"
+                 (keyup)="updateDescription($event)">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <textarea rows="5"
+                    matInput
+                    placeholder="Long Description"
+                    (keyup)="updateLongDescription($event)"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="saveExam()">
+          Save Exam
+        </button>
+    </mat-card>
+  `,
+  styles: [`
+    .exams-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+  `]
 })
 export class ExamFormComponent {
   exam = {
     title: '',
     description: '',
+    long_description: '',
   };
 
   constructor(private examsApi: ExamsApiService, private router: Router) { }
@@ -32,15 +63,16 @@ export class ExamFormComponent {
     this.exam.description = event.target.value;
   }
 
+  updateLongDescription(event: any) {
+    this.exam.long_description = event.target.value;
+  }
+
   saveExam() {
     this.examsApi
       .saveExam(this.exam)
       .subscribe(
         () => this.router.navigate(['/']),
-        error => {
-            console.log(error);
-            alert(error.message);
-        }
+        error => alert(error.message)
       );
   }
 }

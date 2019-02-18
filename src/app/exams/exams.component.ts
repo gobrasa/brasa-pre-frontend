@@ -17,12 +17,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
         <mat-card-content>
           <mat-card-title>{{exam.title}}</mat-card-title>
           <mat-card-subtitle>{{exam.description}}</mat-card-subtitle>
-          <p>
-            Etiam enim purus, vehicula nec dapibus quis, egestas eu quam.
-            Nullam eleifend auctor leo, vitae rhoncus mi sodales vel.
-            Aenean fermentum laoreet volutpat. Integer quam orci,
-            molestie non nibh suscipit, faucibus euismod sapien.
-          </p>
+          <p>{{exam.long_description}}</p>
           <button mat-raised-button color="accent">Start Exam</button>
           <button mat-button color="warn" *ngIf="isAdmin()"
                   (click)="delete(exam.id)">
