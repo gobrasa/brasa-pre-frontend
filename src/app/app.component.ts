@@ -3,36 +3,34 @@ import {Exam} from './exams/exam.model';
 import { Subscription } from 'rxjs';
 import {ExamsApiService} from './exams/exams-api.service';
 
+import * as Auth0 from 'auth0-web';
+
 @Component({
   selector: 'app-root',
   template: `
-    <div style="text-align:center">
-      <h1>Exams</h1>
-    </div>
-    <h2>Here are the exams created so far: </h2>
+    <mat-toolbar color="primary" class="mat-elevation-z10">
+      <button mat-button>Online Exams</button>
+      <button mat-button>About</button>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space"></span>
+
+      <button mat-button (click)="signIn()" *ngIf="!authenticated">Sign In</button>
+      <button mat-button (click)="signOut()" *ngIf="authenticated">Sign Out</button>
+    </mat-toolbar>
+
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'brasa-pre-frontend';
-  examsListSubs: Subscription;
-  examsList: Exam[];
+export class AppComponent implements OnInit {
+  authenticated = false;
 
-  constructor(private examsApi: ExamsApiService) {
-  }
+  signIn = Auth0.signIn;
+  signOut = Auth0.signOut;
 
   ngOnInit() {
-    this.examsListSubs = this.examsApi
-      .getExams()
-      .subscribe(res => {
-          this.examsList = res;
-        },
-        console.error
-      );
-  }
-
-  ngOnDestroy() {
-    this.examsListSubs.unsubscribe();
+    const self = this;
+    Auth0.subscribe((authenticated) => (self.authenticated = authenticated));
   }
 }
