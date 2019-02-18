@@ -13,13 +13,14 @@ import {CallbackComponent} from './callback.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
-  { path: 'exams', component: ExamsComponent },
+  { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: '', component: HomeComponent },  
-  { path: '**', redirectTo: '' }
+  //{ path: '**', redirectTo: '' }
 
 ];
 
