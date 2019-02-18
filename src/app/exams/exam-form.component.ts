@@ -71,7 +71,7 @@ export class ExamFormComponent {
     this.examsApi
       .saveExam(this.exam)
       .subscribe(
-        () => this.router.navigate(['/']),
+        () => this.router.navigate(['/exams']),
         error => alert(error.message)
       );
   }
