@@ -14,12 +14,18 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
+import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.component';
+import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component';
+import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
+import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
+import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
-  { path: '', component: HomeComponent },  
+  { path: 'mentee/listing', component: MenteeListingComponent },
+  { path: '', component: HomeComponent },
   //{ path: '**', redirectTo: '' }
 
 ];
@@ -30,7 +36,13 @@ const appRoutes: Routes = [
     ExamFormComponent,
     ExamsComponent,
     CallbackComponent,
-    HomeComponent
+    HomeComponent,
+    //MentorComponent,
+    MenteeListingComponent,
+    MenteeInformationComponent,
+    MenteeEssayComponent,
+    MenteeTestComponent,
+    MenteeCollegeComponent
   ],
   imports: [
     BrowserModule,
