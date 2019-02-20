@@ -15,9 +15,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
     <div class="exams">
       <mat-card class="example-card" *ngFor="let exam of examsList" class="mat-elevation-z5">
         <mat-card-content>
-          <mat-card-title>{{exam.title}}</mat-card-title>
-          <mat-card-subtitle>{{exam.description}}</mat-card-subtitle>
-          <p>{{exam.long_description}}</p>
+          <mat-card-title>{{exam.category}}</mat-card-title>
+          <mat-card-subtitle>{{exam.subcategory}}</mat-card-subtitle>
           <button mat-raised-button color="accent">Start Exam</button>
           <button mat-button color="warn" *ngIf="isAdmin()"
                   (click)="delete(exam.id)">

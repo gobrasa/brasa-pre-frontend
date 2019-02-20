@@ -10,21 +10,14 @@ import {Router} from "@angular/router";
       <h2>New Exam</h2>
         <mat-form-field class="full-width">
           <input matInput
-                 placeholder="Title"
-                 (keyup)="updateTitle($event)">
+                 placeholder="Category"
+                 (keyup)="updateCategory($event)">
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <input matInput
-                 placeholder="Description"
-                 (keyup)="updateDescription($event)">
-        </mat-form-field>
-
-        <mat-form-field class="full-width">
-          <textarea rows="5"
-                    matInput
-                    placeholder="Long Description"
-                    (keyup)="updateLongDescription($event)"></textarea>
+                 placeholder="Subcategory"
+                 (keyup)="updateSubCategory($event)">
         </mat-form-field>
 
         <button mat-raised-button
@@ -48,23 +41,18 @@ import {Router} from "@angular/router";
 })
 export class ExamFormComponent {
   exam = {
-    title: '',
-    description: '',
-    long_description: '',
+    category: '',
+    subcategory: ''
   };
 
   constructor(private examsApi: ExamsApiService, private router: Router) { }
 
-  updateTitle(event: any) {
-    this.exam.title = event.target.value;
+  updateCategory(event: any) {
+    this.exam.category = event.target.value;
   }
 
-  updateDescription(event: any) {
-    this.exam.description = event.target.value;
-  }
-
-  updateLongDescription(event: any) {
-    this.exam.long_description = event.target.value;
+  updateSubCategory(event: any) {
+    this.exam.subcategory = event.target.value;
   }
 
   saveExam() {

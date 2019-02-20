@@ -21,8 +21,13 @@ export class ExamsApiService {
 
   // GET list of public, future events
   getExams(): Observable<Exam[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
     return this.http
-      .get<Exam[]>(`${API_URL}/exams`)
+      .get<Exam[]>(`${API_URL}/exams`,httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
