@@ -18,7 +18,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
           <mat-card-title>{{exam.category}}</mat-card-title>
           <mat-card-subtitle>{{exam.subcategory}}</mat-card-subtitle>
           <button mat-raised-button color="accent">Start Exam</button>
-          <button mat-button color="warn" *ngIf="isAdmin()"
+          <button mat-button color="warn"
                   (click)="delete(exam.id)">
             Delete
           </button>
@@ -70,14 +70,6 @@ export class ExamsComponent implements OnInit, OnDestroy {
             console.error
           )
       }, console.error);
-  }
-
-  isAdmin() {
-    if (!Auth0.isAuthenticated()) return false;
-
-    const roles = Auth0.getProfile()['https://online-exams.com/roles'];
-    console.log(roles);
-    return roles.includes('admin');
   }
 
 }
