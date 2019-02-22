@@ -34,7 +34,7 @@ export class MenteeService {
     
     const httpOptions = ExamsApiService.buildHeadersForAuth();
     console.log(httpOptions);
-    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`, httpOptions);
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
   }
 
   public getAllUniversities(): Observable<any>{

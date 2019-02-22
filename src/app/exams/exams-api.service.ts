@@ -39,7 +39,7 @@ export class ExamsApiService {
     };
 
     return this.http
-      .get<Exam[]>(`${API_URL}/exams`, httpOptions)
+      .get<Exam[]>(`${API_URL}/exams/`)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
@@ -50,7 +50,7 @@ export class ExamsApiService {
       })
     };
     return this.http
-      .post(`${API_URL}/exams`, exam, httpOptions);
+      .post(`${API_URL}/exams/`, exam, httpOptions);
   }
   
   deleteExam(examId: number) {

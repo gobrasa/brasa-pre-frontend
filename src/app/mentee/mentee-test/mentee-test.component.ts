@@ -119,6 +119,7 @@ export class MenteeTestComponent {
     this.menteeService.getAllExams().subscribe(tests => {
       console.log(tests);
       tests.forEach(prova=>{
+        console.log(prova);
         //console.log(prova.category,this.category.category)
         //console.log(prova.subcategory, this.subCategory.subcategory)
         if (prova.category == this.category.category && prova.subcategory == this.subCategory.subcategory) {
