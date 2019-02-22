@@ -13,8 +13,8 @@ import { ExamsApiService } from '../../exams/exams-api.service';
 export class MenteeService {
 
 
-  //private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com';
-  private readonly HS_API_URL = 'http://localhost:5000';
+  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com';
+  //private readonly HS_API_URL = 'http://localhost:5000';
   private readonly API_KEY = 'WZmY7utpbDmshO1LYNtsweImq68Rp1h8e1Zjsnz63RbxE029tN';
   private headers: HttpHeaders;
 
@@ -34,7 +34,7 @@ export class MenteeService {
     
     const httpOptions = ExamsApiService.buildHeadersForAuth();
     console.log(httpOptions);
-    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`, httpOptions);
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
   }
 
   public getAllUniversities(): Observable<any>{
