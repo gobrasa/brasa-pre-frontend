@@ -19,10 +19,27 @@ export class ExamsApiService {
     return Observable.throw(err.message || 'Error: Unable to complete request.');
   }
 
+  static buildHeadersForAuth() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
+    return httpOptions;
+  }
+
   // GET list of public, future events
   getExams(): Observable<Exam[]> {
+    //const httpOptions = ExamsApiService.buildHeadersForAuth();
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
+
     return this.http
-      .get<Exam[]>(`${API_URL}/exams`)
+      .get<Exam[]>(`${API_URL}/exams`, httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 

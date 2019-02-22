@@ -49,7 +49,8 @@ import {
 } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common'
-
+import { ExamsApiService } from '../../exams/exams-api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-mentee-test',
@@ -65,7 +66,8 @@ export class MenteeTestComponent {
   public max = new Date(2025, 3, 25);
 
   private todo : FormGroup;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  //private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  private readonly API_URL = 'http://localhost:5000';
   public scoresArray:any=[];
   private headers: HttpHeaders;
   //public categories: Exam[];
@@ -80,6 +82,9 @@ export class MenteeTestComponent {
   public myDate:any = Date();
   public menteeId:any;
 
+  examsListSubs: Subscription;
+  examsList: Exam[];
+
  AddScore(){
    this.scoresArray.push({'category':'','subCategory':'', 'score': ''});
  };
@@ -93,22 +98,26 @@ export class MenteeTestComponent {
                private getMentee: HttpClient,
                private menteeService: MenteeService,
              private route: ActivatedRoute,
-           public datepipe: DatePipe ) {
+           public datepipe: DatePipe
+           ) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
     });
     this.todo = this.formBuilder.group({});
+    this
     this.getExams();
     //this.menteeId = this.route.snapshot.paramMap.get('id');
     console.log(this.category)
   }
+
   public logForm(){
     // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
     console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'), this.score, 'heyhey')
 
     this.menteeService.getAllExams().subscribe(tests => {
+      console.log(tests);
       tests.forEach(prova=>{
         //console.log(prova.category,this.category.category)
         //console.log(prova.subcategory, this.subCategory.subcategory)
