@@ -1,3 +1,76 @@
-<p>
-  mentee-test works!
-</p>
+
+<h1>Preencha suas provas</h1>
+<form [formGroup]="todo" (ngSubmit)="logForm()">
+
+  <mat-form-field>
+    <mat-select placeholder="Categoria" [formControl]="categoria" multiple>
+      <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+
+  <mat-form-field>
+    <mat-select placeholder="Subcategoria" [formControl]="subCategory" multiple>
+      <mat-option *ngFor="let subCategoryName of subCategories" [value]="subCategoryName">{{subCategoryName}}</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+
+  <label class="example-input-wrapper">
+        <input placeholder="Data"
+               [min]="min" [max]="max"
+               [owlDateTimeTrigger]="dt"
+               [owlDateTime]="dt"
+               (input)="dateTime=$event.target.value">
+        <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
+    </label><br><br>
+
+    <div class="form-group">
+      <input type="text" placeholder="Nota" (input)="score=$event.target.value">
+    </div><br><br>
+
+
+
+
+  <!--ion-item>
+  <ion-label>Prova</ion-label>
+    <ionic-selectable
+      #countryComponent
+      item-content
+      [(ngModel)]="category"
+      itemValueField="category"
+      itemTextField="category"
+      [items]="categories"
+      [canSearch]="true"
+      [ngModelOptions]="{standalone: true}"
+      (onChange)="getSubcategories($event)">
+    </ionic-selectable>
+  </ion-item>
+
+
+  <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ionic-selectable
+        item-content
+        [(ngModel)]="subCategory"
+        itemValueField="subcategory"
+        itemTextField="subcategory"
+        [items]="subCategories"
+        [isEnabled]="countryComponent.value"
+        [placeholder]="countryComponent.value ? '' : 'Selecione a prova primeiro'"
+        [ngModelOptions]="{standalone: true}"
+        [canSearch]="true">
+      </ionic-selectable>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-datetime display-format="MMM DD, YYYY" min="2000" [(ngModel)]="myDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+  </ion-item>
+<ion-item>
+  <ion-label>Nota</ion-label>
+  <ion-input text-right  [(ngModel)]="score" [ngModelOptions]="{standalone: true}"></ion-input>
+</ion-item-->
+
+<button type="submit" class="btn btn-success">Enviar</button>
+</form>

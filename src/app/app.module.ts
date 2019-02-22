@@ -11,7 +11,6 @@ import { RouterModule, Routes } from '@angular/router';
 import * as Auth0 from 'auth0-web';
 import {CallbackComponent} from './callback.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.component';
@@ -19,16 +18,74 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
+import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MenteePageModule } from './mentee/mentee.module';
+import {
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+} from '@angular/material';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
+import { DatePipe } from '@angular/common'
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
+  { path: 'mentee/test', component: MenteeTestComponent },
+  { path: 'mentee/essay', component: MenteeEssayComponent },
+  { path: 'mentee/college', component: MenteeCollegeComponent },
+  { path: 'mentee/detail', component: MenteeDetailComponent },
   { path: '', component: HomeComponent },
   //{ path: '**', redirectTo: '' }
 
 ];
+
+export const MY_NATIVE_FORMATS = {
+    fullPickerInput: {year: 'numeric', month: 'numeric', day: 'numeric'},
+    datePickerInput: {year: 'numeric', month: 'numeric', day: 'numeric'},
+    timePickerInput: {hour: 'numeric', minute: 'numeric'},
+    monthYearLabel: {year: 'numeric', month: 'short'},
+    dateA11yLabel: {year: 'numeric', month: 'long', day: 'numeric'},
+    monthYearA11yLabel: {year: 'numeric', month: 'long'},
+};
 
 @NgModule({
   declarations: [
@@ -37,28 +94,65 @@ const appRoutes: Routes = [
     ExamsComponent,
     CallbackComponent,
     HomeComponent,
-    //MentorComponent,
-    MenteeListingComponent,
-    MenteeInformationComponent,
-    MenteeEssayComponent,
     MenteeTestComponent,
-    MenteeCollegeComponent
+    MenteeEssayComponent,
+    MenteeCollegeComponent,
+    MenteeDetailComponent
   ],
   imports: [
+    AngularMultiSelectModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     AppRoutingModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MatToolbarModule,
+    MatAutocompleteModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
     MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    MenteePageModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
     ),
   ],
-  providers: [ExamsApiService],
-  bootstrap: [AppComponent]
+  providers: [ExamsApiService, {provide: OWL_DATE_TIME_FORMATS, useValue: MY_NATIVE_FORMATS}, DatePipe],
+  entryComponents: [MenteeTestComponent, MenteeCollegeComponent],
+  bootstrap: [AppComponent, MenteeTestComponent, MenteeCollegeComponent]
 })
 export class AppModule {
   constructor() {

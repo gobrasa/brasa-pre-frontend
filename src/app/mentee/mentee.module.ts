@@ -10,6 +10,7 @@ import { MenteeTestComponent } from './mentee-test/mentee-test.component';
 import { MenteeEssayComponent } from './mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee-listing/mentee-listing.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -23,11 +24,9 @@ import { MenteeListingComponent } from './mentee-listing/mentee-listing.componen
   ],
   declarations: [
     MenteeComponent,
-    MenteeTestComponent,
-    MenteeCollegeComponent,
-    MenteeEssayComponent,
     MenteeListingComponent,
     MenteeInformationComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MenteePageModule {}
