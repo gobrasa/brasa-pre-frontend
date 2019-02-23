@@ -18,6 +18,9 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
+import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
+import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
+
 
 
 const appRoutes: Routes = [
@@ -26,6 +29,11 @@ const appRoutes: Routes = [
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
+  { path: 'mentor/listing', component: MentorListingComponent },
+  { path: 'mentor/listing/:id', component: MentorInformationComponent },
+
+
+
   { path: '', component: HomeComponent },
   //{ path: '**', redirectTo: '' }
 
@@ -40,6 +48,8 @@ const appRoutes: Routes = [
     HomeComponent,
     //MentorComponent,
     MenteeListingComponent,
+    MentorInformationComponent,
+    MentorListingComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
     MenteeTestComponent,
