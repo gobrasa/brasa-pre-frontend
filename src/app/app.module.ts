@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExamsApiService } from './exams/exams-api.service';
@@ -18,6 +17,7 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
+
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenteePageModule } from './mentee/mentee.module';
@@ -64,15 +64,25 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
 import { DatePipe } from '@angular/common'
 
+import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
+import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
+
+
+
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
-  { path: 'mentee/test', component: MenteeTestComponent },
-  { path: 'mentee/essay', component: MenteeEssayComponent },
-  { path: 'mentee/college', component: MenteeCollegeComponent },
-  { path: 'mentee/detail', component: MenteeDetailComponent },
+  { path: 'mentee/test/:id', component: MenteeTestComponent },
+  { path: 'mentee/essay/:id', component: MenteeEssayComponent },
+  { path: 'mentee/college/:id', component: MenteeCollegeComponent },
+  { path: 'mentee/detail/:id', component: MenteeDetailComponent },
+  { path: 'mentee/listing/:id', component: MenteeInformationComponent },
+  { path: 'mentor/listing', component: MentorListingComponent },
+  { path: 'mentor/listing/:id', component: MentorInformationComponent },
+
+
   { path: '', component: HomeComponent },
   //{ path: '**', redirectTo: '' }
 
@@ -94,6 +104,12 @@ export const MY_NATIVE_FORMATS = {
     ExamsComponent,
     CallbackComponent,
     HomeComponent,
+    //MentorComponent,
+    MenteeListingComponent,
+    MentorInformationComponent,
+    MentorListingComponent,
+    MenteeInformationComponent,
+    MenteeEssayComponent,
     MenteeTestComponent,
     MenteeEssayComponent,
     MenteeCollegeComponent,

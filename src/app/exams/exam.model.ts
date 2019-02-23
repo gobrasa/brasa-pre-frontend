@@ -1,7 +1,7 @@
 export class Exam {
     constructor(
-      public title: string,
-      public description: string,
+      public category: string,
+      public subcategory: string,
       public _id?: number,
       public updatedAt?: Date,
       public createdAt?: Date,

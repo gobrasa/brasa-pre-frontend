@@ -1,19 +1,49 @@
 
-<h1>Preencha suas provas</h1>
+<h1>Adicione suas provas!</h1>
 <form [formGroup]="todo" (ngSubmit)="logForm()">
 
-  <mat-form-field>
+  <!--mat-form-field>
     <mat-select placeholder="Categoria" [formControl]="categoria" multiple>
-      <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.category">{{category.category}}</mat-option>
     </mat-select>
-  </mat-form-field><br>
+  </mat-form-field><br-->
+
+  <div class="form-group">
+  <angular2-multiselect
+                        [data]="categories"
+                        [(ngModel)]="category"
+                        [settings]="settingsCategory"
+                        (onSelect)="onCategorySelect($event)"
+                        (onDeSelect)="OnItemDeSelect($event)"
+                        formControlName="categoryName"
+                        ><c-item>
+            <ng-template let-item="item">
+              {{item.category}}
+            </ng-template>
+    </c-item>
+  </angular2-multiselect>
+</div><br><br>
+
+  <div class="form-group">
+  <angular2-multiselect
+                        [data]="subCategories"
+                        [(ngModel)]="subCategory"
+                        [settings]="settingsSubCategory"
+                        formControlName="subCategoryName"
+                        ><c-item>
+            <ng-template let-item="item">
+              {{item.subcategory}}
+            </ng-template>
+    </c-item>
+  </angular2-multiselect>
+  </div><br><br>
 
 
-  <mat-form-field>
+  <!--mat-form-field>
     <mat-select placeholder="Subcategoria" [formControl]="subCategory" multiple>
-      <mat-option *ngFor="let subCategoryName of subCategories" [value]="subCategoryName">{{subCategoryName}}</mat-option>
+      <mat-option *ngFor="let subCategoryName of subCategories" [value]="subCategoryName.subcategory">{{subCategoryName.subcategory}}</mat-option>
     </mat-select>
-  </mat-form-field><br>
+  </mat-form-field><br-->
 
 
   <label class="example-input-wrapper">
@@ -21,12 +51,13 @@
                [min]="min" [max]="max"
                [owlDateTimeTrigger]="dt"
                [owlDateTime]="dt"
-               (input)="dateTime=$event.target.value">
+               (input)="dateTime=$event.target.value"
+               formControlName="dateInput">
         <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
-    </label><br><br>
+    </label><br><br><br>
 
     <div class="form-group">
-      <input type="text" placeholder="Nota" (input)="score=$event.target.value">
+      <input type="text" placeholder="Nota" formControlName="score">
     </div><br><br>
 
 

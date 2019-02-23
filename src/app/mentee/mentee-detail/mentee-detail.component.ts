@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-mentee-detail',
@@ -44,7 +46,8 @@ export class MenteeDetailComponent {
     private http: HttpClient,
     private getMentee: HttpClient,
     private menteeService: MenteeService,
-    private route: ActivatedRoute ) {
+    private route: ActivatedRoute,
+    private _location: Location ) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
@@ -57,7 +60,7 @@ export class MenteeDetailComponent {
     financial_aid:''
     })
     this.todo = this.formBuilder.group({});
-    //this.menteeId = this.route.snapshot.paramMap.get('id');
+    this.menteeId = this.route.snapshot.paramMap.get('id');
     this.getInformation();
     /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
       this.todo.value.username = data["objects"][0].username
@@ -72,9 +75,7 @@ export class MenteeDetailComponent {
   }
 
   public getInformation(){
-    this.menteeService.getCollegeList(1
-      //this.menteeId
-    ).subscribe(mentee=>{
+    this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(mentee=>{
       this.menteeDados = {
         first_name: mentee.first_name,
         last_name: mentee.last_name,
@@ -91,7 +92,7 @@ export class MenteeDetailComponent {
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
     console.log('ˆˆ')
 
-    this.http.put(`${this.API_URL}/mentees/1` //+ this.menteeId
+    this.http.put(`${this.API_URL}/mentees/` + this.menteeId
       , {
       "first_name": this.menteeDados.first_name,
       "last_name": this.menteeDados.last_name,
@@ -102,6 +103,7 @@ export class MenteeDetailComponent {
       "universities": this.menteeDados.universities
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
       if (data.status == 204) {
+        this._location.back();
         //this.navCtrl.goBack("/tabs/mentee/listing/1");
       }
       }).catch(err=> { console.log(err) })

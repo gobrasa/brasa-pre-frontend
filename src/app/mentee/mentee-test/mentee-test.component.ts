@@ -66,16 +66,18 @@ export class MenteeTestComponent {
   public max = new Date(2025, 3, 25);
 
   private todo : FormGroup;
-  //private readonly API_URL = 'http://brasa-pre.herokuapp.com';
-  private readonly API_URL = 'http://localhost:5000';
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  //private readonly API_URL = 'http://localhost:5000';
   public scoresArray:any=[];
   private headers: HttpHeaders;
   //public categories: Exam[];
   public categoria = new FormControl();
   //public categories: string[] = ['teste', 'teste2'];
-  public categories: Exam[];
-  public subCategories: Exam[];
+  public categories: Exam[] =[];
+  public subCategories: Exam[]=[];
   form: FormGroup;
+  settingsCategory = {};
+  settingsSubCategory = {};
   public category : Exam;
   public subCategory: Exam;
   @Input() score: any;
@@ -93,7 +95,7 @@ export class MenteeTestComponent {
  };
 
 
-  constructor( private formBuilder: FormBuilder,
+  constructor( private fb: FormBuilder,
                private http: HttpClient,
                private getMentee: HttpClient,
                private menteeService: MenteeService,
@@ -105,29 +107,83 @@ export class MenteeTestComponent {
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
     });
-    this.todo = this.formBuilder.group({});
-    this
+    this.todo = this.fb.group({
+      categoryName: '',
+      subCategoryName: '',
+      score: '',
+      dateInput:''
+    });
     this.getExams();
-    //this.menteeId = this.route.snapshot.paramMap.get('id');
+    this.menteeId = this.route.snapshot.paramMap.get('id');
     console.log(this.category)
+
+    this.settingsSubCategory = {
+      singleSelection: true,
+      text: "Categoria",
+      enableSearchFilter: true,
+      lazyLoading: true,
+      labelKey: 'subcategory',
+      primaryKey: 'subcategory',
+      classes: "myclass custom-class",
+      disabled: true
+    };
+
+    this.settingsCategory = {
+      singleSelection: true,
+      text: "Prova",
+      enableSearchFilter: true,
+      lazyLoading: true,
+      labelKey: 'category',
+      primaryKey: 'category',
+      classes: "myclass custom-class"
+    };
   }
 
+  onCategorySelect(item: any) {
+    console.log(item.category)
+    this.getSubcategories(item.category)
+    this.settingsSubCategory = {
+      singleSelection: true,
+      text: "Categoria",
+      enableSearchFilter: true,
+      lazyLoading: true,
+      labelKey: 'subcategory',
+      primaryKey: 'subcategory',
+      classes: "myclass custom-class",
+      disabled: false
+    };
+  }
+  OnItemDeSelect(item: any) {
+    this.settingsSubCategory = {
+      singleSelection: true,
+      text: "Categoria",
+      enableSearchFilter: true,
+      lazyLoading: true,
+      labelKey: 'subcategory',
+      primaryKey: 'subcategory',
+      classes: "myclass custom-class",
+      disabled: true
+    };
+  }
+
+
   public logForm(){
+    console.log(this.score)
     // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
     console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'), this.score, 'heyhey')
 
     this.menteeService.getAllExams().subscribe(tests => {
       console.log(tests);
       tests.forEach(prova=>{
-        console.log(prova);
+
         //console.log(prova.category,this.category.category)
         //console.log(prova.subcategory, this.subCategory.subcategory)
-        if (prova.category == this.category.category && prova.subcategory == this.subCategory.subcategory) {
+        if (prova.category == this.todo.value.categoryName[0].category && prova.subcategory == this.todo.value.subCategoryName[0].subcategory) {
           var provaId = prova.id
-
+          /*
           this.http.post(`${this.API_URL}/exam_schedules/`,
             {
-              "realization_date": this.myDate,
+              "realization_date": this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),
                 "mentee_id": this.menteeId,
                 "exam_id": provaId,
                 "score": this.score
@@ -136,13 +192,28 @@ export class MenteeTestComponent {
               console.log(data['_body']);
              }, error => {
               console.log(error);
-            });
+            });*/
 
             this.getExams();
-            delete this.category
-            delete this.subCategory
+            delete this.todo.value.categoryName[0].category
+            delete this.todo.value.subCategoryName[0].subcategory
           this.score = ''
-          this.myDate = ''
+          console.log(this.score, 'should be nothing')
+          console.log(this.todo.value)
+          this.todo.reset();
+          this.todo.value.score = ''
+          console.log(this.todo.value)
+          this.dateTime = ''
+          this.settingsSubCategory = {
+            singleSelection: true,
+            text: "Categoria",
+            enableSearchFilter: true,
+            lazyLoading: true,
+            labelKey: 'subcategory',
+            primaryKey: 'subcategory',
+            classes: "myclass custom-class",
+            disabled: true
+          };
         }
       })
     });
@@ -184,6 +255,8 @@ export class MenteeTestComponent {
        };
        this.categories = resultCategory
        this.subCategories = resultSubCategory
+       console.log(this.subCategories, this.categories)
+       console.log(this.subCategory, this.category)
        /*
      tests.forEach((element)=>{
        console.log(element)
@@ -196,7 +269,7 @@ export class MenteeTestComponent {
  }
 
  public getSubcategories(categorySent) {
-   console.log(categorySent.value.category)
+   console.log(categorySent, '3434')
    this.menteeService.getAllExams().subscribe(tests => {
      console.log(tests)
      this.subCategories = tests
@@ -204,7 +277,7 @@ export class MenteeTestComponent {
      const mapSubCategory = new Map();
      for (const item of tests) {
        console.log(item.category)
-       if (item.category == categorySent.value.category){
+       if (item.category == categorySent){
          if(!mapSubCategory.has(item.subcategory)){
              mapSubCategory.set(item.subcategory, item.subcategory);    // set any value to Map
              resultSubCategory.push({

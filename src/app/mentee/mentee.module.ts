@@ -23,9 +23,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MenteeService
   ],
   declarations: [
-    MenteeComponent,
-    MenteeListingComponent,
-    MenteeInformationComponent
+    MenteeComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

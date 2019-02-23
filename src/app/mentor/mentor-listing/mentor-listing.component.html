@@ -5,29 +5,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Mentees</h1>
+    <h1>Mentors</h1>
     <div class="container">
       <div class="content">
-          <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
+          <mat-card class="example-card child" *ngFor="let mentorDeck of mentorDecks">
               <mat-card-header>
-                <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
-                <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
+                <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
+                <mat-card-subtitle>{{"Username: " + " " + mentorDeck.username }}</mat-card-subtitle>
               </mat-card-header>
 
               <mat-card-content>
-                <div id="menteeDeck">
+                <div id="mentorDeck">
                   <span ><strong>Mentor ID: </strong></span>
-                  <span>{{ menteeDeck.mentor_id }}</span>
+                  <span>{{ mentorDeck.mentor_id }}</span>
                   <hr>
                   <span ><strong>City: </strong></span>
-                  <span>{{ menteeDeck.city }}</span>
+                  <span>{{ mentorDeck.city }}</span>
                   <hr>
                   <span ><strong>State: </strong></span>
-                  <span>{{ menteeDeck.state }}</span>
+                  <span>{{ mentorDeck.state }}</span>
                 </div>
               </mat-card-content>
               <mat-card-actions>
-                <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
+                <button type="button" class="btn btn-primary btn-block" routerLink="/mentor/listing/{{mentorDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
               </mat-card-actions>
             </mat-card>
       </div>

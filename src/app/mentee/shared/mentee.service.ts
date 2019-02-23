@@ -26,16 +26,30 @@ export class MenteeService {
     return this.http.get<any>(`${this.HS_API_URL}/mentees/`);
   }
 
-  public getCollegeList(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
-  }
+  // public getCollegeList(id): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
+  // }
 
   public getAllExams(): Observable<Exam[]>{
-    
-    const httpOptions = ExamsApiService.buildHeadersForAuth();
+
+    const httpOptions = ExamsApiService.buildHttpOptions();
     console.log(httpOptions);
     return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
   }
+
+  // public getAllUniversities(): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/universities/`);
+  // }
+
+
+  public getMenteeCollegeList(id): Observable<any>{
+    return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
+  }
+
+  public getCollegeNameById(id): Observable<any>{
+    return this.http.get<any>(`${this.HS_API_URL}/universities/` + id);
+  }
+
 
   public getAllUniversities(): Observable<any>{
     return this.http.get<any>(`${this.HS_API_URL}/universities/`);
