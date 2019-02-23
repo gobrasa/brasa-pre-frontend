@@ -63,7 +63,6 @@ export class MenteeDetailComponent {
       this.todo.value.username = data["objects"][0].username
       console.log(this.todo.value.username)
         //"username": data["objects"][0].username,
-
       //this.menteeProfile.push(data['heroesUrl']),
       //this.menteeProfile.push(data['textfile'])
         console.log(data['_body']);
@@ -132,18 +131,13 @@ export class MenteeDetailComponent {
 
     /*ionViewWillEnter() {
     const menteeId = this.route.snapshot.paramMap.get('menteeId');
-
     this.loaderService.presentLoading();
     this.menteeService.getMenteeById(menteeId).subscribe(
       (mentee: Mentee[]) => {
-
         this.mentee = mentee.map((mentee: Mentee) => {
           mentee.text = this.menteeService.replaceMenteeTextLine(mentee.text);
-
           return mentee;
         })[0];
-
-
         this.loaderService.dismissLoading();
     });
   }
@@ -151,7 +145,6 @@ export class MenteeDetailComponent {
   /*
   updateImage() {
     this.mentee.img = 'assets/image/DefaultMentee.png'
-
   }
   */
 
