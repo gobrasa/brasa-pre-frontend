@@ -20,17 +20,17 @@ export class MenteeService {
     return this.http.get<any>(`${this.HS_API_URL}/mentees/`);
   }
 
-  public getCollegeList(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
-  }
+  // public getCollegeList(id): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
+  // }
 
-  public getAllExams(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/exams/`);
-  }
+  // public getAllExams(): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/exams/`);
+  // }
 
-  public getAllUniversities(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities/`);
-  }
+  // public getAllUniversities(): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/universities/`);
+  // }
 
 
 

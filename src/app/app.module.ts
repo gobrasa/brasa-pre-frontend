@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExamsApiService } from './exams/exams-api.service';
@@ -20,11 +19,13 @@ import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.compone
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
 
+
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
+  { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: '', component: HomeComponent },
   //{ path: '**', redirectTo: '' }
 
