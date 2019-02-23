@@ -15,11 +15,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
     <div class="exams">
       <mat-card class="example-card" *ngFor="let exam of examsList" class="mat-elevation-z5">
         <mat-card-content>
-          <mat-card-title>{{exam.title}}</mat-card-title>
-          <mat-card-subtitle>{{exam.description}}</mat-card-subtitle>
-          <p>{{exam.long_description}}</p>
+          <mat-card-title>{{exam.category}}</mat-card-title>
+          <mat-card-subtitle>{{exam.subcategory}}</mat-card-subtitle>
           <button mat-raised-button color="accent">Start Exam</button>
-          <button mat-button color="warn" *ngIf="isAdmin()"
+          <button mat-button color="warn"
                   (click)="delete(exam.id)">
             Delete
           </button>
@@ -41,6 +40,9 @@ export class ExamsComponent implements OnInit, OnDestroy {
   constructor(private examsApi: ExamsApiService) { }
 
   ngOnInit() {
+
+    console.log(Auth0.getProfile());
+
     this.examsListSubs = this.examsApi
       .getExams()
       .subscribe(res => {
@@ -68,14 +70,6 @@ export class ExamsComponent implements OnInit, OnDestroy {
             console.error
           )
       }, console.error);
-  }
-
-  isAdmin() {
-    if (!Auth0.isAuthenticated()) return false;
-
-    const roles = Auth0.getProfile()['https://online-exams.com/roles'];
-    console.log(roles);
-    return roles.includes('admin');
   }
 
 }

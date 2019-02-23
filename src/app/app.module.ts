@@ -13,20 +13,32 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
+<<<<<<< HEAD
 import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.component';
 import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component';
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
 
+=======
+import { MenteeComponent } from './mentee/mentee.component';
+import { MentorComponent } from './mentor/mentor.component';
+>>>>>>> 52cf39b73d0caea323c23a2ec1c772efd1963dfd
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
+<<<<<<< HEAD
   { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: '', component: HomeComponent },
+=======
+  { path: 'exams', component: ExamsComponent, canActivate: [AuthGuard]},
+  { path: 'mentee', component: MenteeComponent, canActivate: [AuthGuard]},
+  { path: 'mentor', component: MentorComponent, canActivate: [AuthGuard]},
+  { path: '', component: HomeComponent },  
+>>>>>>> 52cf39b73d0caea323c23a2ec1c772efd1963dfd
   //{ path: '**', redirectTo: '' }
 
 ];
@@ -38,12 +50,17 @@ const appRoutes: Routes = [
     ExamsComponent,
     CallbackComponent,
     HomeComponent,
+<<<<<<< HEAD
     //MentorComponent,
     MenteeListingComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
     MenteeTestComponent,
     MenteeCollegeComponent
+=======
+    MenteeComponent,
+    MentorComponent
+>>>>>>> 52cf39b73d0caea323c23a2ec1c772efd1963dfd
   ],
   imports: [
     BrowserModule,
