@@ -1,28 +1,39 @@
-<mat-card class="example-card" *ngFor="let menteeDeck of menteeDecks">
-  <mat-card-header>
-    <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
-    <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
-  </mat-card-header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Mentees</h1>
+    <div class="container">
+      <div class="content">
+          <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
+              <mat-card-header>
+                <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
+              </mat-card-header>
 
-
-  <mat-card-content>
-    
-    <div id="menteeDeck">
-      
-      <p>{{"Mentor ID: " + " " + menteeDeck.mentor_id }}</p>
-      <p>{{"Cycle ID: " + " " + menteeDeck.cycle_id }}</p>
+              <mat-card-content>
+                <div id="menteeDeck">
+                  <span ><strong>Mentor ID: </strong></span>
+                  <span>{{ menteeDeck.mentor_id }}</span>
+                  <hr>
+                  <span ><strong>City: </strong></span>
+                  <span>{{ menteeDeck.city }}</span>
+                  <hr>
+                  <span ><strong>State: </strong></span>
+                  <span>{{ menteeDeck.state }}</span>
+                </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
     </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button type="button" class="btn btn-primary-outline pull-right" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Add</button>
-  </mat-card-actions>
-</mat-card>
-
-
-
-
-
-
+  </body>
+</html>
 
 
 
