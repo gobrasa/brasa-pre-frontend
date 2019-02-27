@@ -20,17 +20,17 @@ export class MentorListingComponent {
   private userNickname: any;
 
   constructor(private route: ActivatedRoute,
-              private http:HttpClient) {        
-        this.getMentors(); 
-        this.getUser();   
+              private http:HttpClient) {
+        this.getMentors();
+        this.getUser();
         this.getMentee();
         this.getAllMentees()
-        this.userNickname = Auth0.getProfile().nickname; 
-        //console.log(this.userNickname); 
+        this.userNickname = Auth0.getProfile().nickname;
+        //console.log(this.userNickname);
   }
 
   getAllMentors() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors');
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentores');
   }
 
   getAllUsers() {
@@ -45,7 +45,7 @@ export class MentorListingComponent {
     this.getAllMentors().subscribe(mentorDecks => {
         this.mentorDecks = mentorDecks['objects'];
         //console.log(mentorDecks);
-      
+
     });
   }
 
@@ -53,7 +53,7 @@ export class MentorListingComponent {
     this.getAllUsers().subscribe(userDecks => {
         this.userDecks = userDecks['objects'];
         //console.log(userDecks);
-      
+
     });
   }
 
@@ -61,15 +61,11 @@ export class MentorListingComponent {
     this.getAllMentees().subscribe(menteeDecks => {
         this.menteeDecks = menteeDecks['objects'];
         //console.log(menteeDecks);
-      
+
     });
   }
 
- 
- 
-  
+
+
+
 }
-
-  
-  
-

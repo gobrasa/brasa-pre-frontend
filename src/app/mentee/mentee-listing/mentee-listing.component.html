@@ -12,7 +12,7 @@
       <div *ngIf="userDeck.role_name == 'mentor' && userNickname == userDeck.username">
           <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
         <div *ngFor="let menteeDeck of menteeDecks">
-          
+
             <div *ngIf="userDeck.id == menteeDeck.mentor_id">
               <mat-card class="example-card child">
               <mat-card-header>
@@ -36,8 +36,8 @@
                 <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
               </mat-card-actions>
             </mat-card>
-            </div>       
-          </div> 
+            </div>
+          </div>
         </div>
 
         <!-- Logic for when a mentee is logging in. It only sees himself-->
@@ -67,20 +67,20 @@
                     <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
                   </mat-card-actions>
                 </mat-card>
-              </div>       
-            </div> 
+              </div>
+            </div>
           </div>
 
 
           <!-- Logic for when a admin is logging in. It can see all the mentes -->
           <div *ngIf="userDeck.role_name == 'admin' && userNickname == userDeck.username">
-            <div *ngFor="let menteeDeck of menteeDecks">       
+            <div *ngFor="let menteeDeck of menteeDecks">
                 <mat-card class="example-card child">
                   <mat-card-header>
                     <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
                     <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
                   </mat-card-header>
-                  
+
                   <mat-card-content>
                     <div id="menteeDeck">
                       <span ><strong>Mentor ID: </strong></span>
@@ -96,35 +96,11 @@
                   <mat-card-actions>
                     <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
                   </mat-card-actions>
-                </mat-card> 
-              </div> 
+                </mat-card>
+              </div>
             </div>
 
       </div>
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

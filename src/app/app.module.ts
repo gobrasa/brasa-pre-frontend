@@ -66,6 +66,7 @@ import { DatePipe } from '@angular/common'
 
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
+import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
 
 
 
@@ -81,6 +82,7 @@ const appRoutes: Routes = [
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
+  { path: 'mentor/detail/:id', component: MentorDetailComponent},
 
 
   { path: '', component: HomeComponent },
@@ -108,6 +110,7 @@ export const MY_NATIVE_FORMATS = {
     MenteeListingComponent,
     MentorInformationComponent,
     MentorListingComponent,
+    MentorDetailComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
     MenteeTestComponent,
