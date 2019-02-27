@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h1>Atualize sua College List!</h1>
+    <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
+
+      <div class="form-group" *ngIf="selectedUnis">
+      <angular2-multiselect *ngIf="selectedUnis.length == helper3"
+      [data]="universities"
+                            [(ngModel)]="selectedUnis"
+                            [loading] = "loading"
+                            [settings]="settings"
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)"
+                            formControlName="uniList"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+
+      <br><br>
+      <button type="submit" class="btn btn-success">Salvar</button>
+
+    </form>
+</div>

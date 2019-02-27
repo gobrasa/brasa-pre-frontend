@@ -35,12 +35,11 @@ export class AuthService {
 
   check_role_from_username(username: string) : Observable<User>{
     let httpOptions = ExamsApiService.buildHttpOptions();
-   
+
     let user2 : User;
 
-    return this.http
-    .get<User>(`${API_URL}/users/${username}`,httpOptions)
-        
+    return this.http.get<User>(`${API_URL}/users/${username}`,httpOptions)
+
     }
-  
+
 }

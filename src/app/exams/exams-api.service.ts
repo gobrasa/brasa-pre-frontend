@@ -34,7 +34,7 @@ export class ExamsApiService {
 
   // GET list of public, future events
   getExams(): Observable<Exam[]> {
-    let httpOptions = ExamsApiService.buildHttpOptions();  
+    let httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
       .get<Exam[]>(`${API_URL}/exams/`,httpOptions)
@@ -43,14 +43,14 @@ export class ExamsApiService {
 
   saveExam(exam: Exam): Observable<any> {
     let httpOptions = ExamsApiService.buildHttpOptions();
-    
+
     return this.http
       .post<any>(`${API_URL}/exams/`, exam, httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
-  
+
   deleteExam(examId: number) {
-    
+
     const httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
