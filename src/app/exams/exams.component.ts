@@ -11,6 +11,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   selector: 'exams',
   template: `
     <h2>Exams</h2>
+    <iframe src="http://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/embed/query/26/visualization/51?api_key=41qNtAQ3AXN9dbUelzoDMDzegnIJq1oemI3Ozm14" width="900" height="600"></iframe>
     <p>Choose an exam and start studying.</p>
     <div class="exams">
       <mat-card class="example-card" *ngFor="let exam of examsList" class="mat-elevation-z5">
@@ -22,6 +23,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
                   (click)="delete(exam.id)">
             Delete
           </button>
+          
         </mat-card-content>
       </mat-card>
     </div>
@@ -29,6 +31,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
             class="new-exam" routerLink="/new-exam">
       <i class="material-icons">note_add</i>
     </button>
+    
   `,
   styleUrls: ['exams.component.css'],
 })
