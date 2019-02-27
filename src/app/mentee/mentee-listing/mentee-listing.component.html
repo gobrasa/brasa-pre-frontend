@@ -5,10 +5,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Mentees</h1>
-    <div class="container">
-      <div class="content">
-          <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
+  <div class="container">
+    <div *ngFor="let userDeck of userDecks">
+
+      <!-- Logic for when a mentor is logging in. It only sees his mentees -->
+      <div *ngIf="userDeck.role_name == 'mentor' && userNickname == userDeck.username">
+          <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
+        <div *ngFor="let menteeDeck of menteeDecks">
+          
+            <div *ngIf="userDeck.id == menteeDeck.mentor_id">
+              <mat-card class="example-card child">
               <mat-card-header>
                 <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
                 <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
@@ -30,10 +36,89 @@
                 <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
               </mat-card-actions>
             </mat-card>
+            </div>       
+          </div> 
+        </div>
+
+        <!-- Logic for when a mentee is logging in. It only sees himself-->
+        <div *ngIf="userDeck.role_name == 'mentee' && userNickname == userDeck.username">
+            <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
+          <div *ngFor="let menteeDeck of menteeDecks">
+              <div *ngIf="userDeck.id == menteeDeck.id">
+                <mat-card class="example-card child">
+                  <mat-card-header>
+                    <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                    <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
+                  </mat-card-header>
+
+                  <mat-card-content>
+                    <div id="menteeDeck">
+                      <span ><strong>Mentor ID: </strong></span>
+                      <span>{{ menteeDeck.mentor_id }}</span>
+                      <hr>
+                      <span ><strong>City: </strong></span>
+                      <span>{{ menteeDeck.city }}</span>
+                      <hr>
+                      <span ><strong>State: </strong></span>
+                      <span>{{ menteeDeck.state }}</span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>       
+            </div> 
+          </div>
+
+
+          <!-- Logic for when a admin is logging in. It can see all the mentes -->
+          <div *ngIf="userDeck.role_name == 'admin' && userNickname == userDeck.username">
+            <div *ngFor="let menteeDeck of menteeDecks">       
+                <mat-card class="example-card child">
+                  <mat-card-header>
+                    <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                    <mat-card-subtitle>{{"Username: " + " " + menteeDeck.username }}</mat-card-subtitle>
+                  </mat-card-header>
+                  
+                  <mat-card-content>
+                    <div id="menteeDeck">
+                      <span ><strong>Mentor ID: </strong></span>
+                      <span>{{ menteeDeck.mentor_id }}</span>
+                      <hr>
+                      <span ><strong>City: </strong></span>
+                      <span>{{ menteeDeck.city }}</span>
+                      <hr>
+                      <span ><strong>State: </strong></span>
+                      <span>{{ menteeDeck.state }}</span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button type="button" class="btn btn-primary btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> See Details</button>
+                  </mat-card-actions>
+                </mat-card> 
+              </div> 
+            </div>
+
       </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -23,12 +23,12 @@ export class MenteeInformationComponent {
   }
 
   getAllMentees() {
-    return this.http.get('http://brasa-pre.herokuapp.com/mentees/');
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees');
   }
 
    private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
-         this.menteeDeck = menteeDecks;
+         this.menteeDeck = menteeDecks['objects'];
     
 
          this.menteeId = this.route.snapshot.paramMap.get('id');

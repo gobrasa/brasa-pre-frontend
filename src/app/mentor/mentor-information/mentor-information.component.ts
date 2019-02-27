@@ -22,12 +22,12 @@ export class MentorInformationComponent {
   }
 
   getAllMentor() {
-    return this.http.get('http://brasa-pre.herokuapp.com/mentors/');
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors');
   }
 
    private getMentees() {
     this.getAllMentor().subscribe(mentorDeck => {
-         this.mentorDeck = mentorDeck;
+         this.mentorDeck = mentorDeck['objects'];
     
 
          this.mentorId = this.route.snapshot.paramMap.get('id');
