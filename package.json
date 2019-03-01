@@ -23,6 +23,7 @@
     "@angular/router": "~7.1.0",
     "@material/select": "^0.44.1",
     "angular2-multiselect-dropdown": "^4.2.1",
+    "auth0-lock": "^11.14.0",
     "auth0-web": "^1.7.0",
     "core-js": "^2.5.4",
     "firebase": "^5.8.4",
