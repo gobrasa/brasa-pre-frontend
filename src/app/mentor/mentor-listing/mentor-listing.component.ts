@@ -14,9 +14,9 @@ import * as Auth0 from 'auth0-web';
 
 export class MentorListingComponent {
 
-  private mentorDecks: any;
-  private userDecks: any;
-  private menteeDecks: any;
+  mentorDecks: any; // accessible from template, cannot be private
+  userDecks: any; // accessible from template, cannot be private
+  menteeDecks: any; // accessible from template, cannot be private
   private userNickname: any;
 
   constructor(private route: ActivatedRoute,

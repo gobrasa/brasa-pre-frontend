@@ -16,7 +16,9 @@ import { Mentee } from '../shared/mentee.model';
 export class MenteeListingComponent {
 
   private menteeDecks: any;
-  private userDecks: any;
+  // accessible from template, cannot be private
+  // (https://stackoverflow.com/questions/34574167/angular2-should-private-variables-be-accessible-in-the-template)
+  userDecks: any;  
   private userNickname: any;
   private mentorDeck: any;
 

@@ -16,7 +16,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./mentee-essay.component.css']
 })
 export class MenteeEssayComponent{
-  private todo : FormGroup;
+  todo : FormGroup; // accessible from template, cannot be private
   private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   public essayArray:any=[];
   private headers: HttpHeaders;

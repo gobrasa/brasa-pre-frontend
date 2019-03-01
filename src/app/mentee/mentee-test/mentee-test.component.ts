@@ -65,7 +65,7 @@ export class MenteeTestComponent {
   // Max moment: April 25 2025
   public max = new Date(2025, 3, 25);
 
-  private todo : FormGroup;
+  todo : FormGroup; // accessible from template, cannot be private
   private readonly API_URL = 'http://brasa-pre.herokuapp.com';
   //private readonly API_URL = 'http://localhost:5000';
   public scoresArray:any=[];
