@@ -30,7 +30,7 @@ export class MentorListingComponent {
   }
 
   getAllMentors() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentores');
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors');
   }
 
   getAllUsers() {
