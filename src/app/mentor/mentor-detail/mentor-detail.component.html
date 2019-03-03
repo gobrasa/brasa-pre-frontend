@@ -1,4 +1,6 @@
 <div class="container">
+  <!-- Mentor or Admin can see the form to update informations-->
+  <div *ngIf="role == 'mentor' && userNickname == username">
     <h1>Atualize suas informações!</h1>
     <form [formGroup]="todo" (ngSubmit)="logForm()">
       <div class="form-group">
@@ -18,3 +20,23 @@
       <button type="submit" class="btn btn-success">Enviar</button>
 
     </form>
+  </div>
+
+  <!-- Mentee cant see the form, only the information -->
+  <div *ngIf="role == 'mentee' && userNickname == username">
+    <h1>Informações do seu mentor!</h1>
+
+    <div class="form-group">
+      Nome: {{mentorDados.first_name}} + {{mentorDados.last_name}}
+    </div>
+
+    <div class="form-group">
+      Universidade: {{mentorDados.university}}
+    </div>
+
+
+  </div>
+
+
+
+</div>

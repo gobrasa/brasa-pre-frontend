@@ -13,8 +13,7 @@ import { ExamsApiService } from '../../exams/exams-api.service';
 export class MenteeService {
 
 
-  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com';
-  //private readonly HS_API_URL = 'http://localhost:5000';
+  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com/api';
   private readonly API_KEY = 'WZmY7utpbDmshO1LYNtsweImq68Rp1h8e1Zjsnz63RbxE029tN';
   private headers: HttpHeaders;
 
@@ -32,15 +31,23 @@ export class MenteeService {
 
   public getAllExams(): Observable<Exam[]>{
 
-    const httpOptions = ExamsApiService.buildHttpOptions();
-    console.log(httpOptions);
+    //const httpOptions = ExamsApiService.buildHttpOptions();
+    //console.log(httpOptions);
     return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
+  }
+
+  public getAllScheduledExams(): Observable<Exam[]>{
+
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/scheduled_exams`);
   }
 
   // public getAllUniversities(): Observable<any>{
   //   return this.http.get<any>(`${this.HS_API_URL}/universities/`);
   // }
 
+  public getAllEssays(): Observable<any>{
+    return this.http.get(`${this.HS_API_URL}/uploads`)
+  }
 
   public getMenteeCollegeList(id): Observable<any>{
     return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
@@ -52,7 +59,7 @@ export class MenteeService {
 
 
   public getAllUniversities(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities/`);
+    return this.http.get<any>(`${this.HS_API_URL}/universities`);
   }
 
 

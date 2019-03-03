@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {Location} from '@angular/common';
-
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-mentor-detail',
@@ -25,6 +25,10 @@ export class MentorDetailComponent {
   public mentorProfile:any=[];
   public mentorId:any;
   public mentorDados:any=[];
+  public userNickname: any;
+  public role: any;
+  public username: any;
+
 
   constructor( private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -37,6 +41,7 @@ export class MentorDetailComponent {
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
     });
+    this.userNickname = Auth0.getProfile().nickname;
     this.mentorDados.push({first_name: '',
     last_name: '',
     university: ''
@@ -44,6 +49,16 @@ export class MentorDetailComponent {
     this.todo = this.formBuilder.group({});
     this.mentorId = this.route.snapshot.paramMap.get('id');
     this.getInformation();
+    this.getUser(this.userNickname);
+  }
+
+  getUser(username) {
+    this.mentorService.getUser(username).subscribe(usuario=>{
+      this.role = usuario['objects'].role_name
+      this.username = usuario['objects'].username
+    });
+
+
   }
 
   public getInformation(){

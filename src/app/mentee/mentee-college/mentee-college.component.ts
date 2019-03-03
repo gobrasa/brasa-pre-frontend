@@ -159,6 +159,11 @@ ngOnChanges() {
     this.helper3 = this.helper3+1
     //this.selectedUnis.push({id: 0, name: 'None'})
   }
+
+  public goBack() {
+   this._location.back();
+ }
+
   OnItemDeSelect(item: any) {
     this.helper3= this.helper3-1
     //this.selectedUnis.pop()
@@ -249,10 +254,11 @@ ngOnChanges() {
   private getUniList() {
 
    this.menteeService.getAllUniversities().subscribe(tests => {
-     this.universities = tests
+     this.universities = tests['objects']
+     console.log(tests['objects'])
      const result = [];
      const mapUniversities = new Map();
-     for (const item of tests) {
+     for (const item of tests['objects']) {
          if(!mapUniversities.has(item.name)){
              mapUniversities.set(item.name, item.name);    // set any value to Map
              result.push({

@@ -23,15 +23,15 @@
                       <span ><strong>Mentor ID: </strong></span>
                       <span>{{ mentorDeck.mentor_id }}</span>
                       <hr>
-                      <span ><strong>City: </strong></span>
+                      <span ><strong>Cidade: </strong></span>
                       <span>{{ mentorDeck.city }}</span>
                       <hr>
-                      <span ><strong>State: </strong></span>
+                      <span ><strong>Estado: </strong></span>
                       <span>{{ mentorDeck.state }}</span>
                     </div>
                   </mat-card-content>
                   <mat-card-actions>
-                    <button type="button" class="btn btn-primary btn-block" routerLink="/mentor/listing/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Atualizar informações</button>
+                    <button type="button" class="btn btn-primary btn-block" routerLink="/mentor/listing/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Perfil</button>
 
                   </mat-card-actions>
               </div>
@@ -43,7 +43,7 @@
       <div *ngIf="userDeck.role_name == 'mentee' && userNickname == userDeck.username">
           <mat-card class="example-card">
               <div *ngFor="let menteeDeck of menteeDecks">
-                <div *ngIf="userDeck.id == menteeDeck.id">
+                <div *ngIf="userNickname == menteeDeck.username">
                   <div *ngFor="let mentorDeck of mentorDecks">
                     <div *ngIf="mentorDeck.id == menteeDeck.mentor_id">
                       <mat-card-header>
@@ -56,10 +56,10 @@
                             <span ><strong>Mentor ID: </strong></span>
                             <span>{{ mentorDeck.mentor_id }}</span>
                             <hr>
-                            <span ><strong>City: </strong></span>
+                            <span ><strong>Cidade: </strong></span>
                             <span>{{ mentorDeck.city }}</span>
                             <hr>
-                            <span ><strong>State: </strong></span>
+                            <span ><strong>Estado: </strong></span>
                             <span>{{ mentorDeck.state }}</span>
                           </div>
                         </mat-card-content>
@@ -89,10 +89,10 @@
                             <span ><strong>Mentor ID: </strong></span>
                             <span>{{ mentorDeck.mentor_id }}</span>
                             <hr>
-                            <span ><strong>City: </strong></span>
+                            <span ><strong>Cidade: </strong></span>
                             <span>{{ mentorDeck.city }}</span>
                             <hr>
-                            <span ><strong>State: </strong></span>
+                            <span ><strong>Estado: </strong></span>
                             <span>{{ mentorDeck.state }}</span>
                           </div>
                         </mat-card-content>

@@ -21,11 +21,11 @@ export class MenteeListingComponent {
   private mentorDeck: any;
 
   constructor(private route: ActivatedRoute,
-              private http:HttpClient) {        
-        this.getMentees();   
-        this.getUser();   
-        this.getMenteesFromMentor();      
-        this.userNickname = Auth0.getProfile().nickname;             
+              private http:HttpClient) {
+        this.getMentees();
+        this.getUser();
+        this.getMenteesFromMentor();
+        this.userNickname = Auth0.getProfile().nickname;
   }
 
   getAllMentees() {
@@ -50,22 +50,18 @@ export class MenteeListingComponent {
   private getUser() {
     this.getAllUsers().subscribe(userDecks => {
         this.userDecks = userDecks['objects'];
-        //console.log(userDecks);
-      
+        console.log(userDecks);
+
     });
   }
 
   private getMenteesFromMentor() {
     this.getAllMenteesFromMentor().subscribe(mentorDeck => {
         this.mentorDeck = mentorDeck['objects'];
-      
-      
+
+
     });
   }
- 
-  
+
+
 }
-
-  
-  
-

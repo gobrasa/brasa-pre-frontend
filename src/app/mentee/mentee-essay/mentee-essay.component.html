@@ -2,16 +2,32 @@
     <h1>Envie o link do Google Docs</h1>
 
     <form [formGroup]="todo" (ngSubmit)="logForm()">
-      <div class="form-group" *ngFor="let att of essayArray; let idx = index">
-        <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="essayArray[idx].link" [ngModelOptions]="{standalone: true}" required>
-        <button (click)="RemoveEssay(idx)">Remover essay</button>
+        <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
         <br><br>
-      </div>
       <br>
-      <button (click)="AddEssay()">Adicionar outra essay</button>
-      <br><br>
 
-      <button type="submit" class="btn btn-success">Salvar</button>
+      <button type="submit" class="btn btn-success">Adicionar</button>
 
     </form>
 </div>
+<br>
+<br>
+<h1>Essays adicionadas:</h1>
+<div *ngFor="let essay of essays">
+  <div *ngIf="essay.username == userNickname">
+      <span ><strong>Essay: </strong></span>
+      <span>{{ essay.link }}</span>
+      <button type="button" class="btn btn-primary" (click)="excludeEssay(essay.upload_id)">
+        Apagar essay
+      </button>
+      <br>
+      <br>
+
+  </div>
+
+</div>
+
+    <br>
+    <button type="button" class="btn btn-primary" (click)="goBack()">
+      Voltar
+    </button>

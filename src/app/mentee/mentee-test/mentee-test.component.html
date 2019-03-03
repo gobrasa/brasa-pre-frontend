@@ -57,7 +57,7 @@
     </label><br><br><br>
 
     <div class="form-group">
-      <input type="text" placeholder="Nota" formControlName="score">
+      <input type="text" placeholder="Nota" [(ngModel)]="score" [ngModelOptions]="{standalone: true}">
     </div><br><br>
 
 
@@ -105,3 +105,33 @@
 
 <button type="submit" class="btn btn-success">Enviar</button>
 </form>
+<br>
+
+<h1>Provas adicionadas:</h1>
+<div *ngFor="let scheduledExam of scheduledExams">
+  <div *ngIf="scheduledExam.mentee_id == menteeId">
+      <span ><strong>Prova: </strong></span>
+      <span>{{ scheduledExam.exam.category }}</span>
+      <hr>
+      <span ><strong>Categoria: </strong></span>
+      <span>{{ scheduledExam.exam.subcategory }}</span>
+      <hr>
+      <span ><strong>Nota: </strong></span>
+      <span>{{ scheduledExam.score }}</span>
+      <hr>
+      <span ><strong>Data: </strong></span>
+      <span>{{ scheduledExam.realization_date | date:"dd/MM/yyyy"}}</span>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="excludeExam(scheduledExam.id)">
+        Apagar prova
+      </button>
+      <br>
+      <br>
+
+  </div>
+
+</div>
+
+<button type="button" class="btn btn-primary" (click)="goBack()">
+  Voltar
+</button>

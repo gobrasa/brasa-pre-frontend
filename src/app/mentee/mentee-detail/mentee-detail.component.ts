@@ -19,7 +19,7 @@ import {Location} from '@angular/common';
 })
 export class MenteeDetailComponent {
   public todo : FormGroup;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   //private readonly API_URL = 'http://bce8300d.ngrok.io';
   public satArray:any=[];
   public scoresArray:any=[];
@@ -87,6 +87,10 @@ export class MenteeDetailComponent {
     });
   }
 
+  public goBack() {
+   this._location.back();
+ }
+
   public logForm(){
     console.log(this.menteeDados)
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
@@ -102,7 +106,8 @@ export class MenteeDetailComponent {
       "financial_aid": this.menteeDados.financial_aid,
       "universities": this.menteeDados.universities
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
-      if (data.status == 204) {
+      if (data.status == 200) {
+
         this._location.back();
         //this.navCtrl.goBack("/tabs/mentee/listing/1");
       }

@@ -20,15 +20,20 @@ export class MentorService {
 
   constructor(private http: HttpClient) {}
 
+  public getUser(username) {
+    return this.http.get<any>(`${this.HS_API_URL}/users/` + username);
+  }
 
   public getAllmentorDecks(): Observable<any>{
+    return this.http.get<any>(`${this.HS_API_URL}/mentors`);
+  }
+
+  public userId(): Observable<any>{
     return this.http.get<any>(`${this.HS_API_URL}/mentores`);
   }
 
-
-
   public getMentorById(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentores/` + id);
+    return this.http.get<any>(`${this.HS_API_URL}/mentors/` + id);
   }
 
 }

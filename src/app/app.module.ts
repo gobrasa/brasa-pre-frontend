@@ -21,6 +21,7 @@ import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.c
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenteePageModule } from './mentee/mentee.module';
+import { MentorPageModule } from './mentor/mentor.module';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -163,6 +164,7 @@ export const MY_NATIVE_FORMATS = {
     MatTooltipModule,
     MatTreeModule,
     MenteePageModule,
+    MentorPageModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(

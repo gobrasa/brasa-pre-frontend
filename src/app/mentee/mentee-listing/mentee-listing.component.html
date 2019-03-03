@@ -39,12 +39,11 @@
             </div>
           </div>
         </div>
-
         <!-- Logic for when a mentee is logging in. It only sees himself-->
         <div *ngIf="userDeck.role_name == 'mentee' && userNickname == userDeck.username">
             <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
           <div *ngFor="let menteeDeck of menteeDecks">
-              <div *ngIf="userDeck.id == menteeDeck.id">
+              <div *ngIf="userDeck.username == menteeDeck.username">
                 <mat-card class="example-card child">
                   <mat-card-header>
                     <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
