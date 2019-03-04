@@ -189,8 +189,9 @@ ngOnChanges() {
     };
 
 
-    this.http.post(`${this.API_URL}/university_applications/university_applications_mentee/` + this.menteeId,
-      {universities: universitiesId}, httpOptions).subscribe(data => {
+    this.http.post(`${this.API_URL}/university_application_for_mentee`,
+      { mentee_id: this.menteeId,
+        university_ids: universitiesId}, httpOptions).subscribe(data => {
         //console.log(data['_body']);
         this._location.back();
        }, error => {

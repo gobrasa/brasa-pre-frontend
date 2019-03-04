@@ -81,7 +81,7 @@ export class MentorDetailComponent {
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
     console.log('ˆˆ')
 
-    this.http.put(`${this.API_URL}/mentores/` + this.mentorId
+    this.http.put(`${this.API_URL}/mentors/` + this.mentorId
       , {
       "first_name": this.mentorDados.first_name,
       "last_name": this.mentorDados.last_name,

@@ -43,7 +43,7 @@
         <div *ngIf="role == 'mentee' && userNickname == username">
             <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
           <div *ngFor="let menteeDeck of menteeDecks">
-              <div *ngIf="userDeck.username == menteeDeck.username">
+              <div *ngIf="userNickname == menteeDeck.username">
                 <mat-card class="example-card child">
                   <mat-card-header>
                     <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>

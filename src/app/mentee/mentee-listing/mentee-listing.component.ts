@@ -31,7 +31,7 @@ export class MenteeListingComponent {
         this.getMenteesFromMentor();
         this.userNickname = Auth0.getProfile().nickname;
         this.getUsername(this.userNickname);
-        this.getMentorId(this.userNickname)
+
   }
 
   getAllMentees() {
@@ -63,6 +63,9 @@ export class MenteeListingComponent {
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
       this.username = usuario.username
+      if (this.role == 'mentor'){
+        this.getMentorId(this.userNickname)
+      }
     });
   }
 

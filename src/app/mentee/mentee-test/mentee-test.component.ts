@@ -194,7 +194,7 @@ export class MenteeTestComponent {
         //console.log(prova.subcategory, this.subCategory.subcategory)
         if (prova.category == this.todo.value.categoryName[0].category && prova.subcategory == this.todo.value.subCategoryName[0].subcategory) {
           var provaId = prova.id
-
+          console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),this.menteeId,provaId,this.score, '<-- post')
           this.http.post(`${this.API_URL}/scheduled_exams`,
             {
               "realization_date": this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),
@@ -212,9 +212,9 @@ export class MenteeTestComponent {
             this.getExams();
             //delete this.todo.value.categoryName[0].category
             //delete this.todo.value.subCategoryName[0].subcategory
-          this.score = ''
+          this.score = Number()
           this.todo.reset();
-          this.dateTime = ''
+          this.dateTime = Date()
           this.settingsSubCategory = {
             singleSelection: true,
             text: "Categoria",

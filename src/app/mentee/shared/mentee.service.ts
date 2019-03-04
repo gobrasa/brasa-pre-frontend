@@ -29,6 +29,10 @@ export class MenteeService {
     return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
   }
 
+  public getMenteeFromMentor(mentorId) {
+    return this.http.get<any>(`${this.HS_API_URL}/mentees?q={"filters":[{"name":"mentor_id","op":"eq","val": "` + mentorId + `"}],"single":true}`);
+  }
+
   public getMentor(username) {
     return this.http.get<any>(`${this.HS_API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
   }
