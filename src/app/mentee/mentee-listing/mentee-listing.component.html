@@ -6,14 +6,14 @@
   </head>
   <body>
   <div class="container">
-    <div *ngFor="let userDeck of userDecks">
+    <div>
 
       <!-- Logic for when a mentor is logging in. It only sees his mentees -->
-      <div *ngIf="userDeck.role_name == 'mentor' && userNickname == userDeck.username">
+      <div *ngIf="role == 'mentor' && userNickname == username">
           <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
         <div *ngFor="let menteeDeck of menteeDecks">
 
-            <div *ngIf="userDeck.id == menteeDeck.mentor_id">
+            <div *ngIf="mentorId == menteeDeck.mentor_id">
               <mat-card class="example-card child">
               <mat-card-header>
                 <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
@@ -25,10 +25,10 @@
                   <span ><strong>Mentor ID: </strong></span>
                   <span>{{ menteeDeck.mentor_id }}</span>
                   <hr>
-                  <span ><strong>City: </strong></span>
+                  <span ><strong>Cidade: </strong></span>
                   <span>{{ menteeDeck.city }}</span>
                   <hr>
-                  <span ><strong>State: </strong></span>
+                  <span ><strong>Estado: </strong></span>
                   <span>{{ menteeDeck.state }}</span>
                 </div>
               </mat-card-content>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <!-- Logic for when a mentee is logging in. It only sees himself-->
-        <div *ngIf="userDeck.role_name == 'mentee' && userNickname == userDeck.username">
+        <div *ngIf="role == 'mentee' && userNickname == username">
             <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
           <div *ngFor="let menteeDeck of menteeDecks">
               <div *ngIf="userDeck.username == menteeDeck.username">
@@ -55,10 +55,10 @@
                       <span ><strong>Mentor ID: </strong></span>
                       <span>{{ menteeDeck.mentor_id }}</span>
                       <hr>
-                      <span ><strong>City: </strong></span>
+                      <span ><strong>Cidade: </strong></span>
                       <span>{{ menteeDeck.city }}</span>
                       <hr>
-                      <span ><strong>State: </strong></span>
+                      <span ><strong>Estado: </strong></span>
                       <span>{{ menteeDeck.state }}</span>
                     </div>
                   </mat-card-content>
@@ -72,7 +72,7 @@
 
 
           <!-- Logic for when a admin is logging in. It can see all the mentes -->
-          <div *ngIf="userDeck.role_name == 'admin' && userNickname == userDeck.username">
+          <div *ngIf="role == 'admin' && userNickname == username">
             <div *ngFor="let menteeDeck of menteeDecks">
                 <mat-card class="example-card child">
                   <mat-card-header>
@@ -85,10 +85,10 @@
                       <span ><strong>Mentor ID: </strong></span>
                       <span>{{ menteeDeck.mentor_id }}</span>
                       <hr>
-                      <span ><strong>City: </strong></span>
+                      <span ><strong>Cidade: </strong></span>
                       <span>{{ menteeDeck.city }}</span>
                       <hr>
-                      <span ><strong>State: </strong></span>
+                      <span ><strong>Estado: </strong></span>
                       <span>{{ menteeDeck.state }}</span>
                     </div>
                   </mat-card-content>

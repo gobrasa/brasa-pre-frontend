@@ -24,6 +24,8 @@ export class MenteeEssayComponent{
   private headers: HttpHeaders;
   private userNickname: any;
   public essays:any;
+  public role:any;
+  public username:any;
 
  /*AddEssay(){
    this.essayArray.push({'link':''});
@@ -45,11 +47,19 @@ export class MenteeEssayComponent{
                     });
                 this.todo = this.formBuilder.group({});
                 this.getScheduledExams();
+                this.getUsername(this.userNickname);
 
   }
 
   public goBack() {
     this._location.back();
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+    });
   }
 
   public logForm(){

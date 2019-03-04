@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {Location} from '@angular/common';
-
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-mentee-detail',
@@ -28,6 +28,9 @@ export class MenteeDetailComponent {
   public menteeProfile:any=[];
   public menteeId:any;
   public menteeDados:any=[];
+  public userNickname:any;
+  public role:any;
+  public username:any;
   /*
  AddSAT(){
    this.satArray.push({'value':''});
@@ -47,12 +50,13 @@ export class MenteeDetailComponent {
     private getMentee: HttpClient,
     private menteeService: MenteeService,
     private route: ActivatedRoute,
-    private _location: Location ) {
+    private _location: Location) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
     });
+    this.userNickname = Auth0.getProfile().nickname;
     this.menteeDados.push({first_name: '',
     last_name: '',
     city:'',
@@ -62,6 +66,7 @@ export class MenteeDetailComponent {
     this.todo = this.formBuilder.group({});
     this.menteeId = this.route.snapshot.paramMap.get('id');
     this.getInformation();
+    this.getUsername(this.userNickname)
     /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
       this.todo.value.username = data["objects"][0].username
       console.log(this.todo.value.username)
@@ -72,6 +77,13 @@ export class MenteeDetailComponent {
        }, error => {
         console.log(error);
       });*/
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+    });
   }
 
   public getInformation(){

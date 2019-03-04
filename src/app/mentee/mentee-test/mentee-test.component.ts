@@ -52,6 +52,7 @@ import { DatePipe } from '@angular/common'
 import { ExamsApiService } from '../../exams/exams-api.service';
 import { Subscription } from 'rxjs';
 import {Location} from '@angular/common';
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-mentee-test',
@@ -84,6 +85,9 @@ export class MenteeTestComponent {
   public myDate:any = Date();
   public menteeId:any;
   private scheduledExams: any;
+  public role: any;
+  public username: any;
+  private userNickname: any;
 
   examsListSubs: Subscription;
   examsList: Exam[];
@@ -118,6 +122,8 @@ export class MenteeTestComponent {
     this.getExams();
     this.menteeId = this.route.snapshot.paramMap.get('id');
     this.getScheduledExams();
+    this.userNickname = Auth0.getProfile().nickname;
+    this.getUsername(this.userNickname);
 
     this.settingsSubCategory = {
       singleSelection: true,
@@ -139,6 +145,13 @@ export class MenteeTestComponent {
       primaryKey: 'category',
       classes: "myclass custom-class"
     };
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+    });
   }
 
   onCategorySelect(item: any) {

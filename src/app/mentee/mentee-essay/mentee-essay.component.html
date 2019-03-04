@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="role == 'mentee' || role == 'admin'" class="container">
     <h1>Envie o link do Google Docs</h1>
 
     <form [formGroup]="todo" (ngSubmit)="logForm()">
@@ -17,7 +17,8 @@
   <div *ngIf="essay.username == userNickname">
       <span ><strong>Essay: </strong></span>
       <span>{{ essay.link }}</span>
-      <button type="button" class="btn btn-primary" (click)="excludeEssay(essay.upload_id)">
+
+      <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-primary" (click)="excludeEssay(essay.upload_id)">
         Apagar essay
       </button>
       <br>

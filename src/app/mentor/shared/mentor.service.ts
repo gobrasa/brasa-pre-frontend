@@ -21,7 +21,7 @@ export class MentorService {
   constructor(private http: HttpClient) {}
 
   public getUser(username) {
-    return this.http.get<any>(`${this.HS_API_URL}/users/` + username);
+    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
   }
 
   public getAllmentorDecks(): Observable<any>{

@@ -54,12 +54,17 @@ export class MentorDetailComponent {
 
   getUser(username) {
     this.mentorService.getUser(username).subscribe(usuario=>{
-      this.role = usuario['objects'].role_name
-      this.username = usuario['objects'].username
+      console.log(usuario.role_name)
+      this.role = usuario.role_name
+      this.username = usuario.username
     });
 
 
   }
+
+  public goBack() {
+   this._location.back();
+ }
 
   public getInformation(){
     this.mentorService.getMentorById(this.mentorId).subscribe(mentor=>{

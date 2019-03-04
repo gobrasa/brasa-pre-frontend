@@ -18,12 +18,13 @@
       </div>
       <br><br>
       <button type="submit" class="btn btn-success">Enviar</button>
-
+<br>
+<br>
     </form>
   </div>
 
   <!-- Mentee cant see the form, only the information -->
-  <div *ngIf="role == 'mentee' && userNickname == username">
+  <div *ngIf="(role == 'mentee' || role == 'mentor') && userNickname == username">
     <h1>Informações do seu mentor!</h1>
 
     <div class="form-group">
@@ -36,6 +37,11 @@
 
 
   </div>
+<br>
+<br>
+  <button type="button" class="btn btn-primary" (click)="goBack()">
+    Voltar
+  </button>
 
 
 

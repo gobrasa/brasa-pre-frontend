@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="role=='mentee' || role=='admin'" class="container">
     <h1>Atualize suas informações!</h1>
     <form [formGroup]="todo" (ngSubmit)="logForm()">
       <div class="form-group">
@@ -32,6 +32,25 @@
     </form>
 </div>
     <br>
+    <div *ngIf="(role == 'mentee' || role == 'mentor' || role == 'admin') && userNickname == username">
+      <h1>Informações do seu mentee!</h1>
+      <br>
+      <div class="form-group">
+        Nome: {{menteeDados.first_name}} + {{menteeDados.last_name}}
+      </div><br>
+      <div class="form-group">
+        Cidade: {{menteeDados.city}}
+      </div><br>
+      <div class="form-group">
+        Estado: {{menteeDados.state}}
+      </div><br>
+      <div class="form-group">
+        Financial Aid: {{mentorDados.financial_aid}}
+      </div><br>
+
+
+    </div>
+
     <button type="button" class="btn btn-primary" (click)="goBack()">
       Voltar
     </button>

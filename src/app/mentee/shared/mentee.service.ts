@@ -25,6 +25,14 @@ export class MenteeService {
     return this.http.get<any>(`${this.HS_API_URL}/mentees/`);
   }
 
+  public getUser(username) {
+    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
+  }
+
+  public getMentor(username) {
+    return this.http.get<any>(`${this.HS_API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
+  }
+
   // public getCollegeList(id): Observable<any>{
   //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
   // }
