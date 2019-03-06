@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {Location} from '@angular/common';
-
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-mentee-detail',
@@ -19,15 +19,18 @@ import {Location} from '@angular/common';
 })
 export class MenteeDetailComponent {
   public todo : FormGroup;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   //private readonly API_URL = 'http://bce8300d.ngrok.io';
   public satArray:any=[];
   public scoresArray:any=[];
   public satSubjectsArray:any=[];
-  private headers: HttpHeaders;
+  public headers: HttpHeaders;
   public menteeProfile:any=[];
   public menteeId:any;
   public menteeDados:any=[];
+  public userNickname:any;
+  public role:any;
+  public username:any;
   /*
  AddSAT(){
    this.satArray.push({'value':''});
@@ -47,12 +50,19 @@ export class MenteeDetailComponent {
     private getMentee: HttpClient,
     private menteeService: MenteeService,
     private route: ActivatedRoute,
-    private _location: Location ) {
-    this.headers = new HttpHeaders({'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    private _location: Location) {
+
+
+    //this.headers = new HttpHeaders({'Content-Type': 'application/json',
+    //'Access-Control-Allow-Origin': '*',
+    //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+    //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    //});
+
+    this.headers = new HttpHeaders({'Authorization': `Bearer ${Auth0.getAccessToken()}`
     });
+
+    this.userNickname = Auth0.getProfile().nickname;
     this.menteeDados.push({first_name: '',
     last_name: '',
     city:'',
@@ -62,6 +72,7 @@ export class MenteeDetailComponent {
     this.todo = this.formBuilder.group({});
     this.menteeId = this.route.snapshot.paramMap.get('id');
     this.getInformation();
+    this.getUsername(this.userNickname)
     /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
       this.todo.value.username = data["objects"][0].username
       console.log(this.todo.value.username)
@@ -72,6 +83,22 @@ export class MenteeDetailComponent {
        }, error => {
         console.log(error);
       });*/
+  }
+
+  static buildHttpOptions(){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      }),
+    };
+    return httpOptions;
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+    });
   }
 
   public getInformation(){
@@ -87,7 +114,12 @@ export class MenteeDetailComponent {
     });
   }
 
+  public goBack() {
+   this._location.back();
+ }
+
   public logForm(){
+
     console.log(this.menteeDados)
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
     console.log('ˆˆ')
@@ -102,7 +134,8 @@ export class MenteeDetailComponent {
       "financial_aid": this.menteeDados.financial_aid,
       "universities": this.menteeDados.universities
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
-      if (data.status == 204) {
+      if (data.status == 200) {
+
         this._location.back();
         //this.navCtrl.goBack("/tabs/mentee/listing/1");
       }

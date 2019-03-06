@@ -2,8 +2,16 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 
+
 body {
     margin: 0;
+   
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-toolbar{
+    background: #3788CB;
+    color: #fff;
+}

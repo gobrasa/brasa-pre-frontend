@@ -21,13 +21,19 @@ export class MenteeListingComponent {
   userDecks: any;  
   private userNickname: any;
   private mentorDeck: any;
+  public role: any;
+  public username: any;
+  public mentorId: any;
 
   constructor(private route: ActivatedRoute,
-              private http:HttpClient) {        
-        this.getMentees();   
-        this.getUser();   
-        this.getMenteesFromMentor();      
-        this.userNickname = Auth0.getProfile().nickname;             
+              private http: HttpClient,
+              private menteeService: MenteeService) {
+        this.getMentees();
+        this.getUser();
+        this.getMenteesFromMentor();
+        this.userNickname = Auth0.getProfile().nickname;
+        this.getUsername(this.userNickname);
+
   }
 
   getAllMentees() {
@@ -45,7 +51,23 @@ export class MenteeListingComponent {
   private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
         this.menteeDecks = menteeDecks['objects'];
-        //console.log(menteeDecks);
+        console.log(menteeDecks, 'here');
+    });
+  }
+
+  getMentorId(username) {
+    this.menteeService.getMentor(username).subscribe(usuario=>{
+      this.mentorId = usuario.id
+    });
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+      if (this.role == 'mentor'){
+        this.getMentorId(this.userNickname)
+      }
     });
   }
 
@@ -53,21 +75,17 @@ export class MenteeListingComponent {
     this.getAllUsers().subscribe(userDecks => {
         this.userDecks = userDecks['objects'];
         //console.log(userDecks);
-      
+
     });
   }
 
   private getMenteesFromMentor() {
     this.getAllMenteesFromMentor().subscribe(mentorDeck => {
         this.mentorDeck = mentorDeck['objects'];
-      
-      
+
+
     });
   }
- 
-  
+
+
 }
-
-  
-  
-

@@ -1,25 +1,34 @@
 .mat-card {
-    max-width: 500px;
-    margin: 20px auto;
+  max-width: 500px;
+  margin: 40px auto;
 }
-    
+  
 #menteeDeck {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .child {
-    flex-grow: 1;
-    flex: 1 1 35%;
-    margin: 20px;
-    max-width: 402px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  hr{
-    margin-top: 3px;
-    margin-bottom: 3px;
-  }
+.child {
+  flex-grow: 1;
+  flex: 1 1 35%;
+  margin: 20px;
+  max-width: 398px;
+}
+
+hr{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.btn{
+  background-color: rgb(55,136,203);
+  color: white;
+}
+
+.btn:hover {
+  color: white;
+}

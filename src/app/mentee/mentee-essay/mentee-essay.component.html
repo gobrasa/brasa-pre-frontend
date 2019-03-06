@@ -1,17 +1,63 @@
-<div class="container">
-    <h1>Envie o link do Google Docs</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
+    
+     
 
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
-      <div class="form-group" *ngFor="let att of essayArray; let idx = index">
-        <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="essayArray[idx].link" [ngModelOptions]="{standalone: true}" required>
-        <button (click)="RemoveEssay(idx)">Remover essay</button>
-        <br><br>
+    <div *ngIf="role == 'mentee' || role == 'admin'" class="container">
+        <div id="essay" class=" shadow-sm p-3 mb-5 bg-white rounded">
+          <h1>Envie o link do Google Docs</h1>
+
+          <form [formGroup]="todo" (ngSubmit)="logForm()">
+              <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
+              <button type="submit" class="btn btn-sm btn-success salvar">Adicionar</button>
+          </form>
+          <div class="action">
+              <button type="button" class="btn btn voltar" (click)="goBack()">
+                  Voltar
+          </button>
+          </div>
+
+     
       </div>
-      <br>
-      <button (click)="AddEssay()">Adicionar outra essay</button>
-      <br><br>
+      
+      
+    </div>
 
-      <button type="submit" class="btn btn-success">Salvar</button>
+    <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
+      
+    
+    <h1>Essays adicionadas:</h1>
+    <div *ngFor="let essay of essays">
+      <div class="essay-listing" *ngIf="essay.username == userNickname">
 
-    </form>
-</div>
+        <a href="'{{ essay.link }}'">Essay link</a>
+        <div class="action apagar-btn">
+          <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeEssay(essay.upload_id)">
+            Apagar essay
+          </button>
+        </div>
+        <hr>
+
+       
+
+      </div>
+      </div>
+      <div class="action">
+          <button type="button" class="btn btn voltar" (click)="goBack()">
+              Voltar
+      </button>
+
+    </div>
+
+
+      
+    </div>
+ </div>
+</body>
+</html>
