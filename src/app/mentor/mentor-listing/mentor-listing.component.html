@@ -22,7 +22,7 @@
                    
                   </mat-card-content>
                   <mat-card-actions>
-                    <button type="button" class="btn  btn-block" routerLink="/mentor/listing/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Perfil</button>
+                    <button type="button" class="btn btn-block" routerLink="/mentor/listing/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Perfil</button>
 
                   </mat-card-actions>
               </div>
@@ -65,7 +65,7 @@
                     <mat-card class="example-card child" *ngFor="let mentorDeck of mentorDecks">
                       <mat-card-header>
                         <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-                        <mat-card-subtitle>{{"Username: " + " " + mentorDeck.username }}</mat-card-subtitle>
+                  
                       </mat-card-header>
 
                       <mat-card-content>

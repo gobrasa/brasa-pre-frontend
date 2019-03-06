@@ -29,6 +29,10 @@ export class MenteeService {
     return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
   }
 
+  public getMenteeFromMentor(mentorId) {
+    return this.http.get<any>(`${this.HS_API_URL}/mentees?q={"filters":[{"name":"mentor_id","op":"eq","val": "` + mentorId + `"}],"single":true}`);
+  }
+
   public getMentor(username) {
     return this.http.get<any>(`${this.HS_API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
   }
@@ -37,11 +41,20 @@ export class MenteeService {
   //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
   // }
 
-  public getAllExams(): Observable<Exam[]>{
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+ }
 
+  public getAllExams(): Observable<Exam[]>{
+    let httpOptions = MenteeService.buildHttpOptions();
     //const httpOptions = ExamsApiService.buildHttpOptions();
     //console.log(httpOptions);
-    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`, httpOptions);
   }
 
   public getAllScheduledExams(): Observable<Exam[]>{

@@ -13,23 +13,24 @@
           <div *ngIf="mentorDeck.id == mentorId">
             <mat-card-header>
               <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-              <mat-card-subtitle>{{"Username: " + " " + mentorDeck.username }}</mat-card-subtitle>
+              
             </mat-card-header>
 
             <mat-card-content>
                 <div id="mentorDeck">
-                  <span ><strong>Mentor ID: </strong></span>
-                  <span>{{ mentorDeck.mentor_id }}</span>
+        
+                  <span ><strong>Ciclo: </strong></span>
+                  <span>{{ mentorDeck['cycle'].summary}}</span>
                   <hr>
-                  <span ><strong>Cidade: </strong></span>
-                  <span>{{ mentorDeck.city }}</span>
+                  <span ><strong>Regiao: </strong></span>
+                  <span>{{ mentorDeck['cycle'].region}}</span>
                   <hr>
-                  <span ><strong>Estado: </strong></span>
-                  <span>{{ mentorDeck.state }}</span>
+                  <span ><strong>Universidade: </strong></span>
+                  <span>{{ mentorDeck['university'].name }}</span>
                 </div>
               </mat-card-content>
               <mat-card-actions>
-                <button type="button" class="btn btn-primary btn-block" routerLink="/mentor/detail/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Informações</button>
+                <button type="button" class="btn btn-block" routerLink="/mentor/detail/{{mentorDeck.id}}"><i class="fa fa-plus"></i>  Informações</button>
 
               </mat-card-actions>
           </div>

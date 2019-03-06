@@ -1,48 +1,79 @@
-<div class="container">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="container" >
   <!-- Mentor or Admin can see the form to update informations-->
-  <div *ngIf="(role == 'mentor' || role == 'admin') && userNickname == username">
+  <div *ngIf="(role == 'mentor' || role == 'admin') && userNickname == username" id="update_info" class="shadow-sm p-3 mb-5 bg-white rounded">
     <h1>Atualize suas informações!</h1>
     <form [formGroup]="todo" (ngSubmit)="logForm()">
       <div class="form-group">
         <input placeholder="Nome" type="text" class="form-control" [(ngModel)]="mentorDados.first_name" [ngModelOptions]="{standalone: true}" required>
       </div>
-      <br>
+
 
       <div class="form-group">
-        <input placeholder="Sobrenome" type="text" [(ngModel)]="mentorDados.last_name" [ngModelOptions]="{standalone: true}">
+        <input placeholder="Sobrenome" type="text" class="form-control" [(ngModel)]="mentorDados.last_name" [ngModelOptions]="{standalone: true}">
       </div>
-      <br>
+    
 
-      <div class="form-group">
+      <!--div class="form-group">
         <input placeholder="Universidade" type="text" [(ngModel)]="mentorDados.university" [ngModelOptions]="{standalone: true}">
+      </div-->
+      <div class="form-group" *ngIf="selectedUnis">
+      <angular2-multiselect
+                            [data]="universities"
+                            [(ngModel)]="selectedUnis"
+                            [settings]="settings"
+                            (onSelect)="onItemSelect($event)"
+                            formControlName="uniList"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
       </div>
-      <br><br>
-      <button type="submit" class="btn btn-success">Enviar</button>
-<br>
-<br>
+      
+
+      <div class="action">
+          <button type="submit" class="btn btn-sm btn-success salvar">Salvar Informações</button>
+          <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+      </div>
+      
+
     </form>
   </div>
 
   <!-- Mentee cant see the form, only the information -->
   <div *ngIf="(role == 'admin' || role == 'mentee' || role == 'mentor') && userNickname == username">
-    <h1>Informações do seu mentor!</h1>
+    <div id="info" class="shadow-sm p-3 mb-5 bg-white rounded">
+      <h1>Informações do seu mentor!</h1>
 
-    <div class="form-group">
-      Nome: {{mentorDados.first_name}} + {{mentorDados.last_name}}
+      <div class="form-group">
+        <strong>Nome:</strong> {{mentorDados.first_name}} + {{mentorDados.last_name}}
+      </div>
+
+      <div>
+          <strong>Universidade:</strong> {{mentorDados.university}}
+      </div>
+      <div class="action">
+          <button type="button" class="btn voltar" (click)="goBack()">
+              Voltar
+            </button>
+      </div>
     </div>
-
-    <div class="form-group">
-      Universidade: {{mentorDados.university}}
-    </div>
-
-
   </div>
 <br>
 <br>
-  <button type="button" class="btn btn-primary" (click)="goBack()">
-    Voltar
-  </button>
+  
 
 
 
 </div>
+</body>
+</html>

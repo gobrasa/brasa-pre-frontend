@@ -26,6 +26,7 @@ export class MenteeEssayComponent{
   public essays:any;
   public role:any;
   public username:any;
+  public menteeName:any;
 
  /*AddEssay(){
    this.essayArray.push({'link':''});
@@ -59,6 +60,17 @@ export class MenteeEssayComponent{
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
       this.username = usuario.username
+      if (this.role == 'mentor'){
+        this.menteeService.getMentor(this.userNickname).subscribe(mentor=>{
+          this.getMenteeName(mentor.id)
+        })
+      }
+    });
+  }
+
+  getMenteeName(mentorId) {
+    this.menteeService.getMenteeFromMentor(mentorId).subscribe(usuario=>{
+      this.menteeName = usuario.username
     });
   }
 

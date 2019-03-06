@@ -25,11 +25,12 @@ hr{
 }
 
 .btn{
-  background-color: rgb(55,136,203);
+  background-color: #4B88C5;
   color: white;
 }
 
 
 .btn:hover {
+  background-color: #4B88C5;
   color: white;
 }
