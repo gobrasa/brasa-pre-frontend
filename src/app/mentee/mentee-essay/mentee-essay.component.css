@@ -1,0 +1,53 @@
+
+
+.btn-wrapper {
+    text-align: center;
+}
+
+#essay{
+    margin-bottom: 30px;
+    width: 500px;
+    margin: 30px auto;
+}
+
+.action{
+    height: 30px;
+    margin-top: 40px;
+}
+
+.voltar{
+    margin-right: 30px;
+    background: none;
+    border: none;
+    color: #9999;
+    float: left;
+    margin-top: -11px;
+}
+
+
+.salvar{
+    margin-top: 32px;
+    float: right;
+    margin-right: 11px;
+}
+
+.apagar-btn{
+    display: inline;
+    margin-left: 271px;
+    
+}
+
+.essay-listing{
+    margin-top: 20px;
+}
+
+#uploaded_essays{
+    margin-bottom: 30px;
+    width: 500px;
+    margin: 30px auto;
+}
+
+hr{
+    margin-top: 5px;
+    margin-bottom: 6px;
+  }

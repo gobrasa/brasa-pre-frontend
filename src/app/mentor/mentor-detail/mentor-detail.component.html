@@ -1,6 +1,6 @@
 <div class="container">
   <!-- Mentor or Admin can see the form to update informations-->
-  <div *ngIf="role == 'mentor' && userNickname == username">
+  <div *ngIf="(role == 'mentor' || role == 'admin') && userNickname == username">
     <h1>Atualize suas informações!</h1>
     <form [formGroup]="todo" (ngSubmit)="logForm()">
       <div class="form-group">
@@ -24,7 +24,7 @@
   </div>
 
   <!-- Mentee cant see the form, only the information -->
-  <div *ngIf="(role == 'mentee' || role == 'mentor') && userNickname == username">
+  <div *ngIf="(role == 'admin' || role == 'mentee' || role == 'mentor') && userNickname == username">
     <h1>Informações do seu mentor!</h1>
 
     <div class="form-group">

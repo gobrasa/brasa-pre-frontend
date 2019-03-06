@@ -1,32 +1,44 @@
 
-<div class="container">
-    <h1>Atualize sua College List!</h1>
-    <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
 
-      <div class="form-group" *ngIf="selectedUnis">
-      <angular2-multiselect *ngIf="selectedUnis.length == helper3"
-      [data]="universities"
-                            [(ngModel)]="selectedUnis"
-                            [loading] = "loading"
-                            [settings]="settings"
-                            (onSelect)="onItemSelect($event)"
-                            (onDeSelect)="OnItemDeSelect($event)"
-                            formControlName="uniList"
-                            ><c-item>
-                <ng-template let-item="item">
-                  {{item.name}}
-                </ng-template>
-        </c-item>
-      </angular2-multiselect>
-      </div>
+    <div id="college_update" class="shadow-sm p-3 mb-5 bg-white rounded">
+        <h1>Atualize sua College List!</h1>
+        <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
+
+          <div class="form-group" *ngIf="selectedUnis">
+          <angular2-multiselect *ngIf="selectedUnis.length == helper3"
+          [data]="universities"
+                                [(ngModel)]="selectedUnis"
+                                [loading] = "loading"
+                                [settings]="settings"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                formControlName="uniList"
+                                ><c-item>
+                    <ng-template let-item="item">
+                      {{item.name}}
+                    </ng-template>
+            </c-item>
+          </angular2-multiselect>
+          </div>
 
 
-      <br><br>
-      <button type="submit" class="btn btn-success">Salvar</button>
+          <div class="action">
+              <button type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
+              <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+          </div>
+         
 
-    </form>
-</div>
-<br>
-<button type="button" class="btn btn-primary" (click)="goBack()">
-  Voltar
-</button>
+        </form>
+    </div>
+  
+    </div>
+    </body>
+    </html>

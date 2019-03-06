@@ -29,15 +29,20 @@
                 </div>
               </mat-card-content>
               <mat-card-actions>
-                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/detail/{{menteeDeck.id}}"><i class="fa fa-plus"></i>  Atualizar informações</button>
-                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/test/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Adicionar prova</button>
-                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/essay/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Adicionar essay</button>
-                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/college/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Editar College List</button>
+                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-block" routerLink="/mentee/detail/{{menteeDeck.id}}"><i class="fa fa-plus"></i>  Atualizar informações</button>
+                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-block" routerLink="/mentee/test/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Adicionar prova</button>
+                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-block" routerLink="/mentee/essay/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Adicionar essay</button>
+                <button *ngIf = "role == 'mentee' || role == 'admin'" type="button" class="btn btn-block" routerLink="/mentee/college/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Editar College List</button>
 
-                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/detail/{{menteeDeck.id}}"><i class="fa fa-plus"></i>  Ver informações</button>
-                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/test/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver provas adicionadas</button>
-                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/essay/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver essays adicionados</button>
-                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-primary btn-block" routerLink="/mentee/college/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver College List</button>
+                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/detail/{{menteeDeck.id}}"><i class="fa fa-plus"></i>  Ver informações</button>
+                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/test/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver provas adicionadas</button>
+                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/essay/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver essays adicionados</button>
+                <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/college/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver College List</button>
+                <!-- <div class="action">
+                    <button type="button" class="btn btn voltar" (click)="goBack()">
+                        Voltar
+                    </button>
+                  </div> -->
               </mat-card-actions>
           </div>
         </div>

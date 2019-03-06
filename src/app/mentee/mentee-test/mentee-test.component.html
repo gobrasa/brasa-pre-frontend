@@ -1,141 +1,97 @@
 
-<h1>Adicione suas provas!</h1>
-<div *ngIf="role== 'mentee' || role == 'admin'">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
+    
+     
+      <div *ngIf="role== 'mentee' || role == 'admin'">
+          <div id="exams_update" class="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1>Adicione suas provas!</h1>
+        <form [formGroup]="todo" (ngSubmit)="logForm()">
+          <div class="form-group">
+              <angular2-multiselect
+                                [data]="categories"
+                                [(ngModel)]="category"
+                                [settings]="settingsCategory"
+                                (onSelect)="onCategorySelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                formControlName="categoryName"
+                                >
+                <c-item>
+                  <ng-template let-item="item">
+                    {{item.category}}
+                  </ng-template>
+                </c-item>
+              </angular2-multiselect>
+            </div>
 
-<form [formGroup]="todo" (ngSubmit)="logForm()">
+        <div class="form-group">
+          <angular2-multiselect
+                                [data]="subCategories"
+                                [(ngModel)]="subCategory"
+                                [settings]="settingsSubCategory"
+                                formControlName="subCategoryName"
+                                >
+                <c-item>
+                    <ng-template let-item="item">
+                      {{item.subcategory}}
+                    </ng-template>
+                </c-item>
+          </angular2-multiselect>
+        </div>
 
-  <!--mat-form-field>
-    <mat-select placeholder="Categoria" [formControl]="categoria" multiple>
-      <mat-option *ngFor="let category of categories" [value]="category.category">{{category.category}}</mat-option>
-    </mat-select>
-  </mat-form-field><br-->
+   
+            <label class=" form-group">
+                  <input class="form-control" placeholder="Data"
+                        [min]="min" [max]="max"
+                        [owlDateTimeTrigger]="dt"
+                        [owlDateTime]="dt"
+                        (input)="dateTime=$event.target.value"
+                        formControlName="dateInput">
+                  <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
+              </label>
+  
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nota" [(ngModel)]="score" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="action">
+              <button type="submit" class="btn btn-sm btn-success salvar">Enviar</button>
+              <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+          </div>
+          
+      </form>
+      </div>
+    </div>
 
-  <div class="form-group">
-  <angular2-multiselect
-                        [data]="categories"
-                        [(ngModel)]="category"
-                        [settings]="settingsCategory"
-                        (onSelect)="onCategorySelect($event)"
-                        (onDeSelect)="OnItemDeSelect($event)"
-                        formControlName="categoryName"
-                        ><c-item>
-            <ng-template let-item="item">
-              {{item.category}}
-            </ng-template>
-    </c-item>
-  </angular2-multiselect>
-</div><br><br>
-
-  <div class="form-group">
-  <angular2-multiselect
-                        [data]="subCategories"
-                        [(ngModel)]="subCategory"
-                        [settings]="settingsSubCategory"
-                        formControlName="subCategoryName"
-                        ><c-item>
-            <ng-template let-item="item">
-              {{item.subcategory}}
-            </ng-template>
-    </c-item>
-  </angular2-multiselect>
-  </div><br><br>
-
-
-  <!--mat-form-field>
-    <mat-select placeholder="Subcategoria" [formControl]="subCategory" multiple>
-      <mat-option *ngFor="let subCategoryName of subCategories" [value]="subCategoryName.subcategory">{{subCategoryName.subcategory}}</mat-option>
-    </mat-select>
-  </mat-form-field><br-->
-
-
-  <label class="example-input-wrapper">
-        <input placeholder="Data"
-               [min]="min" [max]="max"
-               [owlDateTimeTrigger]="dt"
-               [owlDateTime]="dt"
-               (input)="dateTime=$event.target.value"
-               formControlName="dateInput">
-        <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
-    </label><br><br><br>
-
-    <div class="form-group">
-      <input type="text" placeholder="Nota" [(ngModel)]="score" [ngModelOptions]="{standalone: true}">
-    </div><br><br>
-
-
-
-
-  <!--ion-item>
-  <ion-label>Prova</ion-label>
-    <ionic-selectable
-      #countryComponent
-      item-content
-      [(ngModel)]="category"
-      itemValueField="category"
-      itemTextField="category"
-      [items]="categories"
-      [canSearch]="true"
-      [ngModelOptions]="{standalone: true}"
-      (onChange)="getSubcategories($event)">
-    </ionic-selectable>
-  </ion-item>
-
-
-  <ion-item>
-      <ion-label>Categoria</ion-label>
-      <ionic-selectable
-        item-content
-        [(ngModel)]="subCategory"
-        itemValueField="subcategory"
-        itemTextField="subcategory"
-        [items]="subCategories"
-        [isEnabled]="countryComponent.value"
-        [placeholder]="countryComponent.value ? '' : 'Selecione a prova primeiro'"
-        [ngModelOptions]="{standalone: true}"
-        [canSearch]="true">
-      </ionic-selectable>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Data</ion-label>
-    <ion-datetime display-format="MMM DD, YYYY" min="2000" [(ngModel)]="myDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
-  </ion-item>
-<ion-item>
-  <ion-label>Nota</ion-label>
-  <ion-input text-right  [(ngModel)]="score" [ngModelOptions]="{standalone: true}"></ion-input>
-</ion-item-->
-
-<button type="submit" class="btn btn-success">Enviar</button>
-</form>
-
-</div>
-<br>
-
-<h1>Provas adicionadas:</h1>
-<div *ngFor="let scheduledExam of scheduledExams">
-  <div *ngIf="scheduledExam.mentee_id == menteeId">
-      <span ><strong>Prova: </strong></span>
-      <span>{{ scheduledExam.exam.category }}</span>
-      <hr>
-      <span ><strong>Categoria: </strong></span>
-      <span>{{ scheduledExam.exam.subcategory }}</span>
-      <hr>
-      <span ><strong>Nota: </strong></span>
-      <span>{{ scheduledExam.score }}</span>
-      <hr>
-      <span ><strong>Data: </strong></span>
-      <span>{{ scheduledExam.realization_date | date:"dd/MM/yyyy"}}</span>
-      <br>
-      <button *ngIf="role=='mentee' || role=='admin'"type="button" class="btn btn-primary" (click)="excludeExam(scheduledExam.id)">
-        Apagar prova
-      </button>
-      <br>
-      <br>
-
+   <div id="exams_update">
+    <h1>Provas adicionadas:</h1>
+    <div *ngFor="let scheduledExam of scheduledExams">
+      <div *ngIf="scheduledExam.mentee_id == menteeId">
+          <div class="shadow p-3 mb-5 bg-white rounded">
+          <span ><strong>Prova: </strong></span>
+          <span>{{ scheduledExam.exam.category }}</span>
+          <hr>
+          <span ><strong>Categoria: </strong></span>
+          <span>{{ scheduledExam.exam.subcategory }}</span>
+          <hr>
+          <span ><strong>Nota: </strong></span>
+          <span>{{ scheduledExam.score }}</span>
+          <hr>
+          <span ><strong>Data: </strong></span>
+          <span>{{ scheduledExam.realization_date | date:"dd/MM/yyyy"}}</span>
+          <br>
+          <button *ngIf="role=='mentee' || role=='admin'"type="button" class="btn btn-danger apagar  btn-sm" (click)="excludeExam(scheduledExam.id)">
+            Apagar prova
+          </button>
+      </div>
+    </div>
+    </div>
   </div>
-
-</div>
-
-<button type="button" class="btn btn-primary" (click)="goBack()">
-  Voltar
-</button>
+    </div>
+</body>
+</html>
