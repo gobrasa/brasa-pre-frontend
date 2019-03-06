@@ -51,12 +51,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common'
 import { ExamsApiService } from '../../exams/exams-api.service';
 import { Subscription } from 'rxjs';
+import {Location} from '@angular/common';
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-mentee-test',
   templateUrl: './mentee-test.component.html',
-  styleUrls: ['./mentee-test.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./mentee-test.component.css']
 })
 export class MenteeTestComponent {
   public dateTime:any= Date();
@@ -83,6 +84,10 @@ export class MenteeTestComponent {
   @Input() score: any;
   public myDate:any = Date();
   public menteeId:any;
+  private scheduledExams: any;
+  public role: any;
+  public username: any;
+  private userNickname: any;
 
   examsListSubs: Subscription;
   examsList: Exam[];
@@ -100,7 +105,8 @@ export class MenteeTestComponent {
                private getMentee: HttpClient,
                private menteeService: MenteeService,
              private route: ActivatedRoute,
-           public datepipe: DatePipe
+           public datepipe: DatePipe,
+           private _location: Location
            ) {
     this.headers = new HttpHeaders({'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -115,7 +121,9 @@ export class MenteeTestComponent {
     });
     this.getExams();
     this.menteeId = this.route.snapshot.paramMap.get('id');
-    console.log(this.category)
+    this.getScheduledExams();
+    this.userNickname = Auth0.getProfile().nickname;
+    this.getUsername(this.userNickname);
 
     this.settingsSubCategory = {
       singleSelection: true,
@@ -137,6 +145,13 @@ export class MenteeTestComponent {
       primaryKey: 'category',
       classes: "myclass custom-class"
     };
+  }
+
+  getUsername(username) {
+    this.menteeService.getUser(username).subscribe(usuario=>{
+      this.role = usuario.role_name
+      this.username = usuario.username
+    });
   }
 
   onCategorySelect(item: any) {
@@ -166,22 +181,21 @@ export class MenteeTestComponent {
     };
   }
 
+  public goBack() {
+   this._location.back();
+ }
 
   public logForm(){
-    console.log(this.score)
     // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
-    console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'), this.score, 'heyhey')
-
     this.menteeService.getAllExams().subscribe(tests => {
-      console.log(tests);
-      tests.forEach(prova=>{
+      tests['objects'].forEach(prova=>{
 
         //console.log(prova.category,this.category.category)
         //console.log(prova.subcategory, this.subCategory.subcategory)
         if (prova.category == this.todo.value.categoryName[0].category && prova.subcategory == this.todo.value.subCategoryName[0].subcategory) {
           var provaId = prova.id
-          /*
-          this.http.post(`${this.API_URL}/exam_schedules/`,
+          console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),this.menteeId,provaId,this.score, '<-- post')
+          this.http.post(`${this.API_URL}/scheduled_exams`,
             {
               "realization_date": this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),
                 "mentee_id": this.menteeId,
@@ -190,20 +204,17 @@ export class MenteeTestComponent {
             },
             {headers: this.headers}).subscribe(data => {
               console.log(data['_body']);
+              this.getScheduledExams();
              }, error => {
               console.log(error);
-            });*/
+            });
 
             this.getExams();
-            delete this.todo.value.categoryName[0].category
-            delete this.todo.value.subCategoryName[0].subcategory
-          this.score = ''
-          console.log(this.score, 'should be nothing')
-          console.log(this.todo.value)
+            //delete this.todo.value.categoryName[0].category
+            //delete this.todo.value.subCategoryName[0].subcategory
+          this.score = Number()
           this.todo.reset();
-          this.todo.value.score = ''
-          console.log(this.todo.value)
-          this.dateTime = ''
+          this.dateTime = Date()
           this.settingsSubCategory = {
             singleSelection: true,
             text: "Categoria",
@@ -232,19 +243,19 @@ export class MenteeTestComponent {
 
   private getExams() {
    this.menteeService.getAllExams().subscribe(tests => {
-     this.categories = tests
-     this.subCategories = tests
+
+     this.categories = tests['objects']
+     this.subCategories = tests['objects']
      const resultCategory = [];
      const resultSubCategory = [];
      const mapCategory = new Map();
      const mapSubCategory = new Map();
-     for (const item of tests) {
+     for (const item of tests['objects']) {
          if(!mapCategory.has(item.category)){
              mapCategory.set(item.category, item.category);    // set any value to Map
              resultCategory.push({
                  category: item.category
              });
-             console.log(mapCategory)
          };
          if(!mapSubCategory.has(item.subcategory)){
              mapSubCategory.set(item.subcategory, item.subcategory);    // set any value to Map
@@ -255,8 +266,6 @@ export class MenteeTestComponent {
        };
        this.categories = resultCategory
        this.subCategories = resultSubCategory
-       console.log(this.subCategories, this.categories)
-       console.log(this.subCategory, this.category)
        /*
      tests.forEach((element)=>{
        console.log(element)
@@ -268,15 +277,33 @@ export class MenteeTestComponent {
    });
  }
 
+ private getScheduledExams() {
+  this.menteeService.getAllScheduledExams().subscribe(tests => {
+    tests['objects']
+    this.scheduledExams = tests['objects']
+  });
+}
+
+public excludeExam(id){
+  this.http.delete<any>(`${this.API_URL}/scheduled_exams/`+id,{headers: this.headers}).subscribe(data => {
+    console.log(data['_body']);
+   }, error => {
+    console.log(error);
+  });;
+  this.scheduledExams.forEach((exam, index)=>{
+    console.log(exam.id)
+    if (exam.id == id){
+      this.scheduledExams.splice(index,1)
+    }
+  })
+}
+
  public getSubcategories(categorySent) {
-   console.log(categorySent, '3434')
    this.menteeService.getAllExams().subscribe(tests => {
-     console.log(tests)
-     this.subCategories = tests
+     this.subCategories = tests['objects']
      const resultSubCategory = [];
      const mapSubCategory = new Map();
-     for (const item of tests) {
-       console.log(item.category)
+     for (const item of tests['objects']) {
        if (item.category == categorySent){
          if(!mapSubCategory.has(item.subcategory)){
              mapSubCategory.set(item.subcategory, item.subcategory);    // set any value to Map

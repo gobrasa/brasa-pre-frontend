@@ -1,0 +1,45 @@
+
+
+.btn-wrapper {
+    text-align: center;
+}
+
+#college_update{
+    margin-bottom: 30px;
+    width: 700px;
+    margin: 30px auto;
+}
+
+.action{
+    margin-top: 20px;
+    height: 40px;
+}
+
+.voltar{
+    margin-right: 30px;
+    background: none;
+    border: none;
+    color: #9999;
+    float: left;
+}
+
+
+.salvar{
+    float: right;
+    margin-right: 11px;
+}
+
+#exams_update{
+    margin-bottom: 30px;
+    width: 500px;
+    margin: 30px auto;
+}
+
+hr{
+    margin-top: 5px;
+    margin-bottom: 6px;
+  }
+
+.apagar{
+    margin-top: 15px;
+}

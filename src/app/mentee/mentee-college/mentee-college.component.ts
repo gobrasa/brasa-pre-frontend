@@ -159,6 +159,11 @@ ngOnChanges() {
     this.helper3 = this.helper3+1
     //this.selectedUnis.push({id: 0, name: 'None'})
   }
+
+  public goBack() {
+   this._location.back();
+ }
+
   OnItemDeSelect(item: any) {
     this.helper3= this.helper3-1
     //this.selectedUnis.pop()
@@ -171,7 +176,7 @@ ngOnChanges() {
     this.userForm.value.uniList.forEach(test=>{
       universitiesId.push(test.id)
     });
-    console.log(universitiesId)
+    //console.log(universitiesId)
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -184,8 +189,9 @@ ngOnChanges() {
     };
 
 
-    this.http.post(`${this.API_URL}/university_applications/university_applications_mentee/` + this.menteeId,
-      {universities: universitiesId}, httpOptions).subscribe(data => {
+    this.http.post(`${this.API_URL}/university_application_for_mentee`,
+      { mentee_id: this.menteeId,
+        university_ids: universitiesId}, httpOptions).subscribe(data => {
         //console.log(data['_body']);
         this._location.back();
        }, error => {
@@ -249,10 +255,11 @@ ngOnChanges() {
   private getUniList() {
 
    this.menteeService.getAllUniversities().subscribe(tests => {
-     this.universities = tests
+     this.universities = tests['objects']
+     console.log(tests['objects'])
      const result = [];
      const mapUniversities = new Map();
-     for (const item of tests) {
+     for (const item of tests['objects']) {
          if(!mapUniversities.has(item.name)){
              mapUniversities.set(item.name, item.name);    // set any value to Map
              result.push({

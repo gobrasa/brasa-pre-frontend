@@ -1,15 +1,14 @@
-    <mat-toolbar color="primary" class="mat-elevation-z10">
-      <button mat-button routerLink="/">Home</button>
+    <mat-toolbar class="mat-elevation-z10">
+      <button mat-button *ngIf="!authenticated" routerLink="/">Home</button>
       <button mat-button onclick="location.href='http://www.gobrasa.org';">Conheça a BRASA</button>
-      <button mat-button routerLink="/mentee/listing">Mentee</button>
-      <button mat-button routerLink="/mentor/listing">Mentor</button>
-      <button mat-button *ngIf="authenticated" routerLink="/">Admin</button>
+      <button mat-button  *ngIf="authenticated" routerLink="/mentee/listing">Mentee</button>
+      <button mat-button  *ngIf="authenticated" routerLink="/mentor/listing">Mentor</button>
 
       <!-- This fills the remaining space of the current row -->
       <span class="fill-remaining-space"></span>
 
       <button mat-button (click)="signIn()" *ngIf="!authenticated">Sign In</button>
-      <button mat-button (click)="signOut()" *ngIf="authenticated">Sign Out</button>
+      <button mat-button (click)="signOut()" *ngIf="authenticated" routerLink="/">Sign Out</button>
     </mat-toolbar>
 
     <div class="view-container">
