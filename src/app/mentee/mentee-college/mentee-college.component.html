@@ -2,8 +2,9 @@
 <div class="container">
     <h1>Atualize sua College List!</h1>
     <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
-
+      {{selectedUnis}}
       <div class="form-group" *ngIf="selectedUnis">
+        {{selectedUnis}}
       <angular2-multiselect *ngIf="selectedUnis.length == helper3"
       [data]="universities"
                             [(ngModel)]="selectedUnis"
@@ -22,7 +23,7 @@
 
 
       <br><br>
-        <button type="submit" class="btn btn-success">Salvar</button>]
+        <button type="submit" class="btn btn-success">Salvar</button>
 
     </form>
 </div>

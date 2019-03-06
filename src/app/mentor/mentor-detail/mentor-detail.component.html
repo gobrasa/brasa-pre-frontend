@@ -13,11 +13,25 @@
       </div>
       <br>
 
-      <div class="form-group">
+      <!--div class="form-group">
         <input placeholder="Universidade" type="text" [(ngModel)]="mentorDados.university" [ngModelOptions]="{standalone: true}">
+      </div-->
+      <div class="form-group" *ngIf="selectedUnis">
+      <angular2-multiselect
+                            [data]="universities"
+                            [(ngModel)]="selectedUnis"
+                            [settings]="settings"
+                            (onSelect)="onItemSelect($event)"
+                            formControlName="uniList"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
       </div>
       <br><br>
-      <button type="submit" class="btn btn-success">Enviar</button>
+      <button type="submit" class="btn btn-success">Salvar Informações</button>
 <br>
 <br>
     </form>
@@ -31,7 +45,7 @@
       Nome: {{mentorDados.first_name}} + {{mentorDados.last_name}}
     </div>
 
-    <div class="form-group">
+    <div>
       Universidade: {{mentorDados.university}}
     </div>
 

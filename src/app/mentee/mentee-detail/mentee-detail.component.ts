@@ -24,7 +24,7 @@ export class MenteeDetailComponent {
   public satArray:any=[];
   public scoresArray:any=[];
   public satSubjectsArray:any=[];
-  private headers: HttpHeaders;
+  public headers: HttpHeaders;
   public menteeProfile:any=[];
   public menteeId:any;
   public menteeDados:any=[];
@@ -51,11 +51,17 @@ export class MenteeDetailComponent {
     private menteeService: MenteeService,
     private route: ActivatedRoute,
     private _location: Location) {
-    this.headers = new HttpHeaders({'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+
+
+    //this.headers = new HttpHeaders({'Content-Type': 'application/json',
+    //'Access-Control-Allow-Origin': '*',
+    //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+    //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    //});
+
+    this.headers = new HttpHeaders({'Authorization': `Bearer ${Auth0.getAccessToken()}`
     });
+
     this.userNickname = Auth0.getProfile().nickname;
     this.menteeDados.push({first_name: '',
     last_name: '',
@@ -77,6 +83,15 @@ export class MenteeDetailComponent {
        }, error => {
         console.log(error);
       });*/
+  }
+
+  static buildHttpOptions(){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      }),
+    };
+    return httpOptions;
   }
 
   getUsername(username) {
@@ -104,6 +119,7 @@ export class MenteeDetailComponent {
  }
 
   public logForm(){
+
     console.log(this.menteeDados)
     //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
     console.log('ˆˆ')

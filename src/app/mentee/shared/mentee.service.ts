@@ -41,11 +41,20 @@ export class MenteeService {
   //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
   // }
 
-  public getAllExams(): Observable<Exam[]>{
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+ }
 
+  public getAllExams(): Observable<Exam[]>{
+    let httpOptions = MenteeService.buildHttpOptions();
     //const httpOptions = ExamsApiService.buildHttpOptions();
     //console.log(httpOptions);
-    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`);
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/exams`, httpOptions);
   }
 
   public getAllScheduledExams(): Observable<Exam[]>{

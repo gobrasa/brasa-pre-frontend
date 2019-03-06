@@ -45,7 +45,8 @@
         Estado: {{menteeDados.state}}
       </div><br>
       <div class="form-group">
-        Financial Aid: {{menteeDados.financial_aid}}
+        <span *ngIf="menteeDados.financial_aid == 1">Financial Aid: Sim</span>
+        <span *ngIf="menteeDados.financial_aid == 0">Financial Aid: Não</span>
       </div><br>
 
 

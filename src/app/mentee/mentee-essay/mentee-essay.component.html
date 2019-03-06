@@ -14,7 +14,7 @@
 <br>
 <h1>Essays adicionadas:</h1>
 <div *ngFor="let essay of essays">
-  <div *ngIf="essay.username == menteeName">
+  <div *ngIf="essay.username == menteeName || essay.username == userNickname">
       <span ><strong>Essay: </strong></span>
       <span>{{ essay.link }}</span>
 
