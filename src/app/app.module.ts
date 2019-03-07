@@ -64,7 +64,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
 import { DatePipe } from '@angular/common'
-
+import {AWS_URL} from './env.prod';
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
@@ -185,7 +185,7 @@ export class AppModule {
       domain: 'brasa-pre-app.eu.auth0.com',
       audience: 'https://online-exam.digituz.com',
       clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-      redirectUri: 'http://localhost:4200/callback',
+      redirectUri: AWS_URL,
       scope: 'openid profile manage:exams'
     });
   }
