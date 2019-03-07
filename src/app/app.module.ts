@@ -66,7 +66,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
 import { DatePipe } from '@angular/common'
-
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
