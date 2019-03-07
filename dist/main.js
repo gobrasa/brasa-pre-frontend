@@ -226,7 +226,7 @@ var AppModule = /** @class */ (function () {
             domain: 'brasa-pre-app.eu.auth0.com',
             audience: 'https://online-exam.digituz.com',
             clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-            redirectUri: 'http://localhost:4200/callback',
+            redirectUri: 'http://ec2-52-53-185-200.us-west-1.compute.amazonaws.com:4300/callback',
             scope: 'openid profile manage:exams'
         });
     }
@@ -918,7 +918,7 @@ var MenteeCollegeComponent = /** @class */ (function () {
                         this.selectedUnis.push({id: tests.university_applications[this.helper2].university_id, name: collegeName.name});
                         console.log(this.selectedUnis.length, this.helper3)}
                       })
-              
+
                     }*/
                     _this.selectedUnis = _this.helper;
                     return _this.selectedUnis;
@@ -1652,7 +1652,7 @@ var MenteeTestComponent = /** @class */ (function () {
           tests.forEach((element)=>{
             console.log(element)
             console.log(element.category)
-     
+
             this.categories.push({categoryValue: element.category})
             console.log(this.categories, '11')
           })*/
@@ -1684,7 +1684,7 @@ var MenteeTestComponent = /** @class */ (function () {
             tests.forEach((element)=>{
               console.log(element)
               console.log(element.category)
-       
+
               this.categories.push({categoryValue: element.category})
               console.log(this.categories, '11')
             })*/
