@@ -18,7 +18,7 @@ export class MenteeListingComponent {
   private menteeDecks: any;
   // accessible from template, cannot be private
   // (https://stackoverflow.com/questions/34574167/angular2-should-private-variables-be-accessible-in-the-template)
-  userDecks: any;  
+  userDecks: any;
   private userNickname: any;
   private mentorDeck: any;
   public role: any;
@@ -35,17 +35,28 @@ export class MenteeListingComponent {
         this.getUsername(this.userNickname);
 
   }
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
 
   getAllMentees() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees');
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   getAllUsers() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/users');
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/users', httpOptions);
   }
 
   getAllMenteesFromMentor(){
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors');
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
   }
 
   private getMentees() {

@@ -75,10 +75,11 @@ export class MenteeEssayComponent{
   }
 
   public logForm(){
+    let httpOptions = MenteeService.buildHttpOptions();
         this.http.post(`${this.API_URL}/uploads`, {
           "link": this.link,
           "username": this.userNickname
-        }, {headers: this.headers}).subscribe(data => {
+        }, httpOptions).subscribe(data => {
           this.getScheduledExams();
             console.log(data['_body']);
             }, error => {
@@ -96,8 +97,17 @@ export class MenteeEssayComponent{
  }
 
   public excludeEssay(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
     console.log(id)
-    this.http.delete<any>(`${this.API_URL}/uploads/`+id, {headers: this.headers}).subscribe(data => {
+    this.http.delete<any>(`${this.API_URL}/uploads/`+id, httpOptions).subscribe(data => {
 
      }, error => {
       console.log(error);

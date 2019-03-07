@@ -67,8 +67,7 @@ export class MenteeTestComponent {
   public max = new Date(2025, 3, 25);
 
   todo : FormGroup; // accessible from template, cannot be private
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
-  //private readonly API_URL = 'http://localhost:5000';
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   public scoresArray:any=[];
   private headers: HttpHeaders;
   //public categories: Exam[];
@@ -91,14 +90,6 @@ export class MenteeTestComponent {
 
   examsListSubs: Subscription;
   examsList: Exam[];
-
- AddScore(){
-   this.scoresArray.push({'category':'','subCategory':'', 'score': ''});
- };
- RemoveScore(idx){
-   this.scoresArray.splice(idx, 1);
- };
-
 
   constructor( private fb: FormBuilder,
                private http: HttpClient,
@@ -147,6 +138,15 @@ export class MenteeTestComponent {
     };
   }
 
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
+
   getUsername(username) {
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
@@ -186,6 +186,7 @@ export class MenteeTestComponent {
  }
 
   public logForm(){
+    let httpOptions = MenteeService.buildHttpOptions();
     // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
     this.menteeService.getAllExams().subscribe(tests => {
       tests['objects'].forEach(prova=>{
@@ -201,8 +202,7 @@ export class MenteeTestComponent {
                 "mentee_id": this.menteeId,
                 "exam_id": provaId,
                 "score": this.score
-            },
-            {headers: this.headers}).subscribe(data => {
+            },httpOptions).subscribe(data => {
               console.log(data['_body']);
               this.getScheduledExams();
              }, error => {
@@ -285,7 +285,9 @@ export class MenteeTestComponent {
 }
 
 public excludeExam(id){
-  this.http.delete<any>(`${this.API_URL}/scheduled_exams/`+id,{headers: this.headers}).subscribe(data => {
+
+  let httpOptions = MenteeService.buildHttpOptions();
+  this.http.delete<any>(`${this.API_URL}/scheduled_exams/`+id, httpOptions).subscribe(data => {
     console.log(data['_body']);
    }, error => {
     console.log(error);

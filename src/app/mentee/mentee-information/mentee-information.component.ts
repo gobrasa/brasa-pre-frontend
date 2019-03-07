@@ -29,8 +29,18 @@ export class MenteeInformationComponent {
 
   }
 
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
+
   getAllMentees() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees');
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   getUsername(username) {

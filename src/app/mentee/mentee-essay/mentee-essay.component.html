@@ -6,8 +6,8 @@
   </head>
   <body>
   <div class="container">
-    
-     
+
+
 
     <div *ngIf="role == 'mentee' || role == 'admin'" class="container">
         <div id="essay" class=" shadow-sm p-3 mb-5 bg-white rounded">
@@ -23,18 +23,18 @@
           </button>
           </div>
 
-     
+
       </div>
-      
-      
+
+
     </div>
 
     <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
-      
-    
+
+
     <h1>Essays adicionadas:</h1>
     <div *ngFor="let essay of essays">
-      <div class="essay-listing" *ngIf="essay.username == userNickname">
+      <div class="essay-listing" *ngIf="essay.username == menteeName || essay.username == userNickname">
 
         <a href="'{{ essay.link }}'">Essay link</a>
         <div class="action apagar-btn">
@@ -44,7 +44,7 @@
         </div>
         <hr>
 
-       
+
 
       </div>
       </div>
@@ -56,7 +56,7 @@
     </div>
 
 
-      
+
     </div>
  </div>
 </body>

@@ -20,27 +20,6 @@ export class MenteeService {
 
   constructor(private http: HttpClient) {}
 
-
-  public getAllmenteeDecks(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentees/`);
-  }
-
-  public getUser(username) {
-    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
-  }
-
-  public getMenteeFromMentor(mentorId) {
-    return this.http.get<any>(`${this.HS_API_URL}/mentees?q={"filters":[{"name":"mentor_id","op":"eq","val": "` + mentorId + `"}],"single":true}`);
-  }
-
-  public getMentor(username) {
-    return this.http.get<any>(`${this.HS_API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
-  }
-
-  // public getCollegeList(id): Observable<any>{
-  //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
-  // }
-
   static buildHttpOptions(){
    let httpOptions = {
      headers: new HttpHeaders({
@@ -48,7 +27,32 @@ export class MenteeService {
      }),
    };
    return httpOptions;
- }
+  }
+
+  public getAllmenteeDecks(): Observable<any>{
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentees/`, httpOptions);
+  }
+
+  public getUser(username) {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions);
+  }
+
+  public getMenteeFromMentor(mentorId) {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentees?q={"filters":[{"name":"mentor_id","op":"eq","val": "` + mentorId + `"}],"single":true}`, httpOptions);
+  }
+
+  public getMentor(username) {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions);
+  }
+
+  // public getCollegeList(id): Observable<any>{
+  //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
+  // }
+
 
   public getAllExams(): Observable<Exam[]>{
     let httpOptions = MenteeService.buildHttpOptions();
@@ -58,8 +62,8 @@ export class MenteeService {
   }
 
   public getAllScheduledExams(): Observable<Exam[]>{
-
-    return this.http.get<Exam[]>(`${this.HS_API_URL}/scheduled_exams`);
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<Exam[]>(`${this.HS_API_URL}/scheduled_exams`, httpOptions);
   }
 
   // public getAllUniversities(): Observable<any>{
@@ -67,20 +71,24 @@ export class MenteeService {
   // }
 
   public getAllEssays(): Observable<any>{
-    return this.http.get(`${this.HS_API_URL}/uploads`)
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get(`${this.HS_API_URL}/uploads`, httpOptions)
   }
 
   public getMenteeCollegeList(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id, httpOptions);
   }
 
   public getCollegeNameById(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities/` + id);
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/universities/` + id, httpOptions);
   }
 
 
   public getAllUniversities(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities`);
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/universities`, httpOptions);
   }
 
 
