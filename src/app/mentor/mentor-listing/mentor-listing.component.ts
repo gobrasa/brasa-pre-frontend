@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as Auth0 from 'auth0-web';
-
+import { MentorService } from '../shared/mentor.service';
 
 @Component({
   selector: 'app-mentor-listing',
@@ -14,9 +14,9 @@ import * as Auth0 from 'auth0-web';
 
 export class MentorListingComponent {
 
-  private mentorDecks: any;
-  private userDecks: any;
-  private menteeDecks: any;
+  mentorDecks: any; // accessible from template, cannot be private
+  userDecks: any; // accessible from template, cannot be private
+  menteeDecks: any; // accessible from template, cannot be private
   private userNickname: any;
 
   constructor(private route: ActivatedRoute,
@@ -30,15 +30,18 @@ export class MentorListingComponent {
   }
 
   getAllMentors() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors');
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
   }
 
   getAllUsers() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/users');
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/users', httpOptions);
   }
 
   getAllMentees() {
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees');
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   private getMentors() {

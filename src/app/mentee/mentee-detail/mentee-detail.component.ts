@@ -20,7 +20,6 @@ import * as Auth0 from 'auth0-web';
 export class MenteeDetailComponent {
   public todo : FormGroup;
   private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
-  //private readonly API_URL = 'http://bce8300d.ngrok.io';
   public satArray:any=[];
   public scoresArray:any=[];
   public satSubjectsArray:any=[];
@@ -31,19 +30,6 @@ export class MenteeDetailComponent {
   public userNickname:any;
   public role:any;
   public username:any;
-  /*
- AddSAT(){
-   this.satArray.push({'value':''});
- };
- AddScore(){
-   this.scoresArray.push({'category':'','subcategory':'', 'score': ''});
- };
- RemoveScore(){
-   this.scoresArray.pop();
- };
- AddSubjects(){
-   this.satSubjectsArray.push({'subject':'','value':'','date':''});
- }*/
 
   constructor( private formBuilder: FormBuilder,
     private http: HttpClient,

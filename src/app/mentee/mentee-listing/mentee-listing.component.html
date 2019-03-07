@@ -17,12 +17,12 @@
               <mat-card class="example-card ">
               <mat-card-header>
                 <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
-                
+
               </mat-card-header>
 
               <mat-card-content>
                 <div id="menteeDeck">
-            
+
                   <span ><strong>Cidade: </strong></span>
                   <span>{{ menteeDeck.city }}</span>
                   <hr>
@@ -45,7 +45,7 @@
                 <mat-card class="example-card">
                   <mat-card-header>
                     <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
-                   
+
                   </mat-card-header>
 
                   <mat-card-content>
@@ -73,26 +73,26 @@
               <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
                   <mat-card-header>
                     <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
-                   
+
                   </mat-card-header>
-    
+
                   <mat-card-content>
                     <div id="menteeDeck">
-                   
-                      <span ><strong>City: </strong></span>
+
+                      <span ><strong>Cidade: </strong></span>
                       <span>{{ menteeDeck.city }}</span>
                       <hr>
-                      <span ><strong>State: </strong></span>
+                      <span ><strong>Estado: </strong></span>
                       <span>{{ menteeDeck.state }}</span>
                     </div>
                   </mat-card-content>
                   <mat-card-actions>
                     <button type="button" class="btn btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Atualizar Informações</button>
-                    
+
                   </mat-card-actions>
                 </mat-card>
           </div>
-          
+
             </div>
 
       </div>

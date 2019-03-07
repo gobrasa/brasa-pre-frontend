@@ -196,6 +196,7 @@ ngOnChanges() {
         this._location.back();
        }, error => {
         console.log(error);
+        this._location.back();
       });
   };
 

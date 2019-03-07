@@ -20,32 +20,48 @@ export class MentorService {
 
   constructor(private http: HttpClient) {}
 
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
+
   public getUser(username) {
-    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions);
   }
 
   public getAllUniversities(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities`);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/universities`, httpOptions);
   }
 
   public getCollegeNameById(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/universities/` + id);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/universities/` + id, httpOptions);
   }
 
   public getMentorUniversity(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentors/` + id);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentors/` + id, httpOptions);
   }
 
   public getAllmentorDecks(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentors`);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentors`, httpOptions);
   }
 
   public userId(): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentores`);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentores`, httpOptions);
   }
 
   public getMentorById(id): Observable<any>{
-    return this.http.get<any>(`${this.HS_API_URL}/mentors/` + id);
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.HS_API_URL}/mentors/` + id, httpOptions);
   }
 
 }

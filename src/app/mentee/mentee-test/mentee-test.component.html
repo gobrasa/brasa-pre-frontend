@@ -7,8 +7,8 @@
   </head>
   <body>
   <div class="container">
-    
-     
+
+
       <div *ngIf="role== 'mentee' || role == 'admin'">
           <div id="exams_update" class="shadow-sm p-3 mb-5 bg-white rounded">
           <h1>Adicione suas provas!</h1>
@@ -45,7 +45,7 @@
           </angular2-multiselect>
         </div>
 
-   
+
             <label class=" form-group">
                   <input class="form-control" placeholder="Data"
                         [min]="min" [max]="max"
@@ -55,15 +55,14 @@
                         formControlName="dateInput">
                   <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
               </label>
-  
+
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Nota" [(ngModel)]="score" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="action">
               <button type="submit" class="btn btn-sm btn-success salvar">Enviar</button>
-              <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
           </div>
-          
+
       </form>
       </div>
     </div>
@@ -92,6 +91,9 @@
     </div>
     </div>
   </div>
+  <button type="button" class="btn btn voltar" (click)="goBack()">
+      Voltar
+</button>
     </div>
 </body>
 </html>

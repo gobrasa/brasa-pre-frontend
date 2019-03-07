@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {API_URL} from '../env';
 import { Observable, of } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import * as Auth0 from 'auth0-web';
@@ -18,6 +17,8 @@ export class AuthService {
 
   login = Auth0.signIn;
   logout = Auth0.signOut;
+
+  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com/api';
 
   constructor(private http: HttpClient) {
   }
@@ -38,7 +39,7 @@ export class AuthService {
 
     let user2 : User;
 
-    return this.http.get<User>(`${API_URL}/users/${username}`,httpOptions)
+    return this.http.get<User>(`${this.HS_API_URL}/users/${username}`,httpOptions)
 
     }
 

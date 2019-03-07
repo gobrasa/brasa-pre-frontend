@@ -19,7 +19,15 @@
       <div class="form-group">
         <input placeholder="Sobrenome" type="text" class="form-control" [(ngModel)]="mentorDados.last_name" [ngModelOptions]="{standalone: true}">
       </div>
-    
+
+      <div class="form-group">
+        <input placeholder="Cidade" type="text" class="form-control" [(ngModel)]="mentorDados.city" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Estado" type="text" class="form-control" [(ngModel)]="mentorDados.state" [ngModelOptions]="{standalone: true}">
+      </div>
+
 
       <!--div class="form-group">
         <input placeholder="Universidade" type="text" [(ngModel)]="mentorDados.university" [ngModelOptions]="{standalone: true}">
@@ -38,13 +46,13 @@
         </c-item>
       </angular2-multiselect>
       </div>
-      
+
 
       <div class="action">
           <button type="submit" class="btn btn-sm btn-success salvar">Salvar Informações</button>
           <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
       </div>
-      
+
 
     </form>
   </div>
@@ -58,9 +66,19 @@
         <strong>Nome:</strong> {{mentorDados.first_name}}  {{mentorDados.last_name}}
       </div>
 
+      <div class="form-group">
+        <strong>Cidade:</strong> {{mentorDados.city}}
+      </div>
+
+      <div class="form-group">
+        <strong>Estado:</strong> {{mentorDados.state}}
+      </div>
+
       <div>
           <strong>Universidade:</strong> {{mentorDados.university}}
       </div>
+
+
       <div class="action">
           <button type="button" class="btn voltar" (click)="goBack()">
               Voltar
@@ -70,7 +88,7 @@
   </div>
 <br>
 <br>
-  
+
 
 
 
