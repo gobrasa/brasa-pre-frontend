@@ -107,7 +107,6 @@ export const MY_NATIVE_FORMATS = {
     ExamsComponent,
     CallbackComponent,
     HomeComponent,
-    //MentorComponent,
     MenteeListingComponent,
     MentorInformationComponent,
     MentorListingComponent,
