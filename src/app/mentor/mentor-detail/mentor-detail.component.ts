@@ -79,10 +79,12 @@ export class MentorDetailComponent {
     private mentorService: MentorService,
     private route: ActivatedRoute,
     private _location: Location ) {
-    this.headers = new HttpHeaders({'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    //this.headers = new HttpHeaders({'Content-Type': 'application/json',
+    //'Access-Control-Allow-Origin': '*',
+    //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+    //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+    //});
+    this.headers = new HttpHeaders({'Authorization': `Bearer ${Auth0.getAccessToken()}`
     });
     this.userNickname = Auth0.getProfile().nickname;
     this.todo = this.formBuilder.group({
@@ -90,7 +92,9 @@ export class MentorDetailComponent {
         });
     this.mentorDados.push({first_name: '',
     last_name: '',
-    university: ''
+    university: '',
+    city: '',
+    state: ''
     })
 
     //this.todo = this.formBuilder.group({});
@@ -133,7 +137,10 @@ export class MentorDetailComponent {
       this.mentorDados = {
         first_name: mentor.first_name,
         last_name: mentor.last_name,
-        university: mentor.universities
+        university: mentor.universities,
+        city: mentor.city,
+        state: mentor.state
+
       };
     });
   }
@@ -147,7 +154,9 @@ export class MentorDetailComponent {
     this.http.put(`${this.API_URL}/mentors/` + this.mentorId, {
       "first_name": this.mentorDados.first_name,
       "last_name": this.mentorDados.last_name,
-      "university_id": this.todo.value.uniList[0].id
+      "university_id": this.todo.value.uniList[0].id,
+      "city": this.mentorDados.city,
+      "state": this.mentorDados.state
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
       if (data.status == 200) {
         this._location.back();
