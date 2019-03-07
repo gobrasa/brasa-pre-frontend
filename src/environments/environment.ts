@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  HOSTNAME: 'http://localhost:4200'
+  //HOSTNAME: 'http://localhost:4200'
+  HOSTNAME: 'http://ec2-52-53-185-200.us-west-1.compute.amazonaws.com:4300'
 };
 
 /*
