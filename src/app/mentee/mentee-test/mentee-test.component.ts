@@ -82,7 +82,7 @@ export class MenteeTestComponent {
   @Input() score: any;
   public myDate:any = Date();
   public menteeId:any;
-  private scheduledExams: any;
+  scheduledExams: any;
   public role: any;
   public username: any;
   private userNickname: any;

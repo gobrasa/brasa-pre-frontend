@@ -45,3 +45,13 @@
     color: #9999;
     float: left;
 }
+
+.mat-card-header{
+  display: flex;
+}
+
+.first-column{
+  margin-left:-33px;
+  float: left;
+  flex: 80%;
+}

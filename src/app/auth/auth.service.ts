@@ -14,10 +14,12 @@ import { MenteeService } from '../mentee/shared/mentee.service'
 export class AuthService {
   isLoggedIn = false;
   // store the URL so we can redirect after logging in
-  redirectUrl: string = '/exams';
+  redirectUrl: string = '/admin';
 
   login = Auth0.signIn;
   logout = Auth0.signOut;
+
+  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com/api';
 
   constructor(private http: HttpClient) {
   }

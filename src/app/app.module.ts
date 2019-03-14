@@ -66,8 +66,6 @@ import { DatePipe } from '@angular/common'
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
-import { MenteeComponent } from './mentee/mentee.component';
-import { MentorComponent } from './mentor/mentor/mentor.component';
 
 
 
@@ -106,11 +104,9 @@ export const MY_NATIVE_FORMATS = {
     HomeComponent,
     //MentorComponent,
     MenteeListingComponent,
-    MentorComponent,
     MentorInformationComponent,
     MentorListingComponent,
     MentorDetailComponent,
-    MenteeComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
     MenteeTestComponent,

@@ -11,22 +11,40 @@
 
 
           <div *ngIf="mentorDeck.id == mentorId">
-            <mat-card-header>
-              <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-              
-            </mat-card-header>
+              <mat-card-header>
+                  <span class="first-column">
+                      <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
+                  </span>
+                
+                  <span class="second-column">
+                    <span *ngIf="mentorDeck['cycle'].region == 'Europa'">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                    </span>
+                    <span *ngIf="mentorDeck['cycle'].region == 'Estados Unidos'">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                    </span>
+                  </span> 
+                </mat-card-header>
 
             <mat-card-content>
                 <div id="mentorDeck">
-        
-                  <span ><strong>Ciclo: </strong></span>
-                  <span>{{ mentorDeck['cycle'].summary}}</span>
-                  <hr>
-                  <span ><strong>Regiao: </strong></span>
-                  <span>{{ mentorDeck['cycle'].region}}</span>
-                  <hr>
                   <span ><strong>Universidade: </strong></span>
                   <span>{{ mentorDeck['university'].name }}</span>
+                  <hr>
+                  <span ><strong>Major: </strong></span>
+                  <!-- <span>{{ mentorDeck['major'].category}}</span>
+                  <br> -->
+                  <span>{{ mentorDeck['major'].name}}</span>
+                  <hr>
+                  <span ><strong>Minor: </strong></span>
+                  <!-- <span>{{ mentorDeck['minor'].category}}</span>
+                  <br> -->
+                  <span>{{ mentorDeck['minor'].name}}</span>
+                  <hr>
+                  <span ><strong>Email: </strong></span>
+                  <span>{{ mentorDeck.username }}@gobrasa.org</span>
+                  
+                  
                 </div>
               </mat-card-content>
               <mat-card-actions>
