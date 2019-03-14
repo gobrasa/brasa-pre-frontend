@@ -25,8 +25,11 @@ export class MenteeInformationComponent {
               private http:HttpClient,
             private menteeService: MenteeService) {
               this.getMentees();
+              this.getMentors();
+
               this.userNickname = Auth0.getProfile().nickname;
               this.getUsername(this.userNickname);
+
 
   }
 
@@ -54,8 +57,6 @@ export class MenteeInformationComponent {
    private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
          this.menteeDeck = menteeDecks['objects'];
-
-
          this.menteeId = this.route.snapshot.paramMap.get('id');
 
     });
@@ -64,14 +65,13 @@ export class MenteeInformationComponent {
   getAllMentors() {
     let httpOptions = MenteeService.buildHttpOptions();
     return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    
   }
 
   private getMentors() {
     this.getAllMentors().subscribe(mentorDecks => {
-         this.mentorDecks = mentorDecks['objects'];
-
-
-         this.menteeId = this.route.snapshot.paramMap.get('id');
+         this.mentorDecks = mentorDecks['objects']; 
+        
 
     });
   }

@@ -8,9 +8,6 @@
   <div class="container">
     <mat-card class="example-card">
         <div *ngFor="let menteeDeck of menteeDeck">
-            
-
-
             <div *ngIf="menteeDeck.id == menteeId">
                 <mat-card-header>
 
@@ -32,9 +29,13 @@
 
                 <mat-card-content>
                     <div id="menteeDeck">
-                        <span ><strong>Mentor: </strong></span>
-                        <span>{{ menteeDeck.city }}</span>
-                        <hr>
+                        <div *ngFor="let mentorDeck of mentorDecks">
+                            <div *ngIf="menteeDeck.mentor_id == mentorDeck.id">
+                                <span ><strong>Mentor: </strong></span>
+                                <span>{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</span>
+                                <hr>
+                            </div>
+                        </div>
                         <span ><strong>Cidade: </strong></span>
                         <span>{{ menteeDeck.city }}</span>
                         <hr>
