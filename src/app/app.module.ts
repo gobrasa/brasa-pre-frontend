@@ -2,10 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExamsApiService } from './exams/exams-api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { ExamFormComponent } from './exams/exam-form.component';
-import { ExamsComponent } from './exams/exams.component';
 import { RouterModule, Routes } from '@angular/router';
 import * as Auth0 from 'auth0-web';
 import {CallbackComponent} from './callback.component';
@@ -17,6 +14,7 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -64,7 +62,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
 import { DatePipe } from '@angular/common'
-import { API_URL } from './env'
+
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
@@ -75,8 +73,6 @@ import { MentorComponent } from './mentor/mentor/mentor.component';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
-  { path: 'new-exam', component: ExamFormComponent },
-  { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
   { path: 'mentee/test/:id', component: MenteeTestComponent },
   { path: 'mentee/essay/:id', component: MenteeEssayComponent },
@@ -86,6 +82,7 @@ const appRoutes: Routes = [
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
+  { path: 'admin', component: AdminComponent},
 
 
   { path: '', component: HomeComponent },
@@ -105,8 +102,6 @@ export const MY_NATIVE_FORMATS = {
 @NgModule({
   declarations: [
     AppComponent,
-    ExamFormComponent,
-    ExamsComponent,
     CallbackComponent,
     HomeComponent,
     //MentorComponent,
@@ -121,7 +116,8 @@ export const MY_NATIVE_FORMATS = {
     MenteeTestComponent,
     MenteeEssayComponent,
     MenteeCollegeComponent,
-    MenteeDetailComponent
+    MenteeDetailComponent,
+    AdminComponent
   ],
   imports: [
     AngularMultiSelectModule,
@@ -175,7 +171,7 @@ export const MY_NATIVE_FORMATS = {
       appRoutes,
     ),
   ],
-  providers: [ExamsApiService, {provide: OWL_DATE_TIME_FORMATS, useValue: MY_NATIVE_FORMATS}, DatePipe],
+  providers: [ {provide: OWL_DATE_TIME_FORMATS, useValue: MY_NATIVE_FORMATS}, DatePipe],
   entryComponents: [MenteeTestComponent, MenteeCollegeComponent],
   bootstrap: [AppComponent, MenteeTestComponent, MenteeCollegeComponent]
 })
@@ -185,7 +181,7 @@ export class AppModule {
       domain: 'brasa-pre-app.eu.auth0.com',
       audience: 'https://online-exam.digituz.com',
       clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-      redirectUri: API_URL+'/callback',
+      redirectUri: 'http://localhost:4200/callback',
       scope: 'openid profile manage:exams'
     });
   }
