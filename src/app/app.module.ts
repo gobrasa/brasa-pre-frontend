@@ -66,8 +66,9 @@ import { DatePipe } from '@angular/common'
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
-
-
+import { MenteeComponent } from './mentee/mentee.component';
+import { MentorComponent } from './mentor/mentor/mentor.component';
+import {AWS_URL} from './env';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
@@ -104,9 +105,11 @@ export const MY_NATIVE_FORMATS = {
     HomeComponent,
     //MentorComponent,
     MenteeListingComponent,
+    MentorComponent,
     MentorInformationComponent,
     MentorListingComponent,
     MentorDetailComponent,
+    MenteeComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
     MenteeTestComponent,
@@ -177,7 +180,7 @@ export class AppModule {
       domain: 'brasa-pre-app.eu.auth0.com',
       audience: 'https://online-exam.digituz.com',
       clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-      redirectUri: 'http://localhost:4200/callback',
+      redirectUri: AWS_URL,
       scope: 'openid profile manage:exams'
     });
   }
