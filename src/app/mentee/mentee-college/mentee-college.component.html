@@ -12,12 +12,29 @@
         <h1>Atualize sua College List!</h1>
         <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
 
-          <div class="form-group" *ngIf="selectedUnis">
+          <div class="form-group">
+            <angular2-multiselect
+                                  [data]="isoCode"
+                                  [(ngModel)]="isoControl"
+                                  [settings]="settingsIso"
+                                  (onSelect)="onIsoSelect($event)"
+                                  (onDeSelect)="onIsoDeSelect($event)"
+                                  formControlName="isoList"
+                                  >
+                  <c-item>
+                      <ng-template let-item="item">
+                        {{item.country_iso_code}}
+                      </ng-template>
+                  </c-item>
+            </angular2-multiselect>
+          </div>
+
+          <div class="form-group" *ngIf="selectedUnisIso">
           <angular2-multiselect *ngIf="selectedUnis.length == helper3"
-          [data]="universities"
-                                [(ngModel)]="selectedUnis"
+                                [data]="universitiesIso"
+                                [(ngModel)]="selectedUnisIso"
                                 [loading] = "loading"
-                                [settings]="settings"
+                                [settings]="settingsUnis"
                                 (onSelect)="onItemSelect($event)"
                                 (onDeSelect)="OnItemDeSelect($event)"
                                 formControlName="uniList"
@@ -31,14 +48,14 @@
 
 
           <div class="action">
-              <button type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
+              <button *ngIf="role=='mentee'" type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
               <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
           </div>
-         
+
 
         </form>
     </div>
-  
+
     </div>
     </body>
     </html>

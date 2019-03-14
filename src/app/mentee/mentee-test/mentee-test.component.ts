@@ -49,7 +49,6 @@ import {
 } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common'
-import { ExamsApiService } from '../../exams/exams-api.service';
 import { Subscription } from 'rxjs';
 import {Location} from '@angular/common';
 import * as Auth0 from 'auth0-web';
@@ -83,7 +82,7 @@ export class MenteeTestComponent {
   @Input() score: any;
   public myDate:any = Date();
   public menteeId:any;
-  private scheduledExams: any;
+  scheduledExams: any;
   public role: any;
   public username: any;
   private userNickname: any;

@@ -34,3 +34,22 @@ hr{
   background-color: #4B88C5;
   color: white;
 }
+
+.mat-card-header{
+  display: flex;
+}
+
+.first-column{
+  margin-left:-33px;
+  float: left;
+  flex: 80%;
+}
+
+/* .mat-card-header-text {
+  margin: 0px;
+} */
+
+
+.column img{
+  float: right;
+}

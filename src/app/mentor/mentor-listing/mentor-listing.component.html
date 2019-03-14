@@ -13,10 +13,20 @@
         <mat-card class="example-card">
             <div *ngFor="let mentorDeck of mentorDecks">
               <div *ngIf="userNickname == mentorDeck.username">
-                <mat-card-header>
-                  <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-                
-                </mat-card-header>
+                  <mat-card-header>
+                    <span class="first-column">
+                        <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
+                    </span>
+                  
+                    <span class="second-column">
+                      <span *ngIf="mentorDeck['cycle'].region == 'Europa'">
+                          <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                      </span>
+                      <span *ngIf="mentorDeck['cycle'].region == 'Estados Unidos'">
+                          <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                      </span>
+                    </span> 
+                  </mat-card-header>
 
                 <mat-card-content>
                    
@@ -37,10 +47,21 @@
                 <div *ngIf="userNickname == menteeDeck.username">
                   <div *ngFor="let mentorDeck of mentorDecks">
                     <div *ngIf="mentorDeck.id == menteeDeck.mentor_id">
-                      <mat-card-header>
-                        <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-                        
-                      </mat-card-header>
+                        <mat-card-header>
+                            <span class="first-column">
+                                <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
+                            </span>
+                          
+                            <span class="second-column">
+                              <span *ngIf="mentorDeck['cycle'].region == 'Europa'">
+                                  <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                              </span>
+                              <span *ngIf="mentorDeck['cycle'].region == 'Estados Unidos'">
+                                  <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                              </span>
+                            </span>
+                            
+                          </mat-card-header>
 
                       <mat-card-content>
                           <div id="mentorDeck">
@@ -64,13 +85,24 @@
               <div class="content">
                     <mat-card class="example-card child" *ngFor="let mentorDeck of mentorDecks">
                       <mat-card-header>
-                        <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
-                  
+                        <span class="first-column">
+                            <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
+                        </span>
+                      
+                        <span class="second-column">
+                          <span *ngIf="mentorDeck['cycle'].region == 'Europa'">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                          </span>
+                          <span *ngIf="mentorDeck['cycle'].region == 'Estados Unidos'">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                          </span>
+                        </span>
+                        
                       </mat-card-header>
 
                       <mat-card-content>
                           <div id="mentorDeck">
-                       
+                            
                           </div>
                         </mat-card-content>
                         <mat-card-actions>

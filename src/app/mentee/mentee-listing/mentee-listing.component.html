@@ -16,18 +16,27 @@
             <div *ngIf="mentorId == menteeDeck.mentor_id">
               <mat-card class="example-card ">
               <mat-card-header>
-                <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+
+                <span class="first-column">
+                  <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                </span>
+
+                <span class="second-column">
+                    <span *ngIf="menteeDeck.cycle_id== 1">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                    </span>
+                    <span *ngIf="menteeDeck.cycle_id == 2">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                    </span>
+                    
+                  </span>
 
               </mat-card-header>
 
               <mat-card-content>
                 <div id="menteeDeck">
 
-                  <span ><strong>Cidade: </strong></span>
-                  <span>{{ menteeDeck.city }}</span>
-                  <hr>
-                  <span ><strong>Estado: </strong></span>
-                  <span>{{ menteeDeck.state }}</span>
+                 
                 </div>
               </mat-card-content>
               <mat-card-actions>
@@ -43,18 +52,26 @@
           <div *ngFor="let menteeDeck of menteeDecks">
               <div *ngIf="userNickname == menteeDeck.username">
                 <mat-card class="example-card">
-                  <mat-card-header>
-                    <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                    <mat-card-header>
 
-                  </mat-card-header>
-
+                      <span class="first-column">
+                        <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                      </span>
+      
+                      <span class="second-column">
+                          <span *ngIf="menteeDeck.cycle_id== 1">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                          </span>
+                          <span *ngIf="menteeDeck.cycle_id == 2">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                          </span>
+                          
+                        </span>
+        
+                    </mat-card-header>
                   <mat-card-content>
                     <div id="menteeDeck">
-                      <span ><strong>Cidade: </strong></span>
-                      <span>{{ menteeDeck.city }}</span>
-                      <hr>
-                      <span ><strong>Estado: </strong></span>
-                      <span>{{ menteeDeck.state }}</span>
+                     
                     </div>
                   </mat-card-content>
                   <mat-card-actions>
@@ -72,18 +89,27 @@
             <div class="content">
               <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
                   <mat-card-header>
-                    <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
 
-                  </mat-card-header>
+                      <span class="first-column">
+                        <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                      </span>
+      
+                      <span class="second-column">
+                          <span *ngIf="menteeDeck.cycle_id== 1">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                          </span>
+                          <span *ngIf="menteeDeck.cycle_id == 2">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                          </span>
+                          
+                        </span>
+      
+                    </mat-card-header>
 
                   <mat-card-content>
                     <div id="menteeDeck">
 
-                      <span ><strong>Cidade: </strong></span>
-                      <span>{{ menteeDeck.city }}</span>
-                      <hr>
-                      <span ><strong>Estado: </strong></span>
-                      <span>{{ menteeDeck.state }}</span>
+                      
                     </div>
                   </mat-card-content>
                   <mat-card-actions>

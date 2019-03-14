@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {API_URL} from '../env';
+import {AWS_URL} from '../env';
 import { Observable, of } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import * as Auth0 from 'auth0-web';
 import { Router } from '@angular/router';
-import { ExamsApiService } from '../exams/exams-api.service';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { User } from './user.model';
+import { MenteeService } from '../mentee/shared/mentee.service'
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +14,12 @@ import { User } from './user.model';
 export class AuthService {
   isLoggedIn = false;
   // store the URL so we can redirect after logging in
-  redirectUrl: string = '/exams';
+  redirectUrl: string = '/admin';
 
   login = Auth0.signIn;
   logout = Auth0.signOut;
+
+  private readonly HS_API_URL = 'https://brasa-pre.herokuapp.com/api';
 
   constructor(private http: HttpClient) {
   }
@@ -34,11 +36,11 @@ export class AuthService {
   }
 
   check_role_from_username(username: string) : Observable<User>{
-    let httpOptions = ExamsApiService.buildHttpOptions();
+    let httpOptions = MenteeService.buildHttpOptions();
 
     let user2 : User;
 
-    return this.http.get<User>(`${API_URL}/users/${username}`,httpOptions)
+    return this.http.get<User>(`${AWS_URL}/users/${username}`,httpOptions)
 
     }
 

@@ -19,7 +19,7 @@ export class MenteeListingComponent {
   // accessible from template, cannot be private
   // (https://stackoverflow.com/questions/34574167/angular2-should-private-variables-be-accessible-in-the-template)
   userDecks: any;
-  private userNickname: any;
+  userNickname: any;
   private mentorDeck: any;
   public role: any;
   public username: any;
