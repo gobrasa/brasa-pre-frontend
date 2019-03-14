@@ -14,6 +14,7 @@ import * as Auth0 from 'auth0-web';
 export class MenteeInformationComponent {
 
   menteeDeck: any;
+  mentorDecks: any;
   menteeId: any;
   public role:any;
   public username:any;
@@ -53,6 +54,21 @@ export class MenteeInformationComponent {
    private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
          this.menteeDeck = menteeDecks['objects'];
+
+
+         this.menteeId = this.route.snapshot.paramMap.get('id');
+
+    });
+  }
+
+  getAllMentors() {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+  }
+
+  private getMentors() {
+    this.getAllMentors().subscribe(mentorDecks => {
+         this.mentorDecks = mentorDecks['objects'];
 
 
          this.menteeId = this.route.snapshot.paramMap.get('id');

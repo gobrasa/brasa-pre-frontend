@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import * as Auth0 from 'auth0-web';
 import { Router } from '@angular/router';
-import { ExamsApiService } from '../exams/exams-api.service';
+import { ExamsApiService } from '../admin/admin-api.service';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { User } from './user.model';
 
@@ -13,7 +13,7 @@ import { User } from './user.model';
 export class AuthService {
   isLoggedIn = false;
   // store the URL so we can redirect after logging in
-  redirectUrl: string = '/exams';
+  redirectUrl: string = '/admin';
 
   login = Auth0.signIn;
   logout = Auth0.signOut;

@@ -1,7 +1,7 @@
 
-import {Exam} from './exam.model';
+import {Exam} from './admin.model';
 import { Subscription } from 'rxjs';
-import {ExamsApiService} from './exams-api.service';
+import {ExamsApiService} from './admin-api.service';
 
 import * as Auth0 from 'auth0-web';
 import {Component, OnDestroy, OnInit} from '@angular/core';
@@ -33,7 +33,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
     </button>
     
   `,
-  styleUrls: ['exams.component.css'],
+  styleUrls: ['admin.component.css'],
 })
 export class ExamsComponent implements OnInit, OnDestroy {
   examsListSubs: Subscription;

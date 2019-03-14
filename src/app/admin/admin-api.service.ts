@@ -4,7 +4,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import * as Auth0 from 'auth0-web';
 
 import { map, filter, scan, catchError } from 'rxjs/operators';
-import {Exam} from './exam.model'
+import {Exam} from './admin.model'
 import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class ExamsApiService {
 
   constructor(private http: HttpClient) {
     //TODO - Use exams endpoint instead of adding it to every request
-    this.examsEndpoint = '/exams/';
+    this.examsEndpoint = '/admin/';
   }
 
   static _handleError(err: HttpErrorResponse | any) {
@@ -37,7 +37,7 @@ export class ExamsApiService {
     let httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .get<Exam[]>(`${this.HS_API_URL}/exams/`,httpOptions)
+      .get<Exam[]>(`${this.HS_API_URL}/admin/`,httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
@@ -45,7 +45,7 @@ export class ExamsApiService {
     let httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .post<any>(`${this.HS_API_URL}/exams/`, exam, httpOptions)
+      .post<any>(`${this.HS_API_URL}/admin/`, exam, httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
@@ -54,7 +54,7 @@ export class ExamsApiService {
     const httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .delete(`${this.HS_API_URL}/exams/${examId}`, httpOptions);
+      .delete(`${this.HS_API_URL}/admin/${examId}`, httpOptions);
   }
 
 }

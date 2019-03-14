@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {Exam} from './exams/exam.model';
+import {Exam} from './admin/admin.model';
 import { Subscription } from 'rxjs';
-import {ExamsApiService} from './exams/exams-api.service';
+import {ExamsApiService} from './admin/admin-api.service';
 
 import * as Auth0 from 'auth0-web';
 

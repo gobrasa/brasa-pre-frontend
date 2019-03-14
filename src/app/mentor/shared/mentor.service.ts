@@ -6,7 +6,7 @@ import * as Auth0 from 'auth0-web';
 
 import { catchError } from 'rxjs/operators';
 import { map, filter, scan } from 'rxjs/operators';
-import { ExamsApiService } from '../../exams/exams-api.service';
+import { ExamsApiService } from '../../admin/admin-api.service';
 
 @Injectable()
 export class MentorService {

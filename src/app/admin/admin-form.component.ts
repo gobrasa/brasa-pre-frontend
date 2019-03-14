@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ExamsApiService} from "./exams-api.service";
+import {ExamsApiService} from "./admin-api.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -59,7 +59,7 @@ export class ExamFormComponent {
     this.examsApi
       .saveExam(this.exam)
       .subscribe(
-        () => this.router.navigate(['/exams']),
+        () => this.router.navigate(['/admin']),
         error => alert(error.message)
       );
   }

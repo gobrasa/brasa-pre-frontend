@@ -49,7 +49,7 @@ import {
 } from '@angular/material';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common'
-import { ExamsApiService } from '../../exams/exams-api.service';
+import { ExamsApiService } from '../../admin/admin-api.service';
 import { Subscription } from 'rxjs';
 import {Location} from '@angular/common';
 import * as Auth0 from 'auth0-web';
