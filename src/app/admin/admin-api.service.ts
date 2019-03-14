@@ -15,7 +15,7 @@ export class ExamsApiService {
 
   constructor(private http: HttpClient) {
     //TODO - Use exams endpoint instead of adding it to every request
-    this.examsEndpoint = '/admin/';
+    this.examsEndpoint = '/exams/';
   }
 
   static _handleError(err: HttpErrorResponse | any) {
@@ -37,7 +37,7 @@ export class ExamsApiService {
     let httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .get<Exam[]>(`${this.HS_API_URL}/admin/`,httpOptions)
+      .get<Exam[]>(`${this.HS_API_URL}/exams/`,httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
@@ -45,7 +45,7 @@ export class ExamsApiService {
     let httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .post<any>(`${this.HS_API_URL}/admin/`, exam, httpOptions)
+      .post<any>(`${this.HS_API_URL}/exams/`, exam, httpOptions)
       .pipe(catchError(ExamsApiService._handleError));
   }
 
@@ -54,7 +54,7 @@ export class ExamsApiService {
     const httpOptions = ExamsApiService.buildHttpOptions();
 
     return this.http
-      .delete(`${this.HS_API_URL}/admin/${examId}`, httpOptions);
+      .delete(`${this.HS_API_URL}/exams/${examId}`, httpOptions);
   }
 
 }

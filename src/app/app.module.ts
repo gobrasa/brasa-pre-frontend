@@ -74,7 +74,7 @@ import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.comp
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
   { path: 'new-exam', component: ExamFormComponent },
-  { path: 'exams', component: ExamsComponent , canActivate: [AuthGuard]},
+  { path: 'admin', component: ExamsComponent , canActivate: [AuthGuard]},
   { path: 'mentee/listing', component: MenteeListingComponent },
   { path: 'mentee/test/:id', component: MenteeTestComponent },
   { path: 'mentee/essay/:id', component: MenteeEssayComponent },
