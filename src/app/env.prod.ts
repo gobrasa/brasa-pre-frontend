@@ -1,1 +1,1 @@
-export const AWS_URL = 'http://ec2-52-53-185-200.us-west-1.compute.amazonaws.com:4300/callback';
+export const AWS_URL = 'http://brasa-pre-app.s3-website-us-west-1.amazonaws.com/callback';
