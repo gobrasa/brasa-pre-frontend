@@ -208,7 +208,8 @@ export class MenteeCollegeComponent{
 
   onItemSelect(item: any) {
     this.helper3 = this.helper3+1
-    //this.selectedUnis.push({id: 0, name: 'None'})
+    console.log(item)
+    this.selectedUnis.push({id: 0, name: item.name})
   }
 
   public goBack() {
@@ -217,7 +218,31 @@ export class MenteeCollegeComponent{
 
   OnItemDeSelect(item: any) {
     this.helper3= this.helper3-1
-    //this.selectedUnis.pop()
+    this.selectedUnis.pop()
+  }
+
+  public excludeUniversity(id){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        'Authorization': `Bearer ${Auth0.getAccessToken()}`
+      })
+    };
+    this.http.delete<any>(`${this.API_URL}/university_applications/`+id, httpOptions).subscribe(data => {
+
+     }, error => {
+      console.log(error);
+    });;
+
+    this.selectedUnis.forEach((uni, index)=>{
+      console.log(uni.id)
+      if (uni.upload_id == id){
+        this.selectedUnis.splice(index,1)
+      }
+    })
   }
 
 
@@ -244,10 +269,10 @@ export class MenteeCollegeComponent{
       { mentee_id: this.menteeId,
         university_ids: universitiesId}, httpOptions).subscribe(data => {
         //console.log(data['_body']);
-        this._location.back();
+        //this._location.back();
        }, error => {
         console.log(error);
-        this._location.back();
+        //this._location.back();
       });
   };
 
@@ -255,9 +280,10 @@ export class MenteeCollegeComponent{
 
     this.menteeService.getMenteeCollegeList(id).subscribe(tests=>{
       this.helper3 = tests.university_applications.length
+      console.log(tests, 'tem upload id ?')
       tests.university_applications.forEach(unis => {
         this.menteeService.getCollegeNameById(unis.university_id).subscribe(collegeName=>{
-          this.selectedUnis.push({id: unis.university_id, name: collegeName.name});
+          this.selectedUnis.push({id: unis.university_id, name: collegeName.name, upload_id: unis.id});
           //this.selectedIsoCodes.push({isoCode: collegeName.country_iso_code});
         })
       })
@@ -274,7 +300,7 @@ export class MenteeCollegeComponent{
 
       }*/
       // this.selectedUnis = this.helper
-
+      console.log(this.selectedUnis, 'lllololo')
       return this.selectedUnis
 
       /*
