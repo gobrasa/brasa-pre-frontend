@@ -21,6 +21,7 @@ export class MenteeEssayComponent{
   todo : FormGroup; // accessible from template, cannot be private
   private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   public link:any;
+  public title:any;
   private headers: HttpHeaders;
   private userNickname: any;
   public essays:any;
@@ -78,7 +79,8 @@ export class MenteeEssayComponent{
     let httpOptions = MenteeService.buildHttpOptions();
         this.http.post(`${this.API_URL}/uploads`, {
           "link": this.link,
-          "username": this.userNickname
+          "username": this.userNickname,
+          "title": this.title
         }, httpOptions).subscribe(data => {
           this.getScheduledExams();
             console.log(data['_body']);
@@ -86,6 +88,7 @@ export class MenteeEssayComponent{
             console.log(error);
             });
         this.link = ''
+        this.title = ''
 
   };
 

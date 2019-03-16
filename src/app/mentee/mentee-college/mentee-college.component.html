@@ -12,12 +12,29 @@
         <h1>Atualize sua College List!</h1>
         <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
 
+          <div class="form-group">
+            <angular2-multiselect
+                                  [data]="isoCode"
+                                  [(ngModel)]="isoControl"
+                                  [settings]="settingsIso"
+                                  (onSelect)="onIsoSelect($event)"
+                                  (onDeSelect)="onIsoDeSelect($event)"
+                                  formControlName="isoList"
+                                  >
+                  <c-item>
+                      <ng-template let-item="item">
+                        {{item.country_iso_code}}
+                      </ng-template>
+                  </c-item>
+            </angular2-multiselect>
+          </div>
+
           <div class="form-group" *ngIf="selectedUnis">
           <angular2-multiselect *ngIf="selectedUnis.length == helper3"
-          [data]="universities"
-                                [(ngModel)]="selectedUnis"
+                                [data]="universitiesIso"
+                                [(ngModel)]="selectedUnisIso"
                                 [loading] = "loading"
-                                [settings]="settings"
+                                [settings]="settingsUnis"
                                 (onSelect)="onItemSelect($event)"
                                 (onDeSelect)="OnItemDeSelect($event)"
                                 formControlName="uniList"
@@ -31,14 +48,44 @@
 
 
           <div class="action">
-              <button type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
+              <button *ngIf="role=='mentee'" type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
               <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
           </div>
-         
+
 
         </form>
     </div>
-  
+
+    </div>
+
+    <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
+
+
+    <h1>Universidades Adicionadas:</h1>
+    <div *ngFor="let selectedUni of selectedUnis">
+      <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee'">
+
+        {{ selectedUni.name }}
+        <div class="action apagar-btn">
+          <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
+            Remover Universidade
+          </button>
+        </div>
+        <hr>
+
+
+
+      </div>
+      </div>
+      <div class="action">
+          <button type="button" class="btn btn voltar" (click)="goBack()">
+              Voltar
+      </button>
+
+    </div>
+
+
+
     </div>
     </body>
     </html>

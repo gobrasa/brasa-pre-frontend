@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {Exam} from './admin/admin.model';
 import { Subscription } from 'rxjs';
-import {ExamsApiService} from './admin/admin-api.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { of as ObservableOf, Observable } from 'rxjs';
 
 import * as Auth0 from 'auth0-web';
 
@@ -15,10 +16,37 @@ export class AppComponent implements OnInit {
 
   signIn = Auth0.signIn;
   signOut = Auth0.signOut;
+  private userNickname: any;
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  public role:any;
+  constructor(private http: HttpClient){
+
+  }
 
   ngOnInit() {
     const self = this;
     Auth0.subscribe((authenticated) => (self.authenticated = authenticated));
+    this.userNickname = Auth0.getProfile().nickname;
+    this.getUsername(this.userNickname);
   }
+
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
+
+  getUsername(username) {
+    console.log('hey')
+    let httpOptions = AppComponent.buildHttpOptions();
+    this.http.get<any>(`${this.API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions).subscribe(usuario=>{
+      this.role = usuario.role_name
+    });;
+  }
+
+
 
 }

@@ -47,6 +47,14 @@
       </angular2-multiselect>
       </div>
 
+      <div class="form-group">
+        <input placeholder="Major" type="text" class="form-control" [(ngModel)]="mentorDados.major" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Minor" type="text" class="form-control" [(ngModel)]="mentorDados.minor" [ngModelOptions]="{standalone: true}">
+      </div>
+
 
       <div class="action">
           <button type="submit" class="btn btn-sm btn-success salvar">Salvar Informações</button>
@@ -74,9 +82,18 @@
         <strong>Estado:</strong> {{mentorDados.state}}
       </div>
 
-      <div>
+      <div class="form-group">
           <strong>Universidade:</strong> {{mentorDados.university}}
       </div>
+
+      <div class="form-group">
+          <strong>Major:</strong> {{ mentorDeck['major'].name}}
+      </div>
+
+      <div class="form-group">
+          <strong>Minor:</strong> {{ mentorDeck['minor'].name}}
+      </div>
+
 
 
       <div class="action">

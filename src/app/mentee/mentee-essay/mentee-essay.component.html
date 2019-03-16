@@ -14,6 +14,8 @@
           <h1>Envie o link do Google Docs</h1>
 
           <form [formGroup]="todo" (ngSubmit)="logForm()">
+              <input placeholder="Essay Título" type="text" class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
+              <br>
               <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
               <button type="submit" class="btn btn-sm btn-success salvar">Adicionar</button>
           </form>
@@ -34,9 +36,9 @@
 
     <h1>Essays adicionadas:</h1>
     <div *ngFor="let essay of essays">
-      <div class="essay-listing" *ngIf="essay.username == menteeName || essay.username == userNickname">
+      <div class="essay-listing" *ngIf="essay.username == menteeName || essay.username == userNickname || role == 'admin'">
 
-        <a href="'{{ essay.link }}'">Essay link</a>
+        <a href="{{ essay.link }}" target="_blank">{{ essay.title }}</a>
         <div class="action apagar-btn">
           <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeEssay(essay.upload_id)">
             Apagar essay

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {AWS_URL} from '../env';
 import { Observable, of } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import * as Auth0 from 'auth0-web';
 import { Router } from '@angular/router';
-import { ExamsApiService } from '../admin/admin-api.service';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { User } from './user.model';
+import { MenteeService } from '../mentee/shared/mentee.service'
 
 @Injectable({
   providedIn: 'root',
@@ -35,11 +36,11 @@ export class AuthService {
   }
 
   check_role_from_username(username: string) : Observable<User>{
-    let httpOptions = ExamsApiService.buildHttpOptions();
+    let httpOptions = MenteeService.buildHttpOptions();
 
     let user2 : User;
 
-    return this.http.get<User>(`${this.HS_API_URL}/users/${username}`,httpOptions)
+    return this.http.get<User>(`${AWS_URL}/users/${username}`,httpOptions)
 
     }
 
