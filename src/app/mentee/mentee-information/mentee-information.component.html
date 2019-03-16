@@ -14,7 +14,7 @@
                     <span class="first-column">
                         <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
                     </span>
-    
+
                     <span class="second-column">
                         <span *ngIf="menteeDeck.cycle_id== 1">
                             <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
@@ -22,9 +22,9 @@
                         <span *ngIf="menteeDeck.cycle_id == 2">
                             <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
                         </span>
-                        
+
                         </span>
-        
+
                     </mat-card-header>
 
                 <mat-card-content>
@@ -32,7 +32,7 @@
                         <div *ngFor="let mentorDeck of mentorDecks">
                             <div *ngIf="menteeDeck.mentor_id == mentorDeck.id">
                                 <span ><strong>Mentor: </strong></span>
-                                <span>{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</span>
+                                <span><a href="/mentor/listing/{{menteeDeck.mentor_id}}">{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</a></span>
                                 <hr>
                             </div>
                         </div>
@@ -41,6 +41,12 @@
                         <hr>
                         <span ><strong>Estado: </strong></span>
                         <span>{{ menteeDeck.state }}</span>
+                        <hr>
+                        <span ><strong>Contato primário BRASA</strong></span>
+                        <br>
+                        <span ><strong>Nome: </strong>{{ menteeDeck.primary_contact_name }}</span>
+                        <br>
+                        <span ><strong>Email: </strong>{{ menteeDeck.primary_contact_email }}</span>
                     </div>
                 </mat-card-content>
                 <mat-card-actions>
@@ -60,7 +66,7 @@
                     </div> -->
                 </mat-card-actions>
             </div>
-       
+
         </div>
         </mat-card>
     </div>

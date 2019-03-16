@@ -60,7 +60,7 @@ import {Location} from '@angular/common';
 
 
 export class MenteeCollegeComponent{
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com';
+  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   //public collegeArray:any=[];
   private headers: HttpHeaders;
   public universities: University[] = [];
@@ -226,11 +226,12 @@ export class MenteeCollegeComponent{
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
         'Authorization': `Bearer ${Auth0.getAccessToken()}`
       })
     };
+    console.log(Auth0.getAccessToken());
     this.http.delete<any>(`${this.API_URL}/university_applications/`+id, httpOptions).subscribe(data => {
 
      }, error => {
@@ -264,16 +265,20 @@ export class MenteeCollegeComponent{
       })
     };
 
+    //http://brasa-pre.herokuapp.com/api/university_application_for_mentee
+    universitiesId.forEach(ids => {
+      console.log(ids)
 
-    this.http.post(`${this.API_URL}/university_application_for_mentee`,
-      { mentee_id: this.menteeId,
-        university_ids: universitiesId}, httpOptions).subscribe(data => {
-        //console.log(data['_body']);
-        //this._location.back();
-       }, error => {
-        console.log(error);
-        //this._location.back();
-      });
+      this.http.post(`${this.API_URL}/university_applications`,
+        { mentee_id: this.menteeId,
+          university_id: ids}, httpOptions).subscribe(data => {
+          //console.log(data['_body']);
+          //this._location.back();
+         }, error => {
+          console.log(error);
+          //this._location.back();
+        });
+    })
   };
 
   public async selectColleges(id){
