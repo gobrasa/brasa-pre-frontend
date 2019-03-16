@@ -62,7 +62,6 @@ export class MenteeListingComponent {
   private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
         this.menteeDecks = menteeDecks['objects'];
-        console.log(menteeDecks, 'here');
     });
   }
 

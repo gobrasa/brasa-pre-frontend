@@ -58,7 +58,7 @@ export class MenteeInformationComponent {
     this.getAllMentees().subscribe(menteeDecks => {
          this.menteeDeck = menteeDecks['objects'];
          this.menteeId = this.route.snapshot.paramMap.get('id');
-
+          console.log(this.menteeDeck);
     });
   }
 
@@ -69,6 +69,20 @@ export class MenteeInformationComponent {
   }
 
   private getMentors() {
+    this.getAllMentors().subscribe(mentorDecks => {
+         this.mentorDecks = mentorDecks['objects']; 
+        
+
+    });
+  }
+
+  getAllUniversity() {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    
+  }
+
+  private getUni() {
     this.getAllMentors().subscribe(mentorDecks => {
          this.mentorDecks = mentorDecks['objects']; 
         

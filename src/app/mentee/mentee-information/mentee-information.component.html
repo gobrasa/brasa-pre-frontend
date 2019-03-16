@@ -41,6 +41,14 @@
                         <hr>
                         <span ><strong>Estado: </strong></span>
                         <span>{{ menteeDeck.state }}</span>
+                        <span ><strong>College List: </strong></span>
+
+                        <div *ngFor="let universityDeck of universityDecks">
+                            <div *ngIf="menteeDeck['university_applications'].university_id == mentorDeck.id">
+                                <span>{{ menteeDeck['university_applications'].university_id }}</span>
+                                <hr>
+                            </div>
+                        </div>
                     </div>
                 </mat-card-content>
                 <mat-card-actions>
