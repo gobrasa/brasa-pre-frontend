@@ -24,7 +24,7 @@ export class MentorInformationComponent {
 
   getAllMentor() {
     let httpOptions = MentorService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
   }
 
    private getMentees() {
