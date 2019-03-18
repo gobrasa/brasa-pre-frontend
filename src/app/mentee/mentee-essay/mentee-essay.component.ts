@@ -19,7 +19,7 @@ import * as Auth0 from 'auth0-web';
 })
 export class MenteeEssayComponent{
   todo : FormGroup; // accessible from template, cannot be private
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   public link:any;
   public title:any;
   private headers: HttpHeaders;

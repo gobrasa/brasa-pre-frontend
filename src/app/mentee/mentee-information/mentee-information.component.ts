@@ -44,7 +44,7 @@ export class MenteeInformationComponent {
 
   getAllMentees() {
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   getUsername(username) {
@@ -65,7 +65,7 @@ export class MenteeInformationComponent {
 
   getAllMentors() {
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
 
   }
 
@@ -79,7 +79,7 @@ export class MenteeInformationComponent {
 
   getAllUniversity() {
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
     
   }
 

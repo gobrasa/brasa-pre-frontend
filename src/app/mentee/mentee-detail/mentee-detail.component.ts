@@ -19,7 +19,7 @@ import * as Auth0 from 'auth0-web';
 })
 export class MenteeDetailComponent {
   public todo : FormGroup;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   public satArray:any=[];
   public scoresArray:any=[];
   public satSubjectsArray:any=[];

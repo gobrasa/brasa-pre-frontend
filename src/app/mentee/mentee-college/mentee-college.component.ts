@@ -60,7 +60,7 @@ import {Location} from '@angular/common';
 
 
 export class MenteeCollegeComponent{
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   //public collegeArray:any=[];
   private headers: HttpHeaders;
   public universities: University[] = [];

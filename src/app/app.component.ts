@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   signIn = Auth0.signIn;
   signOut = Auth0.signOut;
   private userNickname: any;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   public role:any;
   constructor(private http: HttpClient){
 
