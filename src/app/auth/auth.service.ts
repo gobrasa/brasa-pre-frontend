@@ -14,7 +14,7 @@ import { MenteeService } from '../mentee/shared/mentee.service'
 export class AuthService {
   isLoggedIn = false;
   // store the URL so we can redirect after logging in
-  redirectUrl: string = '/admin';
+  redirectUrl: string = '/welcome';
 
   login = Auth0.signIn;
   logout = Auth0.signOut;
