@@ -15,7 +15,7 @@
                   <span class="first-column">
                       <mat-card-title>{{ mentorDeck.first_name + " " + mentorDeck.last_name }}</mat-card-title>
                   </span>
-                
+
                   <span class="second-column">
                     <span *ngIf="mentorDeck['cycle'].region == 'Europa'">
                         <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
@@ -23,7 +23,7 @@
                     <span *ngIf="mentorDeck['cycle'].region == 'Estados Unidos'">
                         <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
                     </span>
-                  </span> 
+                  </span>
                 </mat-card-header>
 
             <mat-card-content>
@@ -36,15 +36,15 @@
                   <br> -->
                   <span>{{ mentorDeck['major'].name}}</span>
                   <hr>
-                  <span ><strong>Minor: </strong></span>
+                  <span *ngIf= "mentorDeck['minor'] != null"><strong>Minor: </strong></span>
                   <!-- <span>{{ mentorDeck['minor'].category}}</span>
                   <br> -->
-                  <span>{{ mentorDeck['minor'].name}}</span>
-                  <hr>
+                  <span *ngIf= "mentorDeck['minor'] != null">{{ mentorDeck['minor'].name}}</span>
+                  <hr *ngIf= "mentorDeck['minor'] != null">
                   <span ><strong>Email: </strong></span>
                   <span>{{ mentorDeck.username }}@gobrasa.org</span>
-                  
-                  
+
+
                 </div>
               </mat-card-content>
               <mat-card-actions>
