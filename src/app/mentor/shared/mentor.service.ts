@@ -37,12 +37,22 @@ export class MentorService {
     return this.http.get<any>(`${this.API_URL}/universities`, httpOptions);
   }
 
+  public getAllCourses(): Observable<any>{
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.API_URL}/courses`, httpOptions);
+  }
+
   public getCollegeNameById(id): Observable<any>{
     let httpOptions = MentorService.buildHttpOptions();
     return this.http.get<any>(`${this.API_URL}/universities/` + id, httpOptions);
   }
 
   public getMentorUniversity(id): Observable<any>{
+    let httpOptions = MentorService.buildHttpOptions();
+    return this.http.get<any>(`${this.API_URL}/mentors/` + id, httpOptions);
+  }
+
+  public getMentorMajor(id): Observable<any>{
     let httpOptions = MentorService.buildHttpOptions();
     return this.http.get<any>(`${this.API_URL}/mentors/` + id, httpOptions);
   }

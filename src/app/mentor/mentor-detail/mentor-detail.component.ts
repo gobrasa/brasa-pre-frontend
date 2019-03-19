@@ -12,6 +12,7 @@ import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {Location} from '@angular/common';
 import * as Auth0 from 'auth0-web';
 import { University } from '../shared/university';
+import { Course } from '../shared/course';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -60,6 +61,10 @@ export class MentorDetailComponent {
   private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
   //private readonly API_URL = 'http://bce8300d.ngrok.io';
   @Input() public selectedUnis: University[] = new Array();
+  @Input() public selectedMajor: Course[] = new Array();
+  @Input() public selectedMinor: Course[] = new Array();
+  @Input() public selectedMajor1: Course[] = new Array();
+  @Input() public selectedMinor1: Course[] = new Array();
   private headers: HttpHeaders;
   public helper: University[]=[];
   public mentorProfile:any=[];
@@ -69,7 +74,16 @@ export class MentorDetailComponent {
   public role: any;
   public username: any;
   public universities: University[] = [];
+  public courses: Course[] = [];
+  public helperMajor: any;
+  public helperMinor: any;
+  public helperMinor1: any;
+  public helperMajor1: any;
   settings = {};
+  settingsMajor = {};
+  settingsMinor = {};
+  settingsMajor1 = {};
+  settingsMinor1 = {};
   public helper3 = -1;
 
 
@@ -79,30 +93,34 @@ export class MentorDetailComponent {
     private mentorService: MentorService,
     private route: ActivatedRoute,
     private _location: Location ) {
-    //this.headers = new HttpHeaders({'Content-Type': 'application/json',
-    //'Access-Control-Allow-Origin': '*',
-    //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-    //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-    //});
     this.headers = new HttpHeaders({'Authorization': `Bearer ${Auth0.getAccessToken()}`
     });
     this.userNickname = Auth0.getProfile().nickname;
     this.todo = this.formBuilder.group({
-            uniList: []
+            uniList: [],
+            major: '',
+            minor: '',
+            major1: '',
+            minor1: ''
         });
     this.mentorDados.push({first_name: '',
     last_name: '',
     university: '',
     city: '',
-    state: ''
+    state: '',
+    major: '',
+    minor: '',
+    major1: '',
+    minor1: ''
     })
 
     //this.todo = this.formBuilder.group({});
     this.mentorId = this.route.snapshot.paramMap.get('id');
+    this.selectCollege(this.mentorId);
+    this.selectCourses(this.mentorId);
     this.getInformation();
     this.getUser(this.userNickname);
     this.getUniList();
-    this.selectCollege(this.mentorId);
     this.settings = {
       singleSelection: true,
       text: "Selecione sua Universidade",
@@ -111,11 +129,47 @@ export class MentorDetailComponent {
       labelKey: "name",
       classes: "myclass custom-class"
     };
+
+    this.settingsMajor = {
+      singleSelection: true,
+      text: "Selecione seu Major",
+      enableFilterSelectAll: false,
+      enableSearchFilter: true,
+      labelKey: "name",
+      classes: "myclass custom-class"
+    };
+
+    this.settingsMinor = {
+      singleSelection: true,
+      text: "Selecione seu Minor",
+      enableFilterSelectAll: false,
+      enableSearchFilter: true,
+      labelKey: "name",
+      classes: "myclass custom-class"
+    };
+
+    this.settingsMajor1 = {
+      singleSelection: true,
+      text: "Selecione seu segundo Major",
+      enableFilterSelectAll: false,
+      enableSearchFilter: true,
+      labelKey: "name",
+      classes: "myclass custom-class"
+    };
+
+    this.settingsMinor1 = {
+      singleSelection: true,
+      text: "Selecione seu segundo Minor",
+      enableFilterSelectAll: false,
+      enableSearchFilter: true,
+      labelKey: "name",
+      classes: "myclass custom-class"
+    };
+
   }
 
   getUser(username) {
     this.mentorService.getUser(username).subscribe(usuario=>{
-      console.log(usuario.role_name)
       this.role = usuario.role_name
       this.username = usuario.username
     });
@@ -123,10 +177,38 @@ export class MentorDetailComponent {
 
   }
 
-  onItemSelect(item: any) {
-    console.log(item)
-    this.mentorDados.university = item.name
+  onMajorSelect(item: any) {
+    this.mentorDados.major = item.name
   }
+
+  onMajorDeSelect(item: any) {
+    this.mentorDados.major = null
+  }
+
+  onMinorSelect(item: any) {
+    this.mentorDados.minor = item.name
+  }
+
+  onMinorDeSelect(item: any) {
+    this.mentorDados.minor = null
+  }
+
+  onMajor1Select(item: any) {
+    this.mentorDados.major1 = item.name
+  }
+
+  onMajor1DeSelect(item: any) {
+    this.mentorDados.major1 = null
+  }
+
+  onMinor1Select(item: any) {
+    this.mentorDados.minor1 = item.name
+  }
+
+  onMinor1DeSelect(item: any) {
+    this.mentorDados.minor1 = null
+  }
+
 
   public goBack() {
    this._location.back();
@@ -134,33 +216,114 @@ export class MentorDetailComponent {
 
   public getInformation(){
     this.mentorService.getMentorById(this.mentorId).subscribe(mentor=>{
+      console.log(mentor, '>>')
+      let printMajor:any
+      let printMinor:any
+      let printMajor1:any
+      let printMinor1:any
+
+      if (!mentor.major) {
+        printMajor = null
+      } else{
+        printMajor = mentor.major.name
+      }
+
+      if (!mentor.minor) {
+        printMinor = null
+      } else{
+        printMinor = mentor.minor.name
+      }
+
+      if (!mentor.second_major) {
+        printMajor1 = null
+      } else{
+        printMajor1 = mentor.second_major.name
+      }
+      console.log(mentor, '<<<<<<')
+      if (!mentor.second_minor) {
+        printMinor1 = null
+      } else{
+        printMinor1 = mentor.second_minor.name
+      }
+
       this.mentorDados = {
         first_name: mentor.first_name,
         last_name: mentor.last_name,
         university: mentor.universities,
         city: mentor.city,
-        state: mentor.state
+        state: mentor.state,
+        major: printMajor,
+        minor: printMinor,
+        major1: printMajor1,
+        minor1: printMinor1
 
       };
+      console.log(this.mentorDados.major)
+      /*
+      if (mentor.minor){
+        this.mentorDados = {
+          first_name: mentor.first_name,
+          last_name: mentor.last_name,
+          university: mentor.universities,
+          city: mentor.city,
+          state: mentor.state,
+          major: mentor.major.name,
+          minor: mentor.minor.name
+
+        };
+      } else {
+        this.mentorDados = {
+          first_name: mentor.first_name,
+          last_name: mentor.last_name,
+          university: mentor.universities,
+          city: mentor.city,
+          state: mentor.state,
+          major: mentor.major.name
+      }
+    }*/
+
     });
   }
 
   public logForm(){
-    console.log(this.mentorDados)
-    //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
-    console.log('ˆˆ')
-    console.log(this.todo.value.uniList[0].id)
+
+    if (this.todo.value.major[0] == null){
+      this.helperMajor = null
+    } else {
+      this.helperMajor = this.todo.value.major[0].id
+    }
+    if (this.todo.value.major1[0] == null){
+      this.helperMajor1 = null
+    } else {
+      this.helperMajor1 = this.todo.value.major1[0].id
+    }
+
+    if (this.todo.value.minor[0] == null){
+      this.helperMinor = null
+    } else {
+      this.helperMinor = this.todo.value.minor[0].id
+    }
+
+    if (this.todo.value.minor1[0] == null){
+      this.helperMinor1 = null
+    } else {
+      this.helperMinor1 = this.todo.value.minor1[0].id
+    }
+
 
     this.http.put(`${this.API_URL}/mentors/` + this.mentorId, {
       "first_name": this.mentorDados.first_name,
       "last_name": this.mentorDados.last_name,
       "university_id": this.todo.value.uniList[0].id,
       "city": this.mentorDados.city,
-      "state": this.mentorDados.state
+      "state": this.mentorDados.state,
+      "major_course_id": this.helperMajor,
+      "minor_course_id": this.helperMinor,
+      "second_major_course_id": this.helperMajor1,
+      "second_minor_course_id": this.helperMinor1
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
       if (data.status == 200) {
         this._location.back();
-        //this.navCtrl.goBack("/tabs/mentee/listing/1");
       }
       }).catch(err=> { console.log(err) })
       , error => {
@@ -184,6 +347,30 @@ this.selectedUnis = this.helper
 return this.selectedUnis
 }
 
+public async selectCourses(id){
+  this.mentorService.getMentorMajor(id).subscribe(mentor=>{
+    if (mentor.major){
+      this.selectedMajor.push({id: mentor.major_course_id, name: mentor.major.name, category: mentor.major.category});
+    }
+    if (mentor.minor) {
+      this.selectedMinor.push({id: mentor.minor_course_id, name: mentor.minor.name, category: mentor.minor.category});
+    }
+
+    if (mentor.second_major) {
+      this.selectedMajor1.push({id: mentor.second_major_course_id, name: mentor.second_major.name, category: mentor.second_major.category});
+    }
+
+    if (mentor.second_minor) {
+      this.selectedMinor1.push({id: mentor.second_minor_course_id, name: mentor.second_minor.name, category: mentor.second_minor.category});
+    }
+
+    console.log(this.selectedMinor)
+
+})
+
+return this.selectedMinor, this.selectedMajor, this.selectedMinor1, this.selectedMajor1
+}
+
   private getUniList() {
 
    this.mentorService.getAllUniversities().subscribe(tests => {
@@ -204,8 +391,30 @@ return this.selectedUnis
        this.universities = result;
 
    });
- }
 
+   this.mentorService.getAllCourses().subscribe(courses => {
+     this.universities = courses['objects']
+     console.log(courses['objects'])
+
+     const result = [];
+     const mapCourses = new Map();
+     for (const item of courses['objects']) {
+         if(!mapCourses.has(item.name)){
+             mapCourses.set(item.name, item.name);    // set any value to Map
+             result.push({
+                  id: item.id,
+                 name: item.name,
+                 category: item.category
+             });
+         };
+
+       };
+       this.courses = result;
+
+
+
+ });
+}
 
 
 }
