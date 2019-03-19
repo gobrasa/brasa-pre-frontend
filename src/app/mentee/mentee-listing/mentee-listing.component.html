@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
+    <div>
+
+      <!-- Logic for when a mentor is logging in. It only sees his mentees -->
+      <div *ngIf="role == 'mentor' && userNickname == username">
+          <!-- <h1>{{ menteeDeck.mentor_id }}</h1> -->
+        <div *ngFor="let menteeDeck of menteeDecks">
+
+            <div *ngIf="mentorId == menteeDeck.mentor_id">
+              <mat-card class="example-card ">
+              <mat-card-header>
+
+                <span class="first-column">
+                  <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                </span>
+
+                <span class="second-column">
+                    <span *ngIf="menteeDeck.cycle_id== 1">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                    </span>
+                    <span *ngIf="menteeDeck.cycle_id == 2">
+                        <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                    </span>
+                    
+                  </span>
+
+              </mat-card-header>
+
+              <mat-card-content>
+                <div id="menteeDeck">
+
+                 
+                </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <button type="button" class="btn btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i>Informações</button>
+              </mat-card-actions>
+            </mat-card>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logic for when a mentee is logging in. It only sees himself-->
+        <div *ngIf="role == 'mentee' && userNickname == username">
+          <div *ngFor="let menteeDeck of menteeDecks">
+              <div *ngIf="userNickname == menteeDeck.username">
+                <mat-card class="example-card">
+                    <mat-card-header>
+
+                      <span class="first-column">
+                        <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                      </span>
+      
+                      <span class="second-column">
+                          <span *ngIf="menteeDeck.cycle_id== 1">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                          </span>
+                          <span *ngIf="menteeDeck.cycle_id == 2">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                          </span>
+                          
+                        </span>
+        
+                    </mat-card-header>
+                  <mat-card-content>
+                    <div id="menteeDeck">
+                     
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button type="button" class="btn  btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Informações</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Logic for when a admin is logging in. It can see all the mentes -->
+          <div *ngIf="role == 'admin' && userNickname == username">
+            <h1>Mentees</h1>
+            <div class="content">
+              <mat-card class="example-card child" *ngFor="let menteeDeck of menteeDecks">
+                  <mat-card-header>
+
+                      <span class="first-column">
+                        <mat-card-title>{{ menteeDeck.first_name + " " + menteeDeck.last_name }}</mat-card-title>
+                      </span>
+      
+                      <span class="second-column">
+                          <span *ngIf="menteeDeck.cycle_id== 1">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png" height="30" width="30">
+                          </span>
+                          <span *ngIf="menteeDeck.cycle_id == 2">
+                              <img src="//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png" height="30" width="30">
+                          </span>
+                          
+                        </span>
+      
+                    </mat-card-header>
+
+                  <mat-card-content>
+                    <div id="menteeDeck">
+
+                      
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button type="button" class="btn btn-block" routerLink="/mentee/listing/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Atualizar Informações</button>
+
+                  </mat-card-actions>
+                </mat-card>
+          </div>
+
+            </div>
+
+      </div>
+  </div>
+</body>
+</html>

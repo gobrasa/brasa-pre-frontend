@@ -1,44 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { of as ObservableOf, Observable } from 'rxjs';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import * as Auth0 from 'auth0-web';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  /*public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Mentee',
-      url: '/mentee',
-      icon: 'list'
-    },
-    {
-      title: 'Mentor',
-      url: '/mentor',
-      icon: 'list'
-    }
-  ];*/
+export class AppComponent implements OnInit {
+  authenticated = false;
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
+  signIn = Auth0.signIn;
+  signOut = Auth0.signOut;
+  private userNickname: any;
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
+  public role:any;
+  constructor(private http: HttpClient){
+
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+  ngOnInit() {
+    const self = this;
+    Auth0.subscribe((authenticated) => (self.authenticated = authenticated));
+    this.userNickname = Auth0.getProfile().nickname;
+    this.getUsername(this.userNickname);
   }
+
+  static buildHttpOptions(){
+   let httpOptions = {
+     headers: new HttpHeaders({
+       'Authorization': `Bearer ${Auth0.getAccessToken()}`
+     }),
+   };
+   return httpOptions;
+  }
+
+  getUsername(username) {
+    console.log('hey')
+    let httpOptions = AppComponent.buildHttpOptions();
+    this.http.get<any>(`${this.API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions).subscribe(usuario=>{
+      this.role = usuario.role_name
+    });;
+  }
+
+
+
 }

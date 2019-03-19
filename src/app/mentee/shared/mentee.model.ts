@@ -10,5 +10,7 @@ export interface Mentee {
   mentor_id: number,
   state: string,
   university_applications: string[],
-  username: string
+  username: string,
+  primary_contact_name?: string,
+  primary_contact_email?: string
 }

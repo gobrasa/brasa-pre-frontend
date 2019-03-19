@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
+
+
+  <div *ngIf="role=='mentee' || role=='admin'" id="update_info" class="shadow-sm p-3 mb-5 bg-white rounded">
+      <h1>Atualize suas informações!</h1>
+      <form [formGroup]="todo" (ngSubmit)="logForm()">
+        <div class="form-group">
+          <input placeholder="Nome" type="text" class="form-control" [(ngModel)]="menteeDados.first_name" [ngModelOptions]="{standalone: true}" required>
+        </div>
+
+
+        <div class="form-group">
+          <input placeholder="Sobrenome" type="text" class="form-control"  [(ngModel)]="menteeDados.last_name" [ngModelOptions]="{standalone: true}">
+        </div>
+
+
+        <div class="form-group">
+          <input placeholder="Cidade" type="text" class="form-control"  [(ngModel)]="menteeDados.city" [ngModelOptions]="{standalone: true}">
+        </div>
+
+
+        <div class="form-group">
+          <input placeholder="Estado" type="text" class="form-control"  [(ngModel)]="menteeDados.state" [ngModelOptions]="{standalone: true}">
+        </div>
+
+
+        <mat-form-field>
+          <mat-select [(value)]="menteeDados.financial_aid" placeholder="Precisa de financial aid ?">
+            <mat-option [value]="true">Sim</mat-option>
+            <mat-option [value]="false">Não</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="action">
+            <button type="submit" class="btn btn-success btn-sm salvar">Salvar Informações</button>
+            <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+        </div>
+
+      </form>
+  </div>
+
+
+
+      <div *ngIf="(role == 'mentor' || role == 'admin') && userNickname == username">
+        <div id="info" class="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1>Informações do seu mentee!</h1>
+          <div id="menteeDeck">
+              <strong>Nome: </strong> <span>{{menteeDados.first_name}} {{menteeDados.last_name}}</span>
+              <hr>
+              <strong>Cidade: </strong> <span>{{menteeDados.city}}</span>
+              <hr>
+              <strong>Estado: </strong> <span>{{menteeDados.state}}</span>
+              <hr>
+              <strong>Financial Aid: </strong> <span *ngIf="menteeDados.financial_aid==1">Sim</span> <span *ngIf="menteeDados.financial_aid==0">Não</span>
+              <hr>
+              <span ><strong>Contato primário BRASA</strong></span>
+              <br>
+              <span ><strong>Nome: </strong>{{ menteeDados.primary_contact_name }}</span>
+              <br>
+              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>
+          </div>
+          <div class="action">
+              <button type="button" class="btn voltar" (click)="goBack()">
+                  Voltar
+                </button>
+          </div>
+        </div>
+    </div>
+
+    </div>
+  </body>
+</html>

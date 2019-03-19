@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+<div class="container" >
+  <!-- Mentor or Admin can see the form to update informations-->
+  <div *ngIf="(role == 'mentor' || role == 'admin') && userNickname == username" id="update_info" class="shadow-sm p-3 mb-5 bg-white rounded">
+    <h1>Atualize suas informações!</h1>
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
+      <div class="form-group">
+        <input placeholder="Nome" type="text" class="form-control" [(ngModel)]="mentorDados.first_name" [ngModelOptions]="{standalone: true}" required>
+      </div>
+
+
+      <div class="form-group">
+        <input placeholder="Sobrenome" type="text" class="form-control" [(ngModel)]="mentorDados.last_name" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Cidade" type="text" class="form-control" [(ngModel)]="mentorDados.city" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Estado" type="text" class="form-control" [(ngModel)]="mentorDados.state" [ngModelOptions]="{standalone: true}">
+      </div>
+
+
+      <!--div class="form-group">
+        <input placeholder="Universidade" type="text" [(ngModel)]="mentorDados.university" [ngModelOptions]="{standalone: true}">
+      </div-->
+      <div class="form-group" *ngIf="selectedUnis">
+      <angular2-multiselect
+                            [data]="universities"
+                            [(ngModel)]="selectedUnis"
+                            [settings]="settings"
+                            (onSelect)="onItemSelect($event)"
+                            formControlName="uniList"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Major" type="text" class="form-control" [(ngModel)]="mentorDados.major" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Minor" type="text" class="form-control" [(ngModel)]="mentorDados.minor" [ngModelOptions]="{standalone: true}">
+      </div>
+
+
+      <div class="action">
+          <button type="submit" class="btn btn-sm btn-success salvar">Salvar Informações</button>
+          <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+      </div>
+
+
+    </form>
+  </div>
+
+  <!-- Mentee cant see the form, only the information -->
+  <div *ngIf="(role == 'admin' || role == 'mentee' || role == 'mentor') && userNickname == username">
+    <div id="info" class="shadow-sm p-3 mb-5 bg-white rounded">
+      <h1>Informações do seu mentor!</h1>
+
+      <div class="form-group">
+        <strong>Nome:</strong> {{mentorDados.first_name}}  {{mentorDados.last_name}}
+      </div>
+
+      <div class="form-group">
+        <strong>Cidade:</strong> {{mentorDados.city}}
+      </div>
+
+      <div class="form-group">
+        <strong>Estado:</strong> {{mentorDados.state}}
+      </div>
+
+      <div class="form-group">
+          <strong>Universidade:</strong> {{mentorDados.university}}
+      </div>
+
+      <div class="form-group">
+          <strong>Major:</strong> {{ mentorDeck['major'].name}}
+      </div>
+
+      <div class="form-group">
+          <strong>Minor:</strong> {{ mentorDeck['minor'].name}}
+      </div>
+
+
+
+      <div class="action">
+          <button type="button" class="btn voltar" (click)="goBack()">
+              Voltar
+            </button>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+
+
+
+
+</div>
+</body>
+</html>
