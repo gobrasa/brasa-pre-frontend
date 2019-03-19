@@ -30,17 +30,26 @@
                 <div id="mentorDeck">
                   <span ><strong>Universidade: </strong></span>
                   <span>{{ mentorDeck['university'].name }}</span>
-                  <hr>
-                  <span ><strong>Major: </strong></span>
+
+                  <span *ngIf= "mentorDeck['major']"><hr><strong>Major: </strong>
+                    <span>{{ mentorDeck['major'].name}}</span>
+                  </span>
+
+                  <span *ngIf= "mentorDeck['second_major']"><hr><strong>Segundo Major: </strong>
+                    <span>{{ mentorDeck['second_major'].name}}</span>
+                  </span>
                   <!-- <span>{{ mentorDeck['major'].category}}</span>
                   <br> -->
-                  <span>{{ mentorDeck['major'].name}}</span>
+                  <span *ngIf= "mentorDeck['minor']"><hr><strong>Minor: </strong>
+                    <span>{{ mentorDeck['minor'].name}}</span>
+                  </span>
+
+                  <span *ngIf= "mentorDeck['second_minor']"><hr><strong>Segundo Minor: </strong>
+                    <span>{{ mentorDeck['second_minor'].name}}</span>
+                  </span>
+
+
                   <hr>
-                  <span *ngIf= "mentorDeck['minor'] != null"><strong>Minor: </strong></span>
-                  <!-- <span>{{ mentorDeck['minor'].category}}</span>
-                  <br> -->
-                  <span *ngIf= "mentorDeck['minor'] != null">{{ mentorDeck['minor'].name}}</span>
-                  <hr *ngIf= "mentorDeck['minor'] != null">
                   <span ><strong>Email: </strong></span>
                   <span>{{ mentorDeck.username }}@gobrasa.org</span>
 
