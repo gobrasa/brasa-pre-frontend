@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body{\n  font-family: Lato, sans-serif;\n}\n\n#title{\n  width: 100%;\n  position: absolute;\n  background-size: cover;\n  left: 0;\n  top: 64px;\n  height: 350px;\n  background-image: url('brasa-pre.png');\n  -webkit-transform: translate3d(0px, 0px, 0px);\n  transform: translate3d(0px, 0px, 0px);\n  \n}\n\n.layer {\n  background-color: rgba(55,136,203, 0.3);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n#title-text{\n \n  margin: 98px auto;\n  text-align: center;\n  color: white;\n}\n\n#title-text h1{\n  font-size: 85px;\n  text-transform: uppercase;\n  letter-spacing: 2px;\n  font-weight: 100;\n  line-height: 1;\n}\n\n#info{\n  margin-top: 400px;\n}\n\n#info h1{\n  /*color: rgb(55,136,203);*/\n}\n\n#footer{\n  overflow: auto;\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  background-color: rgb(55,136,203);\n  height: 5px;\n}\n\n@media only screen and (max-width: 600px) {\n  #title{\n      width: 100%;\n      position: absolute;\n      background-size: cover;\n      left: 0;\n      top: 57px;\n      height: 350px;\n      background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n      -webkit-transform: translate3d(0px, 0px, 0px);\n      transform: translate3d(0px, 0px, 0px);\n      \n  }\n\n  #info{\n      margin-top: 360px;\n      height: 400px;\n  }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDZCQUE2QjtBQUMvQjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsc0JBQXNCO0VBQ3RCLE9BQU87RUFDUCxTQUFTO0VBQ1QsYUFBYTtFQUNiLHNDQUFxRDtFQUNyRCw2Q0FBNkM7RUFDN0MscUNBQXFDOztBQUV2Qzs7QUFFQTtFQUNFLHVDQUF1QztFQUN2QyxrQkFBa0I7RUFDbEIsTUFBTTtFQUNOLE9BQU87RUFDUCxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBOztFQUVFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZUFBZTtFQUNmLHlCQUF5QjtFQUN6QixtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSwwQkFBMEI7QUFDNUI7O0FBRUE7RUFDRSxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLE9BQU87RUFDUCxTQUFTO0VBQ1QsV0FBVztFQUNYLGlDQUFpQztFQUNqQyxXQUFXO0FBQ2I7O0FBRUE7RUFDRTtNQUNJLFdBQVc7TUFDWCxrQkFBa0I7TUFDbEIsc0JBQXNCO01BQ3RCLE9BQU87TUFDUCxTQUFTO01BQ1QsYUFBYTtNQUNiLHVJQUF1STtNQUN2SSw2Q0FBNkM7TUFDN0MscUNBQXFDOztFQUV6Qzs7RUFFQTtNQUNJLGlCQUFpQjtNQUNqQixhQUFhO0VBQ2pCO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keXtcbiAgZm9udC1mYW1pbHk6IExhdG8sIHNhbnMtc2VyaWY7XG59XG5cbiN0aXRsZXtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgbGVmdDogMDtcbiAgdG9wOiA2NHB4O1xuICBoZWlnaHQ6IDM1MHB4O1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uL2hvbWUvaW1hZ2VzL2JyYXNhLXByZS5wbmcnKTtcbiAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICBcbn1cblxuLmxheWVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSg1NSwxMzYsMjAzLCAwLjMpO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuI3RpdGxlLXRleHR7XG4gXG4gIG1hcmdpbjogOThweCBhdXRvO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuI3RpdGxlLXRleHQgaDF7XG4gIGZvbnQtc2l6ZTogODVweDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgZm9udC13ZWlnaHQ6IDEwMDtcbiAgbGluZS1oZWlnaHQ6IDE7XG59XG5cbiNpbmZve1xuICBtYXJnaW4tdG9wOiA0MDBweDtcbn1cblxuI2luZm8gaDF7XG4gIC8qY29sb3I6IHJnYig1NSwxMzYsMjAzKTsqL1xufVxuXG4jZm9vdGVye1xuICBvdmVyZmxvdzogYXV0bztcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICBib3R0b206IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoNTUsMTM2LDIwMyk7XG4gIGhlaWdodDogNXB4O1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gICN0aXRsZXtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICAgIGxlZnQ6IDA7XG4gICAgICB0b3A6IDU3cHg7XG4gICAgICBoZWlnaHQ6IDM1MHB4O1xuICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vbGg2Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8wOUFKdm51YlJhUXBvTExOSDB2T1d5Tks5MnlVd05rZjEzVVVRQTMza09pQTM0R0FLVXRmaGlxMDN3Rkk0cmo2cjA5eE9tZz13MTYzODMpO1xuICAgICAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUzZCgwcHgsIDBweCwgMHB4KTtcbiAgICAgIFxuICB9XG5cbiAgI2luZm97XG4gICAgICBtYXJnaW4tdG9wOiAzNjBweDtcbiAgICAgIGhlaWdodDogNDAwcHg7XG4gIH1cbn1cbiJdfQ== */"
+module.exports = "iframe{\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaWZyYW1le1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "body{\n  font-family: Lato, sans-serif;\n}\n\n#title{\n  width
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Dashboards</h2>\n<iframe src=\"https://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/public/dashboards/aSaldjBD1934bM2xhZjm2QmYnyvf2xPHoO9m0YsI?org_slug=default\" width=\"1100\" height=\"1000\"></iframe>\n"
+module.exports = "<h2>Dashboards</h2>\n<div *ngFor=\"let userDeck of userDecks\">\n\n    <!-- If it is a mentor, it can see only himself-->\n    <div *ngIf=\"userDeck.role_name == 'admin' && userNickname == userDeck.username\">\n        <iframe src=\"https://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/dashboard/dashboard-app-brasa-pre?p_Region=Europa&p_Exam_Category=TOEFL&p_Regiao=Europa\"></iframe>\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -57,12 +57,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! auth0-web */ "./node_modules/auth0-web/dist/index.js");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(auth0_web__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../mentor/shared/mentor.service */ "./src/app/mentor/shared/mentor.service.ts");
+
+
+
+
 
 
 var AdminComponent = /** @class */ (function () {
-    function AdminComponent() {
+    function AdminComponent(route, http) {
+        this.route = route;
+        this.http = http;
+        this.getMentors();
+        this.getUser();
+        this.getMentee();
+        this.getAllMentees();
+        this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_4__["getProfile"]().nickname;
+        //console.log(this.userNickname);
     }
-    AdminComponent.prototype.ngOnInit = function () {
+    AdminComponent.prototype.getAllMentors = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    };
+    AdminComponent.prototype.getAllUsers = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/users', httpOptions);
+    };
+    AdminComponent.prototype.getAllMentees = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
+    };
+    AdminComponent.prototype.getMentors = function () {
+        var _this = this;
+        this.getAllMentors().subscribe(function (mentorDecks) {
+            _this.mentorDecks = mentorDecks['objects'];
+            console.log(mentorDecks);
+        });
+    };
+    AdminComponent.prototype.getUser = function () {
+        var _this = this;
+        this.getAllUsers().subscribe(function (userDecks) {
+            _this.userDecks = userDecks['objects'];
+            //console.log(userDecks);
+        });
+    };
+    AdminComponent.prototype.getMentee = function () {
+        var _this = this;
+        this.getAllMentees().subscribe(function (menteeDecks) {
+            _this.menteeDecks = menteeDecks['objects'];
+            //console.log(menteeDecks);
+        });
     };
     AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -70,7 +118,8 @@ var AdminComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
             styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], AdminComponent);
     return AdminComponent;
 }());
@@ -525,7 +574,7 @@ var AWS_URL = 'http://localhost:4200/callback';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    width: 100%;\n    position: absolute;\n    background-size: cover;\n    left: 0;\n    top: 64px;\n    height: 350px;\n    background-image: url('brasa-pre.png');\n    -webkit-transform: translate3d(0px, 0px, 0px);\n    transform: translate3d(0px, 0px, 0px);\n    \n}\n\n.layer {\n    background-color: rgba(55,136,203, 0.3);\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n\n#title-text{\n   \n    margin: 98px auto;\n    text-align: center;\n    color: white;\n}\n\n#title-text h1{\n    font-size: 85px;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    font-weight: 100;\n    line-height: 1;\n}\n\n#info{\n    margin-top: 400px;\n}\n\n#info h1{\n    color: rgb(55,136,203);\n}\n\n#footer{\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    height: 10px;\n    background-color: rgb(55,136,203);\n}\n\n@media only screen and (max-width: 600px) {\n    #title{\n        width: 100%;\n        position: absolute;\n        background-size: cover;\n        left: 0;\n        top: 57px;\n        height: 350px;\n        background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n        -webkit-transform: translate3d(0px, 0px, 0px);\n        transform: translate3d(0px, 0px, 0px);\n        \n    }\n\n    .layer {\n        background-color: rgba(55,136,203, 0.8);\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n    }\n\n    #info{\n        margin-top: 360px;\n        height: 400px;\n    }\n  }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLHNCQUFzQjtJQUN0QixPQUFPO0lBQ1AsU0FBUztJQUNULGFBQWE7SUFDYixzQ0FBNkM7SUFDN0MsNkNBQTZDO0lBQzdDLHFDQUFxQzs7QUFFekM7O0FBRUE7SUFDSSx1Q0FBdUM7SUFDdkMsa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUksaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsV0FBVztJQUNYLFlBQVk7SUFDWixpQ0FBaUM7QUFDckM7O0FBRUE7SUFDSTtRQUNJLFdBQVc7UUFDWCxrQkFBa0I7UUFDbEIsc0JBQXNCO1FBQ3RCLE9BQU87UUFDUCxTQUFTO1FBQ1QsYUFBYTtRQUNiLHVJQUF1STtRQUN2SSw2Q0FBNkM7UUFDN0MscUNBQXFDOztJQUV6Qzs7SUFFQTtRQUNJLHVDQUF1QztRQUN2QyxrQkFBa0I7UUFDbEIsTUFBTTtRQUNOLE9BQU87UUFDUCxXQUFXO1FBQ1gsWUFBWTtJQUNoQjs7SUFFQTtRQUNJLGlCQUFpQjtRQUNqQixhQUFhO0lBQ2pCO0VBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHl7XG4gICAgZm9udC1mYW1pbHk6IExhdG8sIHNhbnMtc2VyaWY7XG59XG5cbiN0aXRsZXtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogNjRweDtcbiAgICBoZWlnaHQ6IDM1MHB4O1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaW1hZ2VzL2JyYXNhLXByZS5wbmcnKTtcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUzZCgwcHgsIDBweCwgMHB4KTtcbiAgICBcbn1cblxuLmxheWVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU1LDEzNiwyMDMsIDAuMyk7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbn1cblxuI3RpdGxlLXRleHR7XG4gICBcbiAgICBtYXJnaW46IDk4cHggYXV0bztcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG4jdGl0bGUtdGV4dCBoMXtcbiAgICBmb250LXNpemU6IDg1cHg7XG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICAgIGZvbnQtd2VpZ2h0OiAxMDA7XG4gICAgbGluZS1oZWlnaHQ6IDE7XG59XG5cbiNpbmZve1xuICAgIG1hcmdpbi10b3A6IDQwMHB4O1xufVxuXG4jaW5mbyBoMXtcbiAgICBjb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG4jZm9vdGVye1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gICAgI3RpdGxle1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgICBsZWZ0OiAwO1xuICAgICAgICB0b3A6IDU3cHg7XG4gICAgICAgIGhlaWdodDogMzUwcHg7XG4gICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vMDlBSnZudWJSYVFwb0xMTkgwdk9XeU5LOTJ5VXdOa2YxM1VVUUEzM2tPaUEzNEdBS1V0ZmhpcTAzd0ZJNHJqNnIwOXhPbWc9dzE2MzgzKTtcbiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICBcbiAgICB9XG5cbiAgICAubGF5ZXIge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU1LDEzNiwyMDMsIDAuOCk7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwO1xuICAgICAgICBsZWZ0OiAwO1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgIH1cblxuICAgICNpbmZve1xuICAgICAgICBtYXJnaW4tdG9wOiAzNjBweDtcbiAgICAgICAgaGVpZ2h0OiA0MDBweDtcbiAgICB9XG4gIH1cbiJdfQ== */"
+module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    width: 100%;\n    position: absolute;\n    background-size: cover;\n    left: 0;\n    top: 64px;\n    height: 350px;\n    background-image: url('brasa-pre.png');\n    -webkit-transform: translate3d(0px, 0px, 0px);\n    transform: translate3d(0px, 0px, 0px);\n    \n}\n\n.layer {\n    background-color: rgba(55,136,203, 0.3);\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n\n#title-text{\n   \n    margin: 98px auto;\n    text-align: center;\n    color: white;\n}\n\n#title-text h1{\n    font-size: 85px;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    font-weight: 100;\n    line-height: 1;\n}\n\n#info{\n    margin-top: 400px;\n}\n\n#info h1{\n    color: rgb(55,136,203);\n}\n\n#footer{\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    height: 10px;\n    background-color: rgb(55,136,203);\n}\n\n@media only screen and (max-width: 600px) {\n    #title{\n        width: 100%;\n        position: absolute;\n        background-size: cover;\n        left: 0;\n        top: 57px;\n        height: 350px;\n        background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n        -webkit-transform: translate3d(0px, 0px, 0px);\n        transform: translate3d(0px, 0px, 0px);\n        \n    }\n\n    .layer {\n        background-color: rgba(55,136,203, 0.8);\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n    }\n\n    #info{\n        margin-top: 360px;\n        height: 400px;\n    }\n  }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLHNCQUFzQjtJQUN0QixPQUFPO0lBQ1AsU0FBUztJQUNULGFBQWE7SUFDYixzQ0FBNkM7SUFDN0MsNkNBQTZDO0lBQzdDLHFDQUFxQzs7QUFFekM7O0FBRUE7SUFDSSx1Q0FBdUM7SUFDdkMsa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUksaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsV0FBVztJQUNYLFlBQVk7SUFDWixpQ0FBaUM7QUFDckM7O0FBRUE7SUFDSTtRQUNJLFdBQVc7UUFDWCxrQkFBa0I7UUFDbEIsc0JBQXNCO1FBQ3RCLE9BQU87UUFDUCxTQUFTO1FBQ1QsYUFBYTtRQUNiLHVJQUF1STtRQUN2SSw2Q0FBNkM7UUFDN0MscUNBQXFDOztJQUV6Qzs7SUFFQTtRQUNJLHVDQUF1QztRQUN2QyxrQkFBa0I7UUFDbEIsTUFBTTtRQUNOLE9BQU87UUFDUCxXQUFXO1FBQ1gsWUFBWTtJQUNoQjs7SUFFQTtRQUNJLGlCQUFpQjtRQUNqQixhQUFhO0lBQ2pCO0VBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHl7XG4gICAgZm9udC1mYW1pbHk6IExhdG8sIHNhbnMtc2VyaWY7XG59XG5cbiN0aXRsZXtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogNjRweDtcbiAgICBoZWlnaHQ6IDM1MHB4O1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaW1hZ2VzL2JyYXNhLXByZS5wbmcnKTtcbiAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUzZCgwcHgsIDBweCwgMHB4KTtcbiAgICBcbn1cblxuLmxheWVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU1LDEzNiwyMDMsIDAuMyk7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMDtcbiAgICBsZWZ0OiAwO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbn1cblxuI3RpdGxlLXRleHR7XG4gICBcbiAgICBtYXJnaW46IDk4cHggYXV0bztcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG4jdGl0bGUtdGV4dCBoMXtcbiAgICBmb250LXNpemU6IDg1cHg7XG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICAgIGZvbnQtd2VpZ2h0OiAxMDA7XG4gICAgbGluZS1oZWlnaHQ6IDE7XG59XG5cbiNpbmZve1xuICAgIG1hcmdpbi10b3A6IDQwMHB4O1xufVxuXG4jaW5mbyBoMXtcbiAgICBjb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG4jZm9vdGVye1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICBib3R0b206IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gICAgI3RpdGxle1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgICBsZWZ0OiAwO1xuICAgICAgICB0b3A6IDU3cHg7XG4gICAgICAgIGhlaWdodDogMzUwcHg7XG4gICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vMDlBSnZudWJSYVFwb0xMTkgwdk9XeU5LOTJ5VXdOa2YxM1VVUUEzM2tPaUEzNEdBS1V0ZmhpcTAzd0ZJNHJqNnIwOXhPbWc9dzE2MzgzKTtcbiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICBcbiAgICB9XG5cbiAgICAubGF5ZXIge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU1LDEzNiwyMDMsIDAuOCk7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgdG9wOiAwO1xuICAgICAgICBsZWZ0OiAwO1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgaGVpZ2h0OiAxMDAlO1xuICAgIH1cblxuICAgICNpbmZve1xuICAgICAgICBtYXJnaW4tdG9wOiAzNjBweDtcbiAgICAgICAgaGVpZ2h0OiA0MDBweDtcbiAgICB9XG4gIH1cbiJdfQ== */"
 
 /***/ }),
 
@@ -1281,7 +1330,7 @@ module.exports = ".mat-card {\n    max-width: 500px;\n    margin: 40px auto;\n}\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let menteeDeck of menteeDeck\">\n            <div *ngIf=\"menteeDeck.id == menteeId\">\n                <mat-card-header>\n\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ menteeDeck.first_name + \" \" + menteeDeck.last_name }}</mat-card-title>\n                    </span>\n\n                    <span class=\"second-column\">\n                        <span *ngIf=\"menteeDeck.cycle_id== 1\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n                        <span *ngIf=\"menteeDeck.cycle_id == 2\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n\n                        </span>\n\n                    </mat-card-header>\n\n                <mat-card-content>\n                    <div id=\"menteeDeck\">\n                        <div *ngFor=\"let mentorDeck of mentorDecks\">\n                            <div *ngIf=\"menteeDeck.mentor_id == mentorDeck.id\">\n                                <span ><strong>Mentor: </strong></span>\n                                <span><a href=\"/mentor/listing/{{menteeDeck.mentor_id}}\">{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</a></span>\n                                <hr>\n                            </div>\n                        </div>\n                        <span ><strong>Cidade: </strong></span>\n                        <span>{{ menteeDeck.city }}</span>\n                        <hr>\n                        <span ><strong>Estado: </strong></span>\n                        <span>{{ menteeDeck.state }}</span>\n                        <hr>\n                        <span ><strong>Contato primário BRASA</strong></span>\n                        <br>\n                        <span ><strong>Nome: </strong>{{ menteeDeck.primary_contact_name }}</span>\n                        <br>\n                        <span ><strong>Email: </strong>{{ menteeDeck.primary_contact_email }}</span>\n                    </div>\n                </mat-card-content>\n                <mat-card-actions>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar prova</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar essay</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Editar College List</button>\n\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Ver informações</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver provas adicionadas</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver essays adicionados</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver College List</button>\n                    <!-- <div class=\"action\">\n                        <button type=\"button\" class=\"btn btn voltar\" (click)=\"goBack()\">\n                            Voltar\n                        </button>\n                    </div> -->\n                </mat-card-actions>\n            </div>\n\n        </div>\n        </mat-card>\n    </div>\n\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let menteeDeck of menteeDeck\">\n            <div *ngIf=\"menteeDeck.id == menteeId\">\n                <mat-card-header>\n\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ menteeDeck.first_name + \" \" + menteeDeck.last_name }}</mat-card-title>\n                    </span>\n\n                    <span class=\"second-column\">\n                        <span *ngIf=\"menteeDeck.cycle_id== 1\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n                        <span *ngIf=\"menteeDeck.cycle_id == 2\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n\n                        </span>\n\n                    </mat-card-header>\n\n                <mat-card-content>\n                    <div id=\"menteeDeck\">\n                        <div *ngFor=\"let mentorDeck of mentorDecks\">\n                            <div *ngIf=\"menteeDeck.mentor_id == mentorDeck.id\">\n                                <span ><strong>Mentor: </strong></span>\n                                <span><a href=\"/mentor/listing/{{menteeDeck.mentor_id}}\">{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</a></span>\n                                <hr>\n                            </div>\n                        </div>\n                        <span ><strong>Cidade: </strong></span>\n                        <span>{{ menteeDeck.city }}</span>\n                        <hr>\n                        <span ><strong>Estado: </strong></span>\n                        <span>{{ menteeDeck.state }}</span>\n                        <hr>\n                        \n                        <span>{{ menteeDeck.state }}</span>\n                        \n                        \n                        <hr>\n\n                        <span ><strong>Contato primário BRASA</strong></span>\n                        <br>\n                        <span ><strong>Nome: </strong>{{ menteeDeck.primary_contact_name }}</span>\n                        <br>\n                        <span ><strong>Email: </strong>{{ menteeDeck.primary_contact_email }}</span>\n\n\n\n                    </div>\n                </mat-card-content>\n                <mat-card-actions>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar prova</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar essay</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Editar College List</button>\n\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Ver informações</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver provas adicionadas</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver essays adicionados</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver College List</button>\n                </mat-card-actions>\n            </div>\n\n        </div>\n        </mat-card>\n    </div>\n\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -1315,6 +1364,7 @@ var MenteeInformationComponent = /** @class */ (function () {
         this.menteeService = menteeService;
         this.getMentees();
         this.getMentors();
+        this.getUni();
         this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_5__["getProfile"]().nickname;
         this.getUsername(this.userNickname);
     }
@@ -1358,12 +1408,13 @@ var MenteeInformationComponent = /** @class */ (function () {
     };
     MenteeInformationComponent.prototype.getAllUniversity = function () {
         var httpOptions = _shared_mentee_service__WEBPACK_IMPORTED_MODULE_3__["MenteeService"].buildHttpOptions();
-        return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+        return this.http.get('https://brasa-pre.herokuapp.com/api/university_applications', httpOptions);
     };
     MenteeInformationComponent.prototype.getUni = function () {
         var _this = this;
-        this.getAllMentors().subscribe(function (mentorDecks) {
-            _this.mentorDecks = mentorDecks['objects'];
+        this.getAllUniversity().subscribe(function (uniDecks) {
+            _this.uniDecks = uniDecks['objects'];
+            console.log(uniDecks['mentee']['university'].name);
         });
     };
     MenteeInformationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2687,7 +2738,7 @@ module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <div class=\"content\">\n        <div id=\"info\">\n          <h1>Bem-vindo ao app do BRASA PRÉ</h1>\n          <p>Esse app tem como objetivo... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus. </p>\n\n          <div class=\"instructions\">\n            <h2>Como o app Funciona?</h2>\n            <ol>\n              <li> <p>Adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Ddipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Udipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Sdipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n            </ol>\n           \n          </div>\n\n        </div>\n    </div>\n    \n    \n  </div>\n  <div id=\"footer\"></div>\n</body>\n</html>"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div *ngFor=\"let userDeck of userDecks\">\n  <div class=\"container\">\n    <div class=\"content\">\n        <div *ngIf=\"(userDeck.role_name == 'admin' || userDeck.role_name == 'mentor' || userDeck.role_name == 'mentee') && userNickname == userDeck.username\">\n        <div id=\"info\">\n          <h1>Bem-vindo ao app do BRASA PRÉ</h1>\n          <p>Esse app tem como objetivo... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus. </p>\n\n          <div class=\"instructions\">\n            <h2>Como o app Funciona?</h2>\n            <ol>\n              <li> <p>Adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Ddipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Udipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Sdipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n            </ol>\n           \n          </div>\n\n        </div>\n        </div>\n        </div>\n    </div>\n    \n    \n  </div>\n  <div id=\"footer\"></div>\n</body>\n</html>"
 
 /***/ }),
 
@@ -2703,12 +2754,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomeComponent", function() { return WelcomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! auth0-web */ "./node_modules/auth0-web/dist/index.js");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(auth0_web__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../mentor/shared/mentor.service */ "./src/app/mentor/shared/mentor.service.ts");
+
+
+
+
 
 
 var WelcomeComponent = /** @class */ (function () {
-    function WelcomeComponent() {
+    function WelcomeComponent(route, http) {
+        this.route = route;
+        this.http = http;
+        this.getMentors();
+        this.getUser();
+        this.getMentee();
+        this.getAllMentees();
+        this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_4__["getProfile"]().nickname;
+        //console.log(this.userNickname);
     }
-    WelcomeComponent.prototype.ngOnInit = function () {
+    WelcomeComponent.prototype.getAllMentors = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    };
+    WelcomeComponent.prototype.getAllUsers = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/users', httpOptions);
+    };
+    WelcomeComponent.prototype.getAllMentees = function () {
+        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
+        return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
+    };
+    WelcomeComponent.prototype.getMentors = function () {
+        var _this = this;
+        this.getAllMentors().subscribe(function (mentorDecks) {
+            _this.mentorDecks = mentorDecks['objects'];
+            console.log(mentorDecks);
+        });
+    };
+    WelcomeComponent.prototype.getUser = function () {
+        var _this = this;
+        this.getAllUsers().subscribe(function (userDecks) {
+            _this.userDecks = userDecks['objects'];
+            //console.log(userDecks);
+        });
+    };
+    WelcomeComponent.prototype.getMentee = function () {
+        var _this = this;
+        this.getAllMentees().subscribe(function (menteeDecks) {
+            _this.menteeDecks = menteeDecks['objects'];
+            //console.log(menteeDecks);
+        });
     };
     WelcomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2716,7 +2815,8 @@ var WelcomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./welcome.component.html */ "./src/app/welcome/welcome.component.html"),
             styles: [__webpack_require__(/*! ./welcome.component.css */ "./src/app/welcome/welcome.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], WelcomeComponent);
     return WelcomeComponent;
 }());

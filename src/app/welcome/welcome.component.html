@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+  <div *ngFor="let userDeck of userDecks">
   <div class="container">
     <div class="content">
+        <div *ngIf="(userDeck.role_name == 'admin' || userDeck.role_name == 'mentor' || userDeck.role_name == 'mentee') && userNickname == userDeck.username">
         <div id="info">
           <h1>Bem-vindo ao app do BRASA PRÉ</h1>
           <p>Esse app tem como objetivo... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus. </p>
@@ -22,6 +24,8 @@
            
           </div>
 
+        </div>
+        </div>
         </div>
     </div>
     

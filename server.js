@@ -18,8 +18,4 @@ app.get('/*', function(req, res){
 
 // server.listen(port, () => console.log("Server is running"));
 
-// app.listen(port, process.env.IP, function(){
-//     console.log("Server is running!!");
-// });
-
 app.listen(process.env.PORT, process.env.IP);

@@ -1,2 +1,9 @@
 <h2>Dashboards</h2>
-<iframe src="https://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/dashboard/dashboard-app-brasa-pre?p_Region=Europa&p_Exam_Category=TOEFL&p_Regiao=Europa"></iframe>
+<div *ngFor="let userDeck of userDecks">
+
+    <!-- If it is a mentor, it can see only himself-->
+    <div *ngIf="userDeck.role_name == 'admin' && userNickname == userDeck.username">
+        <iframe src="https://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/dashboard/dashboard-app-brasa-pre?p_Region=Europa&p_Exam_Category=TOEFL&p_Regiao=Europa"></iframe>
+    </div>
+
+</div>
