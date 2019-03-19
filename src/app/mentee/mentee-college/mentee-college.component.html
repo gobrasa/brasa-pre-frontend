@@ -8,7 +8,7 @@
   <body>
   <div class="container">
 
-    <div id="college_update" class="shadow-sm p-3 mb-5 bg-white rounded">
+    <div *ngIf="role=='mentee' || role=='admin'" id="college_update" class="shadow-sm p-3 mb-5 bg-white rounded">
         <h1>Atualize sua College List!</h1>
         <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
 
@@ -61,9 +61,9 @@
     <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
 
 
-    <h1>Universidades Adicionadas:</h1>
+    <h1>College List:</h1>
     <div *ngFor="let selectedUni of selectedUnis">
-      <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee'">
+      <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee' || role=='mentor'">
 
         {{ selectedUni.name }}
         <div class="action apagar-btn">

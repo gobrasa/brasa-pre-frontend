@@ -57,7 +57,7 @@ export class MenteeInformationComponent {
 
    private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
-      console.log(menteeDecks)
+      console.log(menteeDecks, 'deve estar aqui')
          this.menteeDeck = menteeDecks['objects'];
          this.menteeId = this.route.snapshot.paramMap.get('id');
           console.log(this.menteeDeck);
