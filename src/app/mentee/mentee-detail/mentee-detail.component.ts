@@ -53,7 +53,8 @@ export class MenteeDetailComponent {
     last_name: '',
     city:'',
     state:'',
-    financial_aid:''
+    financial_aid:'',
+    primary_contact_email: ''
     })
     this.todo = this.formBuilder.group({});
     this.menteeId = this.route.snapshot.paramMap.get('id');
@@ -89,13 +90,16 @@ export class MenteeDetailComponent {
 
   public getInformation(){
     this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(mentee=>{
+      console.log(mentee, ':::')
       this.menteeDados = {
         first_name: mentee.first_name,
         last_name: mentee.last_name,
         city: mentee.city,
         state: mentee.state,
         financial_aid: mentee.financial_aid,
-        universities: mentee.universities
+        universities: mentee.universities,
+        primary_contact_email: mentee.primary_contact.email
+
       };
     });
   }

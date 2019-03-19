@@ -273,10 +273,10 @@ export class MenteeCollegeComponent{
         { mentee_id: this.menteeId,
           university_id: ids}, httpOptions).subscribe(data => {
           //console.log(data['_body']);
-          //this._location.back();
+          this._location.back();
          }, error => {
           console.log(error);
-          //this._location.back();
+          this._location.back();
         });
     })
   };
