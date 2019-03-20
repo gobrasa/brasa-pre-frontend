@@ -5,61 +5,42 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="container">
+    <div class="container">
+      <div *ngIf="role == 'mentee' || role == 'admin'" class="container">
+          <div id="essay" class=" shadow-sm p-3 mb-5 bg-white rounded">
+            <h1>Envie o link do Google Docs</h1>
 
-
-
-    <div *ngIf="role == 'mentee' || role == 'admin'" class="container">
-        <div id="essay" class=" shadow-sm p-3 mb-5 bg-white rounded">
-          <h1>Envie o link do Google Docs</h1>
-
-          <form [formGroup]="todo" (ngSubmit)="logForm()">
-              <input placeholder="Essay Título" type="text" class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
-              <br>
-              <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
-              <button type="submit" class="btn btn-sm btn-success salvar">Adicionar</button>
-          </form>
-          <div class="action">
-              <button type="button" class="btn btn voltar" (click)="goBack()">
-                  Voltar
-          </button>
-          </div>
-
-
-      </div>
-
-
-    </div>
-
-    <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
-
-
-    <h1>Essays adicionadas:</h1>
-    <div *ngFor="let essay of essays">
-      <div class="essay-listing" *ngIf="essay.username == menteeName || essay.username == userNickname || role == 'admin'">
-
-        <a href="{{ essay.link }}" target="_blank">{{ essay.title }}</a>
-        <div class="action apagar-btn">
-          <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeEssay(essay.upload_id)">
-            Apagar essay
-          </button>
+            <form [formGroup]="todo" (ngSubmit)="logForm()">
+                <input placeholder="Essay Título" type="text" class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
+                <br>
+                <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
+                <button type="button" class="btn voltar btn btn-sm btn-info" (click)="goBack()">Voltar</button>
+                <button type="submit" class="btn btn-sm btn-success salvar">Adicionar</button>
+                
+            </form>
         </div>
-        <hr>
-
-
 
       </div>
+        <div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1>Essays adicionadas:</h1>
+          <div *ngFor="let essay of essays">
+            <div class="essay-listing" *ngIf="essay.username == menteeName || essay.username == userNickname || role == 'admin'">
+
+              <a href="{{ essay.link }}" target="_blank">{{ essay.title }}</a>
+              <div class="action apagar-btn">
+                <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeEssay(essay.upload_id)">
+                  Apagar essay
+                </button>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div class="action">
+            <button type="button" class="btn btn voltar1 btn-sm btn-info" (click)="goBack()">
+                Voltar
+            </button>
+          </div>
       </div>
-      <div class="action">
-          <button type="button" class="btn btn voltar" (click)="goBack()">
-              Voltar
-      </button>
-
-    </div>
-
-
-
-    </div>
- </div>
+  </div>
 </body>
 </html>

@@ -60,6 +60,7 @@
             <input type="text" class="form-control" placeholder="Nota" [(ngModel)]="score" [ngModelOptions]="{standalone: true}">
           </div>
           <div class="action">
+              <button type="button" class="btn btn voltar btn-sm btn-info" (click)="goBack()">Voltar</button>
               <button type="submit" class="btn btn-sm btn-success salvar">Enviar</button>
           </div>
 
@@ -67,11 +68,11 @@
       </div>
     </div>
 
-   <div id="exams_update">
+   <div id="exams_update" class="shadow-sm p-3 mb-5 bg-white rounded">
     <h1>Provas adicionadas:</h1>
     <div *ngFor="let scheduledExam of scheduledExams">
       <div *ngIf="scheduledExam.mentee_id == menteeId">
-          <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="exam-list">
           <span ><strong>Prova: </strong></span>
           <span>{{ scheduledExam.exam.category }}</span>
           <hr>
@@ -90,10 +91,8 @@
       </div>
     </div>
     </div>
+    <button type="button" class="btn btn  btn-sm btn-info" (click)="goBack()">Voltar</button>
   </div>
-  <button type="button" class="btn btn voltar" (click)="goBack()">
-      Voltar
-</button>
-    </div>
+</div>
 </body>
 </html>
