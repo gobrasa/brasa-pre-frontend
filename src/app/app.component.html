@@ -1,17 +1,18 @@
-    <mat-toolbar class="mat-elevation-z10">
-      <button mat-button *ngIf="!authenticated" routerLink="/">Home</button>
-      <button mat-button onclick="location.href='http://www.gobrasa.org';">Conheça a BRASA</button>
-      <button mat-button  *ngIf="authenticated" routerLink="/mentee/listing">Mentee</button>
-      <button mat-button  *ngIf="authenticated" routerLink="/mentor/listing">Mentor</button>
-      <button mat-button  *ngIf="authenticated && role == 'admin'" routerLink="/admin">Admin</button>
+<mat-toolbar class="mat-elevation-z10">
+  <button mat-button *ngIf="!authenticated" routerLink="/">Home</button>
+  <button mat-button onclick="location.href='http://www.gobrasa.org';">Conheça a BRASA</button>
+  <button mat-button  *ngIf="authenticated" routerLink="/mentee/listing">Mentee</button>
+  <button mat-button  *ngIf="authenticated" routerLink="/mentor/listing">Mentor</button>
+  <button mat-button  *ngIf="authenticated && role == 'admin'" routerLink="/admin">Admin</button>
 
-      <!-- This fills the remaining space of the current row -->
-      <span class="fill-remaining-space"></span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
 
-      <button mat-button (click)="signIn()" *ngIf="!authenticated">Sign In</button>
-      <button mat-button (click)="signOut()" *ngIf="authenticated" routerLink="/">Sign Out</button>
-    </mat-toolbar>
+  <button mat-button (click)="signIn()" *ngIf="!authenticated">Sign In</button>
+  <button mat-button (click)="signOut()" *ngIf="authenticated" routerLink="/">Sign Out</button>
+</mat-toolbar>
 
-    <div class="view-container">
-      <router-outlet></router-outlet>
-    </div>
+<div class="view-container">
+  <router-outlet></router-outlet>
+</div>
+

@@ -154,7 +154,6 @@ export class MenteeTestComponent {
   }
 
   onCategorySelect(item: any) {
-    console.log(item.category)
     this.getSubcategories(item.category)
     this.settingsSubCategory = {
       singleSelection: true,
@@ -190,11 +189,9 @@ export class MenteeTestComponent {
     this.menteeService.getAllExams().subscribe(tests => {
       tests['objects'].forEach(prova=>{
 
-        //console.log(prova.category,this.category.category)
-        //console.log(prova.subcategory, this.subCategory.subcategory)
         if (prova.category == this.todo.value.categoryName[0].category && prova.subcategory == this.todo.value.subCategoryName[0].subcategory) {
           var provaId = prova.id
-          console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),this.menteeId,provaId,this.score, '<-- post')
+          //console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),this.menteeId,provaId,this.score, '<-- post')
           this.http.post(`${this.API_URL}/scheduled_exams`,
             {
               "realization_date": this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),
@@ -267,11 +264,8 @@ export class MenteeTestComponent {
        this.subCategories = resultSubCategory
        /*
      tests.forEach((element)=>{
-       console.log(element)
-       console.log(element.category)
 
        this.categories.push({categoryValue: element.category})
-       console.log(this.categories, '11')
      })*/
    });
  }
@@ -292,7 +286,6 @@ public excludeExam(id){
     console.log(error);
   });;
   this.scheduledExams.forEach((exam, index)=>{
-    console.log(exam.id)
     if (exam.id == id){
       this.scheduledExams.splice(index,1)
     }
@@ -318,17 +311,13 @@ public excludeExam(id){
        this.subCategories = resultSubCategory
      /*
      tests.forEach((element)=>{
-       console.log(element)
-       console.log(element.category)
 
        this.categories.push({categoryValue: element.category})
-       console.log(this.categories, '11')
      })*/
    });
  };
 
  /*portChange(event: { component: SelectSearchableComponent, value: any }) {
-    console.log('port:', event.value);
   }*/
 
 

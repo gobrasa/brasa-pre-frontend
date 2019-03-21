@@ -168,7 +168,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".fill-remaining-space {\n    /* This fills the remaining space, by using flexbox.\n       Every toolbar row uses a flexbox row layout. */\n    flex: 1 1 auto;\n  }\n\n  div.view-container {\n    padding: 15px;\n    margin: 0 auto;\n    max-width: 940px;\n   \n  }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSTtxREFDaUQ7SUFDakQsY0FBYztFQUNoQjs7RUFFQTtJQUNFLGFBQWE7SUFDYixjQUFjO0lBQ2QsZ0JBQWdCOztFQUVsQiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZpbGwtcmVtYWluaW5nLXNwYWNlIHtcbiAgICAvKiBUaGlzIGZpbGxzIHRoZSByZW1haW5pbmcgc3BhY2UsIGJ5IHVzaW5nIGZsZXhib3guXG4gICAgICAgRXZlcnkgdG9vbGJhciByb3cgdXNlcyBhIGZsZXhib3ggcm93IGxheW91dC4gKi9cbiAgICBmbGV4OiAxIDEgYXV0bztcbiAgfVxuXG4gIGRpdi52aWV3LWNvbnRhaW5lciB7XG4gICAgcGFkZGluZzogMTVweDtcbiAgICBtYXJnaW46IDAgYXV0bztcbiAgICBtYXgtd2lkdGg6IDk0MHB4O1xuICAgXG4gIH1cbiJdfQ== */"
+module.exports = ".fill-remaining-space {\n  /* This fills the remaining space, by using flexbox.\n     Every toolbar row uses a flexbox row layout. */\n  flex: 1 1 auto;\n}\n\ndiv.view-container {\n  padding: 15px;\n  margin: 0 auto;\n  max-width: 940px;\n \n}\n\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRTttREFDaUQ7RUFDakQsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGFBQWE7RUFDYixjQUFjO0VBQ2QsZ0JBQWdCOztBQUVsQiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZpbGwtcmVtYWluaW5nLXNwYWNlIHtcbiAgLyogVGhpcyBmaWxscyB0aGUgcmVtYWluaW5nIHNwYWNlLCBieSB1c2luZyBmbGV4Ym94LlxuICAgICBFdmVyeSB0b29sYmFyIHJvdyB1c2VzIGEgZmxleGJveCByb3cgbGF5b3V0LiAqL1xuICBmbGV4OiAxIDEgYXV0bztcbn1cblxuZGl2LnZpZXctY29udGFpbmVyIHtcbiAgcGFkZGluZzogMTVweDtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIG1heC13aWR0aDogOTQwcHg7XG4gXG59XG5cbiJdfQ== */"
 
 /***/ }),
 
@@ -179,7 +179,7 @@ module.exports = ".fill-remaining-space {\n    /* This fills the remaining space
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "    <mat-toolbar class=\"mat-elevation-z10\">\n      <button mat-button *ngIf=\"!authenticated\" routerLink=\"/\">Home</button>\n      <button mat-button onclick=\"location.href='http://www.gobrasa.org';\">Conheça a BRASA</button>\n      <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentee/listing\">Mentee</button>\n      <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentor/listing\">Mentor</button>\n      <button mat-button  *ngIf=\"role == 'admin'\" routerLink=\"/admin\">Admin</button>\n\n      <!-- This fills the remaining space of the current row -->\n      <span class=\"fill-remaining-space\"></span>\n\n      <button mat-button (click)=\"signIn()\" *ngIf=\"!authenticated\">Sign In</button>\n      <button mat-button (click)=\"signOut()\" *ngIf=\"authenticated\" routerLink=\"/\">Sign Out</button>\n    </mat-toolbar>\n\n    <div class=\"view-container\">\n      <router-outlet></router-outlet>\n    </div>\n"
+module.exports = "<mat-toolbar class=\"mat-elevation-z10\">\n  <button mat-button *ngIf=\"!authenticated\" routerLink=\"/\">Home</button>\n  <button mat-button onclick=\"location.href='http://www.gobrasa.org';\">Conheça a BRASA</button>\n  <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentee/listing\">Mentee</button>\n  <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentor/listing\">Mentor</button>\n  <button mat-button  *ngIf=\"authenticated && role == 'admin'\" routerLink=\"/admin\">Admin</button>\n\n  <!-- This fills the remaining space of the current row -->\n  <span class=\"fill-remaining-space\"></span>\n\n  <button mat-button (click)=\"signIn()\" *ngIf=\"!authenticated\">Sign In</button>\n  <button mat-button (click)=\"signOut()\" *ngIf=\"authenticated\" routerLink=\"/\">Sign Out</button>\n</mat-toolbar>\n\n<div class=\"view-container\">\n  <router-outlet></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
@@ -227,7 +227,6 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.getUsername = function (username) {
         var _this = this;
-        console.log('hey');
         var httpOptions = AppComponent_1.buildHttpOptions();
         this.http.get(this.API_URL + "/users?q={\"filters\":[{\"name\":\"username\",\"op\":\"eq\",\"val\": \"" + username + "\"}],\"single\":true}", httpOptions).subscribe(function (usuario) {
             _this.role = usuario.role_name;
@@ -630,7 +629,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n.btn-wrapper {\n    text-align: center;\n}\n\n#college_update{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n.action{\n    margin-top: 20px;\n    height: 40px;\n}\n\n.voltar{\n    margin-right: 30px;\n    background: none;\n    border: none;\n    color: #9999;\n    float: left;\n}\n\n.salvar{\n    float: right;\n    margin-right: 11px;\n}\n\n#exams_update{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n#uploaded_essays{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n.essay-listing{\n    display: inline;\n    margin-top: 5px;\n}\n\nhr{\n    margin-top: 5px;\n    margin-bottom: 6px;\n  }\n\n.apagar{\n    float: right;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudGVlL21lbnRlZS1jb2xsZWdlL21lbnRlZS1jb2xsZWdlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixZQUFZO0lBQ1osV0FBVztBQUNmOztBQUdBO0lBQ0ksWUFBWTtJQUNaLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsZUFBZTtBQUNuQjs7QUFFQTtJQUNJLGVBQWU7SUFDZixrQkFBa0I7RUFDcEI7O0FBRUY7SUFDSSxZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvbWVudGVlL21lbnRlZS1jb2xsZWdlL21lbnRlZS1jb2xsZWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcblxuLmJ0bi13cmFwcGVyIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbiNjb2xsZWdlX3VwZGF0ZXtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIHdpZHRoOiA1MDBweDtcbiAgICBtYXJnaW46IDMwcHggYXV0bztcbn1cblxuLmFjdGlvbntcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xuICAgIGhlaWdodDogNDBweDtcbn1cblxuLnZvbHRhcntcbiAgICBtYXJnaW4tcmlnaHQ6IDMwcHg7XG4gICAgYmFja2dyb3VuZDogbm9uZTtcbiAgICBib3JkZXI6IG5vbmU7XG4gICAgY29sb3I6ICM5OTk5O1xuICAgIGZsb2F0OiBsZWZ0O1xufVxuXG5cbi5zYWx2YXJ7XG4gICAgZmxvYXQ6IHJpZ2h0O1xuICAgIG1hcmdpbi1yaWdodDogMTFweDtcbn1cblxuI2V4YW1zX3VwZGF0ZXtcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIHdpZHRoOiA1MDBweDtcbiAgICBtYXJnaW46IDMwcHggYXV0bztcbn1cblxuI3VwbG9hZGVkX2Vzc2F5c3tcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xuICAgIHdpZHRoOiA1MDBweDtcbiAgICBtYXJnaW46IDMwcHggYXV0bztcbn1cblxuLmVzc2F5LWxpc3Rpbmd7XG4gICAgZGlzcGxheTogaW5saW5lO1xuICAgIG1hcmdpbi10b3A6IDVweDtcbn1cblxuaHJ7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIG1hcmdpbi1ib3R0b206IDZweDtcbiAgfVxuXG4uYXBhZ2Fye1xuICAgIGZsb2F0OiByaWdodDtcbn1cbiJdfQ== */"
+module.exports = "\n\n.btn-wrapper {\n    text-align: center;\n}\n\n#college_update{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n.action{\n    margin-top: 20px;\n    height: 40px;\n}\n\n.voltar{\n    margin-right: 30px;\n    background: none;\n    border: none;\n    color: #9999;\n    float: left;\n}\n\n.salvar{\n    float: right;\n    margin-right: 11px;\n}\n\n#exams_update{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n#uploaded_essays{\n    margin-bottom: 30px;\n    width: 500px;\n    margin: 30px auto;\n}\n\n.essay-listing{\n    display: inline;\n}\n\nhr{\n    margin-top: 5px;\n    margin-bottom: 6px;\n  }\n\n.apagar{\n\n    padding: 2px;\n    float: right;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudGVlL21lbnRlZS1jb2xsZWdlL21lbnRlZS1jb2xsZWdlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQTtJQUNJLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixZQUFZO0lBQ1osV0FBVztBQUNmOztBQUdBO0lBQ0ksWUFBWTtJQUNaLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxlQUFlO0FBQ25COztBQUVBO0lBQ0ksZUFBZTtJQUNmLGtCQUFrQjtFQUNwQjs7QUFFRjs7SUFFSSxZQUFZO0lBQ1osWUFBWTtBQUNoQiIsImZpbGUiOiJzcmMvYXBwL21lbnRlZS9tZW50ZWUtY29sbGVnZS9tZW50ZWUtY29sbGVnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5cbi5idG4td3JhcHBlciB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4jY29sbGVnZV91cGRhdGV7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbiAgICB3aWR0aDogNTAwcHg7XG4gICAgbWFyZ2luOiAzMHB4IGF1dG87XG59XG5cbi5hY3Rpb257XG4gICAgbWFyZ2luLXRvcDogMjBweDtcbiAgICBoZWlnaHQ6IDQwcHg7XG59XG5cbi52b2x0YXJ7XG4gICAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xuICAgIGJhY2tncm91bmQ6IG5vbmU7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGNvbG9yOiAjOTk5OTtcbiAgICBmbG9hdDogbGVmdDtcbn1cblxuXG4uc2FsdmFye1xuICAgIGZsb2F0OiByaWdodDtcbiAgICBtYXJnaW4tcmlnaHQ6IDExcHg7XG59XG5cbiNleGFtc191cGRhdGV7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbiAgICB3aWR0aDogNTAwcHg7XG4gICAgbWFyZ2luOiAzMHB4IGF1dG87XG59XG5cbiN1cGxvYWRlZF9lc3NheXN7XG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcbiAgICB3aWR0aDogNTAwcHg7XG4gICAgbWFyZ2luOiAzMHB4IGF1dG87XG59XG5cbi5lc3NheS1saXN0aW5ne1xuICAgIGRpc3BsYXk6IGlubGluZTtcbn1cblxuaHJ7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIG1hcmdpbi1ib3R0b206IDZweDtcbiAgfVxuXG4uYXBhZ2Fye1xuXG4gICAgcGFkZGluZzogMnB4O1xuICAgIGZsb2F0OiByaWdodDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -718,16 +717,11 @@ var MenteeCollegeComponent = /** @class */ (function () {
         //this.selectedUnis1 = this.selectedUnis
         //let timer = of(this.selectColleges(this.menteeId)).delay(5000);
         //timer.subscribe(() => this.selectColleges(this.menteeId));
-        console.log(this.selectedUnis, '00');
-        console.log(this.userForm, 'here');
         /*
         this.selectedUnis1.push({id: 693, name: "Seattle University"})
         this.selectedUnis1.push({id: 695, name: "Sewanee, University of the South"})
         this.selectedUnis1.push({id: 698, name: "Shippensburg University of Pennsylvania"})
-        this.selectedUnis1.push({id: 696,name: "Shawnee State University"});/*
-        console.log(this.selectedUnis1.constructor, '1')
-        console.log(this.selectedUnis.constructor, '0')
-        console.log(this.selectedUnis, this.selectedUnis1)*/
+        this.selectedUnis1.push({id: 696,name: "Shawnee State University"});*/
         this.settingsIso = {
             singleSelection: true,
             text: "País",
@@ -755,7 +749,6 @@ var MenteeCollegeComponent = /** @class */ (function () {
     };
     MenteeCollegeComponent.prototype.onIsoSelect = function (item) {
         var _this = this;
-        console.log(item.country_iso_code, 'klasdflak');
         this.universitiesIso = [];
         this.selectedUnisIso = [];
         this.universities.forEach(function (university) {
@@ -795,7 +788,6 @@ var MenteeCollegeComponent = /** @class */ (function () {
     };
     MenteeCollegeComponent.prototype.onItemSelect = function (item) {
         this.helper3 = this.helper3 + 1;
-        console.log(item);
         this.selectedUnis.push({ id: 0, name: item.name });
     };
     MenteeCollegeComponent.prototype.goBack = function () {
@@ -816,14 +808,12 @@ var MenteeCollegeComponent = /** @class */ (function () {
                 'Authorization': "Bearer " + auth0_web__WEBPACK_IMPORTED_MODULE_6__["getAccessToken"]()
             })
         };
-        console.log(auth0_web__WEBPACK_IMPORTED_MODULE_6__["getAccessToken"]());
         this.http.delete(this.API_URL + "/university_applications/" + id, httpOptions).subscribe(function (data) {
         }, function (error) {
             console.log(error);
         });
         ;
         this.selectedUnis.forEach(function (uni, index) {
-            console.log(uni.id);
             if (uni.upload_id == id) {
                 _this.selectedUnis.splice(index, 1);
             }
@@ -836,7 +826,6 @@ var MenteeCollegeComponent = /** @class */ (function () {
         this.userForm.value.uniList.forEach(function (test) {
             universitiesId.push(test.id);
         });
-        //console.log(universitiesId)
         var httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Content-Type': 'application/json',
@@ -848,13 +837,11 @@ var MenteeCollegeComponent = /** @class */ (function () {
         };
         //http://brasa-pre.herokuapp.com/api/university_application_for_mentee
         universitiesId.forEach(function (ids) {
-            console.log(ids);
             _this.http.post(_this.API_URL + "/university_applications", { mentee_id: _this.menteeId,
                 university_id: ids }, httpOptions).subscribe(function (data) {
-                //console.log(data['_body']);
                 _this._location.back();
             }, function (error) {
-                console.log(error);
+                //console.log(error);
                 _this._location.back();
             });
         });
@@ -864,9 +851,8 @@ var MenteeCollegeComponent = /** @class */ (function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                this.menteeService.getMenteeCollegeList(id).subscribe(function (tests) {
+                this.menteeService.getMentee(id).subscribe(function (tests) {
                     _this.helper3 = tests.university_applications.length;
-                    console.log(tests, 'tem upload id ?');
                     tests.university_applications.forEach(function (unis) {
                         _this.menteeService.getCollegeNameById(unis.university_id).subscribe(function (collegeName) {
                             _this.selectedUnis.push({ id: unis.university_id, name: collegeName.name, upload_id: unis.id });
@@ -875,51 +861,25 @@ var MenteeCollegeComponent = /** @class */ (function () {
                     });
                     /*
                     for (this.helper2; this.helper2< tests.university_applications.length;this.helper2++){
-                      console.log(this.helper2)
-                      console.log(tests.university_applications[this.helper2].university_id)
                       this.menteeService.getCollegeNameById(tests.university_applications[this.helper2].university_id).subscribe(collegeName=>{
                         if (this.helper2 < this.helper3){
-                          console.log('he')
                         this.selectedUnis.push({id: tests.university_applications[this.helper2].university_id, name: collegeName.name});
-                        console.log(this.selectedUnis.length, this.helper3)}
+                        }
                       })
               
                     }*/
                     // this.selectedUnis = this.helper
-                    console.log(_this.selectedUnis, 'lllololo');
                     return _this.selectedUnis;
-                    /*
-                    .forEach(unis => {
-                      console.log(unis, 'herere')
-                      this.menteeService.getCollegeNameById(unis.university_id).subscribe(collegeName=>{
-                        this.helper.push({id: unis.university_id, name: collegeName.name});
-                      })
-                    }).then(()=>{
-                      this.uniSelectedChange.emit(this.selectedUnis);
-                      this.cd.detectChanges();
-                      this.loading = true
-                      return this.selectedUnis, this.loading = true
-                    })*/
                 });
                 return [2 /*return*/];
             });
         });
     };
     ;
-    /*public logForm(){
-      for (let i =0; i< this.collegeArray.length; i++){
-        this.http.post(`${this.API_URL}/universities/`, this.collegeArray[i], {headers: this.headers}).subscribe(data => {
-            console.log(data['_body']);
-           }, error => {
-            console.log(error);
-          });
-      };
-    };*/
     MenteeCollegeComponent.prototype.getUniList = function () {
         var _this = this;
         this.menteeService.getAllUniversities().subscribe(function (tests) {
             _this.universities = tests['objects'];
-            console.log(tests['objects'], '<<<');
             var result = [];
             var codes = [];
             var mapUniversities = new Map();
@@ -998,7 +958,7 @@ module.exports = "#update_info{\n    margin-bottom: 30px;\n    width: 500px;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n\n  <div *ngIf=\"role=='mentee' || role=='admin'\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Atualize suas informações!</h1>\n      <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n        <div class=\"form-group\">\n          <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"menteeDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.city\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Estado\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.state\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <mat-form-field>\n          <mat-select [(value)]=\"menteeDados.financial_aid\" placeholder=\"Precisa de financial aid ?\">\n            <mat-option [value]=\"true\">Sim</mat-option>\n            <mat-option [value]=\"false\">Não</mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <div class=\"action\">\n            <button type=\"submit\" class=\"btn btn-success btn-sm salvar\">Salvar Informações</button>\n            <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"goBack()\">Voltar</button>\n        </div>\n\n      </form>\n  </div>\n\n\n\n      <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\">\n        <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n          <h1>Informações do seu mentee!</h1>\n          <div id=\"menteeDeck\">\n              <strong>Nome: </strong> <span>{{menteeDados.first_name}} {{menteeDados.last_name}}</span>\n              <hr>\n              <strong>Cidade: </strong> <span>{{menteeDados.city}}</span>\n              <hr>\n              <strong>Estado: </strong> <span>{{menteeDados.state}}</span>\n              <hr>\n              <strong>Financial Aid: </strong> <span *ngIf=\"menteeDados.financial_aid==1\">Sim</span> <span *ngIf=\"menteeDados.financial_aid==0\">Não</span>\n              <hr>\n              <span ><strong>Contato primário BRASA</strong></span>\n              <br>\n              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>\n          </div>\n          <div class=\"action\">\n              <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"goBack()\">\n                  Voltar\n                </button>\n          </div>\n        </div>\n    </div>\n\n    </div>\n  </body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n\n  <div *ngIf=\"role=='mentee' || role=='admin'\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Atualize suas informações!</h1>\n      <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n        <div class=\"form-group\">\n          <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"menteeDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.city\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Estado\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.state\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <mat-form-field>\n          <mat-select [(value)]=\"menteeDados.financial_aid\" placeholder=\"Precisa de financial aid ?\">\n            <mat-option [value]=\"true\">Sim</mat-option>\n            <mat-option [value]=\"false\">Não</mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <div class=\"action\">\n            <button type=\"submit\" class=\"btn btn-success btn-sm salvar\">Salvar Informações</button>\n            <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"goBack()\">Voltar</button>\n        </div>\n\n      </form>\n  </div>\n\n\n\n      <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\">\n        <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n          <h1>Informações do seu mentee!</h1>\n          <div id=\"menteeDeck\">\n              <strong>Nome: </strong> <span>{{menteeDados.first_name}} {{menteeDados.last_name}}</span>\n              <hr>\n              <strong>Cidade: </strong> <span>{{menteeDados.city}}</span>\n              <hr>\n              <strong>Estado: </strong> <span>{{menteeDados.state}}</span>\n              <hr>\n              <strong>Financial Aid: </strong> <span *ngIf=\"menteeDados.financial_aid==1\">Sim</span> <span *ngIf=\"menteeDados.financial_aid==0\">Não</span>\n              <hr>\n              <span ><strong>Contato primário BRASA</strong></span>\n              <br>\n              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>\n          </div>\n          <br>\n          <h1>College List:</h1>\n          <div *ngFor=\"let selectedUni of selectedUnis\">\n            <div class=\"essay-listing\" *ngIf=\"role == 'admin' || role=='mentor'\">\n\n              {{ selectedUni.name }}\n              <hr>\n            </div>\n            </div>\n\n          <div class=\"action\">\n            <button type=\"button\" class=\"btn btn-sm btn-info\" (click)=\"goBack()\">\n                Voltar\n              </button>\n          </div>\n        </div>\n    </div>\n\n    </div>\n  </body>\n</html>\n"
 
 /***/ }),
 
@@ -1048,6 +1008,7 @@ var MenteeDetailComponent = /** @class */ (function () {
         this.satSubjectsArray = [];
         this.menteeProfile = [];
         this.menteeDados = [];
+        this.selectedUnis = new Array();
         this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Authorization': "Bearer " + auth0_web__WEBPACK_IMPORTED_MODULE_7__["getAccessToken"]()
         });
         this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_7__["getProfile"]().nickname;
@@ -1064,7 +1025,6 @@ var MenteeDetailComponent = /** @class */ (function () {
         this.getUsername(this.userNickname);
         /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
           this.todo.value.username = data["objects"][0].username
-          console.log(this.todo.value.username)
             //"username": data["objects"][0].username,
           //this.menteeProfile.push(data['heroesUrl']),
           //this.menteeProfile.push(data['textfile'])
@@ -1090,8 +1050,7 @@ var MenteeDetailComponent = /** @class */ (function () {
     };
     MenteeDetailComponent.prototype.getInformation = function () {
         var _this = this;
-        this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(function (mentee) {
-            console.log(mentee, ':::');
+        this.menteeService.getMentee(this.menteeId).subscribe(function (mentee) {
             _this.menteeDados = {
                 first_name: mentee.first_name,
                 last_name: mentee.last_name,
@@ -1102,15 +1061,17 @@ var MenteeDetailComponent = /** @class */ (function () {
                 primary_contact_email: mentee.primary_contact.email
             };
         });
+        this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(function (colleges) {
+            colleges['objects'].forEach(function (college) {
+                _this.selectedUnis.push({ name: college.university.name });
+            });
+        });
     };
     MenteeDetailComponent.prototype.goBack = function () {
         this._location.back();
     };
     MenteeDetailComponent.prototype.logForm = function () {
         var _this = this;
-        console.log(this.menteeDados);
-        //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
-        console.log('ˆˆ');
         this.http.put(this.API_URL + "/mentees/" + this.menteeId, {
             "first_name": this.menteeDados.first_name,
             "last_name": this.menteeDados.last_name,
@@ -1136,6 +1097,10 @@ var MenteeDetailComponent = /** @class */ (function () {
             });
         };*/
     };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], MenteeDetailComponent.prototype, "selectedUnis", void 0);
     MenteeDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-mentee-detail',
@@ -1283,14 +1248,12 @@ var MenteeEssayComponent = /** @class */ (function () {
                 'Authorization': "Bearer " + auth0_web__WEBPACK_IMPORTED_MODULE_6__["getAccessToken"]()
             })
         };
-        console.log(id);
         this.http.delete(this.API_URL + "/uploads/" + id, httpOptions).subscribe(function (data) {
         }, function (error) {
             console.log(error);
         });
         ;
         this.essays.forEach(function (essay, index) {
-            console.log(essay.id);
             if (essay.upload_id == id) {
                 _this.essays.splice(index, 1);
             }
@@ -1322,7 +1285,7 @@ var MenteeEssayComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".mat-card {\n    max-width: 500px;\n    margin: 40px auto;\n}\n    \n#menteeDeck {\n    margin-left: 20px;\n}\n    \n.content {\n    display: flex;\n    flex-wrap: wrap;\n  }\n    \n.child {\n    flex-grow: 1;\n    flex: 1 1 35%;\n    margin: 20px;\n    max-width: 200px;\n  }\n    \nhr{\n    margin-top: 3px;\n    margin-bottom: 3px;\n  }\n    \n.btn{\n    background-color: rgb(55,136,203);\n    color: white;\n  }\n    \n.btn:hover {\n    color: white;\n  }\n    \n.action{\n    margin-top: 20px;\n    height: 10px;\n}\n    \n.voltar{\n    margin-right: 30px;\n    background: none;\n    border: none;\n    color: #9999;\n    float: left;\n}\n    \n.mat-card-header{\n  display: flex;\n}\n    \n.first-column{\n  margin-left:-33px;\n  float: left;\n  flex: 80%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudGVlL21lbnRlZS1pbmZvcm1hdGlvbi9tZW50ZWUtaW5mb3JtYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxpQkFBaUI7QUFDckI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsZUFBZTtFQUNqQjs7QUFFQTtJQUNFLFlBQVk7SUFDWixhQUFhO0lBQ2IsWUFBWTtJQUNaLGdCQUFnQjtFQUNsQjs7QUFFQTtJQUNFLGVBQWU7SUFDZixrQkFBa0I7RUFDcEI7O0FBRUE7SUFDRSxpQ0FBaUM7SUFDakMsWUFBWTtFQUNkOztBQUVBO0lBQ0UsWUFBWTtFQUNkOztBQUVBO0lBQ0UsZ0JBQWdCO0lBQ2hCLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixZQUFZO0lBQ1osV0FBVztBQUNmOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLFdBQVc7RUFDWCxTQUFTO0FBQ1giLCJmaWxlIjoic3JjL2FwcC9tZW50ZWUvbWVudGVlLWluZm9ybWF0aW9uL21lbnRlZS1pbmZvcm1hdGlvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1hdC1jYXJkIHtcbiAgICBtYXgtd2lkdGg6IDUwMHB4O1xuICAgIG1hcmdpbjogNDBweCBhdXRvO1xufVxuICAgIFxuI21lbnRlZURlY2sge1xuICAgIG1hcmdpbi1sZWZ0OiAyMHB4O1xufVxuXG4uY29udGVudCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LXdyYXA6IHdyYXA7XG4gIH1cbiAgXG4gIC5jaGlsZCB7XG4gICAgZmxleC1ncm93OiAxO1xuICAgIGZsZXg6IDEgMSAzNSU7XG4gICAgbWFyZ2luOiAyMHB4O1xuICAgIG1heC13aWR0aDogMjAwcHg7XG4gIH1cblxuICBocntcbiAgICBtYXJnaW4tdG9wOiAzcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogM3B4O1xuICB9XG5cbiAgLmJ0bntcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoNTUsMTM2LDIwMyk7XG4gICAgY29sb3I6IHdoaXRlO1xuICB9XG4gIFxuICAuYnRuOmhvdmVyIHtcbiAgICBjb2xvcjogd2hpdGU7XG4gIH1cblxuICAuYWN0aW9ue1xuICAgIG1hcmdpbi10b3A6IDIwcHg7XG4gICAgaGVpZ2h0OiAxMHB4O1xufVxuXG4udm9sdGFye1xuICAgIG1hcmdpbi1yaWdodDogMzBweDtcbiAgICBiYWNrZ3JvdW5kOiBub25lO1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBjb2xvcjogIzk5OTk7XG4gICAgZmxvYXQ6IGxlZnQ7XG59XG5cbi5tYXQtY2FyZC1oZWFkZXJ7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG5cbi5maXJzdC1jb2x1bW57XG4gIG1hcmdpbi1sZWZ0Oi0zM3B4O1xuICBmbG9hdDogbGVmdDtcbiAgZmxleDogODAlO1xufSJdfQ== */"
+module.exports = ".mat-card {\n  max-width: 500px;\n  margin: 40px auto;\n}\n  \n#menteeDeck {\n  margin-left: 20px;\n}\n  \n.content {\n  display: flex;\n  flex-wrap: wrap;\n}\n  \n.child {\n  flex-grow: 1;\n  flex: 1 1 35%;\n  margin: 20px;\n  max-width: 200px;\n}\n  \nhr{\n  margin-top: 3px;\n  margin-bottom: 3px;\n}\n  \n.btn{\n  background-color: rgb(55,136,203);\n  color: white;\n}\n  \n.btn:hover {\n  color: white;\n}\n  \n.action{\n  margin-top: 20px;\n  height: 10px;\n}\n  \n.voltar{\n  margin-right: 30px;\n  background: none;\n  border: none;\n  color: #9999;\n  float: left;\n}\n  \n.mat-card-header{\ndisplay: flex;\n}\n  \n.first-column{\nmargin-left:-33px;\nfloat: left;\nflex: 80%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudGVlL21lbnRlZS1pbmZvcm1hdGlvbi9tZW50ZWUtaW5mb3JtYXRpb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQ0FBaUM7RUFDakMsWUFBWTtBQUNkOztBQUVBO0VBQ0UsWUFBWTtBQUNkOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLFlBQVk7RUFDWixXQUFXO0FBQ2I7O0FBRUE7QUFDQSxhQUFhO0FBQ2I7O0FBRUE7QUFDQSxpQkFBaUI7QUFDakIsV0FBVztBQUNYLFNBQVM7QUFDVCIsImZpbGUiOiJzcmMvYXBwL21lbnRlZS9tZW50ZWUtaW5mb3JtYXRpb24vbWVudGVlLWluZm9ybWF0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWF0LWNhcmQge1xuICBtYXgtd2lkdGg6IDUwMHB4O1xuICBtYXJnaW46IDQwcHggYXV0bztcbn1cbiAgXG4jbWVudGVlRGVjayB7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xufVxuXG4uY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn1cblxuLmNoaWxkIHtcbiAgZmxleC1ncm93OiAxO1xuICBmbGV4OiAxIDEgMzUlO1xuICBtYXJnaW46IDIwcHg7XG4gIG1heC13aWR0aDogMjAwcHg7XG59XG5cbmhye1xuICBtYXJnaW4tdG9wOiAzcHg7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbn1cblxuLmJ0bntcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5idG46aG92ZXIge1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5hY3Rpb257XG4gIG1hcmdpbi10b3A6IDIwcHg7XG4gIGhlaWdodDogMTBweDtcbn1cblxuLnZvbHRhcntcbiAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xuICBiYWNrZ3JvdW5kOiBub25lO1xuICBib3JkZXI6IG5vbmU7XG4gIGNvbG9yOiAjOTk5OTtcbiAgZmxvYXQ6IGxlZnQ7XG59XG5cbi5tYXQtY2FyZC1oZWFkZXJ7XG5kaXNwbGF5OiBmbGV4O1xufVxuXG4uZmlyc3QtY29sdW1ue1xubWFyZ2luLWxlZnQ6LTMzcHg7XG5mbG9hdDogbGVmdDtcbmZsZXg6IDgwJTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1539,7 +1502,6 @@ var MenteeListingComponent = /** @class */ (function () {
         var _this = this;
         this.getAllUsers().subscribe(function (userDecks) {
             _this.userDecks = userDecks['objects'];
-            //console.log(userDecks);
         });
     };
     MenteeListingComponent.prototype.getMenteesFromMentor = function () {
@@ -1691,7 +1653,6 @@ var MenteeTestComponent = /** @class */ (function () {
         });
     };
     MenteeTestComponent.prototype.onCategorySelect = function (item) {
-        console.log(item.category);
         this.getSubcategories(item.category);
         this.settingsSubCategory = {
             singleSelection: true,
@@ -1725,11 +1686,9 @@ var MenteeTestComponent = /** @class */ (function () {
         // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
         this.menteeService.getAllExams().subscribe(function (tests) {
             tests['objects'].forEach(function (prova) {
-                //console.log(prova.category,this.category.category)
-                //console.log(prova.subcategory, this.subCategory.subcategory)
                 if (prova.category == _this.todo.value.categoryName[0].category && prova.subcategory == _this.todo.value.subCategoryName[0].subcategory) {
                     var provaId = prova.id;
-                    console.log(_this.datepipe.transform(_this.dateTime, 'dd-MM-yyyy'), _this.menteeId, provaId, _this.score, '<-- post');
+                    //console.log(this.datepipe.transform(this.dateTime, 'dd-MM-yyyy'),this.menteeId,provaId,this.score, '<-- post')
                     _this.http.post(_this.API_URL + "/scheduled_exams", {
                         "realization_date": _this.datepipe.transform(_this.dateTime, 'dd-MM-yyyy'),
                         "mentee_id": _this.menteeId,
@@ -1800,11 +1759,8 @@ var MenteeTestComponent = /** @class */ (function () {
             _this.subCategories = resultSubCategory;
             /*
           tests.forEach((element)=>{
-            console.log(element)
-            console.log(element.category)
      
             this.categories.push({categoryValue: element.category})
-            console.log(this.categories, '11')
           })*/
         });
     };
@@ -1825,7 +1781,6 @@ var MenteeTestComponent = /** @class */ (function () {
         });
         ;
         this.scheduledExams.forEach(function (exam, index) {
-            console.log(exam.id);
             if (exam.id == id) {
                 _this.scheduledExams.splice(index, 1);
             }
@@ -1852,11 +1807,8 @@ var MenteeTestComponent = /** @class */ (function () {
             _this.subCategories = resultSubCategory;
             /*
             tests.forEach((element)=>{
-              console.log(element)
-              console.log(element.category)
        
               this.categories.push({categoryValue: element.category})
-              console.log(this.categories, '11')
             })*/
         });
     };
@@ -1933,11 +1885,9 @@ var MenteeComponent = /** @class */ (function () {
             .subscribe(function (res) {
             _this.user = res;
         }, console.error);
-        console.log(this.user);
     }
     MenteeComponent.prototype.get_role = function () { };
     MenteeComponent.prototype.ngOnInit = function () {
-        console.log('entered mentee');
     };
     MenteeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2112,29 +2062,25 @@ var MenteeService = /** @class */ (function () {
         var httpOptions = MenteeService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/mentors?q={\"filters\":[{\"name\":\"username\",\"op\":\"eq\",\"val\": \"" + username + "\"}],\"single\":true}", httpOptions);
     };
-    // public getCollegeList(id): Observable<any>{
-    //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
-    // }
     MenteeService.prototype.getAllExams = function () {
         var httpOptions = MenteeService_1.buildHttpOptions();
-        //const httpOptions = ExamsApiService.buildHttpOptions();
-        //console.log(httpOptions);
         return this.http.get(this.API_URL + "/exams", httpOptions);
     };
     MenteeService.prototype.getAllScheduledExams = function () {
         var httpOptions = MenteeService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/scheduled_exams", httpOptions);
     };
-    // public getAllUniversities(): Observable<any>{
-    //   return this.http.get<any>(`${this.HS_API_URL}/universities/`);
-    // }
     MenteeService.prototype.getAllEssays = function () {
         var httpOptions = MenteeService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/uploads", httpOptions);
     };
-    MenteeService.prototype.getMenteeCollegeList = function (id) {
+    MenteeService.prototype.getMentee = function (id) {
         var httpOptions = MenteeService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/mentees/" + id, httpOptions);
+    };
+    MenteeService.prototype.getMenteeCollegeList = function (id) {
+        var httpOptions = MenteeService_1.buildHttpOptions();
+        return this.http.get(this.API_URL + "/mentees/" + id + "/university_applications", httpOptions);
     };
     MenteeService.prototype.getCollegeNameById = function (id) {
         var httpOptions = MenteeService_1.buildHttpOptions();
@@ -2336,7 +2282,6 @@ var MentorDetailComponent = /** @class */ (function () {
     MentorDetailComponent.prototype.getInformation = function () {
         var _this = this;
         this.mentorService.getMentorById(this.mentorId).subscribe(function (mentor) {
-            console.log(mentor, '>>');
             var printMajor;
             var printMinor;
             var printMajor1;
@@ -2359,7 +2304,6 @@ var MentorDetailComponent = /** @class */ (function () {
             else {
                 printMajor1 = mentor.second_major.name;
             }
-            console.log(mentor, '<<<<<<');
             if (!mentor.second_minor) {
                 printMinor1 = null;
             }
@@ -2377,7 +2321,6 @@ var MentorDetailComponent = /** @class */ (function () {
                 major1: printMajor1,
                 minor1: printMinor1
             };
-            console.log(_this.mentorDados.major);
             /*
             if (mentor.minor){
               this.mentorDados = {
@@ -2452,10 +2395,8 @@ var MentorDetailComponent = /** @class */ (function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 this.mentorService.getMentorUniversity(id).subscribe(function (mentor) {
-                    console.log(mentor.university_id);
                     _this.mentorService.getCollegeNameById(mentor.university_id).subscribe(function (collegeName) {
                         _this.selectedUnis.push({ id: mentor.university_id, name: collegeName.name });
-                        console.log(_this.selectedUnis);
                         _this.mentorDados.university = collegeName.name;
                     });
                 });
@@ -2481,7 +2422,6 @@ var MentorDetailComponent = /** @class */ (function () {
                     if (mentor.second_minor) {
                         _this.selectedMinor1.push({ id: mentor.second_minor_course_id, name: mentor.second_minor.name, category: mentor.second_minor.category });
                     }
-                    console.log(_this.selectedMinor);
                 });
                 return [2 /*return*/, (this.selectedMinor, this.selectedMajor, this.selectedMinor1, this.selectedMajor1)];
             });
@@ -2491,7 +2431,6 @@ var MentorDetailComponent = /** @class */ (function () {
         var _this = this;
         this.mentorService.getAllUniversities().subscribe(function (tests) {
             _this.universities = tests['objects'];
-            console.log(tests['objects']);
             var result = [];
             var mapUniversities = new Map();
             for (var _i = 0, _a = tests['objects']; _i < _a.length; _i++) {
@@ -2510,7 +2449,6 @@ var MentorDetailComponent = /** @class */ (function () {
         });
         this.mentorService.getAllCourses().subscribe(function (courses) {
             _this.universities = courses['objects'];
-            console.log(courses['objects']);
             var result = [];
             var mapCourses = new Map();
             for (var _i = 0, _a = courses['objects']; _i < _a.length; _i++) {
@@ -2698,7 +2636,6 @@ var MentorListingComponent = /** @class */ (function () {
         this.getMentee();
         this.getAllMentees();
         this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_4__["getProfile"]().nickname;
-        //console.log(this.userNickname);
     }
     MentorListingComponent.prototype.getAllMentors = function () {
         var httpOptions = _shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
@@ -2716,21 +2653,18 @@ var MentorListingComponent = /** @class */ (function () {
         var _this = this;
         this.getAllMentors().subscribe(function (mentorDecks) {
             _this.mentorDecks = mentorDecks['objects'];
-            console.log(mentorDecks);
         });
     };
     MentorListingComponent.prototype.getUser = function () {
         var _this = this;
         this.getAllUsers().subscribe(function (userDecks) {
             _this.userDecks = userDecks['objects'];
-            //console.log(userDecks);
         });
     };
     MentorListingComponent.prototype.getMentee = function () {
         var _this = this;
         this.getAllMentees().subscribe(function (menteeDecks) {
             _this.menteeDecks = menteeDecks['objects'];
-            //console.log(menteeDecks);
         });
     };
     MentorListingComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -3103,7 +3037,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/matheusbustamante/Desktop/brasa-pre-app/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/matheusbustamante/Desktop/Brasa-Website/brasa-pre-frontend/src/main.ts */"./src/main.ts");
 
 
 /***/ })
