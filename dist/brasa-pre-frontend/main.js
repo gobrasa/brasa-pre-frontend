@@ -561,7 +561,7 @@ var CallbackComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AWS_URL", function() { return AWS_URL; });
-//export const AWS_URL = 'https://immense-falls-70233.herokuapp.com/callback';
+//export const AWS_URL = 'http://brasa-pre-app.gobrasa.org//callback';
 var AWS_URL = 'http://localhost:4200/callback';
 
 
@@ -641,7 +641,7 @@ module.exports = "\n\n.btn-wrapper {\n    text-align: center;\n}\n\n#college_upd
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n    <div id=\"college_update\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n        <h1>Atualize sua College List!</h1>\n        <form [formGroup]=\"userForm\" (ngSubmit)=\"postCollegeList()\">\n\n          <div class=\"form-group\">\n            <angular2-multiselect\n                                  [data]=\"isoCode\"\n                                  [(ngModel)]=\"isoControl\"\n                                  [settings]=\"settingsIso\"\n                                  (onSelect)=\"onIsoSelect($event)\"\n                                  (onDeSelect)=\"onIsoDeSelect($event)\"\n                                  formControlName=\"isoList\"\n                                  >\n                  <c-item>\n                      <ng-template let-item=\"item\">\n                        {{item.country_iso_code}}\n                      </ng-template>\n                  </c-item>\n            </angular2-multiselect>\n          </div>\n\n          <div class=\"form-group\" *ngIf=\"selectedUnis\">\n          <angular2-multiselect *ngIf=\"selectedUnis.length == helper3\"\n                                [data]=\"universitiesIso\"\n                                [(ngModel)]=\"selectedUnisIso\"\n                                [loading] = \"loading\"\n                                [settings]=\"settingsUnis\"\n                                (onSelect)=\"onItemSelect($event)\"\n                                (onDeSelect)=\"OnItemDeSelect($event)\"\n                                formControlName=\"uniList\"\n                                ><c-item>\n                    <ng-template let-item=\"item\">\n                      {{item.name}}\n                    </ng-template>\n            </c-item>\n          </angular2-multiselect>\n          </div>\n\n\n          <div class=\"action\">\n              <button *ngIf=\"role=='mentee'\" type=\"submit\" class=\"btn btn-sm btn-success salvar\">Salvar</button>\n              <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n          </div>\n\n\n        </form>\n    </div>\n\n    </div>\n\n    <div id=\"uploaded_essays\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n\n\n    <h1>Universidades Adicionadas:</h1>\n    <div *ngFor=\"let selectedUni of selectedUnis\">\n      <div class=\"essay-listing\" *ngIf=\"role == 'admin' || role == 'mentee'\">\n\n        {{ selectedUni.name }}\n        <div class=\"action apagar-btn\">\n          <button *ngIf=\"role=='mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-sm btn-danger apagar\" (click)=\"excludeUniversity(selectedUni.upload_id)\">\n            Remover Universidade\n          </button>\n        </div>\n        <hr>\n\n\n\n      </div>\n      </div>\n      <div class=\"action\">\n          <button type=\"button\" class=\"btn btn voltar\" (click)=\"goBack()\">\n              Voltar\n      </button>\n\n    </div>\n\n\n\n    </div>\n    </body>\n    </html>\n"
+module.exports = "\n<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n    <div *ngIf=\"role=='mentee' || role=='admin'\" id=\"college_update\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n        <h1>Atualize sua College List!</h1>\n        <form [formGroup]=\"userForm\" (ngSubmit)=\"postCollegeList()\">\n\n          <div class=\"form-group\">\n            <angular2-multiselect\n                                  [data]=\"isoCode\"\n                                  [(ngModel)]=\"isoControl\"\n                                  [settings]=\"settingsIso\"\n                                  (onSelect)=\"onIsoSelect($event)\"\n                                  (onDeSelect)=\"onIsoDeSelect($event)\"\n                                  formControlName=\"isoList\"\n                                  >\n                  <c-item>\n                      <ng-template let-item=\"item\">\n                        {{item.country_iso_code}}\n                      </ng-template>\n                  </c-item>\n            </angular2-multiselect>\n          </div>\n\n          <div class=\"form-group\" *ngIf=\"selectedUnis\">\n          <angular2-multiselect *ngIf=\"selectedUnis.length == helper3\"\n                                [data]=\"universitiesIso\"\n                                [(ngModel)]=\"selectedUnisIso\"\n                                [loading] = \"loading\"\n                                [settings]=\"settingsUnis\"\n                                (onSelect)=\"onItemSelect($event)\"\n                                (onDeSelect)=\"OnItemDeSelect($event)\"\n                                formControlName=\"uniList\"\n                                ><c-item>\n                    <ng-template let-item=\"item\">\n                      {{item.name}}\n                    </ng-template>\n            </c-item>\n          </angular2-multiselect>\n          </div>\n\n\n          <div class=\"action\">\n              <button *ngIf=\"role=='mentee'\" type=\"submit\" class=\"btn btn-sm btn-success salvar\">Salvar</button>\n              <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n          </div>\n\n\n        </form>\n    </div>\n\n    </div>\n\n    <div id=\"uploaded_essays\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n\n\n    <h1>College List:</h1>\n    <div *ngFor=\"let selectedUni of selectedUnis\">\n      <div class=\"essay-listing\" *ngIf=\"role == 'admin' || role == 'mentee' || role=='mentor'\">\n\n        {{ selectedUni.name }}\n        <div class=\"action apagar-btn\">\n          <button *ngIf=\"role=='mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-sm btn-danger apagar\" (click)=\"excludeUniversity(selectedUni.upload_id)\">\n            Remover Universidade\n          </button>\n        </div>\n        <hr>\n\n\n\n      </div>\n      </div>\n      <div class=\"action\">\n          <button type=\"button\" class=\"btn btn voltar\" (click)=\"goBack()\">\n              Voltar\n      </button>\n\n    </div>\n\n\n\n    </div>\n    </body>\n    </html>\n"
 
 /***/ }),
 
@@ -852,10 +852,10 @@ var MenteeCollegeComponent = /** @class */ (function () {
             _this.http.post(_this.API_URL + "/university_applications", { mentee_id: _this.menteeId,
                 university_id: ids }, httpOptions).subscribe(function (data) {
                 //console.log(data['_body']);
-                //this._location.back();
+                _this._location.back();
             }, function (error) {
                 console.log(error);
-                //this._location.back();
+                _this._location.back();
             });
         });
     };
@@ -998,7 +998,7 @@ module.exports = "#update_info{\n    margin-bottom: 30px;\n    width: 500px;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n\n  <div *ngIf=\"role=='mentee' || role=='admin'\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Atualize suas informações!</h1>\n      <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n        <div class=\"form-group\">\n          <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"menteeDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.city\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Estado\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.state\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <mat-form-field>\n          <mat-select [(value)]=\"menteeDados.financial_aid\" placeholder=\"Precisa de financial aid ?\">\n            <mat-option [value]=\"true\">Sim</mat-option>\n            <mat-option [value]=\"false\">Não</mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <div class=\"action\">\n            <button type=\"submit\" class=\"btn btn-success btn-sm salvar\">Salvar Informações</button>\n            <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n        </div>\n\n      </form>\n  </div>\n\n\n\n      <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\">\n        <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n          <h1>Informações do seu mentee!</h1>\n          <div id=\"menteeDeck\">\n              <strong>Nome: </strong> <span>{{menteeDados.first_name}} {{menteeDados.last_name}}</span>\n              <hr>\n              <strong>Cidade: </strong> <span>{{menteeDados.city}}</span>\n              <hr>\n              <strong>Estado: </strong> <span>{{menteeDados.state}}</span>\n              <hr>\n              <strong>Financial Aid: </strong> <span *ngIf=\"menteeDados.financial_aid==1\">Sim</span> <span *ngIf=\"menteeDados.financial_aid==0\">Não</span>\n              <hr>\n              <span ><strong>Contato primário BRASA</strong></span>\n              <br>\n              <span ><strong>Nome: </strong>{{ menteeDados.primary_contact_name }}</span>\n              <br>\n              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>\n          </div>\n          <div class=\"action\">\n              <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">\n                  Voltar\n                </button>\n          </div>\n        </div>\n    </div>\n\n    </div>\n  </body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n\n\n  <div *ngIf=\"role=='mentee' || role=='admin'\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Atualize suas informações!</h1>\n      <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n        <div class=\"form-group\">\n          <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"menteeDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.city\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <div class=\"form-group\">\n          <input placeholder=\"Estado\" type=\"text\" class=\"form-control\"  [(ngModel)]=\"menteeDados.state\" [ngModelOptions]=\"{standalone: true}\">\n        </div>\n\n\n        <mat-form-field>\n          <mat-select [(value)]=\"menteeDados.financial_aid\" placeholder=\"Precisa de financial aid ?\">\n            <mat-option [value]=\"true\">Sim</mat-option>\n            <mat-option [value]=\"false\">Não</mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <div class=\"action\">\n            <button type=\"submit\" class=\"btn btn-success btn-sm salvar\">Salvar Informações</button>\n            <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n        </div>\n\n      </form>\n  </div>\n\n\n\n      <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\">\n        <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n          <h1>Informações do seu mentee!</h1>\n          <div id=\"menteeDeck\">\n              <strong>Nome: </strong> <span>{{menteeDados.first_name}} {{menteeDados.last_name}}</span>\n              <hr>\n              <strong>Cidade: </strong> <span>{{menteeDados.city}}</span>\n              <hr>\n              <strong>Estado: </strong> <span>{{menteeDados.state}}</span>\n              <hr>\n              <strong>Financial Aid: </strong> <span *ngIf=\"menteeDados.financial_aid==1\">Sim</span> <span *ngIf=\"menteeDados.financial_aid==0\">Não</span>\n              <hr>\n              <span ><strong>Contato primário BRASA</strong></span>\n              <br>\n              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>\n          </div>\n          <div class=\"action\">\n              <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">\n                  Voltar\n                </button>\n          </div>\n        </div>\n    </div>\n\n    </div>\n  </body>\n</html>\n"
 
 /***/ }),
 
@@ -1055,7 +1055,8 @@ var MenteeDetailComponent = /** @class */ (function () {
             last_name: '',
             city: '',
             state: '',
-            financial_aid: ''
+            financial_aid: '',
+            primary_contact_email: ''
         });
         this.todo = this.formBuilder.group({});
         this.menteeId = this.route.snapshot.paramMap.get('id');
@@ -1090,13 +1091,15 @@ var MenteeDetailComponent = /** @class */ (function () {
     MenteeDetailComponent.prototype.getInformation = function () {
         var _this = this;
         this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(function (mentee) {
+            console.log(mentee, ':::');
             _this.menteeDados = {
                 first_name: mentee.first_name,
                 last_name: mentee.last_name,
                 city: mentee.city,
                 state: mentee.state,
                 financial_aid: mentee.financial_aid,
-                universities: mentee.universities
+                universities: mentee.universities,
+                primary_contact_email: mentee.primary_contact.email
             };
         });
     };
@@ -1330,7 +1333,7 @@ module.exports = ".mat-card {\n    max-width: 500px;\n    margin: 40px auto;\n}\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let menteeDeck of menteeDeck\">\n            <div *ngIf=\"menteeDeck.id == menteeId\">\n                <mat-card-header>\n\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ menteeDeck.first_name + \" \" + menteeDeck.last_name }}</mat-card-title>\n                    </span>\n\n                    <span class=\"second-column\">\n                        <span *ngIf=\"menteeDeck.cycle_id== 1\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n                        <span *ngIf=\"menteeDeck.cycle_id == 2\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n\n                        </span>\n\n                    </mat-card-header>\n\n                <mat-card-content>\n                    <div id=\"menteeDeck\">\n                        <div *ngFor=\"let mentorDeck of mentorDecks\">\n                            <div *ngIf=\"menteeDeck.mentor_id == mentorDeck.id\">\n                                <span ><strong>Mentor: </strong></span>\n                                <span><a href=\"/mentor/listing/{{menteeDeck.mentor_id}}\">{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</a></span>\n                                <hr>\n                            </div>\n                        </div>\n                        <span ><strong>Cidade: </strong></span>\n                        <span>{{ menteeDeck.city }}</span>\n                        <hr>\n                        <span ><strong>Estado: </strong></span>\n                        <span>{{ menteeDeck.state }}</span>\n                        <hr>\n                        \n                        <span>{{ menteeDeck.state }}</span>\n                        \n                        \n                        <hr>\n\n                        <span ><strong>Contato primário BRASA</strong></span>\n                        <br>\n                        <span ><strong>Nome: </strong>{{ menteeDeck.primary_contact_name }}</span>\n                        <br>\n                        <span ><strong>Email: </strong>{{ menteeDeck.primary_contact_email }}</span>\n\n\n\n                    </div>\n                </mat-card-content>\n                <mat-card-actions>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar prova</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar essay</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Editar College List</button>\n\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Ver informações</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver provas adicionadas</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver essays adicionados</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver College List</button>\n                </mat-card-actions>\n            </div>\n\n        </div>\n        </mat-card>\n    </div>\n\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let menteeDeck of menteeDeck\">\n            <div *ngIf=\"menteeDeck.id == menteeId\">\n                <mat-card-header>\n\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ menteeDeck.first_name + \" \" + menteeDeck.last_name }}</mat-card-title>\n                    </span>\n\n                    <span class=\"second-column\">\n                        <span *ngIf=\"menteeDeck.cycle_id== 1\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n                        <span *ngIf=\"menteeDeck.cycle_id == 2\">\n                            <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                        </span>\n\n                        </span>\n\n                    </mat-card-header>\n\n                <mat-card-content>\n                    <div id=\"menteeDeck\">\n                        <div *ngFor=\"let mentorDeck of mentorDecks\">\n                            <div *ngIf=\"menteeDeck.mentor_id == mentorDeck.id\">\n                                <span ><strong>Mentor: </strong></span>\n                                <span><a href=\"/mentor/listing/{{menteeDeck.mentor_id}}\">{{ mentorDeck.first_name }} {{ mentorDeck.last_name }}</a></span>\n                                <hr>\n                            </div>\n                        </div>\n                        <span ><strong>Cidade: </strong></span>\n                        <span>{{ menteeDeck.city }}</span>\n                        <hr>\n                        <span ><strong>Estado: </strong></span>\n                        <span>{{ menteeDeck.state }}</span>\n                        <hr>\n                        \n                        <span>{{ menteeDeck.state }}</span>\n                        \n                        \n                        <hr>\n\n                        <span ><strong>Contato primário BRASA</strong></span>\n                        <br>\n                        <span ><strong>Email: </strong>{{ menteeDeck.primary_contact.email }}</span>\n                    </div>\n                </mat-card-content>\n                <mat-card-actions>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar prova</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Adicionar essay</button>\n                    <button *ngIf = \"role == 'mentee' || role == 'admin'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Editar College List</button>\n\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/detail/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i>  Ver informações</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/test/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver provas adicionadas</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/essay/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver essays adicionados</button>\n                    <button *ngIf = \"role == 'mentor'\" type=\"button\" class=\"btn btn-block\" routerLink=\"/mentee/college/{{menteeDeck.id}}\"><i class=\"fa fa-plus\"></i> Ver College List</button>\n                </mat-card-actions>\n            </div>\n\n        </div>\n        </mat-card>\n    </div>\n\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -1390,7 +1393,7 @@ var MenteeInformationComponent = /** @class */ (function () {
     MenteeInformationComponent.prototype.getMentees = function () {
         var _this = this;
         this.getAllMentees().subscribe(function (menteeDecks) {
-            console.log(menteeDecks);
+            console.log(menteeDecks, 'deve estar aqui');
             _this.menteeDeck = menteeDecks['objects'];
             _this.menteeId = _this.route.snapshot.paramMap.get('id');
             console.log(_this.menteeDeck);
@@ -1414,7 +1417,7 @@ var MenteeInformationComponent = /** @class */ (function () {
         var _this = this;
         this.getAllUniversity().subscribe(function (uniDecks) {
             _this.uniDecks = uniDecks['objects'];
-            console.log(uniDecks['mentee']['university'].name);
+            console.log(uniDecks);
         });
     };
     MenteeInformationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2171,7 +2174,7 @@ module.exports = "#update_info{\n    margin-bottom: 30px;\n    width: 500px;\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n\n<div class=\"container\" >\n  <!-- Mentor or Admin can see the form to update informations-->\n  <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n    <h1>Atualize suas informações!</h1>\n    <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n      <div class=\"form-group\">\n        <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n      </div>\n\n\n      <div class=\"form-group\">\n        <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.city\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Estado\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.state\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n\n      <!--div class=\"form-group\">\n        <input placeholder=\"Universidade\" type=\"text\" [(ngModel)]=\"mentorDados.university\" [ngModelOptions]=\"{standalone: true}\">\n      </div-->\n      <div class=\"form-group\" *ngIf=\"selectedUnis\">\n      <angular2-multiselect\n                            [data]=\"universities\"\n                            [(ngModel)]=\"selectedUnis\"\n                            [settings]=\"settings\"\n                            (onSelect)=\"onItemSelect($event)\"\n                            formControlName=\"uniList\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Major\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.major\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Minor\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.minor\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n\n      <div class=\"action\">\n          <button type=\"submit\" class=\"btn btn-sm btn-success salvar\">Salvar Informações</button>\n          <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n      </div>\n\n\n    </form>\n  </div>\n\n  <!-- Mentee cant see the form, only the information -->\n  <div *ngIf=\"(role == 'admin' || role == 'mentee' || role == 'mentor') && userNickname == username\">\n    <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Informações do seu mentor!</h1>\n\n      <div class=\"form-group\">\n        <strong>Nome:</strong> {{mentorDados.first_name}}  {{mentorDados.last_name}}\n      </div>\n\n      <div class=\"form-group\">\n        <strong>Cidade:</strong> {{mentorDados.city}}\n      </div>\n\n      <div class=\"form-group\">\n        <strong>Estado:</strong> {{mentorDados.state}}\n      </div>\n\n      <div class=\"form-group\">\n          <strong>Universidade:</strong> {{mentorDados.university}}\n      </div>\n\n      <div class=\"form-group\">\n          <strong>Major:</strong> {{ mentorDeck['major'].name}}\n      </div>\n\n      <div class=\"form-group\">\n          <strong>Minor:</strong> {{ mentorDeck['minor'].name}}\n      </div>\n\n\n\n      <div class=\"action\">\n          <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">\n              Voltar\n            </button>\n      </div>\n    </div>\n  </div>\n<br>\n<br>\n\n\n\n\n</div>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n\n<div class=\"container\" >\n  <!-- Mentor or Admin can see the form to update informations-->\n  <div *ngIf=\"(role == 'mentor' || role == 'admin') && userNickname == username\" id=\"update_info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n    <h1>Atualize suas informações!</h1>\n    <form [formGroup]=\"todo\" (ngSubmit)=\"logForm()\">\n      <div class=\"form-group\">\n        <input placeholder=\"Nome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.first_name\" [ngModelOptions]=\"{standalone: true}\" required>\n      </div>\n\n\n      <div class=\"form-group\">\n        <input placeholder=\"Sobrenome\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.last_name\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Cidade\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.city\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Estado\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.state\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n\n      <!--div class=\"form-group\">\n        <input placeholder=\"Universidade\" type=\"text\" [(ngModel)]=\"mentorDados.university\" [ngModelOptions]=\"{standalone: true}\">\n      </div-->\n      <div class=\"form-group\" *ngIf=\"selectedUnis\">\n      <angular2-multiselect\n                            [data]=\"universities\"\n                            [(ngModel)]=\"selectedUnis\"\n                            [settings]=\"settings\"\n                            (onSelect)=\"onItemSelect($event)\"\n                            formControlName=\"uniList\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n      <div class=\"form-group\" *ngIf=\"selectedMajor\">\n      <angular2-multiselect\n                            [data]=\"courses\"\n                            [(ngModel)]=\"selectedMajor\"\n                            [settings]=\"settingsMajor\"\n                            (onSelect)=\"onMajorSelect($event)\"\n                            (onDeSelect)=\"onMajorDeSelect($event)\"\n                            formControlName=\"major\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n      <div class=\"form-group\" *ngIf=\"selectedMajor1\">\n      <angular2-multiselect\n                            [data]=\"courses\"\n                            [(ngModel)]=\"selectedMajor1\"\n                            [settings]=\"settingsMajor1\"\n                            (onSelect)=\"onMajor1Select($event)\"\n                            (onDeSelect)=\"onMajor1DeSelect($event)\"\n                            formControlName=\"major1\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n      <div class=\"form-group\" *ngIf=\"selectedMinor\">\n      <angular2-multiselect\n                            [data]=\"courses\"\n                            [(ngModel)]=\"selectedMinor\"\n                            [settings]=\"settingsMinor\"\n                            (onSelect)=\"onMinorSelect($event)\"\n                            (onDeSelect)=\"onMinorDeSelect($event)\"\n                            formControlName=\"minor\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n\n      <div class=\"form-group\" *ngIf=\"selectedMinor1\">\n      <angular2-multiselect\n                            [data]=\"courses\"\n                            [(ngModel)]=\"selectedMinor1\"\n                            [settings]=\"settingsMinor1\"\n                            (onSelect)=\"onMinor1Select($event)\"\n                            (onDeSelect)=\"onMinor1DeSelect($event)\"\n                            formControlName=\"minor1\"\n                            ><c-item>\n                <ng-template let-item=\"item\">\n                  {{item.name}}\n                </ng-template>\n        </c-item>\n      </angular2-multiselect>\n      </div>\n\n      <!--div class=\"form-group\">\n        <input placeholder=\"Major\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.major\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n\n      <div class=\"form-group\">\n        <input placeholder=\"Minor\" type=\"text\" class=\"form-control\" [(ngModel)]=\"mentorDados.minor\" [ngModelOptions]=\"{standalone: true}\">\n      </div-->\n\n\n      <div class=\"action\">\n          <button type=\"submit\" class=\"btn btn-sm btn-success salvar\">Salvar Informações</button>\n          <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">Voltar</button>\n      </div>\n\n\n    </form>\n  </div>\n\n  <!-- Mentee cant see the form, only the information -->\n  <div *ngIf=\"(role == 'admin' || role == 'mentee' || role == 'mentor') && userNickname == username\">\n    <div id=\"info\" class=\"shadow-sm p-3 mb-5 bg-white rounded\">\n      <h1>Informações do seu mentor!</h1>\n\n      <div class=\"form-group\">\n        <strong>Nome:</strong> {{mentorDados.first_name}}  {{mentorDados.last_name}}\n      </div>\n\n      <div class=\"form-group\">\n        <strong>Cidade:</strong> {{mentorDados.city}}\n      </div>\n\n      <div class=\"form-group\">\n        <strong>Estado:</strong> {{mentorDados.state}}\n      </div>\n\n      <div class=\"form-group\">\n          <strong>Universidade:</strong> {{mentorDados.university}}\n      </div>\n\n      <div class=\"form-group\" *ngIf= \"mentorDados.major\">\n          <strong>Major:</strong> {{ mentorDados.major}}\n      </div>\n\n      <div class=\"form-group\" *ngIf= \"mentorDados.major1\">\n          <strong>Segundo Major:</strong> {{ mentorDados.major1}}\n      </div>\n\n      <div class=\"form-group\" *ngIf= \"mentorDados.minor\">\n          <strong>Minor:</strong> {{ mentorDados.minor}}\n      </div>\n\n      <div class=\"form-group\" *ngIf= \"mentorDados.minor1\">\n          <strong>Segundo Minor:</strong> {{ mentorDados.minor1}}\n      </div>\n\n\n\n      <div class=\"action\">\n          <button type=\"button\" class=\"btn voltar\" (click)=\"goBack()\">\n              Voltar\n            </button>\n      </div>\n    </div>\n  </div>\n<br>\n<br>\n\n\n\n\n</div>\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -2213,38 +2216,83 @@ var MentorDetailComponent = /** @class */ (function () {
         this.API_URL = 'http://brasa-pre.herokuapp.com/api';
         //private readonly API_URL = 'http://bce8300d.ngrok.io';
         this.selectedUnis = new Array();
+        this.selectedMajor = new Array();
+        this.selectedMinor = new Array();
+        this.selectedMajor1 = new Array();
+        this.selectedMinor1 = new Array();
         this.helper = [];
         this.mentorProfile = [];
         this.mentorDados = [];
         this.universities = [];
+        this.courses = [];
         this.settings = {};
+        this.settingsMajor = {};
+        this.settingsMinor = {};
+        this.settingsMajor1 = {};
+        this.settingsMinor1 = {};
         this.helper3 = -1;
-        //this.headers = new HttpHeaders({'Content-Type': 'application/json',
-        //'Access-Control-Allow-Origin': '*',
-        //'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
-        //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-        //});
         this.headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Authorization': "Bearer " + auth0_web__WEBPACK_IMPORTED_MODULE_7__["getAccessToken"]()
         });
         this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_7__["getProfile"]().nickname;
         this.todo = this.formBuilder.group({
-            uniList: []
+            uniList: [],
+            major: '',
+            minor: '',
+            major1: '',
+            minor1: ''
         });
         this.mentorDados.push({ first_name: '',
             last_name: '',
             university: '',
             city: '',
-            state: ''
+            state: '',
+            major: '',
+            minor: '',
+            major1: '',
+            minor1: ''
         });
         //this.todo = this.formBuilder.group({});
         this.mentorId = this.route.snapshot.paramMap.get('id');
+        this.selectCollege(this.mentorId);
+        this.selectCourses(this.mentorId);
         this.getInformation();
         this.getUser(this.userNickname);
         this.getUniList();
-        this.selectCollege(this.mentorId);
         this.settings = {
             singleSelection: true,
             text: "Selecione sua Universidade",
+            enableFilterSelectAll: false,
+            enableSearchFilter: true,
+            labelKey: "name",
+            classes: "myclass custom-class"
+        };
+        this.settingsMajor = {
+            singleSelection: true,
+            text: "Selecione seu Major",
+            enableFilterSelectAll: false,
+            enableSearchFilter: true,
+            labelKey: "name",
+            classes: "myclass custom-class"
+        };
+        this.settingsMinor = {
+            singleSelection: true,
+            text: "Selecione seu Minor",
+            enableFilterSelectAll: false,
+            enableSearchFilter: true,
+            labelKey: "name",
+            classes: "myclass custom-class"
+        };
+        this.settingsMajor1 = {
+            singleSelection: true,
+            text: "Selecione seu segundo Major",
+            enableFilterSelectAll: false,
+            enableSearchFilter: true,
+            labelKey: "name",
+            classes: "myclass custom-class"
+        };
+        this.settingsMinor1 = {
+            singleSelection: true,
+            text: "Selecione seu segundo Minor",
             enableFilterSelectAll: false,
             enableSearchFilter: true,
             labelKey: "name",
@@ -2254,14 +2302,33 @@ var MentorDetailComponent = /** @class */ (function () {
     MentorDetailComponent.prototype.getUser = function (username) {
         var _this = this;
         this.mentorService.getUser(username).subscribe(function (usuario) {
-            console.log(usuario.role_name);
             _this.role = usuario.role_name;
             _this.username = usuario.username;
         });
     };
-    MentorDetailComponent.prototype.onItemSelect = function (item) {
-        console.log(item);
-        this.mentorDados.university = item.name;
+    MentorDetailComponent.prototype.onMajorSelect = function (item) {
+        this.mentorDados.major = item.name;
+    };
+    MentorDetailComponent.prototype.onMajorDeSelect = function (item) {
+        this.mentorDados.major = null;
+    };
+    MentorDetailComponent.prototype.onMinorSelect = function (item) {
+        this.mentorDados.minor = item.name;
+    };
+    MentorDetailComponent.prototype.onMinorDeSelect = function (item) {
+        this.mentorDados.minor = null;
+    };
+    MentorDetailComponent.prototype.onMajor1Select = function (item) {
+        this.mentorDados.major1 = item.name;
+    };
+    MentorDetailComponent.prototype.onMajor1DeSelect = function (item) {
+        this.mentorDados.major1 = null;
+    };
+    MentorDetailComponent.prototype.onMinor1Select = function (item) {
+        this.mentorDados.minor1 = item.name;
+    };
+    MentorDetailComponent.prototype.onMinor1DeSelect = function (item) {
+        this.mentorDados.minor1 = null;
     };
     MentorDetailComponent.prototype.goBack = function () {
         this._location.back();
@@ -2269,31 +2336,111 @@ var MentorDetailComponent = /** @class */ (function () {
     MentorDetailComponent.prototype.getInformation = function () {
         var _this = this;
         this.mentorService.getMentorById(this.mentorId).subscribe(function (mentor) {
+            console.log(mentor, '>>');
+            var printMajor;
+            var printMinor;
+            var printMajor1;
+            var printMinor1;
+            if (!mentor.major) {
+                printMajor = null;
+            }
+            else {
+                printMajor = mentor.major.name;
+            }
+            if (!mentor.minor) {
+                printMinor = null;
+            }
+            else {
+                printMinor = mentor.minor.name;
+            }
+            if (!mentor.second_major) {
+                printMajor1 = null;
+            }
+            else {
+                printMajor1 = mentor.second_major.name;
+            }
+            console.log(mentor, '<<<<<<');
+            if (!mentor.second_minor) {
+                printMinor1 = null;
+            }
+            else {
+                printMinor1 = mentor.second_minor.name;
+            }
             _this.mentorDados = {
                 first_name: mentor.first_name,
                 last_name: mentor.last_name,
                 university: mentor.universities,
                 city: mentor.city,
-                state: mentor.state
+                state: mentor.state,
+                major: printMajor,
+                minor: printMinor,
+                major1: printMajor1,
+                minor1: printMinor1
             };
+            console.log(_this.mentorDados.major);
+            /*
+            if (mentor.minor){
+              this.mentorDados = {
+                first_name: mentor.first_name,
+                last_name: mentor.last_name,
+                university: mentor.universities,
+                city: mentor.city,
+                state: mentor.state,
+                major: mentor.major.name,
+                minor: mentor.minor.name
+      
+              };
+            } else {
+              this.mentorDados = {
+                first_name: mentor.first_name,
+                last_name: mentor.last_name,
+                university: mentor.universities,
+                city: mentor.city,
+                state: mentor.state,
+                major: mentor.major.name
+            }
+          }*/
         });
     };
     MentorDetailComponent.prototype.logForm = function () {
         var _this = this;
-        console.log(this.mentorDados);
-        //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
-        console.log('ˆˆ');
-        console.log(this.todo.value.uniList[0].id);
+        if (this.todo.value.major[0] == null) {
+            this.helperMajor = null;
+        }
+        else {
+            this.helperMajor = this.todo.value.major[0].id;
+        }
+        if (this.todo.value.major1[0] == null) {
+            this.helperMajor1 = null;
+        }
+        else {
+            this.helperMajor1 = this.todo.value.major1[0].id;
+        }
+        if (this.todo.value.minor[0] == null) {
+            this.helperMinor = null;
+        }
+        else {
+            this.helperMinor = this.todo.value.minor[0].id;
+        }
+        if (this.todo.value.minor1[0] == null) {
+            this.helperMinor1 = null;
+        }
+        else {
+            this.helperMinor1 = this.todo.value.minor1[0].id;
+        }
         this.http.put(this.API_URL + "/mentors/" + this.mentorId, {
             "first_name": this.mentorDados.first_name,
             "last_name": this.mentorDados.last_name,
             "university_id": this.todo.value.uniList[0].id,
             "city": this.mentorDados.city,
-            "state": this.mentorDados.state
+            "state": this.mentorDados.state,
+            "major_course_id": this.helperMajor,
+            "minor_course_id": this.helperMinor,
+            "second_major_course_id": this.helperMajor1,
+            "second_minor_course_id": this.helperMinor1
         }, { headers: this.headers, observe: "response" }).toPromise().then(function (data) {
             if (data.status == 200) {
                 _this._location.back();
-                //this.navCtrl.goBack("/tabs/mentee/listing/1");
             }
         }).catch(function (err) { console.log(err); })
             , function (error) {
@@ -2314,6 +2461,29 @@ var MentorDetailComponent = /** @class */ (function () {
                 });
                 this.selectedUnis = this.helper;
                 return [2 /*return*/, this.selectedUnis];
+            });
+        });
+    };
+    MentorDetailComponent.prototype.selectCourses = function (id) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.mentorService.getMentorMajor(id).subscribe(function (mentor) {
+                    if (mentor.major) {
+                        _this.selectedMajor.push({ id: mentor.major_course_id, name: mentor.major.name, category: mentor.major.category });
+                    }
+                    if (mentor.minor) {
+                        _this.selectedMinor.push({ id: mentor.minor_course_id, name: mentor.minor.name, category: mentor.minor.category });
+                    }
+                    if (mentor.second_major) {
+                        _this.selectedMajor1.push({ id: mentor.second_major_course_id, name: mentor.second_major.name, category: mentor.second_major.category });
+                    }
+                    if (mentor.second_minor) {
+                        _this.selectedMinor1.push({ id: mentor.second_minor_course_id, name: mentor.second_minor.name, category: mentor.second_minor.category });
+                    }
+                    console.log(_this.selectedMinor);
+                });
+                return [2 /*return*/, (this.selectedMinor, this.selectedMajor, this.selectedMinor1, this.selectedMajor1)];
             });
         });
     };
@@ -2338,11 +2508,47 @@ var MentorDetailComponent = /** @class */ (function () {
             ;
             _this.universities = result;
         });
+        this.mentorService.getAllCourses().subscribe(function (courses) {
+            _this.universities = courses['objects'];
+            console.log(courses['objects']);
+            var result = [];
+            var mapCourses = new Map();
+            for (var _i = 0, _a = courses['objects']; _i < _a.length; _i++) {
+                var item = _a[_i];
+                if (!mapCourses.has(item.name)) {
+                    mapCourses.set(item.name, item.name); // set any value to Map
+                    result.push({
+                        id: item.id,
+                        name: item.name,
+                        category: item.category
+                    });
+                }
+                ;
+            }
+            ;
+            _this.courses = result;
+        });
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
     ], MentorDetailComponent.prototype, "selectedUnis", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], MentorDetailComponent.prototype, "selectedMajor", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], MentorDetailComponent.prototype, "selectedMinor", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], MentorDetailComponent.prototype, "selectedMajor1", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Array)
+    ], MentorDetailComponent.prototype, "selectedMinor1", void 0);
     MentorDetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-mentor-detail',
@@ -2381,7 +2587,7 @@ module.exports = ".mat-card {\n  max-width: 500px;\n  margin: 40px auto;\n}\n  \
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let mentorDeck of mentorDeck\">\n\n\n          <div *ngIf=\"mentorDeck.id == mentorId\">\n              <mat-card-header>\n                  <span class=\"first-column\">\n                      <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                  </span>\n                \n                  <span class=\"second-column\">\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                  </span> \n                </mat-card-header>\n\n            <mat-card-content>\n                <div id=\"mentorDeck\">\n                  <span ><strong>Universidade: </strong></span>\n                  <span>{{ mentorDeck['university'].name }}</span>\n                  <hr>\n                  <span ><strong>Major: </strong></span>\n                  <!-- <span>{{ mentorDeck['major'].category}}</span>\n                  <br> -->\n                  <span>{{ mentorDeck['major'].name}}</span>\n                  <hr>\n                  <span ><strong>Minor: </strong></span>\n                  <!-- <span>{{ mentorDeck['minor'].category}}</span>\n                  <br> -->\n                  <span>{{ mentorDeck['minor'].name}}</span>\n                  <hr>\n                  <span ><strong>Email: </strong></span>\n                  <span>{{ mentorDeck.username }}@gobrasa.org</span>\n                  \n                  \n                </div>\n              </mat-card-content>\n              <mat-card-actions>\n                <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n              </mat-card-actions>\n          </div>\n        </div>\n      </mat-card>\n  </div>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let mentorDeck of mentorDeck\">\n\n\n          <div *ngIf=\"mentorDeck.id == mentorId\">\n              <mat-card-header>\n                  <span class=\"first-column\">\n                      <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                  </span>\n\n                  <span class=\"second-column\">\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                  </span>\n                </mat-card-header>\n\n            <mat-card-content>\n                <div id=\"mentorDeck\">\n                  <span ><strong>Universidade: </strong></span>\n                  <span>{{ mentorDeck['university'].name }}</span>\n\n                  <span *ngIf= \"mentorDeck['major']\"><hr><strong>Major: </strong>\n                    <span>{{ mentorDeck['major'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_major']\"><hr><strong>Segundo Major: </strong>\n                    <span>{{ mentorDeck['second_major'].name}}</span>\n                  </span>\n                  <!-- <span>{{ mentorDeck['major'].category}}</span>\n                  <br> -->\n                  <span *ngIf= \"mentorDeck['minor']\"><hr><strong>Minor: </strong>\n                    <span>{{ mentorDeck['minor'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_minor']\"><hr><strong>Segundo Minor: </strong>\n                    <span>{{ mentorDeck['second_minor'].name}}</span>\n                  </span>\n\n\n                  <hr>\n                  <span ><strong>Email: </strong></span>\n                  <span>{{ mentorDeck.username }}@gobrasa.org</span>\n\n\n                </div>\n              </mat-card-content>\n              <mat-card-actions>\n                <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n              </mat-card-actions>\n          </div>\n        </div>\n      </mat-card>\n  </div>\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -2688,11 +2894,19 @@ var MentorService = /** @class */ (function () {
         var httpOptions = MentorService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/universities", httpOptions);
     };
+    MentorService.prototype.getAllCourses = function () {
+        var httpOptions = MentorService_1.buildHttpOptions();
+        return this.http.get(this.API_URL + "/courses", httpOptions);
+    };
     MentorService.prototype.getCollegeNameById = function (id) {
         var httpOptions = MentorService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/universities/" + id, httpOptions);
     };
     MentorService.prototype.getMentorUniversity = function (id) {
+        var httpOptions = MentorService_1.buildHttpOptions();
+        return this.http.get(this.API_URL + "/mentors/" + id, httpOptions);
+    };
+    MentorService.prototype.getMentorMajor = function (id) {
         var httpOptions = MentorService_1.buildHttpOptions();
         return this.http.get(this.API_URL + "/mentors/" + id, httpOptions);
     };

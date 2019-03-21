@@ -13,9 +13,9 @@ export class MenteeComponent implements OnInit {
   user: User;
 
   constructor(private auth: AuthService) {
-    
+
     this.username = this.auth.retrieve_username();
-    
+
     this.auth.check_role_from_username(this.username)
     .subscribe(res => {
       this.user = res;
@@ -24,15 +24,13 @@ export class MenteeComponent implements OnInit {
   );
 
 
-    console.log(this.user);
    }
 
    get_role(){}
 
   ngOnInit() {
-  
-    console.log('entered mentee');
-    
+
+
   }
 
 }

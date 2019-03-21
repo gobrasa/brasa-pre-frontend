@@ -216,7 +216,6 @@ export class MentorDetailComponent {
 
   public getInformation(){
     this.mentorService.getMentorById(this.mentorId).subscribe(mentor=>{
-      console.log(mentor, '>>')
       let printMajor:any
       let printMinor:any
       let printMajor1:any
@@ -239,7 +238,6 @@ export class MentorDetailComponent {
       } else{
         printMajor1 = mentor.second_major.name
       }
-      console.log(mentor, '<<<<<<')
       if (!mentor.second_minor) {
         printMinor1 = null
       } else{
@@ -258,7 +256,6 @@ export class MentorDetailComponent {
         minor1: printMinor1
 
       };
-      console.log(this.mentorDados.major)
       /*
       if (mentor.minor){
         this.mentorDados = {
@@ -335,10 +332,8 @@ export class MentorDetailComponent {
 
 public async selectCollege(id){
   this.mentorService.getMentorUniversity(id).subscribe(mentor=>{
-    console.log(mentor.university_id)
       this.mentorService.getCollegeNameById(mentor.university_id).subscribe(collegeName=>{
         this.selectedUnis.push({id: mentor.university_id, name: collegeName.name});
-        console.log(this.selectedUnis)
         this.mentorDados.university = collegeName.name
       })
 })
@@ -364,7 +359,6 @@ public async selectCourses(id){
       this.selectedMinor1.push({id: mentor.second_minor_course_id, name: mentor.second_minor.name, category: mentor.second_minor.category});
     }
 
-    console.log(this.selectedMinor)
 
 })
 
@@ -375,7 +369,6 @@ return this.selectedMinor, this.selectedMajor, this.selectedMinor1, this.selecte
 
    this.mentorService.getAllUniversities().subscribe(tests => {
      this.universities = tests['objects']
-     console.log(tests['objects'])
      const result = [];
      const mapUniversities = new Map();
      for (const item of tests['objects']) {
@@ -394,7 +387,6 @@ return this.selectedMinor, this.selectedMajor, this.selectedMinor1, this.selecte
 
    this.mentorService.getAllCourses().subscribe(courses => {
      this.universities = courses['objects']
-     console.log(courses['objects'])
 
      const result = [];
      const mapCourses = new Map();

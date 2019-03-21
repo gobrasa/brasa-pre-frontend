@@ -109,7 +109,6 @@ export class MenteeEssayComponent{
         'Authorization': `Bearer ${Auth0.getAccessToken()}`
       })
     };
-    console.log(id)
     this.http.delete<any>(`${this.API_URL}/uploads/`+id, httpOptions).subscribe(data => {
 
      }, error => {
@@ -117,7 +116,6 @@ export class MenteeEssayComponent{
     });;
 
     this.essays.forEach((essay, index)=>{
-      console.log(essay.id)
       if (essay.upload_id == id){
         this.essays.splice(index,1)
       }
