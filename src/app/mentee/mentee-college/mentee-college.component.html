@@ -49,7 +49,7 @@
 
           <div class="action">
               <button *ngIf="role=='mentee'" type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
-              <button type="button" class="btn voltar" (click)="goBack()">Voltar</button>
+              <button type="button" class="btn btn-sm btn-info" (click)="goBack()">Voltar</button>
           </div>
 
 
@@ -64,28 +64,15 @@
     <h1>College List:</h1>
     <div *ngFor="let selectedUni of selectedUnis">
       <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee' || role=='mentor'">
-
         {{ selectedUni.name }}
-        <div class="action apagar-btn">
-          <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
+        <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
             Remover Universidade
           </button>
-        </div>
+       
         <hr>
-
-
-
       </div>
       </div>
-      <div class="action">
-          <button type="button" class="btn btn voltar" (click)="goBack()">
-              Voltar
-      </button>
-
-    </div>
-
-
-
+      <button type="button" class="btn btn btn-sm btn-info" (click)="goBack()">Voltar</button>
     </div>
     </body>
     </html>
