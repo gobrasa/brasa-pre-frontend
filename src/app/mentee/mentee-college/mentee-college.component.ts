@@ -226,7 +226,7 @@ export class MenteeCollegeComponent{
     this.http.delete<any>(`${this.API_URL}/university_applications/`+id, httpOptions).subscribe(data => {
 
      }, error => {
-      console.log(error);
+      //console.log(error);
     });;
 
     this.selectedUnis.forEach((uni, index)=>{

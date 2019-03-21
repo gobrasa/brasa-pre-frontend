@@ -60,7 +60,7 @@ export class MenteeInformationComponent {
       console.log(menteeDecks, 'deve estar aqui')
          this.menteeDeck = menteeDecks['objects'];
          this.menteeId = this.route.snapshot.paramMap.get('id');
-          console.log(this.menteeDeck);
+          //console.log(this.menteeDeck);
     });
   }
 
@@ -87,7 +87,7 @@ export class MenteeInformationComponent {
   private getUni() {
     this.getAllUniversity().subscribe(uniDecks => {
          this.uniDecks = uniDecks['objects']; 
-         console.log(uniDecks);
+         //console.log(uniDecks);
     });
   }
 

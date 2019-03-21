@@ -46,7 +46,7 @@ export class AdminComponent {
   private getMentors() {
     this.getAllMentors().subscribe(mentorDecks => {
         this.mentorDecks = mentorDecks['objects'];
-        console.log(mentorDecks);
+        //console.log(mentorDecks);
 
     });
   }
