@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'
 import { MenteeService } from '../shared/mentee.service';
@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {Location} from '@angular/common';
 import * as Auth0 from 'auth0-web';
+import { University } from '../shared/university';
 
 @Component({
   selector: 'app-mentee-detail',
@@ -30,6 +31,7 @@ export class MenteeDetailComponent {
   public userNickname:any;
   public role:any;
   public username:any;
+  @Input() public selectedUnis: University[] = new Array();
 
   constructor( private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -62,7 +64,6 @@ export class MenteeDetailComponent {
     this.getUsername(this.userNickname)
     /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
       this.todo.value.username = data["objects"][0].username
-      console.log(this.todo.value.username)
         //"username": data["objects"][0].username,
       //this.menteeProfile.push(data['heroesUrl']),
       //this.menteeProfile.push(data['textfile'])
@@ -89,8 +90,7 @@ export class MenteeDetailComponent {
   }
 
   public getInformation(){
-    this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(mentee=>{
-      console.log(mentee, ':::')
+    this.menteeService.getMentee(this.menteeId).subscribe(mentee=>{
       this.menteeDados = {
         first_name: mentee.first_name,
         last_name: mentee.last_name,
@@ -102,6 +102,13 @@ export class MenteeDetailComponent {
 
       };
     });
+
+    this.menteeService.getMenteeCollegeList(this.menteeId).subscribe(colleges=>{
+      colleges['objects'].forEach(college=>{
+        this.selectedUnis.push({name: college.university.name});
+      })
+
+    });
   }
 
   public goBack() {
@@ -110,9 +117,6 @@ export class MenteeDetailComponent {
 
   public logForm(){
 
-    console.log(this.menteeDados)
-    //console.log(this.http.post(`${this.API_URL}/mentees/` + this.menteeId, this.todo.value, {headers: this.headers}))
-    console.log('ˆˆ')
 
     this.http.put(`${this.API_URL}/mentees/` + this.menteeId
       , {

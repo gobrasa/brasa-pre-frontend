@@ -48,15 +48,9 @@ export class MenteeService {
     return this.http.get<any>(`${this.API_URL}/mentors?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions);
   }
 
-  // public getCollegeList(id): Observable<any>{
-  //   return this.http.get<any>(`${this.HS_API_URL}/mentees/` + id);
-  // }
-
 
   public getAllExams(): Observable<Exam[]>{
     let httpOptions = MenteeService.buildHttpOptions();
-    //const httpOptions = ExamsApiService.buildHttpOptions();
-    //console.log(httpOptions);
     return this.http.get<Exam[]>(`${this.API_URL}/exams`, httpOptions);
   }
 
@@ -65,18 +59,19 @@ export class MenteeService {
     return this.http.get<Exam[]>(`${this.API_URL}/scheduled_exams`, httpOptions);
   }
 
-  // public getAllUniversities(): Observable<any>{
-  //   return this.http.get<any>(`${this.HS_API_URL}/universities/`);
-  // }
-
   public getAllEssays(): Observable<any>{
     let httpOptions = MenteeService.buildHttpOptions();
     return this.http.get(`${this.API_URL}/uploads`, httpOptions)
   }
 
-  public getMenteeCollegeList(id): Observable<any>{
+  public getMentee(id): Observable<any>{
     let httpOptions = MenteeService.buildHttpOptions();
     return this.http.get<any>(`${this.API_URL}/mentees/` + id, httpOptions);
+  }
+
+  public getMenteeCollegeList(id): Observable<any>{
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.API_URL}/mentees/`+ id + `/university_applications`, httpOptions);
   }
 
   public getCollegeNameById(id): Observable<any>{
@@ -90,12 +85,4 @@ export class MenteeService {
     return this.http.get<any>(`${this.API_URL}/universities`, httpOptions);
   }
 
-
-
-
-
-
-  // public getMenteeById(id: number): Observable<any>{
-
-  // }
 }
