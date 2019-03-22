@@ -47,6 +47,79 @@
       </angular2-multiselect>
       </div>
 
+      <div class="form-group" *ngIf="selectedMajor">
+      <angular2-multiselect
+                            [data]="courses"
+                            [(ngModel)]="selectedMajor"
+                            [settings]="settingsMajor"
+                            (onSelect)="onMajorSelect($event)"
+                            (onDeSelect)="onMajorDeSelect($event)"
+                            formControlName="major"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+      <div class="form-group" *ngIf="selectedMajor1">
+      <angular2-multiselect
+                            [data]="courses"
+                            [(ngModel)]="selectedMajor1"
+                            [settings]="settingsMajor1"
+                            (onSelect)="onMajor1Select($event)"
+                            (onDeSelect)="onMajor1DeSelect($event)"
+                            formControlName="major1"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+      <div class="form-group" *ngIf="selectedMinor">
+      <angular2-multiselect
+                            [data]="courses"
+                            [(ngModel)]="selectedMinor"
+                            [settings]="settingsMinor"
+                            (onSelect)="onMinorSelect($event)"
+                            (onDeSelect)="onMinorDeSelect($event)"
+                            formControlName="minor"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+
+      <div class="form-group" *ngIf="selectedMinor1">
+      <angular2-multiselect
+                            [data]="courses"
+                            [(ngModel)]="selectedMinor1"
+                            [settings]="settingsMinor1"
+                            (onSelect)="onMinor1Select($event)"
+                            (onDeSelect)="onMinor1DeSelect($event)"
+                            formControlName="minor1"
+                            ><c-item>
+                <ng-template let-item="item">
+                  {{item.name}}
+                </ng-template>
+        </c-item>
+      </angular2-multiselect>
+      </div>
+
+      <!--div class="form-group">
+        <input placeholder="Major" type="text" class="form-control" [(ngModel)]="mentorDados.major" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <input placeholder="Minor" type="text" class="form-control" [(ngModel)]="mentorDados.minor" [ngModelOptions]="{standalone: true}">
+      </div-->
+
 
       <div class="action">
           <button type="submit" class="btn btn-sm btn-success salvar">Salvar Informações</button>
@@ -74,9 +147,26 @@
         <strong>Estado:</strong> {{mentorDados.state}}
       </div>
 
-      <div>
+      <div class="form-group">
           <strong>Universidade:</strong> {{mentorDados.university}}
       </div>
+
+      <div class="form-group" *ngIf= "mentorDados.major">
+          <strong>Major:</strong> {{ mentorDados.major}}
+      </div>
+
+      <div class="form-group" *ngIf= "mentorDados.major1">
+          <strong>Segundo Major:</strong> {{ mentorDados.major1}}
+      </div>
+
+      <div class="form-group" *ngIf= "mentorDados.minor">
+          <strong>Minor:</strong> {{ mentorDados.minor}}
+      </div>
+
+      <div class="form-group" *ngIf= "mentorDados.minor1">
+          <strong>Segundo Minor:</strong> {{ mentorDados.minor1}}
+      </div>
+
 
 
       <div class="action">

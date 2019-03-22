@@ -65,13 +65,13 @@ export class MenteeInformationComponent {
   getAllMentors() {
     let httpOptions = MenteeService.buildHttpOptions();
     return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
-    
+
   }
 
   private getMentors() {
     this.getAllMentors().subscribe(mentorDecks => {
-         this.mentorDecks = mentorDecks['objects']; 
-        
+         this.mentorDecks = mentorDecks['objects'];
+
 
     });
   }

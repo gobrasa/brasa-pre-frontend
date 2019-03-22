@@ -59,7 +59,21 @@
               <strong>Estado: </strong> <span>{{menteeDados.state}}</span>
               <hr>
               <strong>Financial Aid: </strong> <span *ngIf="menteeDados.financial_aid==1">Sim</span> <span *ngIf="menteeDados.financial_aid==0">Não</span>
+              <hr>
+              <span ><strong>Contato primário BRASA</strong></span>
+              <br>
+              <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>
           </div>
+          <br>
+          <h1>College List:</h1>
+          <div *ngFor="let selectedUni of selectedUnis">
+            <div class="essay-listing" *ngIf="role == 'admin' || role=='mentor'">
+
+              {{ selectedUni.name }}
+              <hr>
+            </div>
+            </div>
+
           <div class="action">
               <button type="button" class="btn voltar" (click)="goBack()">
                   Voltar

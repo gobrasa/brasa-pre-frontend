@@ -26,7 +26,6 @@ export class MentorListingComponent {
         this.getMentee();
         this.getAllMentees()
         this.userNickname = Auth0.getProfile().nickname;
-        //console.log(this.userNickname);
   }
 
   getAllMentors() {
@@ -47,7 +46,6 @@ export class MentorListingComponent {
   private getMentors() {
     this.getAllMentors().subscribe(mentorDecks => {
         this.mentorDecks = mentorDecks['objects'];
-        console.log(mentorDecks);
 
     });
   }
@@ -55,7 +53,6 @@ export class MentorListingComponent {
   private getUser() {
     this.getAllUsers().subscribe(userDecks => {
         this.userDecks = userDecks['objects'];
-        //console.log(userDecks);
 
     });
   }
@@ -63,7 +60,6 @@ export class MentorListingComponent {
   private getMentee() {
     this.getAllMentees().subscribe(menteeDecks => {
         this.menteeDecks = menteeDecks['objects'];
-        //console.log(menteeDecks);
 
     });
   }

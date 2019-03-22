@@ -40,7 +40,6 @@ export class AppComponent implements OnInit {
   }
 
   getUsername(username) {
-    console.log('hey')
     let httpOptions = AppComponent.buildHttpOptions();
     this.http.get<any>(`${this.API_URL}/users?q={"filters":[{"name":"username","op":"eq","val": "` + username + `"}],"single":true}`, httpOptions).subscribe(usuario=>{
       this.role = usuario.role_name

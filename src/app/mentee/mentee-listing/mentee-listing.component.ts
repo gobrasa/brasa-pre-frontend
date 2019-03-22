@@ -62,7 +62,6 @@ export class MenteeListingComponent {
   private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
         this.menteeDecks = menteeDecks['objects'];
-        console.log(menteeDecks, 'here');
     });
   }
 
@@ -85,7 +84,6 @@ export class MenteeListingComponent {
   private getUser() {
     this.getAllUsers().subscribe(userDecks => {
         this.userDecks = userDecks['objects'];
-        //console.log(userDecks);
 
     });
   }
