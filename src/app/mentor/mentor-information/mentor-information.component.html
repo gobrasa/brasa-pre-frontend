@@ -48,10 +48,20 @@
                     <span>{{ mentorDeck['second_minor'].name}}</span>
                   </span>
 
-
+                  <!-- FixMe - get email from mentee.user.email! -->
                   <hr>
                   <span ><strong>Email: </strong></span>
                   <span>{{ mentorDeck.username }}@gobrasa.org</span>
+
+                  <hr>
+                  <div *ngFor="let mentee of mentorDeck['mentees']">
+                      <span ><strong>Mentee: </strong></span>
+                      <span><a routerLink="/mentee/listing/{{mentee.id}}">
+                        {{mentee.first_name}} {{mentee.last_name}}
+                      </a></span>
+                      <hr>
+                </div>
+
 
 
                 </div>
