@@ -3,7 +3,8 @@
       <button mat-button onclick="location.href='http://www.gobrasa.org';">Conheça a BRASA</button>
       <button mat-button  *ngIf="authenticated" routerLink="/mentee/listing">Mentee</button>
       <button mat-button  *ngIf="authenticated" routerLink="/mentor/listing">Mentor</button>
-      <button mat-button  *ngIf="role == 'admin'" routerLink="/admin">Admin</button>
+      <button mat-button  *ngIf="role == 'admin'" routerLink="/admin-eua">Admin EUA</button>
+      <button mat-button  *ngIf="role == 'admin'" routerLink="/admin-europa">Admin Europa</button>
 
       <!-- This fills the remaining space of the current row -->
       <span class="fill-remaining-space"></span>

@@ -14,7 +14,8 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponentEUA } from './admin-eua/admin.component';
+import { AdminComponentEuropa } from './admin-europa/admin.component';
 
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -81,7 +82,8 @@ const appRoutes: Routes = [
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin-eua', component: AdminComponentEUA},
+  { path: 'admin-europa', component: AdminComponentEuropa},
 
 
   { path: '', component: HomeComponent },
@@ -116,7 +118,8 @@ export const MY_NATIVE_FORMATS = {
     MenteeEssayComponent,
     MenteeCollegeComponent,
     MenteeDetailComponent,
-    AdminComponent
+    AdminComponentEUA,
+    AdminComponentEuropa
   ],
   imports: [
     AngularMultiSelectModule,
