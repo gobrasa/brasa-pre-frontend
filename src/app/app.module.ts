@@ -70,6 +70,7 @@ import { MentorInformationComponent } from './mentor/mentor-information/mentor-i
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
 import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor/mentor.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import {AWS_URL} from './env';
 
 const appRoutes: Routes = [
@@ -83,6 +84,7 @@ const appRoutes: Routes = [
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
+  { path: 'welcome', component: WelcomeComponent},
   { path: 'admin-eua', component: AdminComponentEUA},
   { path: 'admin-europa', component: AdminComponentEuropa},
 
@@ -119,6 +121,7 @@ export const MY_NATIVE_FORMATS = {
     MenteeEssayComponent,
     MenteeCollegeComponent,
     MenteeDetailComponent,
+    WelcomeComponent,
     AdminComponentEUA,
     AdminComponentEuropa
   ],
