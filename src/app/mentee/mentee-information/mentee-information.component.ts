@@ -15,6 +15,7 @@ export class MenteeInformationComponent {
 
   menteeDeck: any;
   mentorDecks: any;
+  uniDecks: any;
   menteeId: any;
   public role:any;
   public username:any;
@@ -26,7 +27,7 @@ export class MenteeInformationComponent {
             private menteeService: MenteeService) {
               this.getMentees();
               this.getMentors();
-
+              this.getUni();
               this.userNickname = Auth0.getProfile().nickname;
               this.getUsername(this.userNickname);
 
@@ -44,7 +45,7 @@ export class MenteeInformationComponent {
 
   getAllMentees() {
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   getUsername(username) {
@@ -56,15 +57,16 @@ export class MenteeInformationComponent {
 
    private getMentees() {
     this.getAllMentees().subscribe(menteeDecks => {
+      console.log(menteeDecks, 'deve estar aqui')
          this.menteeDeck = menteeDecks['objects'];
          this.menteeId = this.route.snapshot.paramMap.get('id');
-
+          console.log(this.menteeDeck);
     });
   }
 
   getAllMentors() {
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
 
   }
 
@@ -73,6 +75,19 @@ export class MenteeInformationComponent {
          this.mentorDecks = mentorDecks['objects'];
 
 
+    });
+  }
+
+  getAllUniversity() {
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get('https://brasa-pre.herokuapp.com/api/university_applications', httpOptions);
+    
+  }
+
+  private getUni() {
+    this.getAllUniversity().subscribe(uniDecks => {
+         this.uniDecks = uniDecks['objects']; 
+         console.log(uniDecks);
     });
   }
 

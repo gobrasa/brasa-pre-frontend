@@ -6,7 +6,7 @@
 
 #college_update{
     margin-bottom: 30px;
-    width: 700px;
+    width: 500px;
     margin: 30px auto;
 }
 
@@ -35,11 +35,23 @@
     margin: 30px auto;
 }
 
+#uploaded_essays{
+    margin-bottom: 30px;
+    width: 500px;
+    margin: 30px auto;
+}
+
+.essay-listing{
+    display: inline;
+}
+
 hr{
     margin-top: 5px;
     margin-bottom: 6px;
   }
 
 .apagar{
-    margin-top: 15px;
+
+    padding: 2px;
+    float: right;
 }

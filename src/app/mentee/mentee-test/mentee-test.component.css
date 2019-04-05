@@ -16,11 +16,16 @@
 }
 
 .voltar{
-    margin-right: 30px;
-    background: none;
-    border: none;
-    color: #9999;
     float: left;
+}
+
+.exam-list{
+    /* border: 1px solid; */
+    padding: 19px;
+    margin: 37px;
+    -webkit-box-shadow: 0px 0px 4px 1px rgba(240,240,240,1);
+    -moz-box-shadow: 0px 0px 4px 1px rgba(240,240,240,1);
+    box-shadow: 0px 0px 4px 1px rgba(240,240,240,1);
 }
 
 

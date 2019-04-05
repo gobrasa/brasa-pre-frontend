@@ -30,17 +30,17 @@ export class MentorListingComponent {
 
   getAllMentors() {
     let httpOptions = MentorService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
   }
 
   getAllUsers() {
     let httpOptions = MentorService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/users', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/users', httpOptions);
   }
 
   getAllMentees() {
     let httpOptions = MentorService.buildHttpOptions();
-    return this.http.get('http://brasa-pre.herokuapp.com/api/mentees', httpOptions);
+    return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
   }
 
   private getMentors() {

@@ -20,7 +20,7 @@ import { University } from '../shared/university';
 })
 export class MenteeDetailComponent {
   public todo : FormGroup;
-  private readonly API_URL = 'http://brasa-pre.herokuapp.com/api';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   public satArray:any=[];
   public scoresArray:any=[];
   public satSubjectsArray:any=[];

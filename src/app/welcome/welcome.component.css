@@ -1,0 +1,91 @@
+body{
+    font-family: Lato, sans-serif;
+}
+
+#title{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 64px;
+    height: auto;
+    
+}
+
+.layer {
+    background-color: rgba(55,136,203, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#title-text{
+   
+    margin: 98px auto;
+    text-align: center;
+    color: white;
+}
+
+#title-text h1{
+    font-size: 85px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    line-height: 1;
+}
+
+#info{
+    margin-top: 30px;
+}
+
+#info h1{
+    color: rgb(55,136,203);
+}
+
+.instructions{
+    margin-top: 26px;
+}
+
+.instructions h2{
+    color: rgb(55,136,203);
+}
+
+.action{
+    padding-bottom: 20px;
+    margin-top: -31px;
+}
+
+.action button{
+    margin: 5px;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 10px;
+    background-color: rgb(55,136,203);
+}
+
+
+@media only screen and (max-width: 600px) {
+    #title{
+        width: 100%;
+        position: absolute;
+        background-size: cover;
+        left: 0;
+        top: 57px;
+        height: 350px;
+        background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);
+        -webkit-transform: translate3d(0px, 0px, 0px);
+        transform: translate3d(0px, 0px, 0px);
+        
+    }
+
+    #info{
+        height: 400px;
+    }
+  }

@@ -42,6 +42,7 @@
                         <span ><strong>Estado: </strong></span>
                         <span>{{ menteeDeck.state }}</span>
                         <hr>
+
                         <span ><strong>Contato primário BRASA</strong></span>
                         <br>
                         <span ><strong>Email: </strong>{{ menteeDeck.primary_contact.email }}</span>
@@ -57,11 +58,6 @@
                     <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/test/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver provas adicionadas</button>
                     <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/essay/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver essays adicionados</button>
                     <button *ngIf = "role == 'mentor'" type="button" class="btn btn-block" routerLink="/mentee/college/{{menteeDeck.id}}"><i class="fa fa-plus"></i> Ver College List</button>
-                    <!-- <div class="action">
-                        <button type="button" class="btn btn voltar" (click)="goBack()">
-                            Voltar
-                        </button>
-                    </div> -->
                 </mat-card-actions>
             </div>
 

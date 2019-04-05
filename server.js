@@ -1,11 +1,21 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require("express");
+const http = require('http');
+const path = require('path');
 
-var app = express();
-app.use(bodyParser.json());
+const app = express();
+const port = process.env.PORT || 4200;
 
-// Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+app.use(express.static(__dirname+'/dist/brasa-pre-frontend/'));
+
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/dist/brasa-pre-frontend/index.html'))
+ });
+ 
+
+// app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
+
+const server = http.createServer(app);
+
+server.listen(port, () => console.log("Server is running"));
+
+// app.listen(process.env.PORT, process.env.IP);
