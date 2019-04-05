@@ -14,8 +14,8 @@ app.get('/*', function(req, res){
 
 // app.get('/*', (req,res) => res.sendFile(path.join(__dirname)));
 
-// const server = http.createServer(app);
+const server = http.createServer(app);
 
-// server.listen(port, () => console.log("Server is running"));
+server.listen(port, () => console.log("Server is running"));
 
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);

@@ -23,105 +23,152 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/admin/admin.component.css":
-/*!*******************************************!*\
-  !*** ./src/app/admin/admin.component.css ***!
-  \*******************************************/
+/***/ "./src/app/admin-eua/admin.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/admin-eua/admin.component.css ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "iframe{\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9hZG1pbi9hZG1pbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaWZyYW1le1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufSJdfQ== */"
+module.exports = "iframe{\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4tZXVhL2FkbWluLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4tZXVhL2FkbWluLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpZnJhbWV7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59Il19 */"
 
 /***/ }),
 
-/***/ "./src/app/admin/admin.component.html":
-/*!********************************************!*\
-  !*** ./src/app/admin/admin.component.html ***!
-  \********************************************/
+/***/ "./src/app/admin-eua/admin.component.html":
+/*!************************************************!*\
+  !*** ./src/app/admin-eua/admin.component.html ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Dashboards</h2>\n<div *ngFor=\"let userDeck of userDecks\">\n\n    <!-- If it is a mentor, it can see only himself-->\n    <div *ngIf=\"userDeck.role_name == 'admin' && userNickname == userDeck.username\">\n        <iframe src=\"https://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/dashboard/dashboard-app-brasa-pre?p_Region=Europa&p_Exam_Category=TOEFL&p_Regiao=Europa\"></iframe>\n    </div>\n\n</div>"
+module.exports = "<h2>Dashboards</h2>\n<iframe src=\"http://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/public/dashboards/qaLtJiZAnzYVR09GLMpnXy4kgDODluvtp6K5r0DH?org_slug=default\" style=\"position:fixed; top:10; left:0; bottom:0; right:0; width:100%; height:80%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\"></iframe>\n"
 
 /***/ }),
 
-/***/ "./src/app/admin/admin.component.ts":
-/*!******************************************!*\
-  !*** ./src/app/admin/admin.component.ts ***!
-  \******************************************/
-/*! exports provided: AdminComponent */
+/***/ "./src/app/admin-eua/admin.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/admin-eua/admin.component.ts ***!
+  \**********************************************/
+/*! exports provided: AdminComponentEUA */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponentEUA", function() { return AdminComponentEUA; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _mentee_shared_mentee_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mentee/shared/mentee.service */ "./src/app/mentee/shared/mentee.service.ts");
 /* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! auth0-web */ "./node_modules/auth0-web/dist/index.js");
 /* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(auth0_web__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../mentor/shared/mentor.service */ "./src/app/mentor/shared/mentor.service.ts");
 
 
 
 
 
-
-var AdminComponent = /** @class */ (function () {
-    function AdminComponent(route, http) {
-        this.route = route;
-        this.http = http;
-        this.getMentors();
-        this.getUser();
-        this.getMentee();
-        this.getAllMentees();
+var AdminComponentEUA = /** @class */ (function () {
+    function AdminComponentEUA(_location, menteeService) {
+        this._location = _location;
+        this.menteeService = menteeService;
         this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_4__["getProfile"]().nickname;
-        //console.log(this.userNickname);
+        this.getUsername(this.userNickname);
     }
-    AdminComponent.prototype.getAllMentors = function () {
-        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
-        return this.http.get('https://brasa-pre.herokuapp.com/api/mentors', httpOptions);
+    AdminComponentEUA.prototype.ngOnInit = function () {
     };
-    AdminComponent.prototype.getAllUsers = function () {
-        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
-        return this.http.get('https://brasa-pre.herokuapp.com/api/users', httpOptions);
-    };
-    AdminComponent.prototype.getAllMentees = function () {
-        var httpOptions = _mentor_shared_mentor_service__WEBPACK_IMPORTED_MODULE_5__["MentorService"].buildHttpOptions();
-        return this.http.get('https://brasa-pre.herokuapp.com/api/mentees', httpOptions);
-    };
-    AdminComponent.prototype.getMentors = function () {
+    AdminComponentEUA.prototype.getUsername = function (username) {
         var _this = this;
-        this.getAllMentors().subscribe(function (mentorDecks) {
-            _this.mentorDecks = mentorDecks['objects'];
-            console.log(mentorDecks);
+        this.menteeService.getUser(username).subscribe(function (usuario) {
+            _this.role = usuario.role_name;
+            if (_this.role != 'admin') {
+                _this._location.back();
+            }
         });
     };
-    AdminComponent.prototype.getUser = function () {
-        var _this = this;
-        this.getAllUsers().subscribe(function (userDecks) {
-            _this.userDecks = userDecks['objects'];
-            //console.log(userDecks);
-        });
-    };
-    AdminComponent.prototype.getMentee = function () {
-        var _this = this;
-        this.getAllMentees().subscribe(function (menteeDecks) {
-            _this.menteeDecks = menteeDecks['objects'];
-            //console.log(menteeDecks);
-        });
-    };
-    AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    AdminComponentEUA = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-admin',
-            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
-            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
+            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin-eua/admin.component.html"),
+            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin-eua/admin.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
-    ], AdminComponent);
-    return AdminComponent;
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"], _mentee_shared_mentee_service__WEBPACK_IMPORTED_MODULE_3__["MenteeService"]])
+    ], AdminComponentEUA);
+    return AdminComponentEUA;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin-europa/admin.component.css":
+/*!**************************************************!*\
+  !*** ./src/app/admin-europa/admin.component.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "body{\n  font-family: Lato, sans-serif;\n}\n\n#title{\n  width: 100%;\n  position: absolute;\n  background-size: cover;\n  left: 0;\n  top: 64px;\n  height: 350px;\n  background-image: url('brasa-pre.png');\n  -webkit-transform: translate3d(0px, 0px, 0px);\n  transform: translate3d(0px, 0px, 0px);\n  \n}\n\n.layer {\n  background-color: rgba(55,136,203, 0.3);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n\n#title-text{\n \n  margin: 98px auto;\n  text-align: center;\n  color: white;\n}\n\n#title-text h1{\n  font-size: 85px;\n  text-transform: uppercase;\n  letter-spacing: 2px;\n  font-weight: 100;\n  line-height: 1;\n}\n\n#info{\n  margin-top: 400px;\n}\n\n#info h1{\n  /*color: rgb(55,136,203);*/\n}\n\n#footer{\n  overflow: auto;\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  background-color: rgb(55,136,203);\n  height: 5px;\n}\n\n@media only screen and (max-width: 600px) {\n  #title{\n      width: 100%;\n      position: absolute;\n      background-size: cover;\n      left: 0;\n      top: 57px;\n      height: 350px;\n      background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n      -webkit-transform: translate3d(0px, 0px, 0px);\n      transform: translate3d(0px, 0px, 0px);\n      \n  }\n\n  #info{\n      margin-top: 360px;\n      height: 400px;\n  }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4tZXVyb3BhL2FkbWluLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSw2QkFBNkI7QUFDL0I7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLHNCQUFzQjtFQUN0QixPQUFPO0VBQ1AsU0FBUztFQUNULGFBQWE7RUFDYixzQ0FBcUQ7RUFDckQsNkNBQTZDO0VBQzdDLHFDQUFxQzs7QUFFdkM7O0FBRUE7RUFDRSx1Q0FBdUM7RUFDdkMsa0JBQWtCO0VBQ2xCLE1BQU07RUFDTixPQUFPO0VBQ1AsV0FBVztFQUNYLFlBQVk7QUFDZDs7QUFFQTs7RUFFRSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7RUFDZix5QkFBeUI7RUFDekIsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsMEJBQTBCO0FBQzVCOztBQUVBO0VBQ0UsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixPQUFPO0VBQ1AsU0FBUztFQUNULFdBQVc7RUFDWCxpQ0FBaUM7RUFDakMsV0FBVztBQUNiOztBQUVBO0VBQ0U7TUFDSSxXQUFXO01BQ1gsa0JBQWtCO01BQ2xCLHNCQUFzQjtNQUN0QixPQUFPO01BQ1AsU0FBUztNQUNULGFBQWE7TUFDYix1SUFBdUk7TUFDdkksNkNBQTZDO01BQzdDLHFDQUFxQzs7RUFFekM7O0VBRUE7TUFDSSxpQkFBaUI7TUFDakIsYUFBYTtFQUNqQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4tZXVyb3BhL2FkbWluLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJib2R5e1xuICBmb250LWZhbWlseTogTGF0bywgc2Fucy1zZXJpZjtcbn1cblxuI3RpdGxle1xuICB3aWR0aDogMTAwJTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICBsZWZ0OiAwO1xuICB0b3A6IDY0cHg7XG4gIGhlaWdodDogMzUwcHg7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vaG9tZS9pbWFnZXMvYnJhc2EtcHJlLnBuZycpO1xuICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gIFxufVxuXG4ubGF5ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU1LDEzNiwyMDMsIDAuMyk7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jdGl0bGUtdGV4dHtcbiBcbiAgbWFyZ2luOiA5OHB4IGF1dG87XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4jdGl0bGUtdGV4dCBoMXtcbiAgZm9udC1zaXplOiA4NXB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICBmb250LXdlaWdodDogMTAwO1xuICBsaW5lLWhlaWdodDogMTtcbn1cblxuI2luZm97XG4gIG1hcmdpbi10b3A6IDQwMHB4O1xufVxuXG4jaW5mbyBoMXtcbiAgLypjb2xvcjogcmdiKDU1LDEzNiwyMDMpOyovXG59XG5cbiNmb290ZXJ7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIGJvdHRvbTogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYig1NSwxMzYsMjAzKTtcbiAgaGVpZ2h0OiA1cHg7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgI3RpdGxle1xuICAgICAgd2lkdGg6IDEwMCU7XG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgbGVmdDogMDtcbiAgICAgIHRvcDogNTdweDtcbiAgICAgIGhlaWdodDogMzUwcHg7XG4gICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLzA5QUp2bnViUmFRcG9MTE5IMHZPV3lOSzkyeVV3TmtmMTNVVVFBMzNrT2lBMzRHQUtVdGZoaXEwM3dGSTRyajZyMDl4T21nPXcxNjM4Myk7XG4gICAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgXG4gIH1cblxuICAjaW5mb3tcbiAgICAgIG1hcmdpbi10b3A6IDM2MHB4O1xuICAgICAgaGVpZ2h0OiA0MDBweDtcbiAgfVxufVxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin-europa/admin.component.html":
+/*!***************************************************!*\
+  !*** ./src/app/admin-europa/admin.component.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Dashboards</h2>\n<iframe src=\"http://ec2-54-215-139-223.us-west-1.compute.amazonaws.com/public/dashboards/nxO1c9q172xqfQlDTnH3sdhv2CJsR1xHE4aSF5r4?org_slug=default\" style=\"position:fixed; top:10; left:0; bottom:0; right:0; width:100%; height:80%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;\"></iframe>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin-europa/admin.component.ts":
+/*!*************************************************!*\
+  !*** ./src/app/admin-europa/admin.component.ts ***!
+  \*************************************************/
+/*! exports provided: AdminComponentEuropa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponentEuropa", function() { return AdminComponentEuropa; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _mentee_shared_mentee_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../mentee/shared/mentee.service */ "./src/app/mentee/shared/mentee.service.ts");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! auth0-web */ "./node_modules/auth0-web/dist/index.js");
+/* harmony import */ var auth0_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(auth0_web__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+var AdminComponentEuropa = /** @class */ (function () {
+    function AdminComponentEuropa(_location, menteeService) {
+        this._location = _location;
+        this.menteeService = menteeService;
+        this.userNickname = auth0_web__WEBPACK_IMPORTED_MODULE_4__["getProfile"]().nickname;
+        this.getUsername(this.userNickname);
+    }
+    AdminComponentEuropa.prototype.ngOnInit = function () {
+    };
+    AdminComponentEuropa.prototype.getUsername = function (username) {
+        var _this = this;
+        this.menteeService.getUser(username).subscribe(function (usuario) {
+            _this.role = usuario.role_name;
+            if (_this.role != 'admin') {
+                _this._location.back();
+            }
+        });
+    };
+    AdminComponentEuropa = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-admin',
+            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin-europa/admin.component.html"),
+            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin-europa/admin.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"], _mentee_shared_mentee_service__WEBPACK_IMPORTED_MODULE_3__["MenteeService"]])
+    ], AdminComponentEuropa);
+    return AdminComponentEuropa;
 }());
 
 
@@ -179,7 +226,7 @@ module.exports = ".fill-remaining-space {\n  /* This fills the remaining space, 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"mat-elevation-z10\">\n  <button mat-button *ngIf=\"!authenticated\" routerLink=\"/\">Home</button>\n  <button mat-button onclick=\"location.href='http://www.gobrasa.org';\">Conheça a BRASA</button>\n  <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentee/listing\">Mentee</button>\n  <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentor/listing\">Mentor</button>\n  <button mat-button  *ngIf=\"authenticated && role == 'admin'\" routerLink=\"/admin\">Admin</button>\n\n  <!-- This fills the remaining space of the current row -->\n  <span class=\"fill-remaining-space\"></span>\n\n  <button mat-button (click)=\"signIn()\" *ngIf=\"!authenticated\">Sign In</button>\n  <button mat-button (click)=\"signOut()\" *ngIf=\"authenticated\" routerLink=\"/\">Sign Out</button>\n</mat-toolbar>\n\n<div class=\"view-container\">\n  <router-outlet></router-outlet>\n</div>\n\n"
+module.exports = "    <mat-toolbar class=\"mat-elevation-z10\">\n      <button mat-button *ngIf=\"!authenticated\" routerLink=\"/\">Home</button>\n      <button mat-button onclick=\"location.href='http://www.gobrasa.org';\">Conheça a BRASA</button>\n      <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentee/listing\">Mentee</button>\n      <button mat-button  *ngIf=\"authenticated\" routerLink=\"/mentor/listing\">Mentor</button>\n      <button mat-button  *ngIf=\"role == 'admin'\" routerLink=\"/admin-eua\">Admin EUA</button>\n      <button mat-button  *ngIf=\"role == 'admin'\" routerLink=\"/admin-europa\">Admin Europa</button>\n\n  <!-- This fills the remaining space of the current row -->\n  <span class=\"fill-remaining-space\"></span>\n\n  <button mat-button (click)=\"signIn()\" *ngIf=\"!authenticated\">Sign In</button>\n  <button mat-button (click)=\"signOut()\" *ngIf=\"authenticated\" routerLink=\"/\">Sign Out</button>\n</mat-toolbar>\n\n<div class=\"view-container\">\n  <router-outlet></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
@@ -277,8 +324,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mentee_mentee_essay_mentee_essay_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mentee/mentee-essay/mentee-essay.component */ "./src/app/mentee/mentee-essay/mentee-essay.component.ts");
 /* harmony import */ var _mentee_mentee_information_mentee_information_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mentee/mentee-information/mentee-information.component */ "./src/app/mentee/mentee-information/mentee-information.component.ts");
 /* harmony import */ var _mentee_mentee_listing_mentee_listing_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./mentee/mentee-listing/mentee-listing.component */ "./src/app/mentee/mentee-listing/mentee-listing.component.ts");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
-/* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
+/* harmony import */ var _admin_eua_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin-eua/admin.component */ "./src/app/admin-eua/admin.component.ts");
+/* harmony import */ var _admin_europa_admin_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin-europa/admin.component */ "./src/app/admin-europa/admin.component.ts");
 /* harmony import */ var _mentee_mentee_detail_mentee_detail_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mentee/mentee-detail/mentee-detail.component */ "./src/app/mentee/mentee-detail/mentee-detail.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _mentee_mentee_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mentee/mentee.module */ "./src/app/mentee/mentee.module.ts");
@@ -292,7 +339,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mentor_mentor_detail_mentor_detail_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./mentor/mentor-detail/mentor-detail.component */ "./src/app/mentor/mentor-detail/mentor-detail.component.ts");
 /* harmony import */ var _mentee_mentee_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./mentee/mentee.component */ "./src/app/mentee/mentee.component.ts");
 /* harmony import */ var _mentor_mentor_mentor_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./mentor/mentor/mentor.component */ "./src/app/mentor/mentor/mentor.component.ts");
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./env */ "./src/app/env.ts");
+/* harmony import */ var _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./welcome/welcome.component */ "./src/app/welcome/welcome.component.ts");
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./env */ "./src/app/env.ts");
+
 
 
 
@@ -338,8 +387,9 @@ var appRoutes = [
     { path: 'mentor/listing', component: _mentor_mentor_listing_mentor_listing_component__WEBPACK_IMPORTED_MODULE_26__["MentorListingComponent"] },
     { path: 'mentor/listing/:id', component: _mentor_mentor_information_mentor_information_component__WEBPACK_IMPORTED_MODULE_27__["MentorInformationComponent"] },
     { path: 'mentor/detail/:id', component: _mentor_mentor_detail_mentor_detail_component__WEBPACK_IMPORTED_MODULE_28__["MentorDetailComponent"] },
-    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_16__["AdminComponent"] },
-    { path: 'welcome', component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_17__["WelcomeComponent"] },
+    { path: 'welcome', component: _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_31__["WelcomeComponent"] },
+    { path: 'admin-eua', component: _admin_eua_admin_component__WEBPACK_IMPORTED_MODULE_16__["AdminComponentEUA"] },
+    { path: 'admin-europa', component: _admin_europa_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponentEuropa"] },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"] },
 ];
 var MY_NATIVE_FORMATS = {
@@ -356,7 +406,7 @@ var AppModule = /** @class */ (function () {
             domain: 'brasa-pre-app.eu.auth0.com',
             audience: 'https://online-exam.digituz.com',
             clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-            redirectUri: _env__WEBPACK_IMPORTED_MODULE_31__["AWS_URL"],
+            redirectUri: _env__WEBPACK_IMPORTED_MODULE_32__["AWS_URL"],
             scope: 'openid profile manage:exams'
         });
     }
@@ -379,8 +429,9 @@ var AppModule = /** @class */ (function () {
                 _mentee_mentee_essay_mentee_essay_component__WEBPACK_IMPORTED_MODULE_13__["MenteeEssayComponent"],
                 _mentee_mentee_college_mentee_college_component__WEBPACK_IMPORTED_MODULE_11__["MenteeCollegeComponent"],
                 _mentee_mentee_detail_mentee_detail_component__WEBPACK_IMPORTED_MODULE_18__["MenteeDetailComponent"],
-                _admin_admin_component__WEBPACK_IMPORTED_MODULE_16__["AdminComponent"],
-                _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_17__["WelcomeComponent"]
+                _welcome_welcome_component__WEBPACK_IMPORTED_MODULE_31__["WelcomeComponent"],
+                _admin_eua_admin_component__WEBPACK_IMPORTED_MODULE_16__["AdminComponentEUA"],
+                _admin_europa_admin_component__WEBPACK_IMPORTED_MODULE_17__["AdminComponentEuropa"]
             ],
             imports: [
                 angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_23__["AngularMultiSelectModule"],
@@ -473,7 +524,7 @@ var AuthService = /** @class */ (function () {
         this.http = http;
         this.isLoggedIn = false;
         // store the URL so we can redirect after logging in
-        this.redirectUrl = '/welcome';
+        this.redirectUrl = '/admin-eua';
         this.login = auth0_web__WEBPACK_IMPORTED_MODULE_3__["signIn"];
         this.logout = auth0_web__WEBPACK_IMPORTED_MODULE_3__["signOut"];
         this.HS_API_URL = 'https://brasa-pre.herokuapp.com/api';
@@ -2525,7 +2576,7 @@ module.exports = ".mat-card {\n  max-width: 500px;\n  margin: 40px auto;\n}\n  \
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let mentorDeck of mentorDeck\">\n\n\n          <div *ngIf=\"mentorDeck.id == mentorId\">\n              <mat-card-header>\n                  <span class=\"first-column\">\n                      <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                  </span>\n\n                  <span class=\"second-column\">\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                  </span>\n                </mat-card-header>\n\n            <mat-card-content>\n                <div id=\"mentorDeck\">\n                  <span ><strong>Universidade: </strong></span>\n                  <span>{{ mentorDeck['university'].name }}</span>\n\n                  <span *ngIf= \"mentorDeck['major']\"><hr><strong>Major: </strong>\n                    <span>{{ mentorDeck['major'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_major']\"><hr><strong>Segundo Major: </strong>\n                    <span>{{ mentorDeck['second_major'].name}}</span>\n                  </span>\n                  <!-- <span>{{ mentorDeck['major'].category}}</span>\n                  <br> -->\n                  <span *ngIf= \"mentorDeck['minor']\"><hr><strong>Minor: </strong>\n                    <span>{{ mentorDeck['minor'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_minor']\"><hr><strong>Segundo Minor: </strong>\n                    <span>{{ mentorDeck['second_minor'].name}}</span>\n                  </span>\n\n\n                  <hr>\n                  <span ><strong>Email: </strong></span>\n                  <span>{{ mentorDeck.username }}@gobrasa.org</span>\n\n\n                </div>\n              </mat-card-content>\n              <mat-card-actions>\n                <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n              </mat-card-actions>\n          </div>\n        </div>\n      </mat-card>\n  </div>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <mat-card class=\"example-card\">\n        <div *ngFor=\"let mentorDeck of mentorDeck\">\n\n\n          <div *ngIf=\"mentorDeck.id == mentorId\">\n              <mat-card-header>\n                  <span class=\"first-column\">\n                      <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                  </span>\n\n                  <span class=\"second-column\">\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                    <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                        <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                    </span>\n                  </span>\n                </mat-card-header>\n\n            <mat-card-content>\n                <div id=\"mentorDeck\">\n                  <span ><strong>Universidade: </strong></span>\n                  <span>{{ mentorDeck['university'].name }}</span>\n\n                  <span *ngIf= \"mentorDeck['major']\"><hr><strong>Major: </strong>\n                    <span>{{ mentorDeck['major'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_major']\"><hr><strong>Segundo Major: </strong>\n                    <span>{{ mentorDeck['second_major'].name}}</span>\n                  </span>\n                  <!-- <span>{{ mentorDeck['major'].category}}</span>\n                  <br> -->\n                  <span *ngIf= \"mentorDeck['minor']\"><hr><strong>Minor: </strong>\n                    <span>{{ mentorDeck['minor'].name}}</span>\n                  </span>\n\n                  <span *ngIf= \"mentorDeck['second_minor']\"><hr><strong>Segundo Minor: </strong>\n                    <span>{{ mentorDeck['second_minor'].name}}</span>\n                  </span>\n\n                  <!-- FixMe - get email from mentee.user.email! -->\n                  <hr>\n                  <span ><strong>Email: </strong></span>\n                  <span>{{ mentorDeck.username }}@gobrasa.org</span>\n\n                  <hr>\n                  <div *ngFor=\"let mentee of mentorDeck['mentees']\">\n                      <span ><strong>Mentee: </strong></span>\n                      <span><a routerLink=\"/mentee/listing/{{mentee.id}}\">\n                        {{mentee.first_name}} {{mentee.last_name}}\n                      </a></span>\n                      <hr>\n                </div>\n\n\n\n                </div>\n              </mat-card-content>\n              <mat-card-actions>\n                <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n              </mat-card-actions>\n          </div>\n        </div>\n      </mat-card>\n  </div>\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -2600,7 +2651,7 @@ module.exports = ".mat-card {\n  max-width: 500px;\n  margin: 40px auto;\n}\n  \
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <div *ngFor=\"let userDeck of userDecks\">\n\n      <!-- If it is a mentor, it can see only himself-->\n      <div *ngIf=\"userDeck.role_name == 'mentor' && userNickname == userDeck.username\">\n        <mat-card class=\"example-card\">\n            <div *ngFor=\"let mentorDeck of mentorDecks\">\n              <div *ngIf=\"userNickname == mentorDeck.username\">\n                  <mat-card-header>\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                    </span>\n                  \n                    <span class=\"second-column\">\n                      <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                          <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                      </span>\n                      <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                          <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                      </span>\n                    </span> \n                  </mat-card-header>\n\n                <mat-card-content>\n                   \n                  </mat-card-content>\n                  <mat-card-actions>\n                    <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/listing/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Perfil</button>\n\n                  </mat-card-actions>\n              </div>\n            </div>\n          </mat-card>\n        </div>\n\n        <!-- If it is a mentee, it can see only its mentor-->\n      <div *ngIf=\"userDeck.role_name == 'mentee' && userNickname == userDeck.username\">\n          <mat-card class=\"example-card\">\n              <div *ngFor=\"let menteeDeck of menteeDecks\">\n                <div *ngIf=\"userNickname == menteeDeck.username\">\n                  <div *ngFor=\"let mentorDeck of mentorDecks\">\n                    <div *ngIf=\"mentorDeck.id == menteeDeck.mentor_id\">\n                        <mat-card-header>\n                            <span class=\"first-column\">\n                                <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                            </span>\n                          \n                            <span class=\"second-column\">\n                              <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                                  <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                              </span>\n                              <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                                  <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                              </span>\n                            </span>\n                            \n                          </mat-card-header>\n\n                      <mat-card-content>\n                          <div id=\"mentorDeck\">\n                         \n                          </div>\n                        </mat-card-content>\n                        <mat-card-actions>\n                            <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n                        </mat-card-actions>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </mat-card>\n          </div>\n\n          <!-- If it is a admin, can see all mentors-->\n          <div *ngIf=\"userDeck.role_name == 'admin' && userNickname == userDeck.username\">\n              <h1>Mentors</h1>\n              <div class=\"content\">\n                    <mat-card class=\"example-card child\" *ngFor=\"let mentorDeck of mentorDecks\">\n                      <mat-card-header>\n                        <span class=\"first-column\">\n                            <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                        </span>\n                      \n                        <span class=\"second-column\">\n                          <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                              <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                          </span>\n                          <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                              <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                          </span>\n                        </span>\n                        \n                      </mat-card-header>\n\n                      <mat-card-content>\n                          <div id=\"mentorDeck\">\n                            \n                          </div>\n                        </mat-card-content>\n                        <mat-card-actions>\n                          <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/listing/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n\n                        </mat-card-actions>\n                      </mat-card>\n                </div>\n                \n              </div>\n\n\n\n      </div>\n  </div>\n</body>\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div class=\"container\">\n    <div *ngFor=\"let userDeck of userDecks\">\n\n      <!-- If it is a mentor, it can see only himself-->\n      <div *ngIf=\"userDeck.role_name == 'mentor' && userNickname == userDeck.username\">\n        <mat-card class=\"example-card\">\n            <div *ngFor=\"let mentorDeck of mentorDecks\">\n              <div *ngIf=\"userNickname == mentorDeck.username\">\n                  <mat-card-header>\n                    <span class=\"first-column\">\n                        <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                    </span>\n                  \n                    <span class=\"second-column\">\n                      <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                          <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                      </span>\n                      <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                          <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                      </span>\n                    </span> \n                  </mat-card-header>\n\n                <mat-card-content>\n                   \n                  </mat-card-content>\n                  <mat-card-actions>\n                    <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/listing/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Perfil</button>\n\n                  </mat-card-actions>\n              </div>\n            </div>\n          </mat-card>\n        </div>\n\n        <!-- If it is a mentee, it can see only its mentor-->\n      <div *ngIf=\"userDeck.role_name == 'mentee' && userNickname == userDeck.username\">\n          <mat-card class=\"example-card\">\n              <div *ngFor=\"let menteeDeck of menteeDecks\">\n                <div *ngIf=\"userNickname == menteeDeck.username\">\n                  <div *ngFor=\"let mentorDeck of mentorDecks\">\n                    <div *ngIf=\"mentorDeck.id == menteeDeck.mentor_id\">\n                        <mat-card-header>\n                            <span class=\"first-column\">\n                                <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                            </span>\n                          \n                            <span class=\"second-column\">\n                              <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                                  <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                              </span>\n                              <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                                  <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                              </span>\n                            </span>\n                            \n                          </mat-card-header>\n\n                      <mat-card-content>\n                          <div id=\"mentorDeck\">\n                         \n                          </div>\n                        </mat-card-content>\n                        <mat-card-actions>\n                            <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/detail/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Informações</button>\n\n                        </mat-card-actions>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </mat-card>\n          </div>\n\n          <!-- If it is a admin, can see all mentors-->\n          <div *ngIf=\"userDeck.role_name == 'admin' && userNickname == userDeck.username\">\n              <h1>Mentors</h1>\n              <div class=\"content\">\n                    <mat-card class=\"example-card child\" *ngFor=\"let mentorDeck of mentorDecks\">\n                      <mat-card-header>\n                        <span class=\"first-column\">\n                            <mat-card-title>{{ mentorDeck.first_name + \" \" + mentorDeck.last_name }}</mat-card-title>\n                        </span>\n                      \n                        <span class=\"second-column\">\n                          <span *ngIf=\"mentorDeck['cycle'].region == 'Europa'\">\n                              <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/eu_flag.png\" height=\"30\" width=\"30\">\n                          </span>\n                          <span *ngIf=\"mentorDeck['cycle'].region == 'Estados Unidos'\">\n                              <img src=\"//s3.amazonaws.com/brasaassets/pre_universitario/brasa_app/us_flag.png\" height=\"30\" width=\"30\">\n                          </span>\n                        </span>\n                        \n                        \n                      </mat-card-header>\n\n                      <mat-card-content>\n                          <div id=\"mentorDeck\">\n                            \n                          </div>\n                        </mat-card-content>\n                        <mat-card-actions>\n                          <button type=\"button\" class=\"btn btn-block\" routerLink=\"/mentor/listing/{{mentorDeck.id}}\"><i class=\"fa fa-plus\"></i>  Atualizar informações</button>\n\n                        </mat-card-actions>\n                      </mat-card>\n                </div>\n                \n              </div>\n\n\n\n      </div>\n  </div>\n</body>\n</html>\n"
 
 /***/ }),
 
@@ -2875,7 +2926,7 @@ var MentorService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    width: 100%;\n    position: absolute;\n    left: 0;\n    top: 64px;\n    height: auto;\n    \n}\n\n.layer {\n    background-color: rgba(55,136,203, 0.3);\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n\n#title-text{\n   \n    margin: 98px auto;\n    text-align: center;\n    color: white;\n}\n\n#title-text h1{\n    font-size: 85px;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    font-weight: 100;\n    line-height: 1;\n}\n\n#info{\n    margin-top: 30px;\n}\n\n#info h1{\n    color: rgb(55,136,203);\n}\n\n.instructions{\n    margin-top: 46px;\n}\n\n.instructions h2{\n    color: rgb(55,136,203);\n}\n\n#footer{\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    height: 10px;\n    background-color: rgb(55,136,203);\n}\n\n@media only screen and (max-width: 600px) {\n    #title{\n        width: 100%;\n        position: absolute;\n        background-size: cover;\n        left: 0;\n        top: 57px;\n        height: 350px;\n        background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n        -webkit-transform: translate3d(0px, 0px, 0px);\n        transform: translate3d(0px, 0px, 0px);\n        \n    }\n\n    #info{\n        height: 400px;\n    }\n  }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvd2VsY29tZS93ZWxjb21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLE9BQU87SUFDUCxTQUFTO0lBQ1QsWUFBWTs7QUFFaEI7O0FBRUE7SUFDSSx1Q0FBdUM7SUFDdkMsa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUksaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxlQUFlO0lBQ2YsU0FBUztJQUNULE9BQU87SUFDUCxRQUFRO0lBQ1IsV0FBVztJQUNYLFlBQVk7SUFDWixpQ0FBaUM7QUFDckM7O0FBR0E7SUFDSTtRQUNJLFdBQVc7UUFDWCxrQkFBa0I7UUFDbEIsc0JBQXNCO1FBQ3RCLE9BQU87UUFDUCxTQUFTO1FBQ1QsYUFBYTtRQUNiLHVJQUF1STtRQUN2SSw2Q0FBNkM7UUFDN0MscUNBQXFDOztJQUV6Qzs7SUFFQTtRQUNJLGFBQWE7SUFDakI7RUFDRiIsImZpbGUiOiJzcmMvYXBwL3dlbGNvbWUvd2VsY29tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keXtcbiAgICBmb250LWZhbWlseTogTGF0bywgc2Fucy1zZXJpZjtcbn1cblxuI3RpdGxle1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogNjRweDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgXG59XG5cbi5sYXllciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSg1NSwxMzYsMjAzLCAwLjMpO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0b3A6IDA7XG4gICAgbGVmdDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG5cbiN0aXRsZS10ZXh0e1xuICAgXG4gICAgbWFyZ2luOiA5OHB4IGF1dG87XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGNvbG9yOiB3aGl0ZTtcbn1cblxuI3RpdGxlLXRleHQgaDF7XG4gICAgZm9udC1zaXplOiA4NXB4O1xuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gICAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgICBmb250LXdlaWdodDogMTAwO1xuICAgIGxpbmUtaGVpZ2h0OiAxO1xufVxuXG4jaW5mb3tcbiAgICBtYXJnaW4tdG9wOiAzMHB4O1xufVxuXG4jaW5mbyBoMXtcbiAgICBjb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG4uaW5zdHJ1Y3Rpb25ze1xuICAgIG1hcmdpbi10b3A6IDQ2cHg7XG59XG5cbi5pbnN0cnVjdGlvbnMgaDJ7XG4gICAgY29sb3I6IHJnYig1NSwxMzYsMjAzKTtcbn1cblxuI2Zvb3RlcntcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgYm90dG9tOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgcmlnaHQ6IDA7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMHB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYig1NSwxMzYsMjAzKTtcbn1cblxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDYwMHB4KSB7XG4gICAgI3RpdGxle1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgICBsZWZ0OiAwO1xuICAgICAgICB0b3A6IDU3cHg7XG4gICAgICAgIGhlaWdodDogMzUwcHg7XG4gICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybChodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vMDlBSnZudWJSYVFwb0xMTkgwdk9XeU5LOTJ5VXdOa2YxM1VVUUEzM2tPaUEzNEdBS1V0ZmhpcTAzd0ZJNHJqNnIwOXhPbWc9dzE2MzgzKTtcbiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZTNkKDBweCwgMHB4LCAwcHgpO1xuICAgICAgICBcbiAgICB9XG5cbiAgICAjaW5mb3tcbiAgICAgICAgaGVpZ2h0OiA0MDBweDtcbiAgICB9XG4gIH1cbiJdfQ== */"
+module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    width: 100%;\n    position: absolute;\n    left: 0;\n    top: 64px;\n    height: auto;\n    \n}\n\n.layer {\n    background-color: rgba(55,136,203, 0.3);\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n\n#title-text{\n   \n    margin: 98px auto;\n    text-align: center;\n    color: white;\n}\n\n#title-text h1{\n    font-size: 85px;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    font-weight: 100;\n    line-height: 1;\n}\n\n#info{\n    margin-top: 30px;\n}\n\n#info h1{\n    color: rgb(55,136,203);\n}\n\n.instructions{\n    margin-top: 26px;\n}\n\n.instructions h2{\n    color: rgb(55,136,203);\n}\n\n.action{\n    padding-bottom: 20px;\n    margin-top: -31px;\n}\n\n.action button{\n    margin: 5px;\n}\n\n#footer{\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    width: 100%;\n    height: 10px;\n    background-color: rgb(55,136,203);\n}\n\n@media only screen and (max-width: 600px) {\n    #title{\n        width: 100%;\n        position: absolute;\n        background-size: cover;\n        left: 0;\n        top: 57px;\n        height: 350px;\n        background-image: url(https://lh6.googleusercontent.com/09AJvnubRaQpoLLNH0vOWyNK92yUwNkf13UUQA33kOiA34GAKUtfhiq03wFI4rj6r09xOmg=w16383);\n        -webkit-transform: translate3d(0px, 0px, 0px);\n        transform: translate3d(0px, 0px, 0px);\n        \n    }\n\n    #info{\n        height: 400px;\n    }\n  }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvd2VsY29tZS93ZWxjb21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLE9BQU87SUFDUCxTQUFTO0lBQ1QsWUFBWTs7QUFFaEI7O0FBRUE7SUFDSSx1Q0FBdUM7SUFDdkMsa0JBQWtCO0lBQ2xCLE1BQU07SUFDTixPQUFPO0lBQ1AsV0FBVztJQUNYLFlBQVk7QUFDaEI7O0FBRUE7O0lBRUksaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksZUFBZTtJQUNmLHlCQUF5QjtJQUN6QixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLGNBQWM7QUFDbEI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBRUE7SUFDSSxzQkFBc0I7QUFDMUI7O0FBRUE7SUFDSSxvQkFBb0I7SUFDcEIsaUJBQWlCO0FBQ3JCOztBQUVBO0lBQ0ksV0FBVztBQUNmOztBQUVBO0lBQ0ksZUFBZTtJQUNmLFNBQVM7SUFDVCxPQUFPO0lBQ1AsUUFBUTtJQUNSLFdBQVc7SUFDWCxZQUFZO0lBQ1osaUNBQWlDO0FBQ3JDOztBQUdBO0lBQ0k7UUFDSSxXQUFXO1FBQ1gsa0JBQWtCO1FBQ2xCLHNCQUFzQjtRQUN0QixPQUFPO1FBQ1AsU0FBUztRQUNULGFBQWE7UUFDYix1SUFBdUk7UUFDdkksNkNBQTZDO1FBQzdDLHFDQUFxQzs7SUFFekM7O0lBRUE7UUFDSSxhQUFhO0lBQ2pCO0VBQ0YiLCJmaWxlIjoic3JjL2FwcC93ZWxjb21lL3dlbGNvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHl7XG4gICAgZm9udC1mYW1pbHk6IExhdG8sIHNhbnMtc2VyaWY7XG59XG5cbiN0aXRsZXtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogMDtcbiAgICB0b3A6IDY0cHg7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIFxufVxuXG4ubGF5ZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoNTUsMTM2LDIwMywgMC4zKTtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAwO1xuICAgIGxlZnQ6IDA7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jdGl0bGUtdGV4dHtcbiAgIFxuICAgIG1hcmdpbjogOThweCBhdXRvO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBjb2xvcjogd2hpdGU7XG59XG5cbiN0aXRsZS10ZXh0IGgxe1xuICAgIGZvbnQtc2l6ZTogODVweDtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgIGxldHRlci1zcGFjaW5nOiAycHg7XG4gICAgZm9udC13ZWlnaHQ6IDEwMDtcbiAgICBsaW5lLWhlaWdodDogMTtcbn1cblxuI2luZm97XG4gICAgbWFyZ2luLXRvcDogMzBweDtcbn1cblxuI2luZm8gaDF7XG4gICAgY29sb3I6IHJnYig1NSwxMzYsMjAzKTtcbn1cblxuLmluc3RydWN0aW9uc3tcbiAgICBtYXJnaW4tdG9wOiAyNnB4O1xufVxuXG4uaW5zdHJ1Y3Rpb25zIGgye1xuICAgIGNvbG9yOiByZ2IoNTUsMTM2LDIwMyk7XG59XG5cbi5hY3Rpb257XG4gICAgcGFkZGluZy1ib3R0b206IDIwcHg7XG4gICAgbWFyZ2luLXRvcDogLTMxcHg7XG59XG5cbi5hY3Rpb24gYnV0dG9ue1xuICAgIG1hcmdpbjogNXB4O1xufVxuXG4jZm9vdGVye1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICBib3R0b206IDA7XG4gICAgbGVmdDogMDtcbiAgICByaWdodDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDU1LDEzNiwyMDMpO1xufVxuXG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNjAwcHgpIHtcbiAgICAjdGl0bGV7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gICAgICAgIGxlZnQ6IDA7XG4gICAgICAgIHRvcDogNTdweDtcbiAgICAgICAgaGVpZ2h0OiAzNTBweDtcbiAgICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKGh0dHBzOi8vbGg2Lmdvb2dsZXVzZXJjb250ZW50LmNvbS8wOUFKdm51YlJhUXBvTExOSDB2T1d5Tks5MnlVd05rZjEzVVVRQTMza09pQTM0R0FLVXRmaGlxMDN3Rkk0cmo2cjA5eE9tZz13MTYzODMpO1xuICAgICAgICAtd2Via2l0LXRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlM2QoMHB4LCAwcHgsIDBweCk7XG4gICAgICAgIFxuICAgIH1cblxuICAgICNpbmZve1xuICAgICAgICBoZWlnaHQ6IDQwMHB4O1xuICAgIH1cbiAgfVxuIl19 */"
 
 /***/ }),
 
@@ -2886,7 +2937,7 @@ module.exports = "body{\n    font-family: Lato, sans-serif;\n}\n\n#title{\n    w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div *ngFor=\"let userDeck of userDecks\">\n  <div class=\"container\">\n    <div class=\"content\">\n        <div *ngIf=\"(userDeck.role_name == 'admin' || userDeck.role_name == 'mentor' || userDeck.role_name == 'mentee') && userNickname == userDeck.username\">\n        <div id=\"info\">\n          <h1>Bem-vindo ao app do BRASA PRÉ</h1>\n          <p>Esse app tem como objetivo... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus. </p>\n\n          <div class=\"instructions\">\n            <h2>Como o app Funciona?</h2>\n            <ol>\n              <li> <p>Adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Ddipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Udipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n              <li> <p>Sdipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>\n            </ol>\n           \n          </div>\n\n        </div>\n        </div>\n        </div>\n    </div>\n    \n    \n  </div>\n  <div id=\"footer\"></div>\n</body>\n</html>"
+module.exports = "<!DOCTYPE html>\n<html>\n  <head>\n    <title></title>\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n  </head>\n  <body>\n  <div *ngFor=\"let userDeck of userDecks\">\n  <div class=\"container\">\n    <div class=\"content\">\n        <div *ngIf=\"(userDeck.role_name == 'admin' || userDeck.role_name == 'mentor' || userDeck.role_name == 'mentee') && userNickname == userDeck.username\">\n        <div id=\"info\">\n            <div *ngIf=\"(userDeck.role_name == 'admin')\">\n              <div class=\"action\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg\" routerLink=\"/admin-europa\">Dashboard Europa</button>\n                <button type=\"button\" class=\"btn btn-primary btn-lg\" routerLink=\"/admin-eua\">Dashboard Americas</button>\n              </div>\n            </div>\n          <h1>Bem-vindo ao app do BRASA PRÉ</h1>\n          <p>Esse app tem como objetivo facilitar a comunicação entre mentores, \n            mentees e a coordenação do BRASA PRÉ. No app você poderá adicionar notas de \n            provas, redações, e sua lista de faculdades, com o objetivo de manter a coordenação e \n            seu mentor ou mentora informados sobre o seu processo de aplicação para o exterior.    </p>\n\n          <div class=\"instructions\">\n            <h2>Como o app Funciona?</h2>\n            <ol>\n              <li> <p>Através da barra de navegação, você poderá acessar o seu perfil, assim como o perfil do seu mentor. \n              </p>\n              </li>\n              <li> <p>No seu perfil, busque atualizar as informações com frequência durante todo o processo. \n                Informações como provas e redações são de muita importância, e atualizá-las com frequência \n                ajuda o/a mentor/a na correção mas também te ajuda a montar uma redação nota A.\n              </p>\n              </li>\n              <li> <p>Quando adicionar uma essay,\n                 pedimos que copie o link completo do Google Doc, para garantir acesso ao link correto pelo app.\n                  </p>\n                  <ul>\n                      <li>Exemplo ruim: docs.google.com/essay1</li>\n                      <li>Exemplo bom: https://docs.google.com/essay1</li>\n                  </ul><br>\n                  <p><strong>Importante: Não esqueça o https://</strong></p>\n              </li>\n              <li> <p>Nós da BRASA estamos muito felizes de ajudar você nesse processo. Caso encontre algum erro no app ou \n                tenha alguma dúvida em relação ao programa, não hesite em nos mandar um mensagem em: pre@gobrasa.org </p>\n              </li>\n            </ol>\n           \n          </div>\n\n        </div>\n        </div>\n        </div>\n    </div>\n    \n  </div>\n  <footer class=\"footer\" id=\"footer\">\n      <div class=\"container\">\n        <span class=\"text-muted\"></span>\n      </div>\n    </footer>\n  \n</body>\n</html>"
 
 /***/ }),
 

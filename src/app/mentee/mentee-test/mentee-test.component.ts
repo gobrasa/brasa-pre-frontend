@@ -202,7 +202,7 @@ export class MenteeTestComponent {
               console.log(data['_body']);
               this.getScheduledExams();
              }, error => {
-              //console.log(error);
+              console.log(error);
             });
 
             this.getExams();
@@ -281,7 +281,7 @@ public excludeExam(id){
 
   let httpOptions = MenteeService.buildHttpOptions();
   this.http.delete<any>(`${this.API_URL}/scheduled_exams/`+id, httpOptions).subscribe(data => {
-    //console.log(data['_body']);
+    console.log(data['_body']);
    }, error => {
     console.log(error);
   });;

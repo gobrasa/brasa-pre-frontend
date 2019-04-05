@@ -14,8 +14,9 @@ import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component'
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
-import { AdminComponent } from './admin/admin.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+
+import { AdminComponentEUA } from './admin-eua/admin.component';
+import { AdminComponentEuropa } from './admin-europa/admin.component';
 
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +70,7 @@ import { MentorInformationComponent } from './mentor/mentor-information/mentor-i
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
 import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor/mentor.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import {AWS_URL} from './env';
 
 const appRoutes: Routes = [
@@ -82,8 +84,9 @@ const appRoutes: Routes = [
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
-  { path: 'admin', component: AdminComponent},
   { path: 'welcome', component: WelcomeComponent},
+  { path: 'admin-eua', component: AdminComponentEUA},
+  { path: 'admin-europa', component: AdminComponentEuropa},
 
 
   { path: '', component: HomeComponent },
@@ -118,8 +121,9 @@ export const MY_NATIVE_FORMATS = {
     MenteeEssayComponent,
     MenteeCollegeComponent,
     MenteeDetailComponent,
-    AdminComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AdminComponentEUA,
+    AdminComponentEuropa
   ],
   imports: [
     AngularMultiSelectModule,

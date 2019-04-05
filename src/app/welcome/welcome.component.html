@@ -10,16 +10,41 @@
     <div class="content">
         <div *ngIf="(userDeck.role_name == 'admin' || userDeck.role_name == 'mentor' || userDeck.role_name == 'mentee') && userNickname == userDeck.username">
         <div id="info">
+            <div *ngIf="(userDeck.role_name == 'admin')">
+              <div class="action">
+                <button type="button" class="btn btn-primary btn-lg" routerLink="/admin-europa">Dashboard Europa</button>
+                <button type="button" class="btn btn-primary btn-lg" routerLink="/admin-eua">Dashboard Americas</button>
+              </div>
+            </div>
           <h1>Bem-vindo ao app do BRASA PRÉ</h1>
-          <p>Esse app tem como objetivo... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus. </p>
+          <p>Esse app tem como objetivo facilitar a comunicação entre mentores, 
+            mentees e a coordenação do BRASA PRÉ. No app você poderá adicionar notas de 
+            provas, redações, e sua lista de faculdades, com o objetivo de manter a coordenação e 
+            seu mentor ou mentora informados sobre o seu processo de aplicação para o exterior.    </p>
 
           <div class="instructions">
             <h2>Como o app Funciona?</h2>
             <ol>
-              <li> <p>Adipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>
-              <li> <p>Ddipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>
-              <li> <p>Udipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>
-              <li> <p>Sdipiscing elit. Duis facilisis varius justo, a ullamcorper sem rhoncus vitae. Curabitur ac condimentum nulla, vitae dignissim nisl. Quisque dignissim mauris lacus.</p></li>
+              <li> <p>Através da barra de navegação, você poderá acessar o seu perfil, assim como o perfil do seu mentor. 
+              </p>
+              </li>
+              <li> <p>No seu perfil, busque atualizar as informações com frequência durante todo o processo. 
+                Informações como provas e redações são de muita importância, e atualizá-las com frequência 
+                ajuda o/a mentor/a na correção mas também te ajuda a montar uma redação nota A.
+              </p>
+              </li>
+              <li> <p>Quando adicionar uma essay,
+                 pedimos que copie o link completo do Google Doc, para garantir acesso ao link correto pelo app.
+                  </p>
+                  <ul>
+                      <li>Exemplo ruim: docs.google.com/essay1</li>
+                      <li>Exemplo bom: https://docs.google.com/essay1</li>
+                  </ul><br>
+                  <p><strong>Importante: Não esqueça o https://</strong></p>
+              </li>
+              <li> <p>Nós da BRASA estamos muito felizes de ajudar você nesse processo. Caso encontre algum erro no app ou 
+                tenha alguma dúvida em relação ao programa, não hesite em nos mandar um mensagem em: pre@gobrasa.org </p>
+              </li>
             </ol>
            
           </div>
@@ -29,8 +54,12 @@
         </div>
     </div>
     
-    
   </div>
-  <div id="footer"></div>
+  <footer class="footer" id="footer">
+      <div class="container">
+        <span class="text-muted"></span>
+      </div>
+    </footer>
+  
 </body>
 </html>

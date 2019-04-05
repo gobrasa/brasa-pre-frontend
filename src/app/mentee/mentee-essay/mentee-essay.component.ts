@@ -83,7 +83,7 @@ export class MenteeEssayComponent{
           "title": this.title
         }, httpOptions).subscribe(data => {
           this.getScheduledExams();
-            //console.log(data['_body']);
+            console.log(data['_body']);
             }, error => {
             console.log(error);
             });

@@ -44,11 +44,20 @@ body{
 }
 
 .instructions{
-    margin-top: 46px;
+    margin-top: 26px;
 }
 
 .instructions h2{
     color: rgb(55,136,203);
+}
+
+.action{
+    padding-bottom: 20px;
+    margin-top: -31px;
+}
+
+.action button{
+    margin: 5px;
 }
 
 #footer{
