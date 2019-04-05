@@ -51,7 +51,7 @@
                         [min]="min" [max]="max"
                         [owlDateTimeTrigger]="dt"
                         [owlDateTime]="dt"
-                        (input)="dateTime=$event.target.value"
+                        [(ngModel)]="dateTime"
                         formControlName="dateInput">
                   <owl-date-time [pickerType]="'calendar'" #dt></owl-date-time>
               </label>

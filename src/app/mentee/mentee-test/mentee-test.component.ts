@@ -107,7 +107,7 @@ export class MenteeTestComponent {
       categoryName: '',
       subCategoryName: '',
       score: '',
-      dateInput:''
+      dateInput: Date()
     });
     this.getExams();
     this.menteeId = this.route.snapshot.paramMap.get('id');
@@ -186,6 +186,7 @@ export class MenteeTestComponent {
   public logForm(){
     let httpOptions = MenteeService.buildHttpOptions();
     // this.datepipe.transform(this.dateTime, 'dd-MM-yyyy') -> mudando formato da data
+    //console.log(this.todo)
     this.menteeService.getAllExams().subscribe(tests => {
       tests['objects'].forEach(prova=>{
 
@@ -208,7 +209,7 @@ export class MenteeTestComponent {
             this.getExams();
             //delete this.todo.value.categoryName[0].category
             //delete this.todo.value.subCategoryName[0].subcategory
-          this.score = Number()
+          this.score = null
           this.todo.reset();
           this.dateTime = Date()
           this.settingsSubCategory = {
