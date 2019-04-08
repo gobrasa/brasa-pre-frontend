@@ -71,8 +71,9 @@ import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.comp
 import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor/mentor.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {AWS_URL} from './env';
+
 import { AdminComponent } from './admin/admin.component';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
@@ -189,7 +190,8 @@ export class AppModule {
       domain: 'brasa-pre-app.eu.auth0.com',
       audience: 'https://online-exam.digituz.com',
       clientID: 'Qw4p5JyU5yO2dZ0DWPL27g9tq6P4c5kk',
-      redirectUri: AWS_URL,
+      //redirectUri: AWS_URL,
+      redirectUri: environment.frontend_callback_url,
       scope: 'openid profile manage:exams'
     });
   }

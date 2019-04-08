@@ -1,1 +1,1 @@
-export const AWS_URL = 'http://localhost:4200/callback';
+//export const AWS_URL = 'http://localhost:4200/callback';

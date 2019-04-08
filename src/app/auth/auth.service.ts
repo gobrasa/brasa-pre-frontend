@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AWS_URL} from '../env';
+
 import { Observable, of } from 'rxjs';
 import { tap, delay, catchError } from 'rxjs/operators';
 import * as Auth0 from 'auth0-web';
@@ -40,7 +40,7 @@ export class AuthService {
 
     let user2 : User;
 
-    return this.http.get<User>(`${AWS_URL}/users/${username}`,httpOptions)
+    return this.http.get<User>(`${this.HS_API_URL}/users/${username}`,httpOptions)
 
     }
 
