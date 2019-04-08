@@ -8,8 +8,7 @@ import { MentorService } from '../mentor/shared/mentor.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './admin.component.html'
 })
 export class AdminComponent {
 

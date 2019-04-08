@@ -72,6 +72,7 @@ import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor/mentor.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {AWS_URL} from './env';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
@@ -122,6 +123,7 @@ export const MY_NATIVE_FORMATS = {
     MenteeCollegeComponent,
     MenteeDetailComponent,
     WelcomeComponent,
+    AdminComponent,
     AdminComponentEUA,
     AdminComponentEuropa
   ],
