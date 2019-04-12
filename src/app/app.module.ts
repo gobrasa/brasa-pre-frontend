@@ -90,6 +90,7 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent},
   { path: 'admin-eua', component: AdminComponentEUA},
   { path: 'admin-europa', component: AdminComponentEuropa},
+  { path: 'admin-analytics', component: AdminComponentAnalytics},
 
 
   { path: '', component: HomeComponent },
