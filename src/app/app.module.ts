@@ -17,6 +17,7 @@ import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.c
 
 import { AdminComponentEUA } from './admin-eua/admin.component';
 import { AdminComponentEuropa } from './admin-europa/admin.component';
+import { AdminComponentAnalytics } from './admin-analytics/admin.component';
 
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -126,7 +127,8 @@ export const MY_NATIVE_FORMATS = {
     WelcomeComponent,
     AdminComponent,
     AdminComponentEUA,
-    AdminComponentEuropa
+    AdminComponentEuropa,
+    AdminComponentAnalytics
   ],
   imports: [
     AngularMultiSelectModule,
