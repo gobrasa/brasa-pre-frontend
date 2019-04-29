@@ -74,6 +74,12 @@ export class MenteeService {
     return this.http.get<any>(`${this.API_URL}/mentees/`+ id + `/university_applications`, httpOptions);
   }
 
+  public getMenteeAcceptedCollegeList(id): Observable<any>{
+    let httpOptions = MenteeService.buildHttpOptions();
+    return this.http.get<any>(`${this.API_URL}/mentees/`+ id + `/university_acceptances`, httpOptions);
+  }
+
+
   public getCollegeNameById(id): Observable<any>{
     let httpOptions = MenteeService.buildHttpOptions();
     return this.http.get<any>(`${this.API_URL}/universities/` + id, httpOptions);

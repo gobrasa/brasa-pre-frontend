@@ -10,6 +10,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.component';
+import { MenteeAcceptedComponent } from './mentee/mentee-accepted/mentee-accepted.component';
 import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component';
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
   { path: 'mentee/test/:id', component: MenteeTestComponent },
   { path: 'mentee/essay/:id', component: MenteeEssayComponent },
   { path: 'mentee/college/:id', component: MenteeCollegeComponent },
+  { path: 'mentee/accepted/:id', component: MenteeAcceptedComponent},
   { path: 'mentee/detail/:id', component: MenteeDetailComponent },
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: 'mentor/listing', component: MentorListingComponent },
@@ -124,6 +126,7 @@ export const MY_NATIVE_FORMATS = {
     MenteeTestComponent,
     MenteeEssayComponent,
     MenteeCollegeComponent,
+    MenteeAcceptedComponent,
     MenteeDetailComponent,
     WelcomeComponent,
     AdminComponent,
