@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+  <div *ngIf="role=='mentee' || role=='admin'" id="acceptances" class="shadow-sm p-3 mb-5 bg-white rounded">
+    <h1>Adicione as suas acceptances</h1>
+    <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
+
+      <div class="form-group">
+        <angular2-multiselect
+          [data]="isoCode"
+          [(ngModel)]="isoControl"
+          [settings]="settingsIso"
+          (onSelect)="onIsoSelect($event)"
+          (onDeSelect)="onIsoDeSelect($event)"
+          formControlName="isoList"
+        >
+          <c-item>
+            <ng-template let-item="item">
+              {{item.country_iso_code}}
+            </ng-template>
+          </c-item>
+        </angular2-multiselect>
+      </div>
+
+      <div class="form-group" *ngIf="selectedUnis">
+        <angular2-multiselect *ngIf="selectedUnis.length == helper3"
+                              [data]="universitiesIso"
+                              [(ngModel)]="selectedUnisIso"
+                              [loading] = "loading"
+                              [settings]="settingsUnis"
+                              (onSelect)="onItemSelect($event)"
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              formControlName="uniList"
+        ><c-item>
+          <ng-template let-item="item">
+            {{item.name}}
+          </ng-template>
+        </c-item>
+        </angular2-multiselect>
+      </div>
+
+
+      <div class="action">
+        <button *ngIf="role=='mentee'|| role=='admin'" type="submit" class="btn btn-sm btn-success salvar">Salvar</button>
+        <button type="button" class="btn btn-sm btn-info" (click)="goBack()">Voltar</button>
+      </div>
+
+
+    </form>
+  </div>
+
+</div>
+
+<div id="uploaded_essays" class="shadow-sm p-3 mb-5 bg-white rounded">
+
+
+  <h1>Universidades que você foi aceito:</h1>
+  <div *ngFor="let selectedUni of selectedUnis">
+    <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee' || role=='mentor'">
+      {{ selectedUni.name }}
+      <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
+        Remover Universidade
+      </button>
+
+      <hr>
+    </div>
+  </div>
+  <button type="button" class="btn btn btn-sm btn-info" (click)="goBack()">Voltar</button>
+</div>
+</body>
+</html>
