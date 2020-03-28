@@ -60,7 +60,7 @@ import {Location} from '@angular/common';
 
 
 export class MenteeAcceptedComponent{
-  private readonly API_URL = '/';
+  private readonly API_URL = 'https://brasa-pre.herokuapp.com/api';
   //public collegeArray:any=[];
   private headers: HttpHeaders;
   public universities: University[] = [];
@@ -238,6 +238,7 @@ export class MenteeAcceptedComponent{
 
 
   public postCollegeList(){
+    console.log()
     // pegando ids
     const universitiesId = [];
     this.userForm.value.uniList.forEach(test=>{
@@ -260,6 +261,7 @@ export class MenteeAcceptedComponent{
       this.http.post(`${this.API_URL}/university_acceptances`,
         { mentee_id: this.menteeId,
           university_id: ids}, httpOptions).subscribe(data => {
+
           this._location.back();
          }, error => {
           //console.log(error);

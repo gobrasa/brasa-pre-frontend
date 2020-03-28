@@ -59,9 +59,11 @@ export class MenteeDetailComponent {
     primary_contact_email: ''
     })
     this.todo = this.formBuilder.group({});
+
     this.menteeId = this.route.snapshot.paramMap.get('id');
     this.getInformation();
     this.getUsername(this.userNickname)
+    this.getUserId(this.menteeId)
     /*this.getMentee.get(`${this.API_URL}/mentees`).subscribe(data => {
       this.todo.value.username = data["objects"][0].username
         //"username": data["objects"][0].username,
@@ -82,10 +84,17 @@ export class MenteeDetailComponent {
     return httpOptions;
   }
 
+  getUserId(id){
+    this.menteeService.getMentee(id).subscribe(mentee=>{
+      console.log(mentee.username)
+      this.username = mentee.username
+    })
+  }
+
   getUsername(username) {
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
-      this.username = usuario.username
+      //this.username = usuario.username
     });
   }
 

@@ -30,7 +30,7 @@ export class MenteeService {
 
   public getAllmenteeDecks(): Observable<any>{
     let httpOptions = MenteeService.buildHttpOptions();
-    return this.http.get<any>(`${this.API_URL}/mentees/`, httpOptions);
+    return this.http.get<any>(`${this.API_URL}/mentees`, httpOptions);
   }
 
   public getUser(username) {

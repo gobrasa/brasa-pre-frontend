@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="container">
-      <div *ngIf="role == 'mentee' || role == 'admin'" class="container">
+      <div *ngIf="(role== 'mentee' && username == userNickname) || role == 'admin'" class="container">
           <div id="essay" class=" shadow-sm p-3 mb-5 bg-white rounded">
             <h1>Envie o link do Google Docs</h1>
 
@@ -16,7 +16,7 @@
                 <input placeholder="Essay link" type="text" class="form-control" [(ngModel)]="link" [ngModelOptions]="{standalone: true}" required>
                 <button type="button" class="btn voltar btn btn-sm btn-info" (click)="goBack()">Voltar</button>
                 <button type="submit" class="btn btn-sm btn-success salvar">Adicionar</button>
-                
+
             </form>
         </div>
 
