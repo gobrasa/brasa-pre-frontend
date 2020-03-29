@@ -85,7 +85,7 @@ export class MenteeTestComponent {
   scheduledExams: any;
   public role: any;
   public username: any;
-  private userNickname: any;
+  public userNickname: any;
 
   examsListSubs: Subscription;
   examsList: Exam[];

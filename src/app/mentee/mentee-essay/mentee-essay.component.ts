@@ -23,7 +23,7 @@ export class MenteeEssayComponent{
   public link:any;
   public title:any;
   private headers: HttpHeaders;
-  private userNickname: any;
+  public userNickname: any;
   public essays:any;
   public role:any;
   public username:any;
