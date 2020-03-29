@@ -16,6 +16,6 @@ app.get('/*', function(req, res){
 
 // const server = http.createServer(app);
 
-// server.listen(port, () => console.log("Server is running"));
+app.listen(port, () => console.log("Server is running"));
 
-app.listen(process.env.PORT, process.env.IP);
+//app.listen(process.env.PORT, process.env.IP);

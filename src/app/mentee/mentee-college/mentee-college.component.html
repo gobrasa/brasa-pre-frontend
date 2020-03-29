@@ -8,7 +8,7 @@
   <body>
   <div class="container">
 
-    <div *ngIf="role=='mentee' || role=='admin'" id="college_update" class="shadow-sm p-3 mb-5 bg-white rounded">
+    <div *ngIf="(role== 'mentee' && username == userNickname) || role == 'admin'" id="college_update" class="shadow-sm p-3 mb-5 bg-white rounded">
         <h1>Atualize sua College List!</h1>
         <form [formGroup]="userForm" (ngSubmit)="postCollegeList()">
 
@@ -65,10 +65,10 @@
     <div *ngFor="let selectedUni of selectedUnis">
       <div class="essay-listing" *ngIf="role == 'admin' || role == 'mentee' || role=='mentor'">
         {{ selectedUni.name }}
-        <button *ngIf="role=='mentee' || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
+        <button *ngIf="(role== 'mentee' && username == userNickname) || role == 'admin'" type="button" class="btn btn-sm btn-danger apagar" (click)="excludeUniversity(selectedUni.upload_id)">
             Remover Universidade
           </button>
-       
+
         <hr>
       </div>
       </div>

@@ -73,6 +73,7 @@ export class MentorDetailComponent {
   public userNickname: any;
   public role: any;
   public username: any;
+  public mentee_control: any;
   public universities: University[] = [];
   public courses: Course[] = [];
   public helperMajor: any;
@@ -116,6 +117,7 @@ export class MentorDetailComponent {
 
     //this.todo = this.formBuilder.group({});
     this.mentorId = this.route.snapshot.paramMap.get('id');
+    this.getUserId(this.mentorId, this.userNickname);
     this.selectCollege(this.mentorId);
     this.selectCourses(this.mentorId);
     this.getInformation();
@@ -168,10 +170,31 @@ export class MentorDetailComponent {
 
   }
 
+  getUserId(id, userNickname){
+    console.log(userNickname)
+    console.log('here')
+    this.mentee_control = this.mentee_control
+
+    this.mentorService.getMentorById(id).subscribe(mentor=>{
+      mentor.mentees.forEach(function (mentee){
+        this.username = mentee.username
+        if (mentee.username == userNickname){
+
+          this.mentee_control = true
+        } else {
+          this.mentee_control = false
+        }
+
+      }, this)
+      console.log(this.mentee_control)
+    })
+  }
+
   getUser(username) {
     this.mentorService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
-      this.username = usuario.username
+      //this.username = usuario.username
+      console.log(this.username, 'should be the same - 2')
     });
 
 

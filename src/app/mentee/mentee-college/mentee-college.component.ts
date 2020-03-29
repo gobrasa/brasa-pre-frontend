@@ -90,6 +90,7 @@ export class MenteeCollegeComponent{
   loading = false;
   public role:any;
   public userNickname:any;
+  public username:any;
   @Output() uniSelectedChange = new EventEmitter<any>();
 
 
@@ -117,6 +118,7 @@ export class MenteeCollegeComponent{
     this.getUsername(this.userNickname);
     this.menteeId = this.route.snapshot.paramMap.get('id');
     this.selectColleges(this.menteeId) //pegando college list do 'menteeId' para pré selecionar
+    this.getUserId(this.menteeId)
     //this.selectedUnis1 = this.selectedUnis
     //let timer = of(this.selectColleges(this.menteeId)).delay(5000);
     //timer.subscribe(() => this.selectColleges(this.menteeId));
@@ -154,6 +156,13 @@ export class MenteeCollegeComponent{
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
     });
+  }
+
+  getUserId(id){
+    this.menteeService.getMentee(id).subscribe(mentee=>{
+      console.log(mentee.username)
+      this.username = mentee.username
+    })
   }
 
   public onIsoSelect(item: any) {

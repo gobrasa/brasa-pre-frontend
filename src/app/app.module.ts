@@ -10,6 +10,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.component';
+import { MenteeAcceptedComponent } from './mentee/mentee-accepted/mentee-accepted.component';
 import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component';
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
 import { MenteeAcceptanceComponent } from './mentee/mentee-acceptance/mentee-acceptance.component';
@@ -18,6 +19,7 @@ import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.c
 
 import { AdminComponentEUA } from './admin-eua/admin.component';
 import { AdminComponentEuropa } from './admin-europa/admin.component';
+import { AdminComponentAnalytics } from './admin-analytics/admin.component';
 
 import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -83,6 +85,7 @@ const appRoutes: Routes = [
   { path: 'mentee/essay/:id', component: MenteeEssayComponent },
   { path: 'mentee/acceptance/:id', component: MenteeAcceptanceComponent },
   { path: 'mentee/college/:id', component: MenteeCollegeComponent },
+  { path: 'mentee/accepted/:id', component: MenteeAcceptedComponent},
   { path: 'mentee/detail/:id', component: MenteeDetailComponent },
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: 'mentor/listing', component: MentorListingComponent },
@@ -91,6 +94,7 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent},
   { path: 'admin-eua', component: AdminComponentEUA},
   { path: 'admin-europa', component: AdminComponentEuropa},
+  { path: 'admin-analytics', component: AdminComponentAnalytics},
 
 
   { path: '', component: HomeComponent },
@@ -125,11 +129,13 @@ export const MY_NATIVE_FORMATS = {
     MenteeTestComponent,
     MenteeEssayComponent,
     MenteeCollegeComponent,
+    MenteeAcceptedComponent,
     MenteeDetailComponent,
     WelcomeComponent,
     AdminComponent,
     AdminComponentEUA,
-    AdminComponentEuropa
+    AdminComponentEuropa,
+    AdminComponentAnalytics
   ],
   imports: [
     AngularMultiSelectModule,

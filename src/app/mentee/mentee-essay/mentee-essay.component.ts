@@ -23,11 +23,12 @@ export class MenteeEssayComponent{
   public link:any;
   public title:any;
   private headers: HttpHeaders;
-  private userNickname: any;
+  public userNickname: any;
   public essays:any;
   public role:any;
   public username:any;
   public menteeName:any;
+  public menteeId: any;
 
  /*AddEssay(){
    this.essayArray.push({'link':''});
@@ -40,7 +41,10 @@ export class MenteeEssayComponent{
               private http: HttpClient,
               private getMentee: HttpClient,
               private _location: Location,
-            private menteeService: MenteeService) {
+            private menteeService: MenteeService,
+          private route: ActivatedRoute) {
+                this.menteeId = this.route.snapshot.paramMap.get('id');
+
                 this.userNickname = Auth0.getProfile().nickname;
                 this.headers = new HttpHeaders({'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
@@ -50,6 +54,7 @@ export class MenteeEssayComponent{
                 this.todo = this.formBuilder.group({});
                 this.getScheduledExams();
                 this.getUsername(this.userNickname);
+                this.getUserId(this.menteeId)
 
   }
 
@@ -57,10 +62,17 @@ export class MenteeEssayComponent{
     this._location.back();
   }
 
+  getUserId(id){
+    this.menteeService.getMentee(id).subscribe(mentee=>{
+      console.log(mentee.username)
+      this.username = mentee.username
+    })
+  }
+
   getUsername(username) {
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
-      this.username = usuario.username
+      //this.username = usuario.username
       if (this.role == 'mentor'){
         this.menteeService.getMentor(this.userNickname).subscribe(mentor=>{
           this.getMenteeName(mentor.id)

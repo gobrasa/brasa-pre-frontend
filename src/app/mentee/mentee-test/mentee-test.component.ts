@@ -85,7 +85,7 @@ export class MenteeTestComponent {
   scheduledExams: any;
   public role: any;
   public username: any;
-  private userNickname: any;
+  public userNickname: any;
 
   examsListSubs: Subscription;
   examsList: Exam[];
@@ -114,6 +114,7 @@ export class MenteeTestComponent {
     this.getScheduledExams();
     this.userNickname = Auth0.getProfile().nickname;
     this.getUsername(this.userNickname);
+    this.getUserId(this.menteeId)
 
     this.settingsSubCategory = {
       singleSelection: true,
@@ -149,8 +150,15 @@ export class MenteeTestComponent {
   getUsername(username) {
     this.menteeService.getUser(username).subscribe(usuario=>{
       this.role = usuario.role_name
-      this.username = usuario.username
+      //this.username = usuario.username
     });
+  }
+
+  getUserId(id){
+    this.menteeService.getMentee(id).subscribe(mentee=>{
+      console.log(mentee.username)
+      this.username = mentee.username
+    })
   }
 
   onCategorySelect(item: any) {

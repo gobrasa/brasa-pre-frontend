@@ -8,7 +8,7 @@
   <div class="container">
     <mat-card class="example-card">
         <div *ngFor="let menteeDeck of menteeDeck">
-            <div *ngIf="menteeDeck.id == menteeId">
+            <div *ngIf="(menteeDeck.id == menteeId && role == 'admin') || (role=='mentee' && menteeDeck.username == userNickname) || (role=='mentor' && menteeDeck.username == menteeName)">
                 <mat-card-header>
 
                     <span class="first-column">
