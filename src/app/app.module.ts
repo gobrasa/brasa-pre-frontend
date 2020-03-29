@@ -13,6 +13,7 @@ import { MenteeCollegeComponent } from './mentee/mentee-college/mentee-college.c
 import { MenteeAcceptedComponent } from './mentee/mentee-accepted/mentee-accepted.component';
 import { MenteeTestComponent } from './mentee/mentee-test/mentee-test.component';
 import { MenteeEssayComponent } from './mentee/mentee-essay/mentee-essay.component';
+import { MenteeAcceptanceComponent } from './mentee/mentee-acceptance/mentee-acceptance.component';
 import { MenteeInformationComponent } from './mentee/mentee-information/mentee-information.component';
 import { MenteeListingComponent } from './mentee/mentee-listing/mentee-listing.component';
 
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
   { path: 'mentee/listing', component: MenteeListingComponent },
   { path: 'mentee/test/:id', component: MenteeTestComponent },
   { path: 'mentee/essay/:id', component: MenteeEssayComponent },
+  { path: 'mentee/acceptance/:id', component: MenteeAcceptanceComponent },
   { path: 'mentee/college/:id', component: MenteeCollegeComponent },
   { path: 'mentee/accepted/:id', component: MenteeAcceptedComponent},
   { path: 'mentee/detail/:id', component: MenteeDetailComponent },
@@ -123,6 +125,7 @@ export const MY_NATIVE_FORMATS = {
     MenteeComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
+    MenteeAcceptanceComponent,
     MenteeTestComponent,
     MenteeEssayComponent,
     MenteeCollegeComponent,
