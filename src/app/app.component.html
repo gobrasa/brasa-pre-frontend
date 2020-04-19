@@ -3,6 +3,12 @@
       <button mat-button onclick="location.href='http://www.gobrasa.org';">Conheça a BRASA</button>
       <button mat-button  *ngIf="authenticated" routerLink="/mentee/listing">Mentee</button>
       <button mat-button  *ngIf="authenticated" routerLink="/mentor/listing">Mentor</button>
+      <button mat-button *ngIf="authenticated" [matMenuTriggerFor]="belowMenu">Recursos</button>
+      <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item *ngIf="authenticated" routerLink="/recurso/videos">Videos</button>
+        <button mat-menu-item *ngIf="authenticated" routerLink="/recurso/form">Formularios</button>
+        <button mat-menu-item *ngIf="authenticated" routerLink="/recurso/guias">Guias e conteúdo</button>
+      </mat-menu>
       <button mat-button  *ngIf="role == 'admin'" routerLink="/admin-eua">Admin EUA</button>
       <button mat-button  *ngIf="role == 'admin'" routerLink="/admin-europa">Admin Europa</button>
 

@@ -1,0 +1,29 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+hr{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.btn{
+  background-color: #4B88C5;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #4B88C5;
+  color: white;
+}
+
+.first-column{
+  margin-left:-10px;
+  float: left;
+  flex: 80%;
+}
+
+.column img{
+  float: right;
+}
