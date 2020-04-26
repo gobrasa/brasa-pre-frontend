@@ -54,6 +54,10 @@
                   <span>{{ mentorDeck.username }}@gobrasa.org</span>
 
                   <hr>
+                  <span ><strong>Telefone: </strong></span>
+                  <span>{{ mentorDeck.phone_number }}</span>
+
+                  <hr>
                   <div *ngFor="let mentee of mentorDeck['mentees']">
                       <span ><strong>Mentee: </strong></span>
                       <span><a routerLink="/mentee/listing/{{mentee.id}}">

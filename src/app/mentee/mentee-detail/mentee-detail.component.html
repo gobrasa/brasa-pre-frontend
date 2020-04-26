@@ -7,7 +7,6 @@
   <body>
   <div class="container">
 
-
   <div *ngIf="role=='admin'" id="update_info" class="shadow-sm p-3 mb-5 bg-white rounded">
       <h1>Atualize suas informações!</h1>
       <form [formGroup]="todo" (ngSubmit)="logForm()">
@@ -30,6 +29,9 @@
           <input placeholder="Estado" type="text" class="form-control"  [(ngModel)]="menteeDados.state" [ngModelOptions]="{standalone: true}">
         </div>
 
+        <div class="form-group">
+          <input placeholder="Telefone" type="text" class="form-control"  [(ngModel)]="menteeDados.phone_number" [ngModelOptions]="{standalone: true}">
+        </div>
 
         <mat-form-field>
           <mat-select [(value)]="menteeDados.financial_aid" placeholder="Precisa de financial aid ?">
@@ -68,6 +70,9 @@
           <input placeholder="Estado" type="text" class="form-control"  [(ngModel)]="menteeDados.state" [ngModelOptions]="{standalone: true}">
         </div>
 
+        <div class="form-group">
+          <input placeholder="Telefone" type="text" class="form-control"  [(ngModel)]="menteeDados.phone_number" [ngModelOptions]="{standalone: true}">
+        </div>
 
         <mat-form-field>
           <mat-select [(value)]="menteeDados.financial_aid" placeholder="Precisa de financial aid ?">
@@ -101,6 +106,8 @@
               <span ><strong>Contato primário BRASA</strong></span>
               <br>
               <span ><strong>Email: </strong>{{ menteeDados.primary_contact_email }}</span>
+              <br>
+              <span ><strong>Telefone: </strong>{{ menteeDados.phone_number }}</span>
           </div>
           <br>
           <h1>College List:</h1>
