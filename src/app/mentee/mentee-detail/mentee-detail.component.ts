@@ -56,6 +56,7 @@ export class MenteeDetailComponent {
     city:'',
     state:'',
     financial_aid:'',
+    phone_number: '',
     primary_contact_email: ''
     })
     this.todo = this.formBuilder.group({});
@@ -107,6 +108,7 @@ export class MenteeDetailComponent {
         state: mentee.state,
         financial_aid: mentee.financial_aid,
         universities: mentee.universities,
+        phone_number: mentee.phone_number,
         primary_contact_email: mentee.primary_contact.email
 
       };
@@ -135,6 +137,7 @@ export class MenteeDetailComponent {
       "state": this.menteeDados.state,
       //"email": this.todo.value.email
       "financial_aid": this.menteeDados.financial_aid,
+      "phone_number": this.menteeDados.phone_number,
       "universities": this.menteeDados.universities
     }, {headers: this.headers, observe: "response"}).toPromise().then((data) => {
       if (data.status == 200) {
