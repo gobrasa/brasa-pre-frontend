@@ -25,6 +25,7 @@ import { MenteeDetailComponent } from './mentee/mentee-detail/mentee-detail.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenteePageModule } from './mentee/mentee.module';
 import { MentorPageModule } from './mentor/mentor.module';
+import { RecursoPageModule } from './recurso/recurso.module';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -66,17 +67,22 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
 
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
+import { RecursoVideosComponent } from './recurso/recurso-videos/recurso-videos.component';
+import { RecursoFormComponent } from './recurso/recurso-form/recurso-form.component';
+import { RecursoGuiasComponent } from './recurso/recurso-guias/recurso-guias.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
 import { MenteeComponent } from './mentee/mentee.component';
 import { MentorComponent } from './mentor/mentor/mentor.component';
+import { RecursoComponent } from './recurso/recurso/recurso.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { environment } from '../environments/environment';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 const appRoutes: Routes = [
   { path: 'callback', component: CallbackComponent },
@@ -89,6 +95,9 @@ const appRoutes: Routes = [
   { path: 'mentee/detail/:id', component: MenteeDetailComponent },
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: 'mentor/listing', component: MentorListingComponent },
+  { path: 'recurso/videos', component: RecursoVideosComponent },
+  { path: 'recurso/form', component: RecursoFormComponent },
+  { path: 'recurso/guias', component: RecursoGuiasComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
   { path: 'welcome', component: WelcomeComponent},
@@ -121,7 +130,11 @@ export const MY_NATIVE_FORMATS = {
     MentorComponent,
     MentorInformationComponent,
     MentorListingComponent,
+    RecursoVideosComponent,
+    RecursoFormComponent,
+    RecursoGuiasComponent,
     MentorDetailComponent,
+    RecursoComponent,
     MenteeComponent,
     MenteeInformationComponent,
     MenteeEssayComponent,
@@ -139,6 +152,7 @@ export const MY_NATIVE_FORMATS = {
   ],
   imports: [
     AngularMultiSelectModule,
+    Ng2SearchPipeModule,
     BrowserModule,
     BrowserAnimationsModule,
     OwlDateTimeModule,
@@ -183,6 +197,7 @@ export const MY_NATIVE_FORMATS = {
     MatTreeModule,
     MenteePageModule,
     MentorPageModule,
+    RecursoPageModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(

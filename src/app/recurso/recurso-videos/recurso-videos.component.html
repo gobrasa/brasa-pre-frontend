@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<header class="text-center py-5 mb-4">
+  <div class="container">
+    <h1>Videos</h1>
+  </div>
+  <div>
+    <!-- FIX not working -->
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" [(ngModel)]="searchText" aria-label="Search">
+        <button class="btn my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </div>
+</header>
+
+<!-- Page Content -->
+<div class="container">
+  <div>
+    <div *ngFor = "let item of items |filter:searchText; let i=index" >
+      <div *ngIf="i%3==0" class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(item.url)" class="card-img-top" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">BRASA Quarentena</h5>
+              <div class="card-text text-black-50">{{item.name}}</div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="i + 1 < items.length" class="col-xl-4 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(items[i+1].url)" class="card-img-top" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">BRASA Quarentena</h5>
+              <div class="card-text text-black-50">{{items[i+1].name}}</div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="i + 2 < items.length" class="col-xl-4 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(items[i+2].url)" class="card-img-top" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">BRASA Quarentena</h5>
+              <div class="card-text text-black-50">{{items[i+2].name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
