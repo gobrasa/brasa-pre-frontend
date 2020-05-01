@@ -16,6 +16,11 @@ export class AdminComponentEUA implements OnInit {
   constructor(private _location: Location, private menteeService: MenteeService) {
   this.userNickname = Auth0.getProfile().nickname;
   this.getUsername(this.userNickname);
+
+  const scriptTableau = document.createElement('script');
+  scriptTableau.src = 'http://ec2-3-233-46-180.compute-1.amazonaws.com/javascripts/api/viz_v1.js';
+  scriptTableau.type = 'text/javascript';
+  document.body.appendChild(scriptTableau);
  }
 
   ngOnInit() {
