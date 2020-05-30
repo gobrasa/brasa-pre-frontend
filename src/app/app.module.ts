@@ -71,7 +71,9 @@ import { DatePipe } from '@angular/common';
 
 import { MentorListingComponent } from './mentor/mentor-listing/mentor-listing.component';
 import { RecursoVideosComponent } from './recurso/recurso-videos/recurso-videos.component';
+import { RecursoSatComponent } from './recurso/recurso-sat/recurso-sat.component';
 import { RecursoFormComponent } from './recurso/recurso-form/recurso-form.component';
+import { RecursoDuvidaComponent } from './recurso/recurso-duvida/recurso-duvida.component';
 import { RecursoGuiasComponent } from './recurso/recurso-guias/recurso-guias.component';
 import { MentorInformationComponent } from './mentor/mentor-information/mentor-information.component';
 import { MentorDetailComponent } from './mentor/mentor-detail/mentor-detail.component';
@@ -96,7 +98,9 @@ const appRoutes: Routes = [
   { path: 'mentee/listing/:id', component: MenteeInformationComponent },
   { path: 'mentor/listing', component: MentorListingComponent },
   { path: 'recurso/videos', component: RecursoVideosComponent },
+  { path: 'recurso/sat', component: RecursoSatComponent },
   { path: 'recurso/form', component: RecursoFormComponent },
+  { path: 'recurso/duvida', component: RecursoDuvidaComponent },
   { path: 'recurso/guias', component: RecursoGuiasComponent },
   { path: 'mentor/listing/:id', component: MentorInformationComponent },
   { path: 'mentor/detail/:id', component: MentorDetailComponent},
@@ -131,7 +135,9 @@ export const MY_NATIVE_FORMATS = {
     MentorInformationComponent,
     MentorListingComponent,
     RecursoVideosComponent,
+    RecursoSatComponent,
     RecursoFormComponent,
+    RecursoDuvidaComponent,
     RecursoGuiasComponent,
     MentorDetailComponent,
     RecursoComponent,
